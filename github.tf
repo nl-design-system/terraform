@@ -13,6 +13,51 @@ provider "github" {
   owner = "nl-design-system"
 }
 
+resource "github_team" "kernteam" {
+  name        = "kernteam"
+  description = "NL Design System kernteam"
+  privacy     = "closed"
+}
+
+resource "github_team" "kernteam-admin" {
+  name           = "kernteam-admin"
+  parent_team_id = github_team.kernteam.id
+  privacy        = "closed"
+}
+
+resource "github_team" "kernteam-committer" {
+  name           = "kernteam-committer"
+  parent_team_id = github_team.kernteam.id
+  privacy        = "closed"
+}
+
+resource "github_team" "kernteam-dependabot" {
+  name           = "kernteam-dependabot"
+  description    = "Default reviewers for Dependabot pull requests"
+  parent_team_id = github_team.kernteam.id
+  privacy        = "closed"
+}
+
+resource "github_team" "kernteam-developers" {
+  name           = "kernteam-developers"
+  parent_team_id = github_team.kernteam.id
+  privacy        = "closed"
+}
+
+resource "github_team" "kernteam-maintainer" {
+  name           = "kernteam-maintainer"
+  parent_team_id = github_team.kernteam.id
+  privacy        = "closed"
+}
+
+resource "github_team" "kernteam-triage" {
+  name           = "kernteam-triage"
+  parent_team_id = github_team.kernteam.id
+  privacy        = "closed"
+}
+
+
+
 resource "github_repository" "nldesignsystem-nl-storybook" {
   name                        = "nldesignsystem.nl-storybook"
   description                 = "Website van NL Design System in Storybook templates voor visuele regressie tests"
@@ -65,7 +110,6 @@ resource "github_branch_protection" "nldesignsystem-nl-storybook-main" {
   }
 }
 
-
 resource "github_branch_protection" "nldesignsystem-nl-storybook-gh-pages" {
   repository_id = github_repository.nldesignsystem-nl-storybook.node_id
 
@@ -74,4 +118,41 @@ resource "github_branch_protection" "nldesignsystem-nl-storybook-gh-pages" {
   allows_deletions        = false
   required_linear_history = true
   allows_force_pushes     = false
+}
+
+resource "github_repository_collaborators" "kernteam-admin" {
+  repository = github_repository.nldesignsystem-nl-storybook.name
+
+  team {
+    permission = "admin"
+    team_id    = github_team.kernteam-admin.slug
+  }
+}
+
+
+resource "github_repository_collaborators" "kernteam-maintainer" {
+  repository = github_repository.nldesignsystem-nl-storybook.name
+
+  team {
+    permission = "maintain"
+    team_id    = github_team.kernteam-maintainer.slug
+  }
+}
+
+resource "github_repository_collaborators" "kernteam-committer" {
+  repository = github_repository.nldesignsystem-nl-storybook.name
+
+  team {
+    permission = "push"
+    team_id    = github_team.kernteam-committer.slug
+  }
+}
+
+resource "github_repository_collaborators" "kernteam-triage" {
+  repository = github_repository.nldesignsystem-nl-storybook.name
+
+  team {
+    permission = "triage"
+    team_id    = github_team.kernteam-triage.slug
+  }
 }
