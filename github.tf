@@ -25,12 +25,20 @@ resource "github_team" "kernteam" {
   name        = "kernteam"
   description = "NL Design System kernteam"
   privacy     = "closed"
+
+  lifecycle {
+    prevent_destroy = true
+  }
 }
 
 resource "github_team" "kernteam-admin" {
   name           = "kernteam-admin"
   parent_team_id = github_team.kernteam.id
   privacy        = "closed"
+
+  lifecycle {
+    prevent_destroy = true
+  }
 }
 
 resource "github_team" "kernteam-committer" {
@@ -152,29 +160,16 @@ resource "github_repository_collaborators" "kernteam-admin" {
     permission = "admin"
     team_id    = github_team.kernteam-admin.slug
   }
-}
-
-
-resource "github_repository_collaborators" "kernteam-maintainer" {
-  repository = github_repository.nldesignsystem-nl-storybook.name
 
   team {
     permission = "maintain"
     team_id    = github_team.kernteam-maintainer.slug
   }
-}
-
-resource "github_repository_collaborators" "kernteam-committer" {
-  repository = github_repository.nldesignsystem-nl-storybook.name
 
   team {
     permission = "push"
     team_id    = github_team.kernteam-committer.slug
   }
-}
-
-resource "github_repository_collaborators" "kernteam-triage" {
-  repository = github_repository.nldesignsystem-nl-storybook.name
 
   team {
     permission = "triage"
@@ -221,54 +216,33 @@ resource "github_branch_protection" "nlds-community-blocks-main" {
   }
 }
 
-resource "github_repository_collaborators" "nlds-community-blocks-kernteam-admin" {
+resource "github_repository_collaborators" "nlds-community-blocks" {
   repository = github_repository.nlds-community-blocks.name
 
   team {
     permission = "admin"
     team_id    = github_team.kernteam-admin.slug
   }
-}
-
-
-resource "github_repository_collaborators" "nlds-community-blocks-kernteam-maintainer" {
-  repository = github_repository.nlds-community-blocks.name
 
   team {
     permission = "maintain"
     team_id    = github_team.kernteam-maintainer.slug
   }
-}
-
-resource "github_repository_collaborators" "nlds-community-blocks-kernteam-committer" {
-  repository = github_repository.nlds-community-blocks.name
 
   team {
     permission = "push"
     team_id    = github_team.kernteam-committer.slug
   }
-}
-
-resource "github_repository_collaborators" "nlds-community-blocks-kernteam-triage" {
-  repository = github_repository.nlds-community-blocks.name
 
   team {
     permission = "triage"
     team_id    = github_team.kernteam-triage.slug
   }
-}
-
-resource "github_repository_collaborators" "nlds-community-blocks-denhaag-draad" {
-  repository = github_repository.nlds-community-blocks.name
 
   team {
     permission = "push"
     team_id    = github_team.denhaag-draad.slug
   }
-}
-
-resource "github_repository_collaborators" "nlds-community-blocks-denhaag-acato" {
-  repository = github_repository.nlds-community-blocks.name
 
   team {
     permission = "push"
