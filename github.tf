@@ -92,6 +92,7 @@ resource "github_repository" "nldesignsystem-nl-storybook" {
   has_downloads               = false
   has_projects                = false
   has_wiki                    = false
+  vulnerability_alerts        = true
   homepage_url                = "https://nldesignsystem-nl-storybook-nl-design-system.vercel.app"
   squash_merge_commit_title   = "PR_TITLE"
   squash_merge_commit_message = "PR_BODY"
@@ -191,6 +192,7 @@ resource "github_repository" "nlds-community-blocks" {
   has_downloads               = false
   has_projects                = false
   has_wiki                    = false
+  vulnerability_alerts        = true
   squash_merge_commit_title   = "PR_TITLE"
   squash_merge_commit_message = "PR_BODY"
   topics                      = ["nl-design-system", "wordpress", "wordpress-plugin"]
