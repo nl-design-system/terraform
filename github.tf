@@ -308,3 +308,27 @@ resource "github_branch_protection" "example-gh-pages" {
   required_linear_history = true
   allows_force_pushes     = false
 }
+
+resource "github_repository_collaborators" "example" {
+  repository = github_repository.example.name
+
+  team {
+    permission = "admin"
+    team_id    = github_team.kernteam-admin.slug
+  }
+
+  team {
+    permission = "maintain"
+    team_id    = github_team.kernteam-maintainer.slug
+  }
+
+  team {
+    permission = "push"
+    team_id    = github_team.kernteam-committer.slug
+  }
+
+  team {
+    permission = "triage"
+    team_id    = github_team.kernteam-triage.slug
+  }
+}
