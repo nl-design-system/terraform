@@ -1,7 +1,6 @@
 resource "github_repository" "terraform" {
   name                        = "terraform"
   description                 = "Infrastructure as code: we configure GitHub via Terraform configuration files"
-  is_template                 = true
   allow_merge_commit          = false
   allow_rebase_merge          = true
   allow_squash_merge          = true
