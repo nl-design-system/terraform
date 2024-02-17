@@ -1,7 +1,7 @@
 resource "github_repository" "index" {
   name                        = "index"
   description                 = "indexes for components, themes and guidelines in the community"
-  is_template                 = true
+  is_template                 = false
   allow_merge_commit          = false
   allow_rebase_merge          = true
   allow_squash_merge          = true
