@@ -121,3 +121,26 @@ resource "github_team" "gebruikersonderzoeken" {
   name    = "gebruikersonderzoeken"
   privacy = "closed"
 }
+
+resource "github_team" "rvo" {
+  name    = "rvo"
+  privacy = "closed"
+}
+
+resource "github_team" "rvo-committer" {
+  name           = "rvo-committer"
+  parent_team_id = github_team.rvo.id
+  privacy        = "closed"
+}
+
+resource "github_team" "rvo-dictu" {
+  name           = "rvo-dictu"
+  parent_team_id = github_team.rvo.id
+  privacy        = "closed"
+}
+
+resource "github_team" "rvo-maintainer" {
+  name           = "rvo-maintainer"
+  parent_team_id = github_team.rvo.id
+  privacy        = "closed"
+}
