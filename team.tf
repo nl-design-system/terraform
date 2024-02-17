@@ -134,6 +134,24 @@ resource "github_team" "logius" {
   privacy     = "closed"
 }
 
+resource "github_team" "logius-maintainer" {
+  name           = "logius-maintainer"
+  parent_team_id = github_team.logius.id
+  privacy        = "closed"
+}
+
+resource "github_team" "logius-committer" {
+  name           = "logius-maintainer"
+  parent_team_id = github_team.logius.id
+  privacy        = "closed"
+}
+
+resource "github_team" "logius-triage" {
+  name           = "logius-triage"
+  parent_team_id = github_team.logius.id
+  privacy        = "closed"
+}
+
 resource "github_team" "rivm" {
   name        = "rivm"
   description = "Rijksinstituut voor Volksgezondheid en Milieu (RIVM)"
