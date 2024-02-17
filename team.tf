@@ -55,6 +55,20 @@ resource "github_team" "gemeente-den-haag" {
   privacy     = "closed"
 }
 
+resource "github_team" "gemeente-denhaag-admin" {
+  name        = "gemeente-denhaag-admin"
+  parent_team_id = github_team.gemeente-den-haag.id
+  description = "Gemeente Den Haag administrator access"
+  privacy     = "closed"
+}
+
+resource "github_team" "gemeente-denhaag-design-system" {
+  name        = "gemeente-denhaag-design-system"
+  parent_team_id = github_team.gemeente-den-haag.id
+  description = "Den Haag System team"
+  privacy     = "closed"
+}
+
 resource "github_team" "denhaag-acato" {
   name           = "denhaag-acato"
   parent_team_id = github_team.gemeente-den-haag.id
@@ -64,5 +78,28 @@ resource "github_team" "denhaag-acato" {
 resource "github_team" "denhaag-draad" {
   name           = "denhaag-draad"
   parent_team_id = github_team.gemeente-den-haag.id
+  privacy        = "closed"
+}
+
+resource "github_team" "gemeente-utrecht" {
+  name           = "gemeente-utrecht"
+  description = "Gemeente Utrecht"
+  privacy        = "closed"
+}
+
+resource "github_team" "frameless" {
+  name           = "frameless"
+  privacy        = "closed"
+}
+
+resource "github_team" "frameless-admin" {
+  name           = "frameless-admin"
+  parent_team_id = github_team.frameless.id
+  privacy        = "closed"
+}
+
+resource "github_team" "frameless-intern" {
+  name           = "frameless-intern"
+  parent_team_id = github_team.frameless.id
   privacy        = "closed"
 }
