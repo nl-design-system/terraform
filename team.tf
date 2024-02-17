@@ -69,6 +69,19 @@ resource "github_team" "gemeente-denhaag-design-system" {
   privacy        = "closed"
 }
 
+resource "github_team" "gemeente-rotterdam" {
+  name        = "gemeente-rotterdam"
+  description = "Gemeente Rotterdam"
+  privacy     = "closed"
+}
+
+resource "github_team" "gemeente-rotterdam-design-system" {
+  name           = "gemeente-rotterdam-design-system"
+  parent_team_id = github_team.gemeente-rotterdam.id
+  description    = "Rotterdam System team"
+  privacy        = "closed"
+}
+
 resource "github_team" "denhaag-acato" {
   name           = "denhaag-acato"
   parent_team_id = github_team.gemeente-den-haag.id
