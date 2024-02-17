@@ -15,6 +15,10 @@ terraform {
   }
 }
 
+data "github_organization" "nl-design-system" {
+  name = "nl-design-system"
+}
+
 # Configure the GitHub Provider
 provider "github" {
   # Token will be obtained from the environment variable `GITHUB_TOKEN`
