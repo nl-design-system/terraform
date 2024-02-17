@@ -141,7 +141,7 @@ resource "github_team" "logius-maintainer" {
 }
 
 resource "github_team" "logius-committer" {
-  name           = "logius-maintainer"
+  name           = "logius-committer"
   parent_team_id = github_team.logius.id
   privacy        = "closed"
 }
