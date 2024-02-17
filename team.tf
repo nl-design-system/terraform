@@ -121,3 +121,21 @@ resource "github_team" "gebruikersonderzoeken" {
   name    = "gebruikersonderzoeken"
   privacy = "closed"
 }
+
+resource "github_team" "rvo" {
+  name        = "rvo"
+  description = "Rijksdienst voor Ondernemend Nederland (RVO)"
+  privacy     = "closed"
+}
+
+resource "github_team" "logius" {
+  name        = "logius"
+  description = "Logius"
+  privacy     = "closed"
+}
+
+resource "github_team" "rivm" {
+  name        = "rivm"
+  description = "Rijksinstituut voor Volksgezondheid en Milieu (RIVM)"
+  privacy     = "closed"
+}
