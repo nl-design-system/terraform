@@ -30,6 +30,10 @@ resource "github_branch_protection" "dot-github-main" {
     dismiss_stale_reviews = true
     restrict_dismissals   = false
   }
+
+  lifecycle {
+    prevent_destroy = true
+  }
 }
 
 resource "github_repository_collaborators" "dot-github" {

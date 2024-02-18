@@ -20,6 +20,10 @@ resource "github_repository" "matomo" {
       path   = "/"
     }
   }
+
+  lifecycle {
+    prevent_destroy = true
+  }
 }
 
 resource "github_branch_protection" "matomo-main" {

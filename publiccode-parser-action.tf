@@ -12,6 +12,10 @@ resource "github_repository" "publiccode-parser-action" {
   vulnerability_alerts        = true
   squash_merge_commit_title   = "PR_TITLE"
   squash_merge_commit_message = "PR_BODY"
+
+  lifecycle {
+    prevent_destroy = true
+  }
 }
 
 resource "github_branch_protection" "publiccode-parser-action-main" {

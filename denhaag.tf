@@ -26,6 +26,10 @@ resource "github_repository" "denhaag" {
       path   = "/"
     }
   }
+
+  lifecycle {
+    prevent_destroy = true
+  }
 }
 
 resource "github_branch_protection" "denhaag-main" {

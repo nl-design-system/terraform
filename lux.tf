@@ -26,6 +26,10 @@ resource "github_repository" "lux" {
       path   = "/"
     }
   }
+
+  lifecycle {
+    prevent_destroy = true
+  }
 }
 
 resource "github_branch_protection" "lux-main" {

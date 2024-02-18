@@ -26,6 +26,10 @@ resource "github_repository" "rijkshuisstijl-community" {
       path   = "/"
     }
   }
+
+  lifecycle {
+    prevent_destroy = true
+  }
 }
 
 resource "github_branch_protection" "rijkshuisstijl-community-main" {

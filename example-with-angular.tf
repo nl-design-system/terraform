@@ -20,6 +20,10 @@ resource "github_repository" "example-with-angular" {
       path   = "/"
     }
   }
+
+  lifecycle {
+    prevent_destroy = true
+  }
 }
 
 resource "github_branch_protection" "example-with-angular-main" {

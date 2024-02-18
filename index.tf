@@ -19,6 +19,10 @@ resource "github_repository" "index" {
     owner                = "nl-design-system"
     repository           = "example"
   }
+
+  lifecycle {
+    prevent_destroy = true
+  }
 }
 
 resource "github_branch_protection" "index-main" {
