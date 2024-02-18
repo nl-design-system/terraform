@@ -26,6 +26,10 @@ resource "github_repository" "nldesignsystem-nl-storybook" {
       path   = "/"
     }
   }
+
+  lifecycle {
+    prevent_destroy = true
+  }
 }
 
 resource "github_branch_protection" "nldesignsystem-nl-storybook-main" {

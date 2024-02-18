@@ -21,6 +21,10 @@ resource "github_repository" "example" {
       path   = "/"
     }
   }
+
+  lifecycle {
+    prevent_destroy = true
+  }
 }
 
 resource "github_branch_protection" "example-main" {

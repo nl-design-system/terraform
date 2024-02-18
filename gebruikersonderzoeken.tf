@@ -27,6 +27,10 @@ resource "github_repository" "gebruikersonderzoeken" {
       path   = "/"
     }
   }
+
+  lifecycle {
+    prevent_destroy = true
+  }
 }
 
 resource "github_branch_protection" "gebruikersonderzoeken-main" {

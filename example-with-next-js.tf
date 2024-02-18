@@ -13,6 +13,10 @@ resource "github_repository" "example-with-next-js" {
   squash_merge_commit_title   = "PR_TITLE"
   squash_merge_commit_message = "PR_BODY"
   topics                      = ["nl-design-system", "react"]
+
+  lifecycle {
+    prevent_destroy = true
+  }
 }
 
 resource "github_branch_protection" "example-with-next-js-main" {

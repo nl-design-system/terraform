@@ -12,6 +12,10 @@ resource "github_repository" "terraform" {
   visibility                  = "private"
   squash_merge_commit_title   = "PR_TITLE"
   squash_merge_commit_message = "PR_BODY"
+
+  lifecycle {
+    prevent_destroy = true
+  }
 }
 
 # Upgrade to GitHub Pro or make this repository public to enable this feature:

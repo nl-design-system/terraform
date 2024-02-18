@@ -21,6 +21,10 @@ resource "github_repository" "documentatie" {
       path   = "/"
     }
   }
+
+  lifecycle {
+    prevent_destroy = true
+  }
 }
 
 resource "github_branch_protection" "documentatie-main" {

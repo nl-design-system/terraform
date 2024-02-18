@@ -26,6 +26,10 @@ resource "github_repository" "rotterdam" {
       path   = "/"
     }
   }
+
+  lifecycle {
+    prevent_destroy = true
+  }
 }
 
 resource "github_branch_protection" "rotterdam-main" {
