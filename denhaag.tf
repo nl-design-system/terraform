@@ -4,6 +4,7 @@ resource "github_repository" "denhaag" {
   allow_merge_commit          = false
   allow_rebase_merge          = true
   allow_squash_merge          = true
+  delete_branch_on_merge      = true
   has_issues                  = true
   has_downloads               = false
   has_projects                = true
