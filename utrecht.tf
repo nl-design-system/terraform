@@ -36,13 +36,17 @@ resource "github_branch_protection" "utrecht-main" {
   repository_id = github_repository.utrecht.node_id
 
   pattern                         = "main"
-  enforce_admins                  = true
+  enforce_admins                  = false
   allows_deletions                = false
   require_signed_commits          = false
   required_linear_history         = true
   require_conversation_resolution = true
   allows_force_pushes             = false
   lock_branch                     = false
+
+  push_restrictions = [
+    "/${data.github_user.nl-design-system-ci.username}",
+  ]
 
   required_status_checks {
     strict   = false
@@ -52,6 +56,9 @@ resource "github_branch_protection" "utrecht-main" {
   required_pull_request_reviews {
     dismiss_stale_reviews = true
     restrict_dismissals   = false
+    pull_request_bypassers = [
+      "/${data.github_user.nl-design-system-ci.username}",
+    ]
   }
 }
 
@@ -87,7 +94,7 @@ resource "github_repository_collaborators" "utrecht" {
     permission = "triage"
     team_id    = github_team.kernteam-triage.slug
   }
-  
+
   team {
     permission = "maintain"
     team_id    = github_team.gemeente-utrecht.slug
