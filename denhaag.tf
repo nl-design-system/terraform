@@ -36,7 +36,7 @@ resource "github_branch_protection" "denhaag-main" {
   repository_id = github_repository.denhaag.node_id
 
   pattern                         = "main"
-  enforce_admins                  = true
+  enforce_admins                  = false
   allows_deletions                = false
   require_signed_commits          = false
   required_linear_history         = true
@@ -55,6 +55,9 @@ resource "github_branch_protection" "denhaag-main" {
     dismissal_restrictions = [
       "${data.github_organization.nl-design-system.orgname}/${github_team.gemeente-denhaag-admin.slug}",
       "${data.github_organization.nl-design-system.orgname}/${github_team.gemeente-denhaag-design-system.slug}"
+    ]
+    pull_request_bypassers = [
+      "/${data.github_user.nl-design-system-ci.username}",
     ]
   }
 }
@@ -117,7 +120,7 @@ resource "github_repository_collaborators" "denhaag" {
     permission = "triage"
     team_id    = github_team.kernteam-triage.slug
   }
-  
+
   team {
     permission = "admin"
     team_id    = github_team.gemeente-denhaag-admin.slug
