@@ -106,8 +106,8 @@ resource "github_repository_collaborators" "utrecht" {
   }
 
   team {
-    permission = "admin"
-    team_id    = github_team.frameless-admin.slug
+    permission = "maintain"
+    team_id    = github_team.frameless-maintainer.slug
   }
 
   team {

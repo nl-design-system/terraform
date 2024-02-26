@@ -105,8 +105,8 @@ resource "github_team" "frameless" {
   privacy = "closed"
 }
 
-resource "github_team" "frameless-admin" {
-  name           = "frameless-admin"
+resource "github_team" "frameless-maintainer" {
+  name           = "frameless-maintainer"
   parent_team_id = github_team.frameless.id
   privacy        = "closed"
 }

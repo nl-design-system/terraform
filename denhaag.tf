@@ -142,7 +142,7 @@ resource "github_repository_collaborators" "denhaag" {
   }
 
   team {
-    permission = "admin"
-    team_id    = github_team.frameless-admin.slug
+    permission = "maintain"
+    team_id    = github_team.frameless-maintainer.slug
   }
 }
