@@ -33,7 +33,7 @@ resource "github_branch_protection" "documentatie-main" {
   repository_id = github_repository.documentatie.node_id
 
   pattern                         = "main"
-  enforce_admins                  = true
+  enforce_admins                  = false
   allows_deletions                = false
   require_signed_commits          = false
   required_linear_history         = true
@@ -49,6 +49,9 @@ resource "github_branch_protection" "documentatie-main" {
   required_pull_request_reviews {
     dismiss_stale_reviews = true
     restrict_dismissals   = false
+    pull_request_bypassers = [
+      "/${data.github_user.nl-design-system-ci.username}",
+    ]
   }
 
   push_restrictions = [

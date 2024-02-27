@@ -24,13 +24,17 @@ resource "github_branch_protection" "nlds-community-blocks-main" {
   repository_id = github_repository.nlds-community-blocks.node_id
 
   pattern                         = "main"
-  enforce_admins                  = true
+  enforce_admins                  = false
   allows_deletions                = false
   require_signed_commits          = false
   required_linear_history         = true
   require_conversation_resolution = true
   allows_force_pushes             = false
   lock_branch                     = false
+
+  push_restrictions = [
+    "/${data.github_user.nl-design-system-ci.username}",
+  ]
 
   required_status_checks {
     strict   = false
@@ -40,6 +44,9 @@ resource "github_branch_protection" "nlds-community-blocks-main" {
   required_pull_request_reviews {
     dismiss_stale_reviews = true
     restrict_dismissals   = false
+    pull_request_bypassers = [
+      "/${data.github_user.nl-design-system-ci.username}",
+    ]
   }
 }
 
