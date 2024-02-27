@@ -11,7 +11,7 @@ resource "github_repository" "terraform" {
   has_projects                = false
   has_wiki                    = false
   vulnerability_alerts        = true
-  visibility                  = "private"
+  visibility                  = "public"
   squash_merge_commit_title   = "PR_TITLE"
   squash_merge_commit_message = "PR_BODY"
 
@@ -20,8 +20,6 @@ resource "github_repository" "terraform" {
   }
 }
 
-# Upgrade to GitHub Pro or make this repository public to enable this feature:
-/*
 resource "github_branch_protection" "terraform-main" {
   repository_id = github_repository.terraform.node_id
 
@@ -39,7 +37,6 @@ resource "github_branch_protection" "terraform-main" {
     restrict_dismissals   = false
   }
 }
-*/
 
 resource "github_repository_collaborators" "terraform" {
   repository = github_repository.terraform.name
