@@ -103,7 +103,7 @@ resource "github_repository_collaborators" "utrecht" {
   }
 
   team {
-    permission = "maintain"
+    permission = "push"
     team_id    = github_team.frameless.slug
   }
 
