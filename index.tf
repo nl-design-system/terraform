@@ -45,7 +45,7 @@ resource "github_branch_protection" "index-main" {
 
   required_status_checks {
     strict   = false
-    contexts = ["continuous-integration"]
+    contexts = ["Continuous integration"]
   }
 
   required_pull_request_reviews {
