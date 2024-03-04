@@ -49,7 +49,7 @@ resource "github_branch_protection" "gebruikersonderzoeken-main" {
 
   required_status_checks {
     strict   = false
-    contexts = ["Lint code", "build"]
+    contexts = ["Lint code", "Build"]
   }
 
   required_pull_request_reviews {
