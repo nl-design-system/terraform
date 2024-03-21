@@ -308,3 +308,9 @@ resource "github_team" "provincie-zuid-holland" {
   description = "Provincie Zuid-Holland"
   privacy     = "closed"
 }
+
+resource "github_team" "gravityforms" {
+  name        = "gravityforms"
+  description = "Gravityforms community"
+  privacy     = "closed"
+}
