@@ -1,3 +1,7 @@
+data "github_user" "aline-nap" {
+  username = "AlineNap"
+}
+
 data "github_user" "hidde" {
   username = "Hidde"
 }
@@ -18,6 +22,14 @@ data "github_user" "peter-berrevoets" {
   username = "Peter-Berrevoets"
 }
 
+data "github_user" "raoul-wittenberns" {
+  username = "rwittenberns"
+}
+
+data "github_user" "remy-parzinski" {
+  username = "remypar5"
+}
+
 data "github_user" "renatenlds" {
   username = "RenateNLDS"
 }
@@ -33,3 +45,4 @@ data "github_user" "robbert" {
 data "github_user" "yolijn" {
   username = "Yolijn"
 }
+
