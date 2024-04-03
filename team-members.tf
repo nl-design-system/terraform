@@ -17,6 +17,37 @@ resource "github_team_members" "frameless-maintainer" {
   }
 }
 
+resource "github_team_members" "kernteam-committer" {
+  team_id = github_team.kernteam-committer.id
+
+  members {
+    username = data.github_user.robbert.username
+  }
+
+  members {
+    username = data.github_user.hidde.username
+  }
+
+  members {
+    username = data.github_user.matijs.username
+  }
+
+  members {
+    username = data.github_user.jeffreylauwers.username
+  }
+
+  members {
+    username = data.github_user.yolijn.username
+  }
+
+  members {
+    username = data.github_user.rianrietveld.username
+  }
+
+  members {
+    username = data.github_user.nl-design-system-committer.username
+  }
+}
 
 resource "github_team_members" "logius-committer" {
   team_id = github_team.logius-committer.id
