@@ -22,6 +22,10 @@ data "github_user" "nl-design-system-ci" {
   username = "nl-design-system-ci"
 }
 
+data "github_user" "nl-design-system-committer" {
+  username = "nl-design-system-committer"
+}
+
 data "github_user" "peter-berrevoets" {
   username = "Peter-Berrevoets"
 }
