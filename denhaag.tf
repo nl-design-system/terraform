@@ -89,6 +89,11 @@ resource "github_branch_protection" "denhaag-www-denhaag-nl" {
   allows_force_pushes             = false
   lock_branch                     = false
 
+
+  push_restrictions = [
+    "/${data.github_user.nl-design-system-ci.username}",
+  ]
+
   required_status_checks {
     strict   = false
     contexts = ["build", "UI Tests"]
@@ -99,6 +104,9 @@ resource "github_branch_protection" "denhaag-www-denhaag-nl" {
     restrict_dismissals   = true
     dismissal_restrictions = [
       "${data.github_organization.nl-design-system.orgname}/${github_team.denhaag-acato.slug}"
+    ]
+    pull_request_bypassers = [
+      "/${data.github_user.nl-design-system-ci.username}",
     ]
   }
 }
