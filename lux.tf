@@ -48,6 +48,9 @@ resource "github_branch_protection" "lux-main" {
 
   push_restrictions = [
     "/${data.github_user.nl-design-system-ci.username}",
+    github_team.kernteam-maintainer.slug,
+    github_team.logius-maintainer.slug,
+    github_team.logius-committer.slug
   ]
 
   required_status_checks {
