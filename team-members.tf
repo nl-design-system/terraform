@@ -49,6 +49,47 @@ resource "github_team_members" "kernteam-committer" {
   }
 }
 
+
+resource "github_team_members" "kernteam-triage" {
+  team_id = github_team.kernteam-triage.id
+
+  members {
+    username = data.github_user.robbert.username
+  }
+
+  members {
+    username = data.github_user.hidde.username
+  }
+
+  members {
+    username = data.github_user.matijs.username
+  }
+
+  members {
+    username = data.github_user.jeffreylauwers.username
+  }
+
+  members {
+    username = data.github_user.yolijn.username
+  }
+
+  members {
+    username = data.github_user.rianrietveld.username
+  }
+
+  members {
+    username = data.github_user.renatenlds.username
+  }
+
+  members {
+    username = data.github_user.peter-berrevoets.username
+  }
+
+  members {
+    username = data.github_user.astrid-01.username
+  }
+}
+
 resource "github_team_members" "logius-committer" {
   team_id = github_team.logius-committer.id
 

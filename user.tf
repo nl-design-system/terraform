@@ -6,6 +6,10 @@ data "github_user" "aline-nap" {
   username = "AlineNap"
 }
 
+data "github_user" "astrid-01" {
+  username = "Astrid-01"
+}
+
 data "github_user" "hidde" {
   username = "Hidde"
 }
