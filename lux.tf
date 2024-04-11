@@ -50,6 +50,9 @@ resource "github_branch_protection" "lux-main" {
     blocks_creations = false
     push_allowances = [
       "/${data.github_user.nl-design-system-ci.username}",
+      "nl-design-system/${github_team.kernteam-maintainer.name}",
+      "nl-design-system/${github_team.logius-committer.name}",
+      "nl-design-system/${github_team.logius-maintainer.name}",
     ]
   }
 
