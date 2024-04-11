@@ -54,9 +54,12 @@ resource "github_branch_protection" "documentatie-main" {
     ]
   }
 
-  push_restrictions = [
-    "/${data.github_user.nl-design-system-ci.username}",
-  ]
+  restrict_pushes {
+    blocks_creations = false
+    push_allowances = [
+      "/${data.github_user.nl-design-system-ci.username}",
+    ]
+  }
 }
 
 resource "github_branch_protection" "documentatie-gh-pages" {
