@@ -46,9 +46,12 @@ resource "github_branch_protection" "utrecht-main" {
   allows_force_pushes             = false
   lock_branch                     = false
 
-  push_restrictions = [
-    "/${data.github_user.nl-design-system-ci.username}",
-  ]
+  restrict_pushes {
+    blocks_creations = false
+    push_allowances = [
+      "/${data.github_user.nl-design-system-ci.username}",
+    ]
+  }
 
   required_status_checks {
     strict   = false
