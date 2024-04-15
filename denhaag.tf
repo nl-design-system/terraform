@@ -49,6 +49,9 @@ resource "github_branch_protection" "denhaag-main" {
     blocks_creations = false
     push_allowances = [
       "/${data.github_user.nl-design-system-ci.username}",
+      "${data.github_organization.nl-design-system.orgname}/${github_team.kernteam-maintainer.name}",
+      "${data.github_organization.nl-design-system.orgname}/${github_team.gemeente-denhaag-admin.name}",
+      "${data.github_organization.nl-design-system.orgname}/${github_team.gemeente-denhaag-design-system.name}",
     ]
   }
 
@@ -97,6 +100,10 @@ resource "github_branch_protection" "denhaag-www-denhaag-nl" {
     blocks_creations = false
     push_allowances = [
       "/${data.github_user.nl-design-system-ci.username}",
+      "${data.github_organization.nl-design-system.orgname}/${github_team.kernteam-maintainer.name}",
+      "${data.github_organization.nl-design-system.orgname}/${github_team.gemeente-denhaag-admin.name}",
+      "${data.github_organization.nl-design-system.orgname}/${github_team.gemeente-denhaag-design-system.name}",
+      "${data.github_organization.nl-design-system.orgname}/${github_team.denhaag-acato.name}",
     ]
   }
 
