@@ -22,6 +22,10 @@ data "github_user" "matijs" {
   username = "matijs"
 }
 
+data "github_user" "bddjong" {
+  username = "bddjong"
+}
+
 data "github_user" "nl-design-system-ci" {
   username = "nl-design-system-ci"
 }
