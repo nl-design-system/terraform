@@ -26,6 +26,10 @@ data "github_user" "bddjong" {
   username = "bddjong"
 }
 
+data "github_user" "wartburggraaf" {
+  username = "wartburggraaf"
+}
+
 data "github_user" "nl-design-system-ci" {
   username = "nl-design-system-ci"
 }
