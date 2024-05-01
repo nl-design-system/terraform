@@ -104,11 +104,6 @@ resource "github_repository_collaborators" "lux" {
   }
 
   team {
-    permission = "maintain"
-    team_id    = github_team.logius-maintainer.slug
-  }
-
-  team {
     permission = "push"
     team_id    = github_team.logius-committer.slug
   }
