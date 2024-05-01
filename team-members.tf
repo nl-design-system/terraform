@@ -113,3 +113,11 @@ resource "github_team_members" "logius-committer" {
     username = data.github_user.remy-parzinski.username
   }
 }
+
+resource "github_team_members" "logius-maintainer" {
+  team_id = github_team.logius-maintainer.id
+
+  members {
+    username = data.github_user.aline-nap.username
+  }
+}
