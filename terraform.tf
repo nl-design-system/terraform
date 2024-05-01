@@ -32,14 +32,26 @@ resource "github_branch_protection" "terraform-main" {
   allows_force_pushes             = false
   lock_branch                     = false
 
+  # Restrict merging PRs to admins
+
+  restrict_pushes {
+    blocks_creations = false
+    push_allowances = [
+      "nl-design-system/${github_team.kernteam-admin.name}",
+    ]
+  }
+
   required_pull_request_reviews {
-    dismiss_stale_reviews = true
-    restrict_dismissals   = false
+    dismiss_stale_reviews      = true
+    require_code_owner_reviews = true
+    restrict_dismissals        = false
   }
 }
 
 resource "github_repository_collaborators" "terraform" {
   repository = github_repository.terraform.name
+
+  # Restrict merging PRs to admins
 
   team {
     permission = "admin"
@@ -49,6 +61,17 @@ resource "github_repository_collaborators" "terraform" {
   team {
     permission = "push"
     team_id    = github_team.kernteam-maintainer.slug
+  }
+
+  # Allow maintainers of community teams to make PRs and review PRs
+  team {
+    permission = "push"
+    team_id    = github_team.frameless-maintainer.slug
+  }
+
+  team {
+    permission = "push"
+    team_id    = github_team.logius-maintainer.slug
   }
 
   # Restrict pushes to infrastructure as code to admins and maintainers
