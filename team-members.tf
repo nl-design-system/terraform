@@ -52,6 +52,11 @@ resource "github_team_members" "kernteam-committer" {
     username = data.github_user.rianrietveld.username
   }
 
+
+  members {
+    username = data.github_user.rozerin.username
+  }
+
   members {
     username = data.github_user.nl-design-system-committer.username
   }
