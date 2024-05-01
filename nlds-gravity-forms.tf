@@ -15,6 +15,12 @@ resource "github_repository" "nlds-gravity-forms" {
   squash_merge_commit_message = "PR_BODY"
   topics                      = ["nl-design-system", "wordpress", "wordpress-plugin", "gravity-forms"]
 
+  template {
+    include_all_branches = false
+    owner                = "nl-design-system"
+    repository           = "example"
+  }
+
   lifecycle {
     prevent_destroy = true
   }
