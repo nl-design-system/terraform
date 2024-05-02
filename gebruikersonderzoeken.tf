@@ -47,6 +47,14 @@ resource "github_branch_protection" "gebruikersonderzoeken-main" {
   allows_force_pushes             = false
   lock_branch                     = false
 
+  restrict_pushes {
+    blocks_creations = false
+    push_allowances = [
+      "${data.github_organization.nl-design-system.orgname}/${github_team.kernteam-maintainer.name}",
+      "/${data.github_user.jeroenduc.name}"
+    ]
+  }
+
   required_status_checks {
     strict   = false
     contexts = ["Lint code", "Build"]
