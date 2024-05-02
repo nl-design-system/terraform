@@ -42,7 +42,7 @@ data "github_user" "peter-berrevoets" {
   username = "Peter-Berrevoets"
 }
 
-data "github_user" "mrskippy" {
+data "github_user" "jaap-hein-wester" {
   username = "MrSkippy"
 }
 

@@ -114,6 +114,6 @@ resource "github_team_members" "logius-committer" {
   }
 
   members {
-    username = data.github_user.mrskippy.username
+    username = data.github_user.jaap-hein-wester.username
   }
 }
