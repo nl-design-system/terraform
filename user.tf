@@ -18,6 +18,10 @@ data "github_user" "jeffreylauwers" {
   username = "jeffreylauwers"
 }
 
+data "github_user" "jeroenduc" {
+  username = "JeroenduC"
+}
+
 data "github_user" "matijs" {
   username = "matijs"
 }
