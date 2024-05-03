@@ -138,3 +138,31 @@ resource "github_team_members" "gebruikersonderzoeken" {
     username = data.github_user.jeroenduc.username
   }
 }
+
+resource "github_team_members" "tilburg-acato-committer" {
+  team_id = github_team.tilburg.id
+
+  members {
+    username = data.github_user.acato-joost.username
+  }
+
+  members {
+    username = data.github_user.acato-mark.username
+  }
+
+  members {
+    username = data.github_user.acato-jorik-bosman.username
+  }
+
+  members {
+    username = data.github_user.acato-cguijt.username
+  }
+}
+
+resource "github_team_members" "tilburg-acato-maintainer" {
+  team_id = github_team.tilburg.id
+
+  members {
+    username = data.github_user.acato-jorik-bosman.username
+  }
+}

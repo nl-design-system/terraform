@@ -78,3 +78,18 @@ data "github_user" "yolijn" {
   username = "Yolijn"
 }
 
+data "github_user" "acato-jorik-bosman" {
+  username = "jorik-acato"
+}
+
+data "github_user" "acato-joost" {
+  username = "joostacato"
+}
+
+data "github_user" "acato-mark" {
+  username = "markacato"
+}
+
+data "github_user" "acato-cguijt" {
+  username = "cguijt"
+}
