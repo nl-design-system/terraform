@@ -314,3 +314,20 @@ resource "github_team" "gravityforms" {
   description = "Gravityforms community"
   privacy     = "closed"
 }
+
+resource "github_team" "tilburg" {
+  name    = "tilburg"
+  privacy = "closed"
+}
+
+resource "github_team" "tilburg-acato-committer" {
+  name           = "tilburg-acato"
+  parent_team_id = github_team.tilburg.id
+  privacy        = "closed"
+}
+
+resource "github_team" "tilburg-acato-maintainer" {
+  name           = "tilburg-acato-maintainer"
+  parent_team_id = github_team.tilburg-acato-committer.id
+  privacy        = "closed"
+}
