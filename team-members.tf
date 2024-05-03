@@ -130,3 +130,11 @@ resource "github_team_members" "logius-maintainer" {
     username = data.github_user.aline-nap.username
   }
 }
+
+resource "github_team_members" "gebruikersonderzoeken" {
+  team_id = github_team.gebruikersonderzoeken.id
+
+  members {
+    username = data.github_user.jeroenduc.username
+  }
+}
