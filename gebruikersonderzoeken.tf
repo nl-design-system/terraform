@@ -51,7 +51,7 @@ resource "github_branch_protection" "gebruikersonderzoeken-main" {
     blocks_creations = false
     push_allowances = [
       "${data.github_organization.nl-design-system.orgname}/${github_team.kernteam-maintainer.name}",
-      "/${data.github_user.jeroenduc.name}"
+      "${data.github_organization.nl-design-system.orgname}/${github_team.gebruikersonderzoeken.name}"
     ]
   }
 
