@@ -140,7 +140,7 @@ resource "github_team_members" "gebruikersonderzoeken" {
 }
 
 resource "github_team_members" "tilburg-acato-committer" {
-  team_id = github_team.tilburg.id
+  team_id = github_team.tilburg-acato-committer.id
 
   members {
     username = data.github_user.acato-joost.username
@@ -160,7 +160,7 @@ resource "github_team_members" "tilburg-acato-committer" {
 }
 
 resource "github_team_members" "tilburg-acato-maintainer" {
-  team_id = github_team.tilburg.id
+  team_id = github_team.tilburg-acato-maintainer.id
 
   members {
     username = data.github_user.acato-jorik-bosman.username
