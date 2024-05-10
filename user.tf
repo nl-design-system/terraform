@@ -93,3 +93,7 @@ data "github_user" "acato-mark" {
 data "github_user" "acato-cguijt" {
   username = "cguijt"
 }
+
+data "github_user" "robert-roose" {
+  username = "rroose-rvo"
+}

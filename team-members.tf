@@ -166,3 +166,27 @@ resource "github_team_members" "tilburg-acato-maintainer" {
     username = data.github_user.acato-jorik-bosman.username
   }
 }
+
+resource "github_team_members" "rvo" {
+  team_id = github_team.rvo.id
+
+  members {
+    username = data.github_user.robert-roose.username
+  }
+}
+
+resource "github_team_members" "rvo-committer" {
+  team_id = github_team.rvo-committer.id
+
+  members {
+    username = data.github_user.robert-roose.username
+  }
+}
+
+resource "github_team_members" "rvo-maintainer" {
+  team_id = github_team.rvo-maintainer.id
+
+  members {
+    username = data.github_user.robert-roose.username
+  }
+}
