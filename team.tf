@@ -128,6 +128,18 @@ resource "github_team" "rvo" {
   privacy     = "closed"
 }
 
+resource "github_team" "rvo-committer" {
+  name           = "rvo-committer"
+  parent_team_id = github_team.rvo.id
+  privacy        = "closed"
+}
+
+resource "github_team" "rvo-maintainer" {
+  name           = "rvo-maintainer"
+  parent_team_id = github_team.rvo-committer.id
+  privacy        = "closed"
+}
+
 resource "github_team" "logius" {
   name        = "logius"
   description = "Logius"
