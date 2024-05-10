@@ -62,6 +62,25 @@ resource "github_team_members" "kernteam-committer" {
   }
 }
 
+resource "github_team_members" "kernteam-maintainer" {
+  team_id = github_team.kernteam-committer.id
+
+  members {
+    username = data.github_user.robbert.username
+  }
+
+  members {
+    username = data.github_user.hidde.username
+  }
+
+  members {
+    username = data.github_user.matijs.username
+  }
+
+  members {
+    username = data.github_user.yolijn.username
+  }
+}
 
 resource "github_team_members" "kernteam-triage" {
   team_id = github_team.kernteam-triage.id
