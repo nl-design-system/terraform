@@ -52,7 +52,6 @@ resource "github_team_members" "kernteam-committer" {
     username = data.github_user.rianrietveld.username
   }
 
-
   members {
     username = data.github_user.rozerin.username
   }
@@ -119,6 +118,14 @@ resource "github_team_members" "kernteam-triage" {
 
   members {
     username = data.github_user.astrid-01.username
+  }
+
+  members {
+    username = data.github_user.rozerin.username
+  }
+
+  members {
+    username = data.github_user.wartburggraaf.username
   }
 }
 
