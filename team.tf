@@ -20,7 +20,7 @@ resource "github_team" "kernteam-admin" {
 
 resource "github_team" "kernteam-committer" {
   name           = "kernteam-committer"
-  parent_team_id = github_team.kernteam.id
+  parent_team_id = github_team.kernteam-triage.id
   privacy        = "closed"
 }
 
@@ -39,7 +39,7 @@ resource "github_team" "kernteam-developers" {
 
 resource "github_team" "kernteam-maintainer" {
   name           = "kernteam-maintainer"
-  parent_team_id = github_team.kernteam.id
+  parent_team_id = github_team.kernteam-committer.id
   privacy        = "closed"
 }
 
