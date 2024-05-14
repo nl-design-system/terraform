@@ -10,6 +10,7 @@ resource "github_team" "kernteam" {
 
 resource "github_team" "kernteam-admin" {
   name           = "kernteam-admin"
+  description    = "Admin rights for all repositories, in case of emergency. Configuration via Terraform is preferred."
   parent_team_id = github_team.kernteam.id
   privacy        = "closed"
 
@@ -19,6 +20,7 @@ resource "github_team" "kernteam-admin" {
 }
 
 resource "github_team" "kernteam-committer" {
+  description    = "Can create pull requests in all NL Design System repositories"
   name           = "kernteam-committer"
   parent_team_id = github_team.kernteam-triage.id
   privacy        = "closed"
@@ -33,11 +35,13 @@ resource "github_team" "kernteam-dependabot" {
 
 resource "github_team" "kernteam-maintainer" {
   name           = "kernteam-maintainer"
+  description    = "Can configure GitHub via Terraform, with approval from kernteam-admin."
   parent_team_id = github_team.kernteam-committer.id
   privacy        = "closed"
 }
 
 resource "github_team" "kernteam-triage" {
+  description    = "Can contribute to issues and projects."
   name           = "kernteam-triage"
   parent_team_id = github_team.kernteam.id
   privacy        = "closed"
