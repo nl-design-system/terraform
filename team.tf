@@ -31,12 +31,6 @@ resource "github_team" "kernteam-dependabot" {
   privacy        = "closed"
 }
 
-resource "github_team" "kernteam-developers" {
-  name           = "kernteam-developers"
-  parent_team_id = github_team.kernteam.id
-  privacy        = "closed"
-}
-
 resource "github_team" "kernteam-maintainer" {
   name           = "kernteam-maintainer"
   parent_team_id = github_team.kernteam-committer.id
