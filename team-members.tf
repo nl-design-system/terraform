@@ -143,6 +143,20 @@ resource "github_team_members" "kernteam-triage" {
   }
 }
 
+resource "github_team_members" "kernteam-dependabot" {
+  team_id = github_team.kernteam-dependabot.id
+
+  members {
+    username = data.github_user.robbert.username
+    # organization owners must be "maintainer", see note at https://registry.terraform.io/providers/integrations/github/latest/docs/resources/team_members
+    role     = "maintainer"
+  }
+
+  members {
+    username = data.github_user.matijs.username
+  }
+}
+
 resource "github_team_members" "logius-committer" {
   team_id = github_team.logius-committer.id
 
