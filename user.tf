@@ -11,7 +11,7 @@ data "github_user" "astrid-01" {
 }
 
 data "github_user" "hidde" {
-  username = "Hidde"
+  username = "hidde"
 }
 
 data "github_user" "jeffreylauwers" {
