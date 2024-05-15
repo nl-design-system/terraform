@@ -42,6 +42,11 @@ resource "github_branch_protection" "terraform-main" {
     ]
   }
 
+  required_status_checks {
+    # Require branches to be up to date before merging
+    strict = true
+  }
+
   required_pull_request_reviews {
     dismiss_stale_reviews      = true
     require_code_owner_reviews = true
