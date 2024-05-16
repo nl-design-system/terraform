@@ -97,3 +97,19 @@ data "github_user" "acato-cguijt" {
 data "github_user" "robert-roose" {
   username = "rroose-rvo"
 }
+
+data "github_user" "christopher1986" {
+  username = "christopher1986"
+}
+
+data "github_user" "hoofdredactie" {
+  username = "hoofdredactie"
+}
+
+data "github_user" "mlrfokken" {
+  username = "MLRFokken"
+}
+
+data "github_user" "r1kkert" {
+  username = "r1kkert"
+}
