@@ -235,6 +235,22 @@ resource "github_team_members" "rvo-committer" {
   members {
     username = data.github_user.robert-roose.username
   }
+
+  members {
+    username = data.github_user.christopher1986.username
+  }
+
+  members {
+    username = data.github_user.hoofdredactie.username
+  }
+
+  members {
+    username = data.github_user.mlrfokken.username
+  }
+
+  members {
+    username = data.github_user.r1kkert.username
+  }
 }
 
 resource "github_team_members" "rvo-maintainer" {
