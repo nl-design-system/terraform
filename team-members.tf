@@ -25,7 +25,7 @@ resource "github_team_members" "kernteam-committer" {
   members {
     username = data.github_user.robbert.username
     # organization owners must be "maintainer", see note at https://registry.terraform.io/providers/integrations/github/latest/docs/resources/team_members
-    role     = "maintainer"
+    role = "maintainer"
   }
 
   members {
@@ -51,7 +51,7 @@ resource "github_team_members" "kernteam-committer" {
   members {
     username = data.github_user.yolijn.username
     # organization owners must be "maintainer", see note at https://registry.terraform.io/providers/integrations/github/latest/docs/resources/team_members
-    role     = "maintainer"
+    role = "maintainer"
   }
 
   members {
@@ -73,7 +73,7 @@ resource "github_team_members" "kernteam-maintainer" {
   members {
     username = data.github_user.robbert.username
     # organization owners must be "maintainer", see note at https://registry.terraform.io/providers/integrations/github/latest/docs/resources/team_members
-    role     = "maintainer"
+    role = "maintainer"
   }
 
   members {
@@ -87,7 +87,7 @@ resource "github_team_members" "kernteam-maintainer" {
   members {
     username = data.github_user.yolijn.username
     # organization owners must be "maintainer", see note at https://registry.terraform.io/providers/integrations/github/latest/docs/resources/team_members
-    role     = "maintainer"
+    role = "maintainer"
   }
 }
 
@@ -97,7 +97,7 @@ resource "github_team_members" "kernteam-triage" {
   members {
     username = data.github_user.robbert.username
     # organization owners must be "maintainer", see note at https://registry.terraform.io/providers/integrations/github/latest/docs/resources/team_members
-    role     = "maintainer"
+    role = "maintainer"
   }
 
   members {
@@ -115,7 +115,7 @@ resource "github_team_members" "kernteam-triage" {
   members {
     username = data.github_user.yolijn.username
     # organization owners must be "maintainer", see note at https://registry.terraform.io/providers/integrations/github/latest/docs/resources/team_members
-    role     = "maintainer"
+    role = "maintainer"
   }
 
   members {
@@ -149,7 +149,7 @@ resource "github_team_members" "kernteam-dependabot" {
   members {
     username = data.github_user.robbert.username
     # organization owners must be "maintainer", see note at https://registry.terraform.io/providers/integrations/github/latest/docs/resources/team_members
-    role     = "maintainer"
+    role = "maintainer"
   }
 
   members {
