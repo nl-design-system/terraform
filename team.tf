@@ -341,3 +341,15 @@ resource "github_team" "tilburg-acato-maintainer" {
   parent_team_id = github_team.tilburg-acato-committer.id
   privacy        = "closed"
 }
+
+resource "github_team" "vng-services" {
+  name        = "vng-services"
+  privacy     = "closed"
+  description = "VNG Team dat werkt aan de Services Storybook"
+}
+
+resource "github_team" "vng-services-committer" {
+  name           = "vng-services"
+  parent_team_id = github_team.vng-services.id
+  privacy        = "closed"
+}
