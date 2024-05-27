@@ -260,3 +260,11 @@ resource "github_team_members" "rvo-maintainer" {
     username = data.github_user.robert-roose.username
   }
 }
+
+resource "github_team_members" "vng-services-committer" {
+  team_id = github_team.vng-services-committer.id
+
+  members {
+    username = data.github_user.francesca.username
+  }
+}
