@@ -23,9 +23,15 @@ resource "github_team_members" "kernteam-committer" {
   team_id = github_team.kernteam-committer.id
 
   members {
-    username = data.github_user.robbert.username
     # organization owners must be "maintainer", see note at https://registry.terraform.io/providers/integrations/github/latest/docs/resources/team_members
-    role = "maintainer"
+    username = data.github_user.robbert.username
+    role     = "maintainer"
+  }
+
+  members {
+    # organization owners must be "maintainer", see note at https://registry.terraform.io/providers/integrations/github/latest/docs/resources/team_members
+    username = data.github_user.yolijn.username
+    role     = "maintainer"
   }
 
   members {
@@ -46,12 +52,6 @@ resource "github_team_members" "kernteam-committer" {
 
   members {
     username = data.github_user.jeffreylauwers.username
-  }
-
-  members {
-    username = data.github_user.yolijn.username
-    # organization owners must be "maintainer", see note at https://registry.terraform.io/providers/integrations/github/latest/docs/resources/team_members
-    role = "maintainer"
   }
 
   members {
