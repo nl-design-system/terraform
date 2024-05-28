@@ -349,7 +349,7 @@ resource "github_team" "vng-services" {
 }
 
 resource "github_team" "vng-services-committer" {
-  name           = "vng-services"
+  name           = "vng-services-committer"
   parent_team_id = github_team.vng-services.id
   privacy        = "closed"
 }
