@@ -80,11 +80,6 @@ resource "github_branch_protection" "documentatie-assets" {
   allows_deletions        = false
   required_linear_history = true
   allows_force_pushes     = false
-
-  required_pull_request_reviews {
-    dismiss_stale_reviews = true
-    restrict_dismissals   = false
-  }
 }
 
 resource "github_branch_protection" "documentatie-storybook" {
