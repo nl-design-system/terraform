@@ -237,11 +237,11 @@ resource "github_team_members" "rvo-committer" {
   }
 
   members {
-    username = data.github_user.christopher1986.username
+    username = data.github_user.hoofdredactie.username
   }
 
   members {
-    username = data.github_user.hoofdredactie.username
+    username = data.github_user.christopher1986.username
   }
 
   members {
