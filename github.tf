@@ -13,6 +13,8 @@ terraform {
       version = "6.2.1"
     }
   }
+
+  required_version = "~> 1.8.0"
 }
 
 data "github_organization" "nl-design-system" {
