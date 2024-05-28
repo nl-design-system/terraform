@@ -44,8 +44,11 @@ resource "github_branch_protection" "terraform-main" {
 
   required_status_checks {
     # Require branches to be up to date before merging
-    strict   = true
-    contexts = ["Terraform Cloud/nI-design-system/repo-id-1TeEm4rfMfsg6Y6G", "Terraform format check"]
+    strict = true
+    contexts = [
+      "Terraform Cloud/nl-design-system/repo-id-1TeEm4rfMfsg6Y6G",
+      "Terraform format check"
+    ]
   }
 
   required_pull_request_reviews {
