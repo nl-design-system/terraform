@@ -68,7 +68,7 @@ resource "github_team_members" "kernteam-committer" {
 }
 
 resource "github_team_members" "kernteam-maintainer" {
-  team_id = github_team.kernteam-committer.id
+  team_id = github_team.kernteam-maintainer.id
 
   members {
     username = data.github_user.robbert.username
