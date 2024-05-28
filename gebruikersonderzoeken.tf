@@ -23,11 +23,8 @@ resource "github_repository" "gebruikersonderzoeken" {
   }
 
   pages {
-    cname = "gebruikersonderzoeken.nl"
-    source {
-      branch = "gh-pages"
-      path   = "/"
-    }
+    build_type = "workflow"
+    cname      = "gebruikersonderzoeken.nl"
   }
 
   lifecycle {
