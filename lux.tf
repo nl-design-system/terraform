@@ -58,7 +58,7 @@ resource "github_branch_protection" "lux-main" {
 
   required_status_checks {
     strict   = false
-    contexts = ["build", "lint", "test"]
+    contexts = ["build", "lint", "test", "UI Tests"]
   }
 
   required_pull_request_reviews {
