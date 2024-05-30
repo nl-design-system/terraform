@@ -18,10 +18,7 @@ resource "github_repository" "documentatie" {
   topics                      = ["nl-design-system", "website"]
 
   pages {
-    source {
-      branch = "gh-pages"
-      path   = "/"
-    }
+    build_type = "workflow"
   }
 
   lifecycle {
