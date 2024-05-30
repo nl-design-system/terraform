@@ -37,7 +37,7 @@ resource "github_branch_protection" "denhaag-main" {
   repository_id = github_repository.denhaag.node_id
 
   pattern                         = "main"
-  enforce_admins                  = false
+  enforce_admins                  = true
   allows_deletions                = false
   require_signed_commits          = false
   required_linear_history         = true
@@ -87,7 +87,7 @@ resource "github_branch_protection" "denhaag-www-denhaag-nl" {
   repository_id = github_repository.denhaag.node_id
 
   pattern                         = "www.denhaag.nl"
-  enforce_admins                  = false
+  enforce_admins                  = true
   allows_deletions                = false
   require_signed_commits          = false
   required_linear_history         = true

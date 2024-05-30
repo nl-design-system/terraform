@@ -47,7 +47,7 @@ resource "github_branch_protection" "rvo-master" {
   repository_id = github_repository.rvo.node_id
 
   pattern                         = "master"
-  enforce_admins                  = false
+  enforce_admins                  = true
   allows_deletions                = false
   require_signed_commits          = false
   required_linear_history         = true

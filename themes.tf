@@ -38,7 +38,7 @@ resource "github_branch_protection" "themes-main" {
   repository_id = github_repository.themes.node_id
 
   pattern                         = "main"
-  enforce_admins                  = false
+  enforce_admins                  = true
   allows_deletions                = false
   require_signed_commits          = false
   required_linear_history         = true
