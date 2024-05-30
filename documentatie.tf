@@ -30,7 +30,7 @@ resource "github_branch_protection" "documentatie-main" {
   repository_id = github_repository.documentatie.node_id
 
   pattern                         = "main"
-  enforce_admins                  = true
+  enforce_admins                  = false
   allows_deletions                = false
   require_signed_commits          = false
   required_linear_history         = true
