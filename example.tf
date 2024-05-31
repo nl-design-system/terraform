@@ -27,10 +27,7 @@ resource "github_repository" "example" {
   }
 
   pages {
-    source {
-      branch = "gh-pages"
-      path   = "/"
-    }
+    build_type = "workflow"
   }
 
   lifecycle {
