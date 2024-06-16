@@ -90,4 +90,9 @@ resource "github_repository_collaborators" "example" {
     permission = "triage"
     team_id    = github_team.kernteam-triage.slug
   }
+
+  team {
+    permission = "triage"
+    team_id    = github_team.kernteam-dependabot.slug
+  }
 }
