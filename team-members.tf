@@ -265,6 +265,54 @@ resource "github_team_members" "rvo-maintainer" {
   }
 }
 
+resource "github_team_members" "rvo-estafettemodel" {
+  team_id = github_team.rvo-estafettemodel.id
+
+  members {
+    username = data.github_user.robert-roose.username
+  }
+}
+
+resource "github_team_members" "gemeente-utrecht-estafettemodel" {
+  team_id = github_team.gemeente-utrecht-estafettemodel.id
+
+  members {
+    username = data.github_user.jeroenduc.username
+  }
+
+  members {
+    username = data.github_user.rene-olling.username
+  }
+}
+
+resource "github_team_members" "gemeente-amsterdam-estafettemodel" {
+  team_id = github_team.gemeente-amsterdam-estafettemodel.id
+
+  members {
+    username = data.github_user.aram-limpens.username
+  }
+
+  members {
+    username = data.github_user.niels-roozemond.username
+  }
+
+  members {
+    username = data.github_user.vincent-smedinga.username
+  }
+}
+
+resource "github_team_members" "logius-estafettemodel" {
+  team_id = github_team.logius-estafettemodel.id
+
+  members {
+    username = data.github_user.aline-nap.username
+  }
+
+  members {
+    username = data.github_user.remy-parzinski.username
+  }
+}
+
 resource "github_team_members" "vng-services-committer" {
   team_id = github_team.vng-services-committer.id
 
