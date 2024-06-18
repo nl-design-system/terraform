@@ -98,6 +98,13 @@ resource "github_team" "gemeente-utrecht" {
   privacy     = "closed"
 }
 
+resource "github_team" "gemeente-utrecht-estafettemodel" {
+  name           = "gemeente-utrecht-estafettemodel"
+  parent_team_id = github_team.gemeente-utrecht.id
+  description    = "Team dat componenten van gemeente Utrecht door het Estafettemodel haalt"
+  privacy        = "closed"
+}
+
 resource "github_team" "frameless" {
   name    = "frameless"
   privacy = "closed"
@@ -138,6 +145,13 @@ resource "github_team" "rvo-maintainer" {
   privacy        = "closed"
 }
 
+resource "github_team" "rvo-estafettemodel" {
+  name           = "rvo-estafettemodel"
+  parent_team_id = github_team.rvo.id
+  description    = "Team dat componenten van RVO door het Estafettemodel haalt"
+  privacy        = "closed"
+}
+
 resource "github_team" "logius" {
   name        = "logius"
   description = "Logius"
@@ -162,6 +176,13 @@ resource "github_team" "logius-triage" {
   privacy        = "closed"
 }
 
+resource "github_team" "logius-estafettemodel" {
+  name           = "logius-estafettemodel"
+  parent_team_id = github_team.logius.id
+  description    = "Team dat componenten van Lux door het Estafettemodel haalt"
+  privacy        = "closed"
+}
+
 resource "github_team" "rivm" {
   name        = "rivm"
   description = "Rijksinstituut voor Volksgezondheid en Milieu (RIVM)"
@@ -172,6 +193,13 @@ resource "github_team" "gemeente-amsterdam" {
   name        = "gemeente-amsterdam"
   description = "Gemeente Amsterdam"
   privacy     = "closed"
+}
+
+resource "github_team" "gemeente-amsterdam-estafettemodel" {
+  name           = "gemeente-amsterdam-estafettemodel"
+  parent_team_id = github_team.gemeente-amsterdam.id
+  description    = "Team dat componenten van gemeente Amsterdam door het Estafettemodel haalt"
+  privacy        = "closed"
 }
 
 resource "github_team" "gemeente-bodegraven-reeuwijk" {

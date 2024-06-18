@@ -121,3 +121,19 @@ data "github_user" "francesca" {
 data "github_user" "jeroenschipper-dictu" {
   username = "jeroenschipper-dictu"
 }
+
+data "github_user" "rene-olling" {
+  username = "Ollie-nl"
+}
+
+data "github_user" "aram-limpens" {
+  username = "alimpens"
+}
+
+data "github_user" "niels-roozemond" {
+  username = "dlnr"
+}
+
+data "github_user" "vincent-smedinga" {
+  username = "VincentSmedinga"
+}
