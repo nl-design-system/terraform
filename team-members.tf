@@ -1,3 +1,27 @@
+resource "github_team_members" "frameless" {
+  team_id = github_team.frameless.id
+
+  members {
+    username = data.github_user.ali-kadhim.username
+  }
+
+  members {
+    username = data.github_user.savitris.username
+  }
+
+  members {
+    username = data.github_user.bddjong.username
+  }
+
+  members {
+    username = data.github_user.scar055.username
+  }
+
+  members {
+    username = data.github_user.MeesoPost.username
+  }
+}
+
 resource "github_team_members" "frameless-maintainer" {
   team_id = github_team.frameless-maintainer.id
 
