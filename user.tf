@@ -137,3 +137,15 @@ data "github_user" "niels-roozemond" {
 data "github_user" "vincent-smedinga" {
   username = "VincentSmedinga"
 }
+
+data "github_user" "scar055" {
+  username = "scar055"
+}
+
+data "github_user" "MeesoPost" {
+  username = "MeesoPost"
+}
+
+data "github_user" "savitris" {
+  username = "savitris"
+}
