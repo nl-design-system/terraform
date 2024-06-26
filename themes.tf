@@ -234,4 +234,9 @@ resource "github_repository_collaborators" "themes" {
     permission = "push"
     team_id    = github_team.minaz-1overheid.slug
   }
+
+  team {
+    permission = "push"
+    team_id    = github_team.frameless.slug
+  }
 }
