@@ -116,12 +116,6 @@ resource "github_team" "frameless-maintainer" {
   privacy        = "closed"
 }
 
-resource "github_team" "frameless-intern" {
-  name           = "frameless-intern"
-  parent_team_id = github_team.frameless.id
-  privacy        = "closed"
-}
-
 resource "github_team" "gebruikersonderzoeken" {
   name    = "gebruikersonderzoeken"
   privacy = "closed"
