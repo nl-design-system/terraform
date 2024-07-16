@@ -364,6 +364,18 @@ resource "github_team" "tilburg-acato-maintainer" {
   privacy        = "closed"
 }
 
+resource "github_team" "tilburg-ditp-committer" {
+  name           = "tilburg-ditp"
+  parent_team_id = github_team.tilburg.id
+  privacy        = "closed"
+}
+
+resource "github_team" "tilburg-ditp-maintainer" {
+  name           = "tilburg-ditp-maintainer"
+  parent_team_id = github_team.tilburg-ditp-committer.id
+  privacy        = "closed"
+}
+
 resource "github_team" "vng-services" {
   name        = "vng-services"
   privacy     = "closed"

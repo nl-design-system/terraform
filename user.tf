@@ -149,3 +149,19 @@ data "github_user" "MeesoPost" {
 data "github_user" "savitris" {
   username = "savitris"
 }
+
+data "github_user" "hansregeer" {
+  username = "hansregeer"
+}
+
+data "github_user" "nickditp" {
+  username = "NickDITP"
+}
+
+data "github_user" "rberendsditp" {
+  username = "RberendsDITP"
+}
+
+data "github_user" "daanditp" {
+  username = "daanditp"
+}

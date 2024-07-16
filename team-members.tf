@@ -245,6 +245,26 @@ resource "github_team_members" "tilburg-acato-maintainer" {
   }
 }
 
+resource "github_team_members" "tilburg-ditp-committer" {
+  team_id = github_team.tilburg-ditp-committer.id
+
+  members {
+    username = data.github_user.hansregeer.username
+  }
+
+  members {
+    username = data.github_user.nickditp.username
+  }
+
+  members {
+    username = data.github_user.rberendsditp.username
+  }
+
+  members {
+    username = data.github_user.daanditp.username
+  }
+}
+
 resource "github_team_members" "rvo" {
   team_id = github_team.rvo.id
 
