@@ -1,11 +1,15 @@
 version: 2
 
 updates:
-  - package-ecosystem: 'github-actions'
-    directory: '/'
+  - package-ecosystem: "github-actions"
+    directory: "/"
     schedule:
-      interval: 'monthly'
-      timezone: 'Europe/Amsterdam'
-      time: '09:00'
+      interval: "monthly"
     reviewers:
-      - 'nl-design-system/kernteam-dependabot'
+      - "nl-design-system/kernteam-dependabot"
+  - package-ecosystem: "terraform"
+    directory: "/"
+    schedule:
+      interval: "monthly"
+    reviewers:
+      - "nl-design-system/kernteam-dependabot"
