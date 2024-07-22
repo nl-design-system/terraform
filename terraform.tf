@@ -99,6 +99,11 @@ resource "github_repository_collaborators" "terraform" {
     team_id    = github_team.tilburg-acato-maintainer.slug
   }
 
+  team {
+    permission = "push"
+    team_id    = github_team.tilburg-ditp-maintainer.slug
+  }
+
   # Restrict pushes to infrastructure as code to admins and maintainers
 
   team {
