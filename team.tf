@@ -387,3 +387,20 @@ resource "github_team" "vng-services-committer" {
   parent_team_id = github_team.vng-services.id
   privacy        = "closed"
 }
+
+resource "github_team" "dictu" {
+  name    = "dictu"
+  privacy = "closed"
+}
+
+resource "github_team" "dictu-committer" {
+  name           = "dictu-committer"
+  parent_team_id = github_team.dictu.id
+  privacy        = "closed"
+}
+
+resource "github_team" "dictu-maintainer" {
+  name           = "dictu-maintainer"
+  parent_team_id = github_team.dictu-committer.id
+  privacy        = "closed"
+}
