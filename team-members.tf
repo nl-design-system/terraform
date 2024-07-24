@@ -364,3 +364,23 @@ resource "github_team_members" "vng-services-committer" {
     username = data.github_user.francesca.username
   }
 }
+
+resource "github_team_members" "quintor-rijkshuisstijl-committer" {
+  team_id = github_team.quintor-rijkshuisstijl-committer.id
+
+  members {
+    username = data.github_user.rerbun.username
+  }
+
+  members {
+    username = data.github_user.Rubenoo.username
+  }
+}
+
+resource "github_team_members" "quintor-rijkshuisstijl-maintainer" {
+  team_id = github_team.quintor-rijkshuisstijl-maintainer.id
+
+  members {
+    username = data.github_user.rerbun.username
+  }
+}

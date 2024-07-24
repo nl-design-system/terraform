@@ -387,3 +387,23 @@ resource "github_team" "vng-services-committer" {
   parent_team_id = github_team.vng-services.id
   privacy        = "closed"
 }
+
+resource "github_team" "quintor-rijkshuisstijl" {
+  name        = "quintor-rijkshuisstijl"
+  privacy     = "closed"
+  description = "Quintor Team dat werkt aan de Rijkshuisstijl Community Storybook"
+}
+
+
+resource "github_team" "quintor-rijkshuisstijl-committer" {
+  name           = "quintor-rijkshuisstijl-committer"
+  parent_team_id = github_team.quintor-rijkshuisstijl.id
+  privacy        = "closed"
+}
+
+
+resource "github_team" "quintor-rijkshuisstijl-maintainer" {
+  name           = "quintor-rijkshuisstijl-maintainer"
+  parent_team_id = github_team.quintor-rijkshuisstijl-committer.id
+  privacy        = "closed"
+}

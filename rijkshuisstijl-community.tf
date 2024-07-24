@@ -50,6 +50,8 @@ resource "github_branch_protection" "rijkshuisstijl-community-main" {
     blocks_creations = false
     push_allowances = [
       "/${data.github_user.nl-design-system-ci.username}",
+      "${data.github_organization.nl-design-system.orgname}/${github_team.kernteam-maintainer.name}",
+      "${data.github_organization.nl-design-system.orgname}/${github_team.quintor-rijkshuisstijl-committer.name}",
     ]
   }
 
@@ -113,5 +115,10 @@ resource "github_repository_collaborators" "rijkshuisstijl-community" {
   team {
     permission = "push"
     team_id    = github_team.rvo.slug
+  }
+
+  team {
+    permission = "push"
+    team_id    = github_team.quintor-rijkshuisstijl-committer.slug
   }
 }
