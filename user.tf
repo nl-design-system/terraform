@@ -165,3 +165,11 @@ data "github_user" "rberendsditp" {
 data "github_user" "daanditp" {
   username = "daanditp"
 }
+
+data "github_user" "rerbun" {
+  username = "rerbun"
+}
+
+data "github_user" "Rubenoo" {
+  username = "Rubenoo"
+}
