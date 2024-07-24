@@ -52,6 +52,7 @@ resource "github_branch_protection" "tilburg-main" {
       "/${data.github_user.nl-design-system-ci.username}",
       "nl-design-system/${github_team.kernteam-maintainer.name}",
       "nl-design-system/${github_team.tilburg-acato-committer.name}",
+      "nl-design-system/${github_team.tilburg-ditp-committer.name}",
     ]
   }
 
