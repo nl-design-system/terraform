@@ -375,6 +375,26 @@ resource "github_team_members" "quintor-rijkshuisstijl-committer" {
   members {
     username = data.github_user.Rubenoo.username
   }
+
+  members {
+    username = data.github_user.sjimbonator.username
+  }
+
+  members {
+    username = data.github_user.MeesD94.username
+  }
+
+  members {
+    username = data.github_user.Aref-Akminasi.username
+  }
+
+  members {
+    username = data.github_user.AdhamAh.username
+  }
+
+  members {
+    username = data.github_user.GerwinTerpstra.username
+  }
 }
 
 resource "github_team_members" "quintor-rijkshuisstijl-maintainer" {

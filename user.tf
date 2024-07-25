@@ -173,3 +173,23 @@ data "github_user" "rerbun" {
 data "github_user" "Rubenoo" {
   username = "Rubenoo"
 }
+
+data "github_user" "sjimbonator" {
+  username = "sjimbonator"
+}
+
+data "github_user" "MeesD94" {
+  username = "MeesD94"
+}
+
+data "github_user" "Aref-Akminasi" {
+  username = "Aref-Akminasi"
+}
+
+data "github_user" "AdhamAh" {
+  username = "AdhamAh"
+}
+
+data "github_user" "GerwinTerpstra" {
+  username = "GerwinTerpstra"
+}
