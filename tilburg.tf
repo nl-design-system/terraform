@@ -113,3 +113,13 @@ resource "github_repository_collaborators" "tilburg" {
     team_id    = github_team.tilburg-ditp-committer.slug
   }
 }
+
+resource "vercel_project" "tilburg" {
+  name             = github_repository.tilburg.name
+  output_directory = "packages/storybook/dist/"
+
+  git_repository = {
+    type = "github"
+    repo = "${data.github_organization.nl-design-system.orgname}/${github_repository.tilburg.name}",
+  }
+}
