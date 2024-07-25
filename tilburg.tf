@@ -117,6 +117,7 @@ resource "github_repository_collaborators" "tilburg" {
 resource "vercel_project" "tilburg" {
   name             = github_repository.tilburg.name
   output_directory = "packages/storybook/dist/"
+  ignore_command   = "[[ $(git log -1 --pretty=%an) == 'dependabot[bot]' ]]"
 
   git_repository = {
     type = "github"
