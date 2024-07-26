@@ -128,4 +128,8 @@ resource "vercel_project" "tilburg" {
     type = "github"
     repo = "${data.github_organization.nl-design-system.orgname}/${github_repository.tilburg.name}",
   }
+
+  vercel_authentication = {
+    deployment_type = "none"
+  }
 }
