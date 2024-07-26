@@ -394,16 +394,32 @@ resource "github_team" "quintor-rijkshuisstijl" {
   description = "Quintor Team dat werkt aan de Rijkshuisstijl Community Storybook"
 }
 
-
 resource "github_team" "quintor-rijkshuisstijl-committer" {
   name           = "quintor-rijkshuisstijl-committer"
   parent_team_id = github_team.quintor-rijkshuisstijl.id
   privacy        = "closed"
 }
 
-
 resource "github_team" "quintor-rijkshuisstijl-maintainer" {
   name           = "quintor-rijkshuisstijl-maintainer"
   parent_team_id = github_team.quintor-rijkshuisstijl-committer.id
+  privacy        = "closed"
+}
+
+resource "github_team" "blueriq" {
+  name        = "blueriq"
+  privacy     = "closed"
+  description = "Blueriq team (https://www.blueriq.com)"
+}
+
+resource "github_team" "blueriq-committer" {
+  name           = "blueriq-committer"
+  parent_team_id = github_team.blueriq.id
+  privacy        = "closed"
+}
+
+resource "github_team" "blueriq-maintainer" {
+  name           = "blueriq-maintainer"
+  parent_team_id = github_team.blueriq-committer.id
   privacy        = "closed"
 }
