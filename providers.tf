@@ -27,11 +27,13 @@ provider "github" {
   owner = "nl-design-system"
 }
 
-provider "vercel" {
-  # Or omit this for the api_token to be read
-  # from the VERCEL_API_TOKEN environment variable
-  # api_token = var.vercel_api_token
+variable "VERCEL_API_TOKEN" {
+  type      = string
+  sensitive = true
+}
 
-  # Optional default team for all resources
+provider "vercel" {
+  api_token = var.VERCEL_API_TOKEN
+
   team = "nl-design-system"
 }
