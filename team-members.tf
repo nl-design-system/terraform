@@ -265,6 +265,22 @@ resource "github_team_members" "tilburg-ditp-committer" {
   }
 }
 
+resource "github_team_members" "blueriq-committer" {
+  team_id = github_team.blueriq-committer.id
+
+  members {
+    username = data.github_user.Margot-UX.username
+  }
+}
+
+resource "github_team_members" "blueriq-maintainer" {
+  team_id = github_team.blueriq-maintainer.id
+
+  members {
+    username = data.github_user.Margot-UX.username
+  }
+}
+
 resource "github_team_members" "rvo" {
   team_id = github_team.rvo.id
 

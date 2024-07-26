@@ -112,6 +112,11 @@ resource "github_repository_collaborators" "tilburg" {
     permission = "push"
     team_id    = github_team.tilburg-ditp-committer.slug
   }
+
+  team {
+    permission = "push"
+    team_id    = github_team.blueriq-committer.slug
+  }
 }
 
 resource "vercel_project" "tilburg" {
