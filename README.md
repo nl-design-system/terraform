@@ -10,13 +10,10 @@ On macOS:
 4. `brew tap hashicorp/tap`
 5. `brew install hashicorp/tap/terraform`
 
-Then configure this project:
-
-- Configure the `GH_TOKEN` environment variable with an fine-grained access token with enough rights.
-
 ## Importing an existing repo
 
 ```shell
+ export TF_VAR_GITHUB_TOKEN=<GITHUB_TOKEN>
 terraform import "github_repository.terraform-playground" "name-of-github-repository-resource"
 ```
 
@@ -51,11 +48,16 @@ Removing this code should allow you to switch back to storing state in `terrafor
 
 ## API Documentation
 
-- data source: [`github_organization`](https://registry.terraform.io/providers/integrations/github/latest/docs/data-sources/organization)
-- provider: [`github_branch_protection`](https://registry.terraform.io/providers/integrations/github/latest/docs/resources/branch_protection)
-- provider: [`github_repository_collaborators`](https://registry.terraform.io/providers/integrations/github/latest/docs/resources/repository_collaborators)
-- provider: [`github_repository`](https://registry.terraform.io/providers/integrations/github/latest/docs/resources/repository)
-- provider: [`github_team`](https://registry.terraform.io/providers/integrations/github/latest/docs/data-sources/team)
+- provider: [`github`](https://registry.terraform.io/providers/integrations/github/latest/docs)
+  - data source: [`github_organization`](https://registry.terraform.io/providers/integrations/github/latest/docs/data-sources/organization)
+  - data source: [`github_user`](https://registry.terraform.io/providers/integrations/github/latest/docs/data-sources/user)
+  - resource: [`github_repository`](https://registry.terraform.io/providers/integrations/github/latest/docs/resources/repository)
+  - resource: [`github_branch_protection`](https://registry.terraform.io/providers/integrations/github/latest/docs/resources/branch_protection)
+  - resource: [`github_repository_collaborators`](https://registry.terraform.io/providers/integrations/github/latest/docs/resources/repository_collaborators)
+  - resource: [`github_team`](https://registry.terraform.io/providers/integrations/github/latest/docs/data-sources/team)
+  - resource: [`github_team_members`](https://registry.terraform.io/providers/integrations/github/latest/docs/resources/team_members)
+- provider: [`vercel`](https://registry.terraform.io/providers/vercel/vercel/latest/docs)
+  - resource: [`vercel_project`](https://registry.terraform.io/providers/vercel/vercel/latest/docs/resources/project)
 
 ## Contributing: new GitHub user to existing team
 

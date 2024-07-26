@@ -21,19 +21,12 @@ terraform {
   required_version = "~> 1.8.0"
 }
 
-# Configure the GitHub Provider
 provider "github" {
-  # Token will be obtained from the environment variable `GITHUB_TOKEN`
   owner = "nl-design-system"
-}
-
-variable "VERCEL_API_TOKEN" {
-  type      = string
-  sensitive = true
+  token = var.GITHUB_TOKEN
 }
 
 provider "vercel" {
+  team      = "nl-design-system"
   api_token = var.VERCEL_API_TOKEN
-
-  team = "nl-design-system"
 }
