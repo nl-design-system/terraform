@@ -379,6 +379,10 @@ resource "github_team_members" "vng-services-committer" {
   members {
     username = data.github_user.francesca.username
   }
+
+  members {
+    username = data.github_user.bddjong.username
+  }
 }
 
 resource "github_team_members" "quintor-rijkshuisstijl-committer" {
