@@ -8,7 +8,7 @@ resource "github_repository" "rijkshuisstijl-community" {
   delete_branch_on_merge      = true
   has_issues                  = true
   has_downloads               = false
-  has_projects                = false
+  has_projects                = true
   has_wiki                    = true
   vulnerability_alerts        = true
   homepage_url                = "https://nl-design-system.github.io/rijkshuisstijl-community/"
