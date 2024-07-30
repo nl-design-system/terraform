@@ -423,3 +423,21 @@ resource "github_team" "blueriq-maintainer" {
   parent_team_id = github_team.blueriq-committer.id
   privacy        = "closed"
 }
+
+resource "github_team" "minjus-rijkshuisstijl" {
+  name        = "minjus-rijkshuisstijl"
+  privacy     = "closed"
+  description = "Ministerie van Justitie"
+}
+
+resource "github_team" "minjus-rijkshuisstijl-committer" {
+  name           = "minjus-rijkshuisstijl-committer"
+  parent_team_id = github_team.minjus-rijkshuisstijl.id
+  privacy        = "closed"
+}
+
+resource "github_team" "minjus-rijkshuisstijl-maintainer" {
+  name           = "minjus-rijkshuisstijl-maintainer"
+  parent_team_id = github_team.minjus-rijkshuisstijl-committer.id
+  privacy        = "closed"
+}
