@@ -420,3 +420,11 @@ resource "github_team_members" "quintor-rijkshuisstijl-maintainer" {
     username = data.github_user.rerbun.username
   }
 }
+
+resource "github_team_members" "minjus-rijkshuisstijl-committer" {
+  team_id = github_team.minjus-rijkshuisstijl-committer.id
+
+  members {
+    username = data.github_user.michaela-tan.username
+  }
+}

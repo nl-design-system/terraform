@@ -121,4 +121,9 @@ resource "github_repository_collaborators" "rijkshuisstijl-community" {
     permission = "push"
     team_id    = github_team.quintor-rijkshuisstijl-committer.slug
   }
+
+  team {
+    permission = "push"
+    team_id    = github_team.minjus-rijkshuisstijl-committer.slug
+  }
 }
