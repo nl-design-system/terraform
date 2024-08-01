@@ -389,7 +389,7 @@ resource "github_team_members" "quintor-rijkshuisstijl-committer" {
   team_id = github_team.quintor-rijkshuisstijl-committer.id
 
   members {
-    username = data.github_user.rerbun.username
+    username = data.github_user.Rerbun.username
   }
 
   members {
@@ -409,11 +409,19 @@ resource "github_team_members" "quintor-rijkshuisstijl-committer" {
   }
 
   members {
-    username = data.github_user.AdhamAh.username
+    username = data.github_user.adhamah.username
   }
 
   members {
     username = data.github_user.GerwinTerpstra.username
+  }
+
+  members {
+    username = data.github_user.veslav3.username
+  }
+
+  members {
+    username = data.github_user.JoeriRoijenga.username
   }
 }
 
@@ -421,7 +429,7 @@ resource "github_team_members" "quintor-rijkshuisstijl-maintainer" {
   team_id = github_team.quintor-rijkshuisstijl-maintainer.id
 
   members {
-    username = data.github_user.rerbun.username
+    username = data.github_user.Rerbun.username
   }
 }
 
