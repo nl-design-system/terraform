@@ -166,8 +166,8 @@ data "github_user" "daanditp" {
   username = "daanditp"
 }
 
-data "github_user" "rerbun" {
-  username = "rerbun"
+data "github_user" "Rerbun" {
+  username = "Rerbun"
 }
 
 data "github_user" "Rubenoo" {
@@ -186,8 +186,8 @@ data "github_user" "Aref-Akminasi" {
   username = "Aref-Akminasi"
 }
 
-data "github_user" "AdhamAh" {
-  username = "AdhamAh"
+data "github_user" "adhamah" {
+  username = "adhamah"
 }
 
 data "github_user" "GerwinTerpstra" {
@@ -204,4 +204,12 @@ data "github_user" "michaela-tan" {
 
 data "github_user" "Dtacato" {
   username = "Dtacato"
+}
+
+data "github_user" "veslav3" {
+  username = "veslav3"
+}
+
+data "github_user" "JoeriRoijenga" {
+  username = "JoeriRoijenga"
 }
