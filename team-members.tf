@@ -428,3 +428,11 @@ resource "github_team_members" "minjus-rijkshuisstijl-committer" {
     username = data.github_user.michaela-tan.username
   }
 }
+
+resource "github_team_members" "voorbeeld-theme-committer" {
+  team_id = github_team.voorbeeld-theme-committer.id
+
+  members {
+    username = data.github_user.Dtacato.username
+  }
+}
