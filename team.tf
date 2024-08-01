@@ -388,6 +388,12 @@ resource "github_team" "vng-services-committer" {
   privacy        = "closed"
 }
 
+resource "github_team" "voorbeeld-theme-committer" {
+  name        = "voorbeeld-theme-committer"
+  privacy     = "closed"
+  description = "Team dat werkt aan het Voorbeeld Thema van NL Design System"
+}
+
 resource "github_team" "quintor-rijkshuisstijl" {
   name        = "quintor-rijkshuisstijl"
   privacy     = "closed"
