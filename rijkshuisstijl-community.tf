@@ -51,7 +51,9 @@ resource "github_branch_protection" "rijkshuisstijl-community-main" {
     push_allowances = [
       "/${data.github_user.nl-design-system-ci.username}",
       "${data.github_organization.nl-design-system.orgname}/${github_team.kernteam-maintainer.name}",
+      "${data.github_organization.nl-design-system.orgname}/${github_team.kernteam-committer.name}",
       "${data.github_organization.nl-design-system.orgname}/${github_team.quintor-rijkshuisstijl-committer.name}",
+      "${data.github_organization.nl-design-system.orgname}/${github_team.logius-committer.name}",
     ]
   }
 
