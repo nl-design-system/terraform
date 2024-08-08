@@ -447,3 +447,9 @@ resource "github_team" "minjus-rijkshuisstijl-maintainer" {
   parent_team_id = github_team.minjus-rijkshuisstijl-committer.id
   privacy        = "closed"
 }
+
+resource "github_team" "icons-committer" {
+  name        = "icons-committer"
+  privacy     = "closed"
+  description = "Makers van open source iconen"
+}

@@ -448,3 +448,11 @@ resource "github_team_members" "voorbeeld-theme-committer" {
     username = data.github_user.Dtacato.username
   }
 }
+
+resource "github_team_members" "icons-committer" {
+  team_id = github_team.icons-committer.id
+
+  members {
+    username = data.github_user.martijnrietveld.username
+  }
+}
