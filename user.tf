@@ -186,8 +186,8 @@ data "github_user" "Aref-Akminasi" {
   username = "Aref-Akminasi"
 }
 
-data "github_user" "adhamah" {
-  username = "adhamah"
+data "github_user" "AdhamAH" {
+  username = "AdhamAH"
 }
 
 data "github_user" "GerwinTerpstra" {
