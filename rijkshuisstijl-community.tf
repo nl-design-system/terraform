@@ -130,8 +130,8 @@ resource "github_repository_collaborators" "rijkshuisstijl-community" {
   }
 }
 
-resource "vercel_project" "rijkshuisstijl-community" {
-  name             = "rhc-templates"
+resource "vercel_project" "rijkshuisstijl-community-templates" {
+  name             = "rijkshuisstijl-community-templates"
   output_directory = "apps/rhc-templates/dist/"
   ignore_command   = "[[ $(git log -1 --pretty=%an) == 'dependabot[bot]' ]]"
 
