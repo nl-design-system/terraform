@@ -129,3 +129,18 @@ resource "github_repository_collaborators" "rijkshuisstijl-community" {
     team_id    = github_team.minjus-rijkshuisstijl-committer.slug
   }
 }
+
+resource "vercel_project" "rijkshuisstijl-community-templates" {
+  name             = "rijkshuisstijl-community-templates"
+  output_directory = "apps/rhc-templates/dist/"
+  ignore_command   = "[[ $(git log -1 --pretty=%an) == 'dependabot[bot]' ]]"
+
+  git_repository = {
+    type = "github"
+    repo = "${data.github_organization.nl-design-system.orgname}/${github_repository.rijkshuisstijl-community.name}",
+  }
+
+  vercel_authentication = {
+    deployment_type = "none"
+  }
+}
