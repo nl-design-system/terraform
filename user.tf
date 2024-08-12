@@ -174,10 +174,6 @@ data "github_user" "Rubenoo" {
   username = "Rubenoo"
 }
 
-data "github_user" "sjimbonator" {
-  username = "sjimbonator"
-}
-
 data "github_user" "MeesD94" {
   username = "MeesD94"
 }
@@ -188,10 +184,6 @@ data "github_user" "Aref-Akminasi" {
 
 data "github_user" "AdhamAH" {
   username = "AdhamAH"
-}
-
-data "github_user" "GerwinTerpstra" {
-  username = "GerwinTerpstra"
 }
 
 data "github_user" "Margot-UX" {
@@ -208,10 +200,6 @@ data "github_user" "Dtacato" {
 
 data "github_user" "veslav3" {
   username = "veslav3"
-}
-
-data "github_user" "JoeriRoijenga" {
-  username = "JoeriRoijenga"
 }
 
 data "github_user" "martijnrietveld" {
