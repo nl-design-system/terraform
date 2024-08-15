@@ -54,6 +54,14 @@ data "github_user" "raoul-wittenberns" {
   username = "rwittenberns"
 }
 
+data "github_user" "vlad-afanasev" {
+  username = "VladAfanasev"
+}
+
+data "github_user" "mark-meijerink" {
+  username = "MMeijerink"
+}
+
 data "github_user" "remy-parzinski" {
   username = "remypar5"
 }
