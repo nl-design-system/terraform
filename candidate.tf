@@ -79,7 +79,7 @@ resource "github_repository_ruleset" "candidate-main" {
 
   bypass_actors {
     actor_id    = data.github_user.nl-design-system-ci.id
-    actor_type  = "RepositoryRole"
+    actor_type  = "Team"
     bypass_mode = "always"
   }
 }
