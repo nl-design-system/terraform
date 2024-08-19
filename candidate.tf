@@ -76,6 +76,12 @@ resource "github_repository_ruleset" "candidate-main" {
       }
     }
   }
+
+  bypass_actors {
+    actor_id    = 5
+    actor_type  = "RepositoryRole"
+    bypass_mode = "always"
+  }
 }
 
 resource "github_repository_collaborators" "candidate" {
