@@ -26,6 +26,13 @@ resource "github_team" "kernteam-committer" {
   privacy        = "closed"
 }
 
+resource "github_team" "kernteam-ci" {
+  description    = "CI team for nl-design-system-ci that can bypass branch protections"
+  name           = "kernteam-ci"
+  parent_team_id = github_team.kernteam.id
+  privacy        = "closed"
+}
+
 resource "github_team" "kernteam-dependabot" {
   name           = "kernteam-dependabot"
   description    = "Default reviewers for Dependabot pull requests"
