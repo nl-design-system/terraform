@@ -151,10 +151,6 @@ resource "github_team_members" "kernteam-triage" {
   }
 
   members {
-    username = data.github_user.peter-berrevoets.username
-  }
-
-  members {
     username = data.github_user.astrid-01.username
   }
 
@@ -164,6 +160,18 @@ resource "github_team_members" "kernteam-triage" {
 
   members {
     username = data.github_user.wartburggraaf.username
+  }
+
+  members {
+    username = data.github_user.emma-koole.username
+  }
+}
+
+resource "github_team_members" "kernteam-ci" {
+  team_id = github_team.kernteam-ci.id
+
+  members {
+    username = data.github_user.nl-design-system-ci.username
   }
 }
 
