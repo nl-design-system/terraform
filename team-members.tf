@@ -167,6 +167,14 @@ resource "github_team_members" "kernteam-triage" {
   }
 }
 
+resource "github_team_members" "kernteam-ci" {
+  team_id = github_team.kernteam-ci.id
+
+  members {
+    username = data.github_user.nl-design-system-ci.username
+  }
+}
+
 resource "github_team_members" "kernteam-dependabot" {
   team_id = github_team.kernteam-dependabot.id
 
