@@ -11,7 +11,7 @@ resource "github_repository" "rijkshuisstijl-community" {
   has_projects                = true
   has_wiki                    = true
   vulnerability_alerts        = true
-  homepage_url                = "https://nl-design-system.github.io/rijkshuisstijl-community/"
+  homepage_url                = "https://rijkshuisstijl-community.vercel.app/"
   squash_merge_commit_title   = "PR_TITLE"
   squash_merge_commit_message = "PR_BODY"
   topics                      = ["nl-design-system", "storybook"]
