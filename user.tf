@@ -42,10 +42,6 @@ data "github_user" "nl-design-system-committer" {
   username = "nl-design-system-committer"
 }
 
-data "github_user" "peter-berrevoets" {
-  username = "Peter-Berrevoets"
-}
-
 data "github_user" "jaap-hein-wester" {
   username = "MrSkippy"
 }
