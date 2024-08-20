@@ -201,3 +201,7 @@ data "github_user" "veslav3" {
 data "github_user" "martijnrietveld" {
   username = "martijnrietveld"
 }
+
+data "github_user" "emma-koole" {
+  username = "emma-koole"
+}
