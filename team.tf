@@ -460,3 +460,20 @@ resource "github_team" "icons-committer" {
   privacy     = "closed"
   description = "Makers van open source iconen"
 }
+
+resource "github_team" "dictu" {
+  name    = "dictu"
+  privacy = "closed"
+}
+
+resource "github_team" "dictu-committer" {
+  name           = "dictu-committer"
+  parent_team_id = github_team.dictu.id
+  privacy        = "closed"
+}
+
+resource "github_team" "dictu-maintainer" {
+  name           = "dictu-maintainer"
+  parent_team_id = github_team.dictu-committer.id
+  privacy        = "closed"
+}
