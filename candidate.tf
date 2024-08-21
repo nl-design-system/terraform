@@ -112,3 +112,18 @@ resource "github_repository_collaborators" "candidate" {
     team_id    = github_team.kernteam-dependabot.slug
   }
 }
+
+resource "vercel_project" "candidate" {
+  name             = github_repository.candidate.name
+  output_directory = "packages/storybook/dist"
+  ignore_command   = "[[ $(git log -1 --pretty=%an) == 'dependabot[bot]' ]]"
+
+  git_repository = {
+    type = "github"
+    repo = "${data.github_organization.nl-design-system.orgname}/${github_repository.candidate.name}"
+  }
+
+  vercel_authentication = {
+    deployment_type = "none"
+  }
+}
