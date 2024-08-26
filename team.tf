@@ -460,3 +460,16 @@ resource "github_team" "icons-committer" {
   privacy     = "closed"
   description = "Makers van open source iconen"
 }
+
+
+resource "github_team" "gemeente-almere" {
+  name        = "gemeente-almere"
+  privacy     = "closed"
+  description = "Gemeente Almere"
+}
+
+resource "github_team" "gemeente-almere-committer" {
+  name           = "gemeente-almere-committer"
+  parent_team_id = github_team.gemeente-almere.id
+  privacy        = "closed"
+}

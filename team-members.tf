@@ -474,3 +474,11 @@ resource "github_team_members" "icons-committer" {
     username = data.github_user.martijnrietveld.username
   }
 }
+
+resource "github_team_members" "gemeente-almere-committer" {
+  team_id = github_team.gemeente-almere-committer.id
+
+  members {
+    username = data.github_user.catrinairankhah.username
+  }
+}
