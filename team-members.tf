@@ -313,6 +313,10 @@ resource "github_team_members" "rvo" {
   members {
     username = data.github_user.robert-roose.username
   }
+
+  members {
+    username = data.github_user.tom-jonkman.username
+  }
 }
 
 resource "github_team_members" "rvo-committer" {
@@ -320,6 +324,10 @@ resource "github_team_members" "rvo-committer" {
 
   members {
     username = data.github_user.robert-roose.username
+  }
+
+  members {
+    username = data.github_user.tom-jonkman.username
   }
 
   members {
