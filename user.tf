@@ -102,6 +102,10 @@ data "github_user" "robert-roose" {
   username = "rroose-rvo"
 }
 
+data "github_user" "tom-jonkman" {
+  username = "sushitommy"
+}
+
 data "github_user" "christopher1986" {
   username = "christopher1986"
 }
