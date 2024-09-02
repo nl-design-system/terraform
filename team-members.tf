@@ -419,6 +419,14 @@ resource "github_team_members" "vng-services-committer" {
   }
 }
 
+resource "github_team_members" "vng-services-maintainer" {
+  team_id = github_team.vng-services-maintainer.id
+
+  members {
+    username = data.github_user.bddjong.username
+  }
+}
+
 resource "github_team_members" "quintor-rijkshuisstijl-committer" {
   team_id = github_team.quintor-rijkshuisstijl-committer.id
 

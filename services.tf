@@ -52,6 +52,7 @@ resource "github_branch_protection" "services-main" {
       "/${data.github_user.nl-design-system-ci.username}",
       "nl-design-system/${github_team.kernteam-maintainer.name}",
       "nl-design-system/${github_team.vng-services-committer.name}",
+      "nl-design-system/${github_team.vng-services-maintainer.name}",
     ]
   }
 
@@ -95,6 +96,11 @@ resource "github_repository_collaborators" "services" {
   team {
     permission = "push"
     team_id    = github_team.vng-services-committer.slug
+  }
+
+  team {
+    permission = "maintain"
+    team_id    = github_team.vng-services-maintainer.slug
   }
 
   team {
