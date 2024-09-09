@@ -20,6 +20,10 @@ resource "github_team_members" "frameless" {
   members {
     username = data.github_user.marwa-hello.username
   }
+
+  members {
+    username = data.github_user.tessa-viergever.username
+  }
 }
 
 resource "github_team_members" "frameless-maintainer" {
