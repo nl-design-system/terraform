@@ -16,6 +16,10 @@ resource "github_team_members" "frameless" {
   members {
     username = data.github_user.MeesoPost.username
   }
+
+  members {
+    username = data.github_user.marwa-hello.username
+  }
 }
 
 resource "github_team_members" "frameless-maintainer" {
