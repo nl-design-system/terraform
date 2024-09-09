@@ -14,10 +14,6 @@ resource "github_team_members" "frameless" {
   }
 
   members {
-    username = data.github_user.scar055.username
-  }
-
-  members {
     username = data.github_user.MeesoPost.username
   }
 }
