@@ -108,3 +108,18 @@ resource "github_repository_collaborators" "services" {
     team_id    = github_team.vng-services.slug
   }
 }
+
+resource "vercel_project" "services" {
+  name             = github_repository.services.name
+  output_directory = "packages/storybook/dist/"
+  ignore_command   = "[[ $(git log -1 --pretty=%an) == 'dependabot[bot]' ]]"
+
+  git_repository = {
+    type = "github"
+    repo = "${data.github_organization.nl-design-system.orgname}/${github_repository.services.name}",
+  }
+
+  vercel_authentication = {
+    deployment_type = "none"
+  }
+}
