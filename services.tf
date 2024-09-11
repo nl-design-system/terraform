@@ -52,6 +52,7 @@ resource "github_branch_protection" "services-main" {
       "/${data.github_user.nl-design-system-ci.username}",
       "nl-design-system/${github_team.kernteam-maintainer.name}",
       "nl-design-system/${github_team.vng-services-committer.name}",
+      "nl-design-system/${github_team.vng-services-maintainer.name}",
     ]
   }
 
@@ -98,7 +99,27 @@ resource "github_repository_collaborators" "services" {
   }
 
   team {
+    permission = "maintain"
+    team_id    = github_team.vng-services-maintainer.slug
+  }
+
+  team {
     permission = "triage"
     team_id    = github_team.vng-services.slug
+  }
+}
+
+resource "vercel_project" "services" {
+  name             = github_repository.services.name
+  output_directory = "packages/storybook/dist/"
+  ignore_command   = "[[ $(git log -1 --pretty=%an) == 'dependabot[bot]' ]]"
+
+  git_repository = {
+    type = "github"
+    repo = "${data.github_organization.nl-design-system.orgname}/${github_repository.services.name}",
+  }
+
+  vercel_authentication = {
+    deployment_type = "none"
   }
 }

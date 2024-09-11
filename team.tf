@@ -395,6 +395,12 @@ resource "github_team" "vng-services-committer" {
   privacy        = "closed"
 }
 
+resource "github_team" "vng-services-maintainer" {
+  name           = "vng-services-maintainer"
+  parent_team_id = github_team.vng-services-committer.id
+  privacy        = "closed"
+}
+
 resource "github_team" "voorbeeld-theme-committer" {
   name        = "voorbeeld-theme-committer"
   privacy     = "closed"
