@@ -1,5 +1,5 @@
 resource "github_repository" "services" {
-  name                        = "services"
+  name                        = "overheidsbrede-portalen-community"
   description                 = "Work in Progress: Templates for government services built on the NL Design System architecture."
   allow_merge_commit          = false
   allow_rebase_merge          = true
@@ -11,7 +11,7 @@ resource "github_repository" "services" {
   has_projects                = true
   has_wiki                    = false
   vulnerability_alerts        = true
-  homepage_url                = "https://nl-design-system.github.io/services/"
+  homepage_url                = "https://nl-design-system.github.io/overheidsbrede-portalen-community/"
   squash_merge_commit_title   = "PR_TITLE"
   squash_merge_commit_message = "PR_BODY"
   topics                      = ["nl-design-system", "storybook"]
