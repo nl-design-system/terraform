@@ -223,11 +223,11 @@ resource "github_team_members" "logius-committer" {
   }
 
   members {
-    username = data.github_user.MrGowdy.username
+    username = data.github_user.mrgowdy.username
   }
 
   members {
-    username = data.github_user.Kippetje.username
+    username = data.github_user.kippetje.username
   }
 }
 
