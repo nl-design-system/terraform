@@ -221,6 +221,14 @@ resource "github_team_members" "logius-committer" {
   members {
     username = data.github_user.mark-meijerink.username
   }
+
+  members {
+    username = data.github_user.mrgowdy.username
+  }
+
+  members {
+    username = data.github_user.kippetje.username
+  }
 }
 
 resource "github_team_members" "logius-maintainer" {
