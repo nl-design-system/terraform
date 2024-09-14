@@ -23,10 +23,7 @@ resource "github_repository" "utrecht" {
   }
 
   pages {
-    source {
-      branch = "gh-pages"
-      path   = "/"
-    }
+    build_type = "workflow"
   }
 
   lifecycle {
@@ -65,16 +62,6 @@ resource "github_branch_protection" "utrecht-main" {
       "/${data.github_user.nl-design-system-ci.username}",
     ]
   }
-}
-
-resource "github_branch_protection" "utrecht-gh-pages" {
-  repository_id = github_repository.utrecht.node_id
-
-  pattern                 = "gh-pages"
-  enforce_admins          = true
-  allows_deletions        = false
-  required_linear_history = true
-  allows_force_pushes     = false
 }
 
 resource "github_repository_collaborators" "utrecht" {
