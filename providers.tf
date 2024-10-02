@@ -10,11 +10,11 @@ terraform {
   required_providers {
     github = {
       source  = "integrations/github"
-      version = "6.2.3"
+      version = "6.3.0"
     }
     vercel = {
       source  = "vercel/vercel"
-      version = "1.13.0"
+      version = "1.14.1"
     }
   }
 
