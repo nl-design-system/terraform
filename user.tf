@@ -123,7 +123,7 @@ data "github_user" "r1kkert" {
 }
 
 data "github_user" "plassche-dictu" {
-  username = "plassche-dictu"
+  username = "PLassche-dictu"
 }
 
 data "github_user" "francesca" {
