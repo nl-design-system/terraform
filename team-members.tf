@@ -361,6 +361,10 @@ resource "github_team_members" "rvo-committer" {
   members {
     username = data.github_user.jeroenschipper-dictu.username
   }
+
+  members {
+    username = data.github_user.plassche-dictu.username
+  }
 }
 
 resource "github_team_members" "rvo-maintainer" {
