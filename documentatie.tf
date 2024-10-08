@@ -58,6 +58,7 @@ resource "github_branch_protection" "documentatie-main" {
     blocks_creations = false
     push_allowances = [
       "/${data.github_user.nl-design-system-ci.username}",
+      "nl-design-system/${github_team.kernteam-committer.name}",
     ]
   }
 }
