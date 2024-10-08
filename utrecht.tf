@@ -106,4 +106,9 @@ resource "github_repository_collaborators" "utrecht" {
     permission = "push"
     team_id    = github_team.logius-maintainer.slug
   }
+
+  team {
+    permission = "triage"
+    team_id    = github_team.logius-triage.slug
+  }
 }
