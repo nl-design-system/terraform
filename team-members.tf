@@ -195,6 +195,14 @@ resource "github_team_members" "kernteam-dependabot" {
   }
 }
 
+resource "github_team_members" "logius-triage" {
+  team_id = github_team.logius-triage.id
+
+  members {
+    username = data.github_user.aline-nap.username
+  }
+}
+
 resource "github_team_members" "logius-committer" {
   team_id = github_team.logius-committer.id
 
