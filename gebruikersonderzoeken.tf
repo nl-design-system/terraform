@@ -97,6 +97,11 @@ resource "github_repository_collaborators" "gebruikersonderzoeken" {
   }
 
   team {
+    permission = "triage"
+    team_id    = github_team.kernteam-dependabot.slug
+  }
+
+  team {
     permission = "maintain"
     team_id    = github_team.gebruikersonderzoeken.slug
   }
