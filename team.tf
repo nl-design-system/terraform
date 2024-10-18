@@ -479,3 +479,15 @@ resource "github_team" "gemeente-almere-committer" {
   parent_team_id = github_team.gemeente-almere.id
   privacy        = "closed"
 }
+
+resource "github_team" "nora" {
+  name        = "nora"
+  privacy     = "closed"
+  description = "Nederlandse Overheid Referentie Architectuur"
+}
+
+resource "github_team" "nora-committer" {
+  name           = "nora-committer"
+  parent_team_id = github_team.nora.id
+  privacy        = "closed"
+}

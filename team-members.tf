@@ -526,3 +526,11 @@ resource "github_team_members" "gemeente-almere-committer" {
     username = data.github_user.catrinairankhah.username
   }
 }
+
+resource "github_team_members" "nora-committer" {
+  team_id = github_team.nora-committer.id
+
+  members {
+    username = data.github_user.RGRMdesign.username
+  }
+}
