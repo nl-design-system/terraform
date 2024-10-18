@@ -259,4 +259,9 @@ resource "github_repository_collaborators" "themes" {
     permission = "push"
     team_id    = github_team.gemeente-almere-committer.slug
   }
+
+  team {
+    permission = "push"
+    team_id    = github_team.nora-committer.slug
+  }
 }
