@@ -253,3 +253,7 @@ data "github_user" "JoeriRoijenga" {
 data "github_user" "RGRMdesign" {
   username = "RGRMdesign"
 }
+
+data "github_user" "sjimbonator" {
+  username = "sjimbonator"
+}
