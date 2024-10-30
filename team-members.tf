@@ -542,3 +542,19 @@ resource "github_team_members" "nora-committer" {
     username = data.github_user.RGRMdesign.username
   }
 }
+
+resource "github_team_members" "tiptap-committer" {
+  team_id = github_team.tiptap-committer.id
+
+  members {
+    username = data.github_user.ali-kadhim.username
+  }
+
+  members {
+    username = data.github_user.danny-hoek.username
+  }
+
+  members {
+    username = data.github_user.stephan-meijer.username
+  }
+}

@@ -491,3 +491,15 @@ resource "github_team" "nora-committer" {
   parent_team_id = github_team.nora.id
   privacy        = "closed"
 }
+
+resource "github_team" "tiptap" {
+  name        = "tiptap"
+  privacy     = "closed"
+  description = "Tiptap Editor contributors"
+}
+
+resource "github_team" "tiptap-committer" {
+  name           = "tiptap-committer"
+  parent_team_id = github_team.tiptap.id
+  privacy        = "closed"
+}
