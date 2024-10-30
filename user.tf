@@ -257,3 +257,11 @@ data "github_user" "RGRMdesign" {
 data "github_user" "sjimbonator" {
   username = "sjimbonator"
 }
+
+data "github_user" "danny-hoek" {
+  username = "ZwaarContrast"
+}
+
+data "github_user" "stephan-meijer" {
+  username = "StephanMeijer"
+}
