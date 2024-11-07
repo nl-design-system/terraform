@@ -159,6 +159,11 @@ resource "github_repository_collaborators" "denhaag" {
 
   team {
     permission = "push"
+    team_id    = github_team.gemeente-denhaag-acato-committer.slug
+  }
+
+  team {
+    permission = "push"
     team_id    = github_team.denhaag-acato.slug
   }
 

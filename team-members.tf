@@ -283,6 +283,22 @@ resource "github_team_members" "tilburg-acato-committer" {
   }
 }
 
+resource "github_team_members" "gemeente-denhaag-acato-committer" {
+  team_id = github_team.gemeente-denhaag-acato-committer.id
+
+  members {
+    username = data.github_user.marcoderover.username
+  }
+
+  members {
+    username = data.github_user.paulAcato.username
+  }
+
+  members {
+    username = data.github_user.richardkorthuis.username
+  }
+}
+
 resource "github_team_members" "tilburg-acato-maintainer" {
   team_id = github_team.tilburg-acato-maintainer.id
 
