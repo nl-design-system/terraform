@@ -277,3 +277,15 @@ data "github_user" "marloes-broek" {
 data "github_user" "jos-van-der-zalm" {
   username = "josvanderzalm"
 }
+
+data "github_user" "marcoderover" {
+  username = "marcoderover"
+}
+
+data "github_user" "paulAcato" {
+  username = "paulAcato"
+}
+
+data "github_user" "richardkorthuis" {
+  username = "richardkorthuis"
+}

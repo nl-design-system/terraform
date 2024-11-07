@@ -74,6 +74,13 @@ resource "github_team" "gemeente-denhaag-design-system" {
   privacy        = "closed"
 }
 
+resource "github_team" "gemeente-denhaag-acato-committer" {
+  name           = "gemeente-denhaag-acato-committer"
+  parent_team_id = github_team.gemeente-den-haag.id
+  description    = "Team van Acato dat werkt aan het Den Haag Design System"
+  privacy        = "closed"
+}
+
 resource "github_team" "gemeente-rotterdam" {
   name        = "gemeente-rotterdam"
   description = "Gemeente Rotterdam"
