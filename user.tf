@@ -1,12 +1,12 @@
-data "github_user" "ali-kadhim" {
+data "github_user" "AliKdhim87" {
   username = "AliKdhim87"
 }
 
-data "github_user" "aline-nap" {
+data "github_user" "AlineNap" {
   username = "AlineNap"
 }
 
-data "github_user" "astrid-01" {
+data "github_user" "Astrid-01" {
   username = "Astrid-01"
 }
 
@@ -18,7 +18,7 @@ data "github_user" "jeffreylauwers" {
   username = "jeffreylauwers"
 }
 
-data "github_user" "jeroenduc" {
+data "github_user" "JeroenduC" {
   username = "JeroenduC"
 }
 
@@ -42,27 +42,27 @@ data "github_user" "nl-design-system-committer" {
   username = "nl-design-system-committer"
 }
 
-data "github_user" "jaap-hein-wester" {
+data "github_user" "MrSkippy" {
   username = "MrSkippy"
 }
 
-data "github_user" "raoul-wittenberns" {
+data "github_user" "rwittenberns" {
   username = "rwittenberns"
 }
 
-data "github_user" "vlad-afanasev" {
+data "github_user" "VladAfanasev" {
   username = "VladAfanasev"
 }
 
-data "github_user" "mark-meijerink" {
+data "github_user" "MMeijerink" {
   username = "MMeijerink"
 }
 
-data "github_user" "remy-parzinski" {
+data "github_user" "remypar5" {
   username = "remypar5"
 }
 
-data "github_user" "renatenlds" {
+data "github_user" "RenateNLDS" {
   username = "RenateNLDS"
 }
 
@@ -70,39 +70,39 @@ data "github_user" "rianrietveld" {
   username = "rianrietveld"
 }
 
-data "github_user" "robbert" {
+data "github_user" "Robbert" {
   username = "Robbert"
 }
 
-data "github_user" "rozerin" {
+data "github_user" "Rozerinay" {
   username = "Rozerinay"
 }
 
-data "github_user" "yolijn" {
+data "github_user" "Yolijn" {
   username = "Yolijn"
 }
 
-data "github_user" "acato-jorik-bosman" {
+data "github_user" "jorik-acato" {
   username = "jorik-acato"
 }
 
-data "github_user" "acato-joost" {
+data "github_user" "joostacato" {
   username = "joostacato"
 }
 
-data "github_user" "acato-mark" {
+data "github_user" "markacato" {
   username = "markacato"
 }
 
-data "github_user" "acato-cguijt" {
+data "github_user" "cguijt" {
   username = "cguijt"
 }
 
-data "github_user" "robert-roose" {
+data "github_user" "rroose-rvo" {
   username = "rroose-rvo"
 }
 
-data "github_user" "tom-jonkman" {
+data "github_user" "sushitommy" {
   username = "sushitommy"
 }
 
@@ -114,7 +114,7 @@ data "github_user" "hoofdredactie" {
   username = "hoofdredactie"
 }
 
-data "github_user" "mlrfokken" {
+data "github_user" "MLRFokken" {
   username = "MLRFokken"
 }
 
@@ -122,7 +122,7 @@ data "github_user" "r1kkert" {
   username = "r1kkert"
 }
 
-data "github_user" "plassche-dictu" {
+data "github_user" "PLassche-dictu" {
   username = "PLassche-dictu"
 }
 
@@ -130,7 +130,7 @@ data "github_user" "chelly-dictu" {
   username = "chelly-dictu"
 }
 
-data "github_user" "francesca" {
+data "github_user" "ux-fran" {
   username = "ux-fran"
 }
 
@@ -138,19 +138,19 @@ data "github_user" "jeroenschipper-dictu" {
   username = "jeroenschipper-dictu"
 }
 
-data "github_user" "rene-olling" {
+data "github_user" "Ollie-nl" {
   username = "Ollie-nl"
 }
 
-data "github_user" "aram-limpens" {
+data "github_user" "alimpens" {
   username = "alimpens"
 }
 
-data "github_user" "niels-roozemond" {
+data "github_user" "dlnr" {
   username = "dlnr"
 }
 
-data "github_user" "vincent-smedinga" {
+data "github_user" "VincentSmedinga" {
   username = "VincentSmedinga"
 }
 
@@ -166,11 +166,11 @@ data "github_user" "hansregeer" {
   username = "hansregeer"
 }
 
-data "github_user" "nickditp" {
+data "github_user" "NickDITP" {
   username = "NickDITP"
 }
 
-data "github_user" "rberendsditp" {
+data "github_user" "RberendsDITP" {
   username = "RberendsDITP"
 }
 
@@ -226,11 +226,11 @@ data "github_user" "catrinairankhah" {
   username = "catrinairankhah"
 }
 
-data "github_user" "marwa-hello" {
+data "github_user" "Marwaxhello" {
   username = "Marwaxhello"
 }
 
-data "github_user" "tessa-viergever" {
+data "github_user" "TessaViergever" {
   username = "TessaViergever"
 }
 
@@ -238,11 +238,11 @@ data "github_user" "MarjonBakker" {
   username = "MarjonBakker"
 }
 
-data "github_user" "mrgowdy" {
+data "github_user" "MrGowdy" {
   username = "MrGowdy"
 }
 
-data "github_user" "kippetje" {
+data "github_user" "Kippetje" {
   username = "Kippetje"
 }
 
@@ -258,23 +258,23 @@ data "github_user" "sjimbonator" {
   username = "sjimbonator"
 }
 
-data "github_user" "danny-hoek" {
+data "github_user" "ZwaarContrast" {
   username = "ZwaarContrast"
 }
 
-data "github_user" "stephan-meijer" {
+data "github_user" "StephanMeijer" {
   username = "StephanMeijer"
 }
 
-data "github_user" "joost-van-der-steen" {
+data "github_user" "StudioVDS" {
   username = "StudioVDS"
 }
 
-data "github_user" "marloes-broek" {
+data "github_user" "MarloesBroek" {
   username = "MarloesBroek"
 }
 
-data "github_user" "jos-van-der-zalm" {
+data "github_user" "josvanderzalm" {
   username = "josvanderzalm"
 }
 
