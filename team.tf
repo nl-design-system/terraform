@@ -87,10 +87,10 @@ resource "github_team" "gemeente-rotterdam" {
   privacy     = "closed"
 }
 
-resource "github_team" "gemeente-rotterdam-design-system" {
-  name           = "gemeente-rotterdam-design-system"
+resource "github_team" "gemeente-rotterdam-committer" {
+  name           = "gemeente-rotterdam-committer"
   parent_team_id = github_team.gemeente-rotterdam.id
-  description    = "Rotterdam System team"
+  description    = "Rotterdam Design System team"
   privacy        = "closed"
 }
 
