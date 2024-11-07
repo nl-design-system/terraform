@@ -273,3 +273,7 @@ data "github_user" "joost-van-der-steen" {
 data "github_user" "marloes-broek" {
   username = "MarloesBroek"
 }
+
+data "github_user" "jos-van-der-zalm" {
+  username = "josvanderzalm"
+}
