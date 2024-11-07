@@ -602,3 +602,11 @@ resource "github_team_members" "gemeente-rotterdam-committer" {
     username = data.github_user.sanderdegoose.username
   }
 }
+
+resource "github_team_members" "gemeente-groningen" {
+  team_id = github_team.gemeente-groningen.id
+
+  members {
+    username = data.github_user.MariekeBrouwer.username
+  }
+}
