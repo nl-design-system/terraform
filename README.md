@@ -30,6 +30,12 @@ terraform import "github_repository.terraform-playground" "name-of-github-reposi
 
 ## Terraform Cloud
 
+You can login in to Terraform on [app.terraform.io](https://app.terraform.io/session).
+
+### Start using cloud services
+
+When you configure Terraform Cloud, you must configure use the user interface to configure the sensitive variables defined in [`variables.tf`](./variables.tf).
+
 ### How to stop using cloud services
 
 The following code is responsible for storing the Terraform state in the cloud:
