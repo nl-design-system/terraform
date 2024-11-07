@@ -2,7 +2,7 @@ resource "github_team_members" "frameless" {
   team_id = github_team.frameless.id
 
   members {
-    username = data.github_user.ali-kadhim.username
+    username = data.github_user.AliKdhim87.username
   }
 
   members {
@@ -18,11 +18,11 @@ resource "github_team_members" "frameless" {
   }
 
   members {
-    username = data.github_user.marwa-hello.username
+    username = data.github_user.Marwaxhello.username
   }
 
   members {
-    username = data.github_user.tessa-viergever.username
+    username = data.github_user.TessaViergever.username
   }
 }
 
@@ -33,17 +33,17 @@ resource "github_team_members" "frameless-maintainer" {
   # while they have conflicting roles with more permissions in nl-design-system/kernteam.
 
   # members {
-  #   username = data.github_user.yolijn.username
+  #   username = data.github_user.Yolijn.username
   #   role     = "maintainer"
   # }
 
   # members {
-  #   username = data.github_user.robbert.username
+  #   username = data.github_user.Robbert.username
   #   role     = "maintainer"
   # }
 
   members {
-    username = data.github_user.ali-kadhim.username
+    username = data.github_user.AliKdhim87.username
   }
 }
 
@@ -52,13 +52,13 @@ resource "github_team_members" "kernteam-committer" {
 
   members {
     # organization owners must be "maintainer", see note at https://registry.terraform.io/providers/integrations/github/latest/docs/resources/team_members
-    username = data.github_user.robbert.username
+    username = data.github_user.Robbert.username
     role     = "maintainer"
   }
 
   members {
     # organization owners must be "maintainer", see note at https://registry.terraform.io/providers/integrations/github/latest/docs/resources/team_members
-    username = data.github_user.yolijn.username
+    username = data.github_user.Yolijn.username
     role     = "maintainer"
   }
 
@@ -83,7 +83,7 @@ resource "github_team_members" "kernteam-committer" {
   }
 
   members {
-    username = data.github_user.rozerin.username
+    username = data.github_user.Rozerinay.username
   }
 
   members {
@@ -95,7 +95,7 @@ resource "github_team_members" "kernteam-maintainer" {
   team_id = github_team.kernteam-maintainer.id
 
   members {
-    username = data.github_user.robbert.username
+    username = data.github_user.Robbert.username
     # organization owners must be "maintainer", see note at https://registry.terraform.io/providers/integrations/github/latest/docs/resources/team_members
     role = "maintainer"
   }
@@ -113,7 +113,7 @@ resource "github_team_members" "kernteam-maintainer" {
   }
 
   members {
-    username = data.github_user.yolijn.username
+    username = data.github_user.Yolijn.username
     # organization owners must be "maintainer", see note at https://registry.terraform.io/providers/integrations/github/latest/docs/resources/team_members
     role = "maintainer"
   }
@@ -123,7 +123,7 @@ resource "github_team_members" "kernteam-triage" {
   team_id = github_team.kernteam-triage.id
 
   members {
-    username = data.github_user.robbert.username
+    username = data.github_user.Robbert.username
     # organization owners must be "maintainer", see note at https://registry.terraform.io/providers/integrations/github/latest/docs/resources/team_members
     role = "maintainer"
   }
@@ -141,7 +141,7 @@ resource "github_team_members" "kernteam-triage" {
   }
 
   members {
-    username = data.github_user.yolijn.username
+    username = data.github_user.Yolijn.username
     # organization owners must be "maintainer", see note at https://registry.terraform.io/providers/integrations/github/latest/docs/resources/team_members
     role = "maintainer"
   }
@@ -151,15 +151,15 @@ resource "github_team_members" "kernteam-triage" {
   }
 
   members {
-    username = data.github_user.renatenlds.username
+    username = data.github_user.RenateNLDS.username
   }
 
   members {
-    username = data.github_user.astrid-01.username
+    username = data.github_user.Astrid-01.username
   }
 
   members {
-    username = data.github_user.rozerin.username
+    username = data.github_user.Rozerinay.username
   }
 
   members {
@@ -185,7 +185,7 @@ resource "github_team_members" "kernteam-dependabot" {
   team_id = github_team.kernteam-dependabot.id
 
   members {
-    username = data.github_user.robbert.username
+    username = data.github_user.Robbert.username
     # organization owners must be "maintainer", see note at https://registry.terraform.io/providers/integrations/github/latest/docs/resources/team_members
     role = "maintainer"
   }
@@ -199,7 +199,7 @@ resource "github_team_members" "logius-triage" {
   team_id = github_team.logius-triage.id
 
   members {
-    username = data.github_user.aline-nap.username
+    username = data.github_user.AlineNap.username
   }
 }
 
@@ -207,35 +207,35 @@ resource "github_team_members" "logius-committer" {
   team_id = github_team.logius-committer.id
 
   members {
-    username = data.github_user.aline-nap.username
+    username = data.github_user.AlineNap.username
   }
 
   members {
-    username = data.github_user.raoul-wittenberns.username
+    username = data.github_user.rwittenberns.username
   }
 
   members {
-    username = data.github_user.remy-parzinski.username
+    username = data.github_user.remypar5.username
   }
 
   members {
-    username = data.github_user.jaap-hein-wester.username
+    username = data.github_user.MrSkippy.username
   }
 
   members {
-    username = data.github_user.vlad-afanasev.username
+    username = data.github_user.VladAfanasev.username
   }
 
   members {
-    username = data.github_user.mark-meijerink.username
+    username = data.github_user.MMeijerink.username
   }
 
   members {
-    username = data.github_user.mrgowdy.username
+    username = data.github_user.MrGowdy.username
   }
 
   members {
-    username = data.github_user.kippetje.username
+    username = data.github_user.Kippetje.username
   }
 }
 
@@ -243,15 +243,15 @@ resource "github_team_members" "logius-maintainer" {
   team_id = github_team.logius-maintainer.id
 
   members {
-    username = data.github_user.jaap-hein-wester.username
+    username = data.github_user.MrSkippy.username
   }
 
   members {
-    username = data.github_user.raoul-wittenberns.username
+    username = data.github_user.rwittenberns.username
   }
 
   members {
-    username = data.github_user.remy-parzinski.username
+    username = data.github_user.remypar5.username
   }
 }
 
@@ -259,7 +259,7 @@ resource "github_team_members" "gebruikersonderzoeken" {
   team_id = github_team.gebruikersonderzoeken.id
 
   members {
-    username = data.github_user.jeroenduc.username
+    username = data.github_user.JeroenduC.username
   }
 }
 
@@ -267,19 +267,19 @@ resource "github_team_members" "tilburg-acato-committer" {
   team_id = github_team.tilburg-acato-committer.id
 
   members {
-    username = data.github_user.acato-joost.username
+    username = data.github_user.joostacato.username
   }
 
   members {
-    username = data.github_user.acato-mark.username
+    username = data.github_user.markacato.username
   }
 
   members {
-    username = data.github_user.acato-jorik-bosman.username
+    username = data.github_user.jorik-acato.username
   }
 
   members {
-    username = data.github_user.acato-cguijt.username
+    username = data.github_user.cguijt.username
   }
 }
 
@@ -303,7 +303,7 @@ resource "github_team_members" "tilburg-acato-maintainer" {
   team_id = github_team.tilburg-acato-maintainer.id
 
   members {
-    username = data.github_user.acato-jorik-bosman.username
+    username = data.github_user.jorik-acato.username
   }
 }
 
@@ -315,11 +315,11 @@ resource "github_team_members" "tilburg-ditp-committer" {
   }
 
   members {
-    username = data.github_user.nickditp.username
+    username = data.github_user.NickDITP.username
   }
 
   members {
-    username = data.github_user.rberendsditp.username
+    username = data.github_user.RberendsDITP.username
   }
 
   members {
@@ -347,11 +347,11 @@ resource "github_team_members" "rvo" {
   team_id = github_team.rvo.id
 
   members {
-    username = data.github_user.robert-roose.username
+    username = data.github_user.rroose-rvo.username
   }
 
   members {
-    username = data.github_user.tom-jonkman.username
+    username = data.github_user.sushitommy.username
   }
 }
 
@@ -359,11 +359,11 @@ resource "github_team_members" "rvo-committer" {
   team_id = github_team.rvo-committer.id
 
   members {
-    username = data.github_user.robert-roose.username
+    username = data.github_user.rroose-rvo.username
   }
 
   members {
-    username = data.github_user.tom-jonkman.username
+    username = data.github_user.sushitommy.username
   }
 
   members {
@@ -375,7 +375,7 @@ resource "github_team_members" "rvo-committer" {
   }
 
   members {
-    username = data.github_user.mlrfokken.username
+    username = data.github_user.MLRFokken.username
   }
 
   members {
@@ -387,7 +387,7 @@ resource "github_team_members" "rvo-committer" {
   }
 
   members {
-    username = data.github_user.plassche-dictu.username
+    username = data.github_user.PLassche-dictu.username
   }
 
   members {
@@ -399,7 +399,7 @@ resource "github_team_members" "rvo-maintainer" {
   team_id = github_team.rvo-maintainer.id
 
   members {
-    username = data.github_user.robert-roose.username
+    username = data.github_user.rroose-rvo.username
   }
 }
 
@@ -407,7 +407,7 @@ resource "github_team_members" "rvo-estafettemodel" {
   team_id = github_team.rvo-estafettemodel.id
 
   members {
-    username = data.github_user.robert-roose.username
+    username = data.github_user.rroose-rvo.username
   }
 }
 
@@ -415,11 +415,11 @@ resource "github_team_members" "gemeente-utrecht-estafettemodel" {
   team_id = github_team.gemeente-utrecht-estafettemodel.id
 
   members {
-    username = data.github_user.jeroenduc.username
+    username = data.github_user.JeroenduC.username
   }
 
   members {
-    username = data.github_user.rene-olling.username
+    username = data.github_user.Ollie-nl.username
   }
 }
 
@@ -427,15 +427,15 @@ resource "github_team_members" "gemeente-amsterdam-estafettemodel" {
   team_id = github_team.gemeente-amsterdam-estafettemodel.id
 
   members {
-    username = data.github_user.aram-limpens.username
+    username = data.github_user.alimpens.username
   }
 
   members {
-    username = data.github_user.niels-roozemond.username
+    username = data.github_user.dlnr.username
   }
 
   members {
-    username = data.github_user.vincent-smedinga.username
+    username = data.github_user.VincentSmedinga.username
   }
 }
 
@@ -443,11 +443,11 @@ resource "github_team_members" "logius-estafettemodel" {
   team_id = github_team.logius-estafettemodel.id
 
   members {
-    username = data.github_user.aline-nap.username
+    username = data.github_user.AlineNap.username
   }
 
   members {
-    username = data.github_user.remy-parzinski.username
+    username = data.github_user.remypar5.username
   }
 }
 
@@ -455,7 +455,7 @@ resource "github_team_members" "vng-services-committer" {
   team_id = github_team.vng-services-committer.id
 
   members {
-    username = data.github_user.francesca.username
+    username = data.github_user.ux-fran.username
   }
 
   members {
@@ -563,15 +563,15 @@ resource "github_team_members" "tiptap-committer" {
   team_id = github_team.tiptap-committer.id
 
   members {
-    username = data.github_user.ali-kadhim.username
+    username = data.github_user.AliKdhim87.username
   }
 
   members {
-    username = data.github_user.danny-hoek.username
+    username = data.github_user.ZwaarContrast.username
   }
 
   members {
-    username = data.github_user.stephan-meijer.username
+    username = data.github_user.StephanMeijer.username
   }
 }
 
@@ -579,11 +579,11 @@ resource "github_team_members" "documentatie-committer" {
   team_id = github_team.documentatie-committer.id
 
   members {
-    username = data.github_user.joost-van-der-steen.username
+    username = data.github_user.StudioVDS.username
   }
 
   members {
-    username = data.github_user.marloes-broek.username
+    username = data.github_user.MarloesBroek.username
   }
 }
 
@@ -591,7 +591,7 @@ resource "github_team_members" "rivm" {
   team_id = github_team.rivm.id
 
   members {
-    username = data.github_user.jos-van-der-zalm.username
+    username = data.github_user.josvanderzalm.username
   }
 
   members {
