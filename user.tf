@@ -265,3 +265,11 @@ data "github_user" "danny-hoek" {
 data "github_user" "stephan-meijer" {
   username = "StephanMeijer"
 }
+
+data "github_user" "joost-van-der-steen" {
+  username = "StudioVDS"
+}
+
+data "github_user" "marloes-broek" {
+  username = "MarloesBroek"
+}

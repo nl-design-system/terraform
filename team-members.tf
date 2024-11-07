@@ -558,3 +558,15 @@ resource "github_team_members" "tiptap-committer" {
     username = data.github_user.stephan-meijer.username
   }
 }
+
+resource "github_team_members" "documentatie-committer" {
+  team_id = github_team.documentatie-committer.id
+
+  members {
+    username = data.github_user.joost-van-der-steen.username
+  }
+
+  members {
+    username = data.github_user.marloes-broek.username
+  }
+}
