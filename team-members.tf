@@ -570,3 +570,11 @@ resource "github_team_members" "documentatie-committer" {
     username = data.github_user.marloes-broek.username
   }
 }
+
+resource "github_team_members" "rivm" {
+  team_id = github_team.rivm.id
+
+  members {
+    username = data.github_user.jos-van-der-zalm.username
+  }
+}
