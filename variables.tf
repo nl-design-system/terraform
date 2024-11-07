@@ -9,3 +9,9 @@ variable "VERCEL_API_TOKEN" {
   type        = string
   sensitive   = true
 }
+
+variable "PLESK_WEBHOOK_UUID" {
+  description = "Plesk Webhook UUID"
+  type        = string
+  sensitive   = true
+}

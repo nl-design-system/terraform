@@ -126,3 +126,13 @@ resource "github_repository_collaborators" "documentatie" {
     team_id    = github_team.kernteam-dependabot.slug
   }
 }
+
+resource "github_repository_webhook" "documentatie" {
+  repository = github_repository.documentatie.name
+  events     = ["push"]
+
+  configuration {
+    url          = "https://prod.github-push.ictu.nl/modules/git/public/web-hook.php?uuid=${var.PLESK_WEBHOOK_UUID}"
+    content_type = "form"
+  }
+}
