@@ -593,6 +593,10 @@ resource "github_team_members" "rivm" {
   members {
     username = data.github_user.jos-van-der-zalm.username
   }
+
+  members {
+    username = data.github_user.Patricia-de-vos.username
+  }
 }
 
 resource "github_team_members" "gemeente-rotterdam-committer" {
