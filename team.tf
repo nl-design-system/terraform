@@ -87,10 +87,24 @@ resource "github_team" "gemeente-rotterdam" {
   privacy     = "closed"
 }
 
+resource "github_team" "gemeente-rotterdam-triage" {
+  name           = "gemeente-rotterdam-triage"
+  parent_team_id = github_team.gemeente-rotterdam.id
+  description    = "Rotterdam Design System team (read only)"
+  privacy        = "closed"
+}
+
 resource "github_team" "gemeente-rotterdam-committer" {
   name           = "gemeente-rotterdam-committer"
   parent_team_id = github_team.gemeente-rotterdam.id
-  description    = "Rotterdam Design System team"
+  description    = "Rotterdam Design System team (read and write)"
+  privacy        = "closed"
+}
+
+resource "github_team" "gemeente-rotterdam-maintainer" {
+  name           = "gemeente-rotterdam-committer"
+  parent_team_id = github_team.gemeente-rotterdam.id
+  description    = "Rotterdam Design System team (maintainer)"
   privacy        = "closed"
 }
 

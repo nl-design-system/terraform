@@ -102,7 +102,17 @@ resource "github_repository_collaborators" "rotterdam" {
 
   team {
     permission = "maintain"
-    team_id    = github_team.gemeente-rotterdam.slug
+    team_id    = github_team.gemeente-rotterdam-maintainer.slug
+  }
+
+  team {
+    permission = "push"
+    team_id    = github_team.gemeente-rotterdam-committer.slug
+  }
+
+  team {
+    permission = "triage"
+    team_id    = github_team.gemeente-rotterdam-triage.slug
   }
 
   team {

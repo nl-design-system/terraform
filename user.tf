@@ -305,3 +305,15 @@ data "github_user" "Patricia-de-vos" {
 data "github_user" "GerwinTerpstra" {
   username = "GerwinTerpstra"
 }
+
+data "github_user" "Fiemke" {
+  username = "Fiemke"
+}
+
+data "github_user" "RicoRobinson" {
+  username = "RicoRobinson"
+}
+
+data "github_user" "bartheijs" {
+  username = "bartheijs"
+}
