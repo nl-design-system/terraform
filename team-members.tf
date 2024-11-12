@@ -603,8 +603,28 @@ resource "github_team_members" "rivm" {
   }
 }
 
+resource "github_team_members" "gemeente-rotterdam-triage" {
+  team_id = github_team.gemeente-rotterdam-triage.id
+
+  members {
+    username = data.github_user.bartheijs.username
+  }
+
+  members {
+    username = data.github_user.RicoRobinson.username
+  }
+}
+
 resource "github_team_members" "gemeente-rotterdam-committer" {
   team_id = github_team.gemeente-rotterdam-committer.id
+
+  members {
+    username = data.github_user.Fiemke.username
+  }
+}
+
+resource "github_team_members" "gemeente-rotterdam-maintainer" {
+  team_id = github_team.gemeente-rotterdam-maintainer.id
 
   members {
     username = data.github_user.sanderdegoose.username
