@@ -301,3 +301,7 @@ data "github_user" "MariekeBrouwer" {
 data "github_user" "Patricia-de-vos" {
   username = "Patricia-de-vos"
 }
+
+data "github_user" "GerwinTerpstra" {
+  username = "GerwinTerpstra"
+}
