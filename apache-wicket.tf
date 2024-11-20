@@ -28,10 +28,6 @@ resource "github_repository" "apache-wicket" {
   pages {
     build_type = "workflow"
   }
-
-  lifecycle {
-    prevent_destroy = true
-  }
 }
 
 resource "github_repository_ruleset" "apache-wicket-main" {
