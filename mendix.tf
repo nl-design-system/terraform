@@ -1,6 +1,6 @@
-resource "github_repository" "apache-wicket" {
-  name                        = "apache-wicket"
-  description                 = "NL Design System Apache Wicket packages"
+resource "github_repository" "mendix" {
+  name                        = "mendix"
+  description                 = "NL Design System Mendix demo project"
   allow_merge_commit          = false
   allow_rebase_merge          = true
   allow_squash_merge          = true
@@ -11,7 +11,7 @@ resource "github_repository" "apache-wicket" {
   has_projects                = false
   has_wiki                    = false
   vulnerability_alerts        = true
-  homepage_url                = "https://nl-design-system.github.io/apache-wicket/"
+  homepage_url                = "https://nl-design-system.github.io/mendix/"
   squash_merge_commit_title   = "PR_TITLE"
   squash_merge_commit_message = "PR_BODY"
   topics                      = ["nl-design-system"]
@@ -34,9 +34,9 @@ resource "github_repository" "apache-wicket" {
   }
 }
 
-resource "github_repository_ruleset" "apache-wicket-main" {
+resource "github_repository_ruleset" "mendix-main" {
   name        = "main"
-  repository  = github_repository.apache-wicket.name
+  repository  = github_repository.mendix.name
   target      = "branch"
   enforcement = "active"
 
@@ -78,8 +78,8 @@ resource "github_repository_ruleset" "apache-wicket-main" {
   }
 }
 
-resource "github_repository_collaborators" "apache-wicket" {
-  repository = github_repository.apache-wicket.name
+resource "github_repository_collaborators" "mendix" {
+  repository = github_repository.mendix.name
 
   team {
     permission = "admin"
