@@ -298,8 +298,8 @@ data "github_user" "GerwinTerpstra" {
   username = "GerwinTerpstra"
 }
 
-data "github_user" "Fiemke" {
-  username = "Fiemke"
+data "github_user" "fiemke" {
+  username = "fiemke"
 }
 
 data "github_user" "RicoRobinson" {
