@@ -530,9 +530,3 @@ resource "github_team" "documentatie" {
   privacy     = "closed"
   description = "documentatie contributors"
 }
-
-resource "github_team" "documentatie-committer" {
-  name           = "documentatie-committer"
-  parent_team_id = github_team.documentatie.id
-  privacy        = "closed"
-}

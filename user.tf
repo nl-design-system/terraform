@@ -266,14 +266,6 @@ data "github_user" "StephanMeijer" {
   username = "StephanMeijer"
 }
 
-data "github_user" "StudioVDS" {
-  username = "StudioVDS"
-}
-
-data "github_user" "MarloesBroek" {
-  username = "MarloesBroek"
-}
-
 data "github_user" "josvanderzalm" {
   username = "josvanderzalm"
 }
