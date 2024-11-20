@@ -96,14 +96,14 @@ resource "github_team" "gemeente-rotterdam-triage" {
 
 resource "github_team" "gemeente-rotterdam-committer" {
   name           = "gemeente-rotterdam-committer"
-  parent_team_id = github_team.gemeente-rotterdam.id
+  parent_team_id = github_team.gemeente-rotterdam-triage.id
   description    = "Rotterdam Design System team (read and write)"
   privacy        = "closed"
 }
 
 resource "github_team" "gemeente-rotterdam-maintainer" {
-  name           = "gemeente-rotterdam-committer"
-  parent_team_id = github_team.gemeente-rotterdam.id
+  name           = "gemeente-rotterdam-maintainer"
+  parent_team_id = github_team.gemeente-rotterdam-committer.id
   description    = "Rotterdam Design System team (maintainer)"
   privacy        = "closed"
 }
