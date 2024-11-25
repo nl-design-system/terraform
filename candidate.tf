@@ -127,3 +127,19 @@ resource "vercel_project" "candidate" {
     deployment_type = "none"
   }
 }
+
+resource "vercel_project" "candidate-storybook-test" {
+  name             = "candidate-storybook-test"
+  output_directory = "packages/storybook-test/dist/"
+  ignore_command   = "[[ $(git log -1 --pretty=%an) == 'dependabot[bot]' ]]"
+
+  git_repository = {
+    type = "github"
+    repo = "${data.github_organization.nl-design-system.orgname}/${github_repository.candidate.name}"
+  }
+
+  vercel_authentication = {
+    deployment_type = "none"
+  }
+}
+
