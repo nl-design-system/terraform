@@ -601,10 +601,6 @@ resource "github_team_members" "gemeente-rotterdam-triage" {
   members {
     username = data.github_user.bartheijs.username
   }
-
-  members {
-    username = data.github_user.RicoRobinson.username
-  }
 }
 
 resource "github_team_members" "gemeente-rotterdam-committer" {
@@ -620,6 +616,10 @@ resource "github_team_members" "gemeente-rotterdam-committer" {
 
   members {
     username = data.github_user.jstuyts.username
+  }
+
+  members {
+    username = data.github_user.RicoRobinson.username
   }
 }
 
