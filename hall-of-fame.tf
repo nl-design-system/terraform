@@ -15,6 +15,8 @@ resource "github_repository" "hall-of-fame" {
   squash_merge_commit_title   = "PR_TITLE"
   squash_merge_commit_message = "PR_BODY"
   topics                      = ["nl-design-system", "storybook"]
+  visibility                  = "private"
+
 
   template {
     owner                = "nl-design-system"
