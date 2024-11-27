@@ -638,3 +638,80 @@ resource "github_team_members" "gemeente-groningen" {
     username = data.github_user.MariekeBrouwer.username
   }
 }
+
+resource "github_team_members" "community-committer" {
+  team_id = github_team.community-committer.id
+
+  # Quintor folks
+  members {
+    username = data.github_user.Rerbun.username
+  }
+
+  members {
+    username = data.github_user.Rubenoo.username
+  }
+
+  members {
+    username = data.github_user.MeesD94.username
+  }
+
+  members {
+    username = data.github_user.Aref-Akminasi.username
+  }
+
+  members {
+    username = data.github_user.AdhamAH.username
+  }
+
+  members {
+    username = data.github_user.veslav3.username
+  }
+
+  members {
+    username = data.github_user.JoeriRoijenga.username
+  }
+
+  members {
+    username = data.github_user.sjimbonator.username
+  }
+
+  members {
+    username = data.github_user.GerwinTerpstra.username
+  }
+
+  # Frameless folks
+
+  members {
+    username = data.github_user.AliKdhim87.username
+  }
+
+  members {
+    username = data.github_user.savitris.username
+  }
+
+  members {
+    username = data.github_user.bddjong.username
+  }
+
+  members {
+    username = data.github_user.MeesoPost.username
+  }
+
+  members {
+    username = data.github_user.Marwaxhello.username
+  }
+
+  members {
+    username = data.github_user.TessaViergever.username
+  }
+
+  # Utrecht folks
+
+  members {
+    username = data.github_user.JeroenduC.username
+  }
+
+  members {
+    username = data.github_user.Ollie-nl.username
+  }
+}

@@ -111,6 +111,11 @@ resource "github_repository_collaborators" "candidate" {
     permission = "triage"
     team_id    = github_team.kernteam-dependabot.slug
   }
+
+  team {
+    permission = "push"
+    team_id    = github_team.community-committer.slug
+  }
 }
 
 resource "vercel_project" "candidate" {
