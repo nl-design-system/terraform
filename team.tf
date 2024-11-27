@@ -530,3 +530,9 @@ resource "github_team" "documentatie" {
   privacy     = "closed"
   description = "documentatie contributors"
 }
+
+resource "github_team" "community-committer" {
+  name        = "community-committer"
+  privacy     = "closed"
+  description = "Committers who make can make Pull Requests for all public repositories"
+}
