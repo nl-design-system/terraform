@@ -9,7 +9,7 @@ resource "github_repository" "candidate" {
   has_issues                  = true
   has_downloads               = false
   has_projects                = false
-  has_wiki                    = false
+  has_wiki                    = true
   vulnerability_alerts        = true
   homepage_url                = "https://nl-design-system.github.io/candidate/"
   squash_merge_commit_title   = "PR_TITLE"
