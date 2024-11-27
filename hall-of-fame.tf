@@ -1,6 +1,6 @@
-resource "github_repository" "candidate" {
-  name                        = "candidate"
-  description                 = "NL Design System Candidate components"
+resource "github_repository" "hall-of-fame" {
+  name                        = "hall-of-fame"
+  description                 = "NL Design System Hall of Fame components"
   allow_merge_commit          = false
   allow_rebase_merge          = true
   allow_squash_merge          = true
@@ -9,9 +9,9 @@ resource "github_repository" "candidate" {
   has_issues                  = true
   has_downloads               = false
   has_projects                = false
-  has_wiki                    = true
+  has_wiki                    = false
   vulnerability_alerts        = true
-  homepage_url                = "https://nl-design-system.github.io/candidate/"
+  homepage_url                = "https://nl-design-system.github.io/hall-of-fame/"
   squash_merge_commit_title   = "PR_TITLE"
   squash_merge_commit_message = "PR_BODY"
   topics                      = ["nl-design-system", "storybook"]
@@ -40,9 +40,9 @@ resource "github_repository" "candidate" {
   }
 }
 
-resource "github_repository_ruleset" "candidate-main" {
+resource "github_repository_ruleset" "hall-of-fame-main" {
   name        = "main"
-  repository  = github_repository.candidate.name
+  repository  = github_repository.hall-of-fame.name
   target      = "branch"
   enforcement = "active"
 
@@ -84,8 +84,8 @@ resource "github_repository_ruleset" "candidate-main" {
   }
 }
 
-resource "github_repository_collaborators" "candidate" {
-  repository = github_repository.candidate.name
+resource "github_repository_collaborators" "hall-of-fame" {
+  repository = github_repository.hall-of-fame.name
 
   team {
     permission = "admin"
@@ -113,14 +113,14 @@ resource "github_repository_collaborators" "candidate" {
   }
 }
 
-resource "vercel_project" "candidate" {
-  name             = github_repository.candidate.name
+resource "vercel_project" "hall-of-fame" {
+  name             = github_repository.hall-of-fame.name
   output_directory = "packages/storybook/dist"
   ignore_command   = "[[ $(git log -1 --pretty=%an) == 'dependabot[bot]' ]]"
 
   git_repository = {
     type = "github"
-    repo = "${data.github_organization.nl-design-system.orgname}/${github_repository.candidate.name}"
+    repo = "${data.github_organization.nl-design-system.orgname}/${github_repository.hall-of-fame.name}"
   }
 
   vercel_authentication = {
@@ -128,18 +128,17 @@ resource "vercel_project" "candidate" {
   }
 }
 
-resource "vercel_project" "candidate-storybook-test" {
-  name             = "candidate-storybook-test"
+resource "vercel_project" "hall-of-fame-storybook-test" {
+  name             = "hall-of-fame-storybook-test"
   output_directory = "packages/storybook-test/dist/"
   ignore_command   = "[[ $(git log -1 --pretty=%an) == 'dependabot[bot]' ]]"
 
   git_repository = {
     type = "github"
-    repo = "${data.github_organization.nl-design-system.orgname}/${github_repository.candidate.name}"
+    repo = "${data.github_organization.nl-design-system.orgname}/${github_repository.hall-of-fame.name}"
   }
 
   vercel_authentication = {
     deployment_type = "none"
   }
 }
-
