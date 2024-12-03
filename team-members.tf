@@ -209,6 +209,11 @@ resource "github_team_members" "logius-triage" {
   members {
     username = data.github_user.MdenHeld.username
   }
+
+  members {
+    username = data.github_user.RosanneBakker.username
+  }
+
 }
 
 resource "github_team_members" "logius-committer" {
