@@ -211,6 +211,20 @@ resource "github_team" "rivm" {
   privacy     = "closed"
 }
 
+resource "github_team" "rivm-committer" {
+  name           = "rivm-committer"
+  parent_team_id = github_team.rivm.id
+  description    = "Rijksinstituut voor Volksgezondheid en Milieu (RIVM)"
+  privacy        = "closed"
+}
+
+resource "github_team" "rivm-maintainer" {
+  name           = "rivm-maintainer"
+  parent_team_id = github_team.rivm-committer.id
+  description    = "Rijksinstituut voor Volksgezondheid en Milieu (RIVM)"
+  privacy        = "closed"
+}
+
 resource "github_team" "gemeente-amsterdam" {
   name        = "gemeente-amsterdam"
   description = "Gemeente Amsterdam"
