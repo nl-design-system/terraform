@@ -583,15 +583,19 @@ resource "github_team_members" "tiptap-committer" {
   }
 }
 
-resource "github_team_members" "rivm" {
-  team_id = github_team.rivm.id
-
-  members {
-    username = data.github_user.josvanderzalm.username
-  }
+resource "github_team_members" "rivm-committer" {
+  team_id = github_team.rivm-committer.id
 
   members {
     username = data.github_user.Patricia-de-vos.username
+  }
+}
+
+resource "github_team_members" "rivm-maintainer" {
+  team_id = github_team.rivm-maintainer.id
+
+  members {
+    username = data.github_user.josvanderzalm.username
   }
 }
 
