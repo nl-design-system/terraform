@@ -24,15 +24,6 @@ resource "github_repository" "hall-of-fame" {
     include_all_branches = false
   }
 
-  security_and_analysis {
-    secret_scanning {
-      status = "enabled"
-    }
-    secret_scanning_push_protection {
-      status = "enabled"
-    }
-  }
-
   pages {
     build_type = "workflow"
   }
