@@ -151,19 +151,11 @@ resource "github_team_members" "kernteam-triage" {
   }
 
   members {
-    username = data.github_user.RenateNLDS.username
-  }
-
-  members {
     username = data.github_user.Astrid-01.username
   }
 
   members {
     username = data.github_user.Rozerinay.username
-  }
-
-  members {
-    username = data.github_user.wartburggraaf.username
   }
 
   members {
@@ -717,5 +709,10 @@ resource "github_team_members" "community-committer" {
 
   members {
     username = data.github_user.Ollie-nl.username
+  }
+
+  # Kernteam alumni
+  members {
+    username = data.github_user.hidde.username
   }
 }
