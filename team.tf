@@ -54,6 +54,13 @@ resource "github_team" "kernteam-triage" {
   privacy        = "closed"
 }
 
+resource "github_team" "kernteam-a11y" {
+  description    = "Team that contributes to accessibility concerns"
+  name           = "kernteam-a11y"
+  parent_team_id = github_team.kernteam-committer.id
+  privacy        = "closed"
+}
+
 resource "github_team" "gemeente-den-haag" {
   name        = "gemeente-den-haag"
   description = "Gemeente Den Haag"
