@@ -187,6 +187,18 @@ resource "github_team_members" "kernteam-dependabot" {
   }
 }
 
+resource "github_team_members" "kernteam-a11y" {
+  team_id = github_team.kernteam-a11y.id
+
+  members {
+    username = data.github_user.MarjonBakker.username
+  }
+
+  members {
+    username = data.github_user.rianrietveld.username
+  }
+}
+
 resource "github_team_members" "logius-triage" {
   team_id = github_team.logius-triage.id
 

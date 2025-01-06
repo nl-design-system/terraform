@@ -117,6 +117,11 @@ resource "github_repository_collaborators" "documentatie" {
   }
 
   team {
+    permission = "push"
+    team_id    = github_team.kernteam-a11y.slug
+  }
+
+  team {
     permission = "triage"
     team_id    = github_team.kernteam-triage.slug
   }
