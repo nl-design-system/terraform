@@ -250,10 +250,6 @@ data "github_user" "RGRMdesign" {
   username = "RGRMdesign"
 }
 
-data "github_user" "sjimbonator" {
-  username = "sjimbonator"
-}
-
 data "github_user" "ZwaarContrast" {
   username = "ZwaarContrast"
 }
