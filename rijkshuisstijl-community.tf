@@ -59,7 +59,7 @@ resource "github_branch_protection" "rijkshuisstijl-community-main" {
 
   required_status_checks {
     strict   = false
-    contexts = ["build", "lint", "test"]
+    contexts = ["build", "lint", "test", "test-a11y"]
   }
 
   required_pull_request_reviews {
