@@ -507,6 +507,10 @@ resource "github_team_members" "quintor-rijkshuisstijl-committer" {
   }
 
   members {
+    username = data.github_user.sjimbonator.username
+  }
+
+  members {
     username = data.github_user.GerwinTerpstra.username
   }
 }
