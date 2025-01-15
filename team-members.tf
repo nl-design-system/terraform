@@ -652,11 +652,11 @@ resource "github_team_members" "community-committer" {
   }
 
   members {
-    username = data.github_user.JoeriRoijenga.username
+    username = data.github_user.sjimbonator.username
   }
 
   members {
-    username = data.github_user.sjimbonator.username
+    username = data.github_user.JoeriRoijenga.username
   }
 
   members {
