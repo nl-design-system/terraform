@@ -128,6 +128,11 @@ resource "github_repository_collaborators" "rijkshuisstijl-community" {
     permission = "push"
     team_id    = github_team.minjus-rijkshuisstijl-committer.id
   }
+
+  user {
+    permission = "push"
+    username   = data.github_user.WebBeest.username
+  }
 }
 
 resource "vercel_project" "rijkshuisstijl-community-templates" {
