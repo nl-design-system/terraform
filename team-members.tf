@@ -487,10 +487,6 @@ resource "github_team_members" "quintor-rijkshuisstijl-committer" {
   }
 
   members {
-    username = data.github_user.Rubenoo.username
-  }
-
-  members {
     username = data.github_user.MeesD94.username
   }
 
@@ -528,6 +524,10 @@ resource "github_team_members" "quintor-rijkshuisstijl-maintainer" {
 
   members {
     username = data.github_user.MeesD94.username
+  }
+
+  members {
+    username = data.github_user.veslav3.username
   }
 }
 
@@ -653,10 +653,6 @@ resource "github_team_members" "community-committer" {
   # Quintor folks
   members {
     username = data.github_user.Rerbun.username
-  }
-
-  members {
-    username = data.github_user.Rubenoo.username
   }
 
   members {
