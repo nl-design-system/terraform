@@ -227,10 +227,6 @@ resource "github_team_members" "logius-committer" {
   }
 
   members {
-    username = data.github_user.MrSkippy.username
-  }
-
-  members {
     username = data.github_user.VladAfanasev.username
   }
 
@@ -244,6 +240,14 @@ resource "github_team_members" "logius-committer" {
 
   members {
     username = data.github_user.Kippetje.username
+  }
+
+  members {
+    username = data.github_user.edblocker.username
+  }
+
+  members {
+    username = data.github_user.dineshduggal.username
   }
 }
 
