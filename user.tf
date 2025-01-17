@@ -317,3 +317,11 @@ data "github_user" "jstuyts" {
 data "github_user" "MdenHeld" {
   username = "MdenHeld"
 }
+
+data "github_user" "edblocker" {
+  username = "edblocker"
+}
+
+data "github_user" "dineshduggal" {
+  username = "dineshduggal"
+}
