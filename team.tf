@@ -557,3 +557,23 @@ resource "github_team" "community-committer" {
   privacy     = "closed"
   description = "Committers who make can make Pull Requests for all public repositories"
 }
+
+resource "github_team" "expertteam-digitale-toegankelijkheid" {
+  name        = "expertteam-digitale-toegankelijkheid"
+  privacy     = "closed"
+  description = "NL Design System Expert Team for Digital Accessibility"
+}
+
+resource "github_team" "expertteam-digitale-toegankelijkheid-triage" {
+  name           = "expertteam-digitale-toegankelijkheid-triage"
+  parent_team_id = github_team.expertteam-digitale-toegankelijkheid.id
+  privacy        = "closed"
+  description    = "Can contribute to issues and projects of the Expert Team for Digital Accessibility"
+}
+
+resource "github_team" "expertteam-digitale-toegankelijkheid-committer" {
+  name           = "expertteam-digitale-toegankelijkheid-committer"
+  parent_team_id = github_team.expertteam-digitale-toegankelijkheid.id
+  privacy        = "closed"
+  description    = "Committers of the Expert Team for Digital Accessibility"
+}
