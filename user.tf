@@ -325,3 +325,7 @@ data "github_user" "edblocker" {
 data "github_user" "dineshduggal" {
   username = "dineshduggal"
 }
+
+data "github_user" "sjeefr" {
+  username = "sjeefr"
+}

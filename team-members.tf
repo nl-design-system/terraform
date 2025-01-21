@@ -633,6 +633,10 @@ resource "github_team_members" "gemeente-rotterdam-committer" {
   members {
     username = data.github_user.RicoRobinson.username
   }
+
+  members {
+    username = data.github_user.sjeefr.username
+  }
 }
 
 resource "github_team_members" "gemeente-rotterdam-maintainer" {
