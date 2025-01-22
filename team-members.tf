@@ -737,3 +737,43 @@ resource "github_team_members" "community-committer" {
     username = data.github_user.hidde.username
   }
 }
+
+resource "github_team_members" "expertteam-digitale-toegankelijkheid-triage" {
+  team_id = github_team.expertteam-digitale-toegankelijkheid-triage.id
+
+  members {
+    username = data.github_user.MarjonBakker.username
+  }
+  members {
+    username = data.github_user.Rozerinay.username
+  }
+  members {
+    username = data.github_user.Robbert.username
+  }
+  members {
+    username = data.github_user.Yolijn.username
+  }
+
+  members {
+    username = data.github_user.huijkman.username
+  }
+
+  members {
+    username = data.github_user.Astrid-01.username
+  }
+}
+
+resource "github_team_members" "expertteam-digitale-toegankelijkheid-committer" {
+  team_id = github_team.expertteam-digitale-toegankelijkheid-committer.id
+
+  members {
+    username = data.github_user.Robbert.username
+  }
+  members {
+    username = data.github_user.Yolijn.username
+  }
+
+  members {
+    username = data.github_user.huijkman.username
+  }
+}
