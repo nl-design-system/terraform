@@ -58,31 +58,31 @@ resource "github_repository_collaborators" "nlds-community-blocks" {
 
   team {
     permission = "admin"
-    team_id    = github_team.kernteam-admin.slug
+    team_id    = github_team.kernteam-admin.id
   }
 
   team {
     permission = "maintain"
-    team_id    = github_team.kernteam-maintainer.slug
+    team_id    = github_team.kernteam-maintainer.id
   }
 
   team {
     permission = "push"
-    team_id    = github_team.kernteam-committer.slug
+    team_id    = github_team.kernteam-committer.id
   }
 
   team {
     permission = "triage"
-    team_id    = github_team.kernteam-triage.slug
+    team_id    = github_team.kernteam-triage.id
   }
 
   team {
     permission = "push"
-    team_id    = github_team.denhaag-draad.slug
+    team_id    = github_team.denhaag-draad.id
   }
 
   team {
     permission = "push"
-    team_id    = github_team.denhaag-acato.slug
+    team_id    = github_team.denhaag-acato.id
   }
 }

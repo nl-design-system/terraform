@@ -82,46 +82,46 @@ resource "github_repository_collaborators" "rotterdam" {
 
   team {
     permission = "admin"
-    team_id    = github_team.kernteam-admin.slug
+    team_id    = github_team.kernteam-admin.id
   }
 
   team {
     permission = "maintain"
-    team_id    = github_team.kernteam-maintainer.slug
+    team_id    = github_team.kernteam-maintainer.id
   }
 
   team {
     permission = "push"
-    team_id    = github_team.kernteam-committer.slug
+    team_id    = github_team.kernteam-committer.id
   }
 
   team {
     permission = "triage"
-    team_id    = github_team.kernteam-triage.slug
+    team_id    = github_team.kernteam-triage.id
   }
 
   team {
     permission = "maintain"
-    team_id    = github_team.gemeente-rotterdam-maintainer.slug
+    team_id    = github_team.gemeente-rotterdam-maintainer.id
   }
 
   team {
     permission = "push"
-    team_id    = github_team.gemeente-rotterdam-committer.slug
+    team_id    = github_team.gemeente-rotterdam-committer.id
   }
 
   team {
     permission = "triage"
-    team_id    = github_team.gemeente-rotterdam-triage.slug
+    team_id    = github_team.gemeente-rotterdam-triage.id
   }
 
   team {
     permission = "push"
-    team_id    = github_team.frameless.slug
+    team_id    = github_team.frameless.id
   }
 
   team {
     permission = "maintain"
-    team_id    = github_team.frameless-maintainer.slug
+    team_id    = github_team.frameless-maintainer.id
   }
 }

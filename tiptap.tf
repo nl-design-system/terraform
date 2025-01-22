@@ -89,32 +89,32 @@ resource "github_repository_collaborators" "tiptap" {
 
   team {
     permission = "admin"
-    team_id    = github_team.kernteam-admin.slug
+    team_id    = github_team.kernteam-admin.id
   }
 
   team {
     permission = "maintain"
-    team_id    = github_team.kernteam-maintainer.slug
+    team_id    = github_team.kernteam-maintainer.id
   }
 
   team {
     permission = "push"
-    team_id    = github_team.kernteam-committer.slug
+    team_id    = github_team.kernteam-committer.id
   }
 
   team {
     permission = "triage"
-    team_id    = github_team.kernteam-triage.slug
+    team_id    = github_team.kernteam-triage.id
   }
 
   team {
     permission = "triage"
-    team_id    = github_team.kernteam-dependabot.slug
+    team_id    = github_team.kernteam-dependabot.id
   }
 
   team {
     permission = "push"
-    team_id    = github_team.tiptap-committer.slug
+    team_id    = github_team.tiptap-committer.id
   }
 }
 

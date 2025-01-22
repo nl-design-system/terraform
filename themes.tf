@@ -82,186 +82,186 @@ resource "github_repository_collaborators" "themes" {
 
   team {
     permission = "admin"
-    team_id    = github_team.kernteam-admin.slug
+    team_id    = github_team.kernteam-admin.id
   }
 
   team {
     permission = "maintain"
-    team_id    = github_team.kernteam-maintainer.slug
+    team_id    = github_team.kernteam-maintainer.id
   }
 
   team {
     permission = "push"
-    team_id    = github_team.kernteam-committer.slug
+    team_id    = github_team.kernteam-committer.id
   }
 
   team {
     permission = "triage"
-    team_id    = github_team.kernteam-triage.slug
+    team_id    = github_team.kernteam-triage.id
   }
 
   team {
     permission = "push"
-    team_id    = github_team.gemeente-amsterdam.slug
+    team_id    = github_team.gemeente-amsterdam.id
   }
 
   team {
     permission = "push"
-    team_id    = github_team.gemeente-bodegraven-reeuwijk.slug
+    team_id    = github_team.gemeente-bodegraven-reeuwijk.id
   }
 
   team {
     permission = "push"
-    team_id    = github_team.gemeente-bodegraven-reeuwijk.slug
+    team_id    = github_team.gemeente-bodegraven-reeuwijk.id
   }
 
   team {
     permission = "push"
-    team_id    = github_team.gemeente-borne.slug
+    team_id    = github_team.gemeente-borne.id
   }
 
   team {
     permission = "push"
-    team_id    = github_team.gemeente-buren.slug
+    team_id    = github_team.gemeente-buren.id
   }
 
   team {
     permission = "push"
-    team_id    = github_team.gemeente-den-haag.slug
+    team_id    = github_team.gemeente-den-haag.id
   }
 
   team {
     permission = "push"
-    team_id    = github_team.gemeente-drechterland.slug
+    team_id    = github_team.gemeente-drechterland.id
   }
 
   team {
     permission = "push"
-    team_id    = github_team.gemeente-duiven.slug
+    team_id    = github_team.gemeente-duiven.id
   }
 
   team {
     permission = "push"
-    team_id    = github_team.gemeente-enkhuizen.slug
+    team_id    = github_team.gemeente-enkhuizen.id
   }
 
   team {
     permission = "push"
-    team_id    = github_team.gemeente-groningen.slug
+    team_id    = github_team.gemeente-groningen.id
   }
 
   team {
     permission = "push"
-    team_id    = github_team.gemeente-haarlem.slug
+    team_id    = github_team.gemeente-haarlem.id
   }
 
   team {
     permission = "push"
-    team_id    = github_team.gemeente-hoorn.slug
+    team_id    = github_team.gemeente-hoorn.id
   }
 
   team {
     permission = "push"
-    team_id    = github_team.gemeente-horst-aan-de-maas.slug
+    team_id    = github_team.gemeente-horst-aan-de-maas.id
   }
 
   team {
     permission = "push"
-    team_id    = github_team.gemeente-leidschendam-voorburg.slug
+    team_id    = github_team.gemeente-leidschendam-voorburg.id
   }
 
   team {
     permission = "push"
-    team_id    = github_team.gemeente-nijmegen.slug
+    team_id    = github_team.gemeente-nijmegen.id
   }
 
   team {
     permission = "push"
-    team_id    = github_team.gemeente-noordoostpolder.slug
+    team_id    = github_team.gemeente-noordoostpolder.id
   }
 
   team {
     permission = "push"
-    team_id    = github_team.gemeente-stedebroec.slug
+    team_id    = github_team.gemeente-stedebroec.id
   }
 
   team {
     permission = "push"
-    team_id    = github_team.gemeente-tilburg.slug
+    team_id    = github_team.gemeente-tilburg.id
   }
 
   team {
     permission = "push"
-    team_id    = github_team.gemeente-utrecht.slug
+    team_id    = github_team.gemeente-utrecht.id
   }
 
   team {
     permission = "push"
-    team_id    = github_team.gemeente-venray.slug
+    team_id    = github_team.gemeente-venray.id
   }
 
   team {
     permission = "push"
-    team_id    = github_team.gemeente-vught.slug
+    team_id    = github_team.gemeente-vught.id
   }
 
   team {
     permission = "push"
-    team_id    = github_team.gemeente-westervoort.slug
+    team_id    = github_team.gemeente-westervoort.id
   }
 
   team {
     permission = "push"
-    team_id    = github_team.gemeente-zevenaar.slug
+    team_id    = github_team.gemeente-zevenaar.id
   }
 
   team {
     permission = "push"
-    team_id    = github_team.gemeente-zwolle.slug
+    team_id    = github_team.gemeente-zwolle.id
   }
 
   team {
     permission = "push"
-    team_id    = github_team.rid-de-liemers.slug
+    team_id    = github_team.rid-de-liemers.id
   }
 
   team {
     permission = "push"
-    team_id    = github_team.provincie-zuid-holland.slug
+    team_id    = github_team.provincie-zuid-holland.id
   }
 
   team {
     permission = "push"
-    team_id    = github_team.minaz-1overheid.slug
+    team_id    = github_team.minaz-1overheid.id
   }
 
   team {
     permission = "push"
-    team_id    = github_team.frameless.slug
+    team_id    = github_team.frameless.id
   }
 
   team {
     permission = "push"
-    team_id    = github_team.logius.slug
+    team_id    = github_team.logius.id
   }
 
   team {
     permission = "push"
-    team_id    = github_team.voorbeeld-theme-committer.slug
+    team_id    = github_team.voorbeeld-theme-committer.id
   }
 
   team {
     permission = "push"
-    team_id    = github_team.vng-services-committer.slug
+    team_id    = github_team.vng-services-committer.id
   }
 
   team {
     permission = "push"
-    team_id    = github_team.gemeente-almere-committer.slug
+    team_id    = github_team.gemeente-almere-committer.id
   }
 
   team {
     permission = "push"
-    team_id    = github_team.nora-committer.slug
+    team_id    = github_team.nora-committer.id
   }
 }

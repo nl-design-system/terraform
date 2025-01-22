@@ -129,51 +129,51 @@ resource "github_repository_collaborators" "denhaag" {
 
   team {
     permission = "admin"
-    team_id    = github_team.kernteam-admin.slug
+    team_id    = github_team.kernteam-admin.id
   }
 
   team {
     permission = "maintain"
-    team_id    = github_team.kernteam-maintainer.slug
+    team_id    = github_team.kernteam-maintainer.id
   }
 
   team {
     permission = "push"
-    team_id    = github_team.kernteam-committer.slug
+    team_id    = github_team.kernteam-committer.id
   }
 
   team {
     permission = "triage"
-    team_id    = github_team.kernteam-triage.slug
+    team_id    = github_team.kernteam-triage.id
   }
 
   team {
     permission = "admin"
-    team_id    = github_team.gemeente-denhaag-admin.slug
+    team_id    = github_team.gemeente-denhaag-admin.id
   }
 
   team {
     permission = "push"
-    team_id    = github_team.gemeente-denhaag-design-system.slug
+    team_id    = github_team.gemeente-denhaag-design-system.id
   }
 
   team {
     permission = "push"
-    team_id    = github_team.gemeente-denhaag-acato-committer.slug
+    team_id    = github_team.gemeente-denhaag-acato-committer.id
   }
 
   team {
     permission = "push"
-    team_id    = github_team.denhaag-acato.slug
+    team_id    = github_team.denhaag-acato.id
   }
 
   team {
     permission = "push"
-    team_id    = github_team.frameless.slug
+    team_id    = github_team.frameless.id
   }
 
   team {
     permission = "maintain"
-    team_id    = github_team.frameless-maintainer.slug
+    team_id    = github_team.frameless-maintainer.id
   }
 }

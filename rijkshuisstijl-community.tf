@@ -86,47 +86,47 @@ resource "github_repository_collaborators" "rijkshuisstijl-community" {
 
   team {
     permission = "admin"
-    team_id    = github_team.kernteam-admin.slug
+    team_id    = github_team.kernteam-admin.id
   }
 
   team {
     permission = "maintain"
-    team_id    = github_team.kernteam-maintainer.slug
+    team_id    = github_team.kernteam-maintainer.id
   }
 
   team {
     permission = "push"
-    team_id    = github_team.kernteam-committer.slug
+    team_id    = github_team.kernteam-committer.id
   }
 
   team {
     permission = "triage"
-    team_id    = github_team.kernteam-triage.slug
+    team_id    = github_team.kernteam-triage.id
   }
 
   team {
     permission = "push"
-    team_id    = github_team.logius.slug
+    team_id    = github_team.logius.id
   }
 
   team {
     permission = "push"
-    team_id    = github_team.rivm.slug
+    team_id    = github_team.rivm.id
   }
 
   team {
     permission = "push"
-    team_id    = github_team.rvo.slug
+    team_id    = github_team.rvo.id
   }
 
   team {
     permission = "push"
-    team_id    = github_team.quintor-rijkshuisstijl-committer.slug
+    team_id    = github_team.quintor-rijkshuisstijl-committer.id
   }
 
   team {
     permission = "push"
-    team_id    = github_team.minjus-rijkshuisstijl-committer.slug
+    team_id    = github_team.minjus-rijkshuisstijl-committer.id
   }
 }
 
