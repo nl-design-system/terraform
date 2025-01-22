@@ -65,69 +65,69 @@ resource "github_repository_collaborators" "terraform" {
 
   team {
     permission = "admin"
-    team_id    = github_team.kernteam-admin.slug
+    team_id    = github_team.kernteam-admin.id
   }
 
   team {
     permission = "triage"
-    team_id    = github_team.kernteam-dependabot.slug
+    team_id    = github_team.kernteam-dependabot.id
   }
 
   team {
     permission = "push"
-    team_id    = github_team.kernteam-maintainer.slug
+    team_id    = github_team.kernteam-maintainer.id
   }
 
   # Allow maintainers of community teams to make PRs and review PRs
   team {
     permission = "push"
-    team_id    = github_team.frameless-maintainer.slug
+    team_id    = github_team.frameless-maintainer.id
   }
 
   team {
     permission = "push"
-    team_id    = github_team.logius-maintainer.slug
+    team_id    = github_team.logius-maintainer.id
   }
 
   team {
     permission = "push"
-    team_id    = github_team.rvo-maintainer.slug
+    team_id    = github_team.rvo-maintainer.id
   }
 
   team {
     permission = "push"
-    team_id    = github_team.tilburg-acato-maintainer.slug
+    team_id    = github_team.tilburg-acato-maintainer.id
   }
 
   team {
     permission = "push"
-    team_id    = github_team.tilburg-ditp-maintainer.slug
+    team_id    = github_team.tilburg-ditp-maintainer.id
   }
 
   team {
     permission = "push"
-    team_id    = github_team.quintor-rijkshuisstijl-maintainer.slug
+    team_id    = github_team.quintor-rijkshuisstijl-maintainer.id
   }
 
   team {
     permission = "push"
-    team_id    = github_team.blueriq-maintainer.slug
+    team_id    = github_team.blueriq-maintainer.id
   }
 
   team {
     permission = "push"
-    team_id    = github_team.gemeente-rotterdam-maintainer.slug
+    team_id    = github_team.gemeente-rotterdam-maintainer.id
   }
 
   team {
     permission = "push"
-    team_id    = github_team.vng-services-maintainer.slug
+    team_id    = github_team.vng-services-maintainer.id
   }
 
   # Restrict pushes to infrastructure as code to admins and maintainers
 
   team {
     permission = "triage"
-    team_id    = github_team.kernteam-triage.slug
+    team_id    = github_team.kernteam-triage.id
   }
 }
