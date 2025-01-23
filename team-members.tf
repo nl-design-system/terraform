@@ -101,10 +101,6 @@ resource "github_team_members" "kernteam-maintainer" {
   }
 
   members {
-    username = data.github_user.hidde.username
-  }
-
-  members {
     username = data.github_user.matijs.username
   }
 
