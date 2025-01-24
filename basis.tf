@@ -31,10 +31,6 @@ resource "github_repository" "basis" {
     }
   }
 
-  pages {
-    build_type = "workflow"
-  }
-
   lifecycle {
     prevent_destroy = true
   }
