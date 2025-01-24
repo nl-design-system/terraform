@@ -124,6 +124,11 @@ resource "github_repository_collaborators" "terraform" {
     team_id    = github_team.vng-services-maintainer.id
   }
 
+  team {
+    permission = "push"
+    team_id    = github_team.rivm-maintainer.id
+  }
+
   # Restrict pushes to infrastructure as code to admins and maintainers
 
   team {
