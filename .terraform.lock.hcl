@@ -5,7 +5,10 @@ provider "registry.terraform.io/integrations/github" {
   version     = "6.5.0"
   constraints = "6.5.0"
   hashes = [
+    "h1:9yyxcmLnyFkRCxSTRG4SM7pV+c7KcaoPwFNQA51l58g=",
+    "h1:Pd0cxWU/1e78V3pSg5uFzd22OCMOY5g4OOk50np5+c4=",
     "h1:ikIBPXI5lx7cV4aqLWYuL+LQnHmf+FybvdpcsfAqK4o=",
+    "h1:msFKnEvrPd91QPxSrSDzHrjLVX3sfu62FpglcMv0yjo=",
     "h1:rMuaCjyJo4zR9CKZoB1kCpZ9pZke4rlfd+ea0vCpaVg=",
     "zh:3088bfd30c51ebfcb7c8d829465ec7b3c19af684cf1aff1ea1111ad3c6421c11",
     "zh:34f9054b0123f9fa7ab8ebc73591d2cf502f1cc75e7594bde42ce799fcac32b6",
@@ -30,6 +33,10 @@ provider "registry.terraform.io/vercel/vercel" {
   constraints = "2.9.1"
   hashes = [
     "h1:DBBSZzVe1UN3cKJy+dQSY6mPbP7Aa9iazcO+BjG7uwY=",
+    "h1:TtG4qmpkMWufSlE7VMcW7ThbDkdgmysnH0MtFGPGDmM=",
+    "h1:cFE06lbLV/HuJQO/0OXhP9ae1rvOyXQDNMV34f3YPX4=",
+    "h1:oLFoRUZI3dqp09CxTziS7hGop1Eo2VoqxWjVrLIfU18=",
+    "h1:yShtII1A/7qQSz8RCCyd66UUYAhwxScey8J7bn5GC+I=",
     "zh:0986f725873f7f58520106efe749f7a297ca9b985a039d564163603afed76843",
     "zh:13f242cc56e979cc9dbcc9c0b611fac2dff6c6b6c2829ec1774a1a92dfb1874e",
     "zh:1bbc10141350256a26c5a466eee5f2fbeac0c00fd31d802502a33203a3b7c4e5",
