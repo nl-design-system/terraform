@@ -106,6 +106,11 @@ resource "github_repository_collaborators" "rijkshuisstijl-community" {
 
   team {
     permission = "push"
+    team_id    = github_team.frameless.id
+  }
+
+  team {
+    permission = "push"
     team_id    = github_team.logius.id
   }
 
