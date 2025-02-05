@@ -224,10 +224,6 @@ resource "github_team_members" "logius-committer" {
   }
 
   members {
-    username = data.github_user.remypar5.username
-  }
-
-  members {
     username = data.github_user.VladAfanasev.username
   }
 
@@ -256,15 +252,7 @@ resource "github_team_members" "logius-maintainer" {
   team_id = github_team.logius-maintainer.id
 
   members {
-    username = data.github_user.MrSkippy.username
-  }
-
-  members {
     username = data.github_user.rwittenberns.username
-  }
-
-  members {
-    username = data.github_user.remypar5.username
   }
 }
 
@@ -457,10 +445,6 @@ resource "github_team_members" "logius-estafettemodel" {
 
   members {
     username = data.github_user.AlineNap.username
-  }
-
-  members {
-    username = data.github_user.remypar5.username
   }
 }
 
