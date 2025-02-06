@@ -189,10 +189,6 @@ resource "github_team_members" "kernteam-dependabot" {
   members {
     username = data.github_user.matijs.username
   }
-
-  members {
-    username = data.github_user.eslook.username
-  }
 }
 
 resource "github_team_members" "kernteam-a11y" {
