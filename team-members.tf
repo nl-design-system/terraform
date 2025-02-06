@@ -79,6 +79,10 @@ resource "github_team_members" "kernteam-committer" {
   }
 
   members {
+    username = data.github_user.eslook.username
+  }
+
+  members {
     username = data.github_user.nl-design-system-committer.username
   }
 }
@@ -98,6 +102,10 @@ resource "github_team_members" "kernteam-maintainer" {
 
   members {
     username = data.github_user.MarjonBakker.username
+  }
+
+  members {
+    username = data.github_user.eslook.username
   }
 
   members {
@@ -145,6 +153,10 @@ resource "github_team_members" "kernteam-triage" {
   members {
     username = data.github_user.emma-koole.username
   }
+
+  members {
+    username = data.github_user.eslook.username
+  }
 }
 
 resource "github_team_members" "kernteam-ci" {
@@ -168,6 +180,10 @@ resource "github_team_members" "kernteam-dependabot" {
 
   members {
     username = data.github_user.matijs.username
+  }
+
+  members {
+    username = data.github_user.eslook.username
   }
 }
 
@@ -609,6 +625,10 @@ resource "github_team_members" "gemeente-rotterdam-committer" {
 
   members {
     username = data.github_user.aiden-sjeefr.username
+  }
+
+  members {
+    username = data.github_user.eslook.username
   }
 }
 
