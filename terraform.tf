@@ -21,40 +21,51 @@ resource "github_repository" "terraform" {
   }
 }
 
-resource "github_branch_protection" "terraform-main" {
-  repository_id = github_repository.terraform.node_id
+resource "github_branch_default" "terraform-branch-default" {
+  repository = github_repository.terraform.name
+  branch     = "main"
+}
 
-  pattern                         = "main"
-  enforce_admins                  = true
-  allows_deletions                = false
-  require_signed_commits          = false
-  required_linear_history         = true
-  require_conversation_resolution = true
-  allows_force_pushes             = false
-  lock_branch                     = false
+resource "github_repository_ruleset" "terraform-main" {
+  enforcement = "active"
+  name        = "default-branch-protection"
+  repository  = github_repository.terraform.name
+  target      = "branch"
 
-  # Restrict merging PRs to admins
-
-  restrict_pushes {
-    blocks_creations = false
-    push_allowances = [
-      "nl-design-system/${github_team.kernteam-admin.name}",
-    ]
+  conditions {
+    ref_name {
+      include = ["~DEFAULT_BRANCH"]
+      exclude = []
+    }
   }
 
-  required_status_checks {
-    # Require branches to be up to date before merging
-    strict = true
-    contexts = [
-      "Terraform Cloud/nl-design-system/repo-id-1TeEm4rfMfsg6Y6G",
-      "Terraform format check"
-    ]
-  }
+  rules {
+    creation                      = false
+    deletion                      = true
+    non_fast_forward              = true
+    required_linear_history       = true
+    required_signatures           = false
+    update                        = false
+    update_allows_fetch_and_merge = false
 
-  required_pull_request_reviews {
-    dismiss_stale_reviews      = true
-    require_code_owner_reviews = true
-    restrict_dismissals        = false
+    pull_request {
+      dismiss_stale_reviews_on_push     = true
+      require_code_owner_review         = true
+      require_last_push_approval        = false
+      required_approving_review_count   = 1
+      required_review_thread_resolution = true
+    }
+
+    required_status_checks {
+      strict_required_status_checks_policy = true
+
+      required_check {
+        context = "Terraform Cloud/nl-design-system/repo-id-1TeEm4rfMfsg6Y6G"
+      }
+      required_check {
+        context = "Terraform format check"
+      }
+    }
   }
 }
 
