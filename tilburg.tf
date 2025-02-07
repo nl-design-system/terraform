@@ -23,6 +23,9 @@ resource "github_repository" "tilburg" {
   }
 
   pages {
+    build_type = "workflow"
+
+    # A `source` block is only needed when `build_type` is set to `"legacy"`, but because GitHub keeps it around invisibly, we must add it here to prevent churn
     source {
       branch = "gh-pages"
       path   = "/"
@@ -34,50 +37,54 @@ resource "github_repository" "tilburg" {
   }
 }
 
-resource "github_branch_protection" "tilburg-main" {
-  repository_id = github_repository.tilburg.node_id
+resource "github_repository_ruleset" "tilburg-main" {
+  enforcement = "active"
+  name        = "main-branch-protection"
+  repository  = github_repository.tilburg.name
+  target      = "branch"
 
-  pattern                         = "main"
-  enforce_admins                  = false
-  allows_deletions                = false
-  require_signed_commits          = false
-  required_linear_history         = true
-  require_conversation_resolution = true
-  allows_force_pushes             = false
-  lock_branch                     = false
-
-  restrict_pushes {
-    blocks_creations = false
-    push_allowances = [
-      "/${data.github_user.nl-design-system-ci.username}",
-      "nl-design-system/${github_team.kernteam-maintainer.name}",
-      "nl-design-system/${github_team.tilburg-acato-committer.name}",
-      "nl-design-system/${github_team.tilburg-ditp-committer.name}",
-    ]
+  conditions {
+    ref_name {
+      include = ["~DEFAULT_BRANCH"]
+      exclude = []
+    }
   }
 
-  required_status_checks {
-    strict   = false
-    contexts = ["build", "install", "lint", "test"]
+  rules {
+    creation                      = true
+    deletion                      = true
+    non_fast_forward              = true
+    required_linear_history       = true
+    required_signatures           = false
+    update                        = false
+    update_allows_fetch_and_merge = false
+
+    pull_request {
+      dismiss_stale_reviews_on_push     = true
+      require_code_owner_review         = false
+      require_last_push_approval        = false
+      required_approving_review_count   = 1
+      required_review_thread_resolution = true
+    }
+
+    required_status_checks {
+      do_not_enforce_on_create             = false
+      strict_required_status_checks_policy = false
+
+      required_check {
+        context = "install"
+      }
+      required_check {
+        context = "lint"
+      }
+      required_check {
+        context = "test"
+      }
+      required_check {
+        context = "build"
+      }
+    }
   }
-
-  required_pull_request_reviews {
-    dismiss_stale_reviews = true
-    restrict_dismissals   = false
-    pull_request_bypassers = [
-      "/${data.github_user.nl-design-system-ci.username}",
-    ]
-  }
-}
-
-resource "github_branch_protection" "tilburg-gh-pages" {
-  repository_id = github_repository.tilburg.node_id
-
-  pattern                 = "gh-pages"
-  enforce_admins          = true
-  allows_deletions        = false
-  required_linear_history = true
-  allows_force_pushes     = false
 }
 
 resource "github_repository_collaborators" "tilburg" {
