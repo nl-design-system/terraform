@@ -22,6 +22,10 @@ resource "github_repository" "candidate" {
     include_all_branches = false
   }
 
+  pages {
+    build_type = "workflow"
+  }
+
   security_and_analysis {
     secret_scanning {
       status = "enabled"
