@@ -285,6 +285,10 @@ resource "github_team_members" "gemeente-denhaag-acato-committer" {
   members {
     username = data.github_user.richardkorthuis.username
   }
+
+  members {
+    username = data.github_user.merelacato.username
+  }
 }
 
 resource "github_team_members" "tilburg-acato-maintainer" {

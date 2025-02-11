@@ -345,3 +345,7 @@ data "github_user" "WebBeest" {
 data "github_user" "eslook" {
   username = "eslook"
 }
+
+data "github_user" "merelacato" {
+  username = "merelacato"
+}
