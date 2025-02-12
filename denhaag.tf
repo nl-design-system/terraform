@@ -148,6 +148,11 @@ resource "github_repository_collaborators" "denhaag" {
   }
 
   team {
+    permission = "triage"
+    team_id    = github_team.kernteam-dependabot.id
+  }
+
+  team {
     permission = "admin"
     team_id    = github_team.gemeente-denhaag-admin.id
   }
