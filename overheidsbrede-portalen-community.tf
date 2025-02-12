@@ -1,4 +1,4 @@
-resource "github_repository" "services" {
+resource "github_repository" "overheidsbrede-portalen-community" {
   name                        = "overheidsbrede-portalen-community"
   description                 = "Work in Progress: Templates for government services built on the NL Design System architecture."
   allow_merge_commit          = false
@@ -34,8 +34,8 @@ resource "github_repository" "services" {
   }
 }
 
-resource "github_branch_protection" "services-main" {
-  repository_id = github_repository.services.node_id
+resource "github_branch_protection" "overheidsbrede-portalen-community-main" {
+  repository_id = github_repository.overheidsbrede-portalen-community.node_id
 
   pattern                         = "main"
   enforce_admins                  = false
@@ -70,8 +70,8 @@ resource "github_branch_protection" "services-main" {
   }
 }
 
-resource "github_repository_collaborators" "services" {
-  repository = github_repository.services.name
+resource "github_repository_collaborators" "overheidsbrede-portalen-community" {
+  repository = github_repository.overheidsbrede-portalen-community.name
 
   team {
     permission = "admin"
@@ -114,14 +114,14 @@ resource "github_repository_collaborators" "services" {
   }
 }
 
-resource "vercel_project" "services" {
-  name             = github_repository.services.name
+resource "vercel_project" "overheidsbrede-portalen-community" {
+  name             = github_repository.overheidsbrede-portalen-community.name
   output_directory = "packages/storybook/dist/"
   ignore_command   = "[[ $(git log -1 --pretty=%an) == 'dependabot[bot]' ]]"
 
   git_repository = {
     type = "github"
-    repo = "${data.github_organization.nl-design-system.orgname}/${github_repository.services.name}",
+    repo = "${data.github_organization.nl-design-system.orgname}/${github_repository.overheidsbrede-portalen-community.name}",
   }
 
   vercel_authentication = {
