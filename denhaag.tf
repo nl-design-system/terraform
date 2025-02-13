@@ -103,7 +103,7 @@ resource "github_branch_protection" "denhaag-www-denhaag-nl" {
       "${data.github_organization.nl-design-system.orgname}/${github_team.kernteam-maintainer.name}",
       "${data.github_organization.nl-design-system.orgname}/${github_team.gemeente-denhaag-admin.name}",
       "${data.github_organization.nl-design-system.orgname}/${github_team.gemeente-denhaag-design-system.name}",
-      "${data.github_organization.nl-design-system.orgname}/${github_team.denhaag-acato.name}",
+      "${data.github_organization.nl-design-system.orgname}/${github_team.gemeente-denhaag-acato-committer.name}",
     ]
   }
 
