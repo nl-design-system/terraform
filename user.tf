@@ -230,6 +230,10 @@ data "github_user" "MarjonBakker" {
   username = "MarjonBakker"
 }
 
+data "github_user" "RenateRoke" {
+  username = "RenateRoke"
+}
+
 data "github_user" "MrGowdy" {
   username = "MrGowdy"
 }

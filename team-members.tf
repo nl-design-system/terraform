@@ -187,6 +187,10 @@ resource "github_team_members" "kernteam-a11y" {
   }
 
   members {
+    username = data.github_user.RenateRoke.username
+  }
+
+  members {
     username = data.github_user.rianrietveld.username
   }
 }
@@ -703,14 +707,21 @@ resource "github_team_members" "expertteam-digitale-toegankelijkheid-triage" {
   members {
     username = data.github_user.MarjonBakker.username
   }
+
+  members {
+    username = data.github_user.RenateRoke.username
+  }
+
   members {
     username = data.github_user.Rozerinay.username
   }
+
   members {
     # organization owners must be "maintainer", see note at https://registry.terraform.io/providers/integrations/github/latest/docs/resources/team_members
     username = data.github_user.Robbert.username
     role     = "maintainer"
   }
+
   members {
     # organization owners must be "maintainer", see note at https://registry.terraform.io/providers/integrations/github/latest/docs/resources/team_members
     username = data.github_user.Yolijn.username
@@ -734,6 +745,7 @@ resource "github_team_members" "expertteam-digitale-toegankelijkheid-committer" 
     username = data.github_user.Robbert.username
     role     = "maintainer"
   }
+
   members {
     # organization owners must be "maintainer", see note at https://registry.terraform.io/providers/integrations/github/latest/docs/resources/team_members
     username = data.github_user.Yolijn.username
