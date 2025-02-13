@@ -23,6 +23,9 @@ resource "github_repository" "themes" {
   }
 
   pages {
+    build_type = "workflow"
+
+    # A `source` block is only needed when `build_type` is set to `"legacy"`, but because GitHub keeps it around invisibly, we must add it here to prevent churn
     source {
       branch = "gh-pages"
       path   = "/"
@@ -65,16 +68,6 @@ resource "github_branch_protection" "themes-main" {
       "/${data.github_user.nl-design-system-ci.username}",
     ]
   }
-}
-
-resource "github_branch_protection" "themes-gh-pages" {
-  repository_id = github_repository.themes.node_id
-
-  pattern                 = "gh-pages"
-  enforce_admins          = true
-  allows_deletions        = false
-  required_linear_history = true
-  allows_force_pushes     = false
 }
 
 resource "github_repository_collaborators" "themes" {
