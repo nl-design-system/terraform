@@ -34,39 +34,58 @@ resource "github_repository" "overheidsbrede-portalen-community" {
   }
 }
 
-resource "github_branch_protection" "overheidsbrede-portalen-community-main" {
-  repository_id = github_repository.overheidsbrede-portalen-community.node_id
+resource "github_branch_default" "overheidsbrede-portalen-community" {
+  branch     = "main"
+  repository = github_repository.overheidsbrede-portalen-community.name
+}
 
-  pattern                         = "main"
-  enforce_admins                  = false
-  allows_deletions                = false
-  require_signed_commits          = false
-  required_linear_history         = true
-  require_conversation_resolution = true
-  allows_force_pushes             = false
-  lock_branch                     = false
+resource "github_repository_ruleset" "overheidsbrede-portalen-community-main" {
+  enforcement = "active"
+  name        = "default-branch-protection"
+  repository  = github_repository.overheidsbrede-portalen-community.name
+  target      = "branch"
 
-  restrict_pushes {
-    blocks_creations = false
-    push_allowances = [
-      "/${data.github_user.nl-design-system-ci.username}",
-      "nl-design-system/${github_team.kernteam-maintainer.name}",
-      "nl-design-system/${github_team.vng-services-committer.name}",
-      "nl-design-system/${github_team.vng-services-maintainer.name}",
-    ]
+  conditions {
+    ref_name {
+      include = ["~DEFAULT_BRANCH"]
+      exclude = []
+    }
   }
 
-  required_status_checks {
-    strict   = false
-    contexts = ["build", "install", "lint", "test"]
-  }
+  rules {
+    creation                      = true
+    deletion                      = true
+    non_fast_forward              = true
+    required_linear_history       = true
+    required_signatures           = false
+    update                        = false
+    update_allows_fetch_and_merge = false
 
-  required_pull_request_reviews {
-    dismiss_stale_reviews = true
-    restrict_dismissals   = false
-    pull_request_bypassers = [
-      "/${data.github_user.nl-design-system-ci.username}",
-    ]
+    pull_request {
+      dismiss_stale_reviews_on_push     = true
+      require_code_owner_review         = true
+      require_last_push_approval        = false
+      required_approving_review_count   = 1
+      required_review_thread_resolution = true
+    }
+
+    required_status_checks {
+      do_not_enforce_on_create             = false
+      strict_required_status_checks_policy = false
+
+      required_check {
+        context = "install"
+      }
+      required_check {
+        context = "lint"
+      }
+      required_check {
+        context = "test"
+      }
+      required_check {
+        context = "build"
+      }
+    }
   }
 }
 
