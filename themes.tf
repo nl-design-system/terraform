@@ -48,6 +48,12 @@ resource "github_repository_ruleset" "themes-main" {
   repository  = github_repository.themes.name
   target      = "branch"
 
+  bypass_actors {
+    actor_id    = github_team.kernteam-ci.id
+    actor_type  = "Team"
+    bypass_mode = "always"
+  }
+
   conditions {
     ref_name {
       include = ["~DEFAULT_BRANCH"]
@@ -77,16 +83,8 @@ resource "github_repository_ruleset" "themes-main" {
       strict_required_status_checks_policy = false
 
       required_check {
-        context = "install"
-      }
-      required_check {
-        context = "lint"
-      }
-      required_check {
-        context = "test"
-      }
-      required_check {
-        context = "build"
+        context        = "Continuous integration"
+        integration_id = 15368
       }
     }
   }
