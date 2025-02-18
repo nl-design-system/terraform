@@ -21,21 +21,38 @@ resource "github_repository" "backlog" {
   }
 }
 
-resource "github_branch_protection" "backlog-main" {
-  repository_id = github_repository.backlog.node_id
+resource "github_branch_default" "backlog" {
+  repository = github_repository.backlog.name
+  branch     = "main"
+}
 
-  pattern                         = "main"
-  enforce_admins                  = true
-  allows_deletions                = false
-  require_signed_commits          = false
-  required_linear_history         = true
-  require_conversation_resolution = true
-  allows_force_pushes             = false
-  lock_branch                     = false
+resource "github_repository_ruleset" "backlog-main" {
+  enforcement = "active"
+  name        = "main"
+  repository  = github_repository.backlog.name
+  target      = "branch"
 
-  required_pull_request_reviews {
-    dismiss_stale_reviews = true
-    restrict_dismissals   = false
+  conditions {
+    ref_name {
+      include = ["~DEFAULT_BRANCH"]
+      exclude = []
+    }
+  }
+
+  rules {
+    creation                      = true
+    deletion                      = true
+    non_fast_forward              = true
+    required_linear_history       = true
+    required_signatures           = false
+    update                        = false
+    update_allows_fetch_and_merge = false
+
+    pull_request {
+      dismiss_stale_reviews_on_push     = true
+      required_approving_review_count   = 1
+      required_review_thread_resolution = true
+    }
   }
 }
 
