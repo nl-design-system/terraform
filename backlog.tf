@@ -28,7 +28,7 @@ resource "github_branch_default" "backlog" {
 
 resource "github_repository_ruleset" "backlog-main" {
   enforcement = "active"
-  name        = "main"
+  name        = "default-branch-protection"
   repository  = github_repository.backlog.name
   target      = "branch"
 

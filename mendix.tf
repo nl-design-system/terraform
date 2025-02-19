@@ -40,15 +40,26 @@ resource "github_repository" "mendix" {
   }
 }
 
+resource "github_branch_default" "mendix" {
+  repository = github_repository.mendix.name
+  branch     = "main"
+}
+
 resource "github_repository_ruleset" "mendix-main" {
-  name        = "main"
+  enforcement = "active"
+  name        = "default-branch-protection"
   repository  = github_repository.mendix.name
   target      = "branch"
-  enforcement = "active"
+
+  bypass_actors {
+    actor_id    = github_team.kernteam-ci.id
+    actor_type  = "Team"
+    bypass_mode = "always"
+  }
 
   conditions {
     ref_name {
-      include = ["refs/heads/main"]
+      include = ["~DEFAULT_BRANCH"]
       exclude = []
     }
   }
@@ -75,12 +86,6 @@ resource "github_repository_ruleset" "mendix-main" {
         context = "test"
       }
     }
-  }
-
-  bypass_actors {
-    actor_id    = github_team.kernteam-ci.id
-    actor_type  = "Team"
-    bypass_mode = "always"
   }
 }
 

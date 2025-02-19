@@ -33,6 +33,11 @@ resource "github_repository" "denhaag" {
   }
 }
 
+resource "github_branch_default" "denhaag" {
+  repository = github_repository.denhaag.name
+  branch     = "main"
+}
+
 resource "github_branch_protection" "denhaag-main" {
   repository_id = github_repository.denhaag.node_id
 

@@ -43,6 +43,11 @@ resource "github_repository" "rvo" {
   }
 }
 
+resource "github_branch_default" "rvo" {
+  repository = github_repository.rvo.name
+  branch     = "master"
+}
+
 resource "github_branch_protection" "rvo-master" {
   repository_id = github_repository.rvo.node_id
 
