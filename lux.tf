@@ -34,6 +34,11 @@ resource "github_repository" "lux" {
   }
 }
 
+resource "github_branch_default" "lux" {
+  repository = github_repository.lux.name
+  branch     = "main"
+}
+
 resource "github_branch_protection" "lux-main" {
   repository_id = github_repository.lux.node_id
 

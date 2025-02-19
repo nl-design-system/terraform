@@ -29,6 +29,11 @@ resource "github_repository" "documentatie" {
   }
 }
 
+resource "github_branch_default" "documentatie" {
+  repository = github_repository.documentatie.name
+  branch     = "main"
+}
+
 resource "github_branch_protection" "documentatie-main" {
   repository_id = github_repository.documentatie.node_id
 

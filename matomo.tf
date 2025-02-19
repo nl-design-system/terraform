@@ -28,6 +28,11 @@ resource "github_repository" "matomo" {
   }
 }
 
+resource "github_branch_default" "matomo" {
+  repository = github_repository.matomo.name
+  branch     = "main"
+}
+
 resource "github_branch_protection" "matomo-main" {
   repository_id = github_repository.matomo.node_id
 

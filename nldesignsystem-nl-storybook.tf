@@ -34,6 +34,11 @@ resource "github_repository" "nldesignsystem-nl-storybook" {
   }
 }
 
+resource "github_branch_default" "nldesignsystem-nl-storybook" {
+  repository = github_repository.nldesignsystem-nl-storybook.name
+  branch     = "main"
+}
+
 resource "github_branch_protection" "nldesignsystem-nl-storybook-main" {
   repository_id = github_repository.nldesignsystem-nl-storybook.node_id
 

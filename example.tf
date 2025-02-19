@@ -41,6 +41,11 @@ resource "github_repository" "example" {
   }
 }
 
+resource "github_branch_default" "example" {
+  repository = github_repository.example.name
+  branch     = "main"
+}
+
 resource "github_repository_ruleset" "example-main" {
   enforcement = "active"
   name        = "default-branch-protection"

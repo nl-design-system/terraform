@@ -46,26 +46,46 @@ resource "github_repository" "tiptap" {
   }
 }
 
+resource "github_branch_default" "tiptap" {
+  repository = github_repository.tiptap.name
+  branch     = "main"
+}
+
 resource "github_repository_ruleset" "tiptap-main" {
-  name        = "main"
+  enforcement = "active"
+  name        = "default-branch-protection"
   repository  = github_repository.tiptap.name
   target      = "branch"
-  enforcement = "active"
+
+  bypass_actors {
+    actor_id    = github_team.kernteam-ci.id
+    actor_type  = "Team"
+    bypass_mode = "always"
+  }
 
   conditions {
     ref_name {
-      include = ["refs/heads/main"]
+      include = ["~DEFAULT_BRANCH"]
       exclude = []
     }
   }
 
   rules {
+    creation                      = true
+    deletion                      = true
+    non_fast_forward              = true
+    required_linear_history       = true
+    required_signatures           = false
+    update                        = false
+    update_allows_fetch_and_merge = false
+
     pull_request {
       dismiss_stale_reviews_on_push     = true
+      require_code_owner_review         = true
+      require_last_push_approval        = false
       required_approving_review_count   = 1
       required_review_thread_resolution = true
     }
-    required_linear_history = true
 
     required_status_checks {
       required_check {
@@ -81,12 +101,6 @@ resource "github_repository_ruleset" "tiptap-main" {
         context = "test"
       }
     }
-  }
-
-  bypass_actors {
-    actor_id    = github_team.kernteam-ci.id
-    actor_type  = "Team"
-    bypass_mode = "always"
   }
 }
 

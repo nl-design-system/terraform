@@ -20,6 +20,11 @@ resource "github_repository" "nlds-community-blocks" {
   }
 }
 
+resource "github_branch_default" "nlds-community-blocks" {
+  repository = github_repository.nlds-community-blocks.name
+  branch     = "main"
+}
+
 resource "github_branch_protection" "nlds-community-blocks-main" {
   repository_id = github_repository.nlds-community-blocks.node_id
 

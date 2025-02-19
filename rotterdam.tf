@@ -34,6 +34,11 @@ resource "github_repository" "rotterdam" {
   }
 }
 
+resource "github_branch_default" "rotterdam" {
+  repository = github_repository.rotterdam.name
+  branch     = "main"
+}
+
 resource "github_branch_protection" "rotterdam-main" {
   repository_id = github_repository.rotterdam.node_id
 

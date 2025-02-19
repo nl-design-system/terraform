@@ -37,6 +37,11 @@ resource "github_repository" "tilburg" {
   }
 }
 
+resource "github_branch_default" "tilburg" {
+  repository = github_repository.tilburg.name
+  branch     = "main"
+}
+
 resource "github_repository_ruleset" "tilburg-main" {
   enforcement = "active"
   name        = "main-branch-protection"

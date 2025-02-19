@@ -28,6 +28,7 @@ resource "github_repository" "wcag-statistieken" {
   pages {
     build_type = "workflow"
 
+    # A `source` block is only needed when `build_type` is set to `"legacy"`, but because GitHub keeps it around invisibly, we must add it here to prevent churn
     source {
       branch = "main"
       path   = "/"
@@ -39,32 +40,46 @@ resource "github_repository" "wcag-statistieken" {
   }
 }
 
+resource "github_branch_default" "wcag-statistieken" {
+  repository = github_repository.wcag-statistieken.name
+  branch     = "main"
+}
+
 resource "github_repository_ruleset" "wcag-statistieken-main" {
-  name        = "main"
+  enforcement = "active"
+  name        = "default-branch-protection"
   repository  = github_repository.wcag-statistieken.name
   target      = "branch"
-  enforcement = "active"
-
-  conditions {
-    ref_name {
-      include = ["refs/heads/main"]
-      exclude = []
-    }
-  }
-
-  rules {
-    pull_request {
-      dismiss_stale_reviews_on_push     = true
-      required_approving_review_count   = 1
-      required_review_thread_resolution = true
-    }
-    required_linear_history = true
-  }
 
   bypass_actors {
     actor_id    = github_team.kernteam-ci.id
     actor_type  = "Team"
     bypass_mode = "always"
+  }
+
+  conditions {
+    ref_name {
+      include = ["~DEFAULT_BRANCH"]
+      exclude = []
+    }
+  }
+
+  rules {
+    creation                      = true
+    deletion                      = true
+    non_fast_forward              = true
+    required_linear_history       = true
+    required_signatures           = false
+    update                        = false
+    update_allows_fetch_and_merge = false
+
+    pull_request {
+      dismiss_stale_reviews_on_push     = true
+      require_code_owner_review         = true
+      require_last_push_approval        = false
+      required_approving_review_count   = 1
+      required_review_thread_resolution = true
+    }
   }
 }
 

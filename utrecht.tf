@@ -37,6 +37,11 @@ resource "github_repository" "utrecht" {
   }
 }
 
+resource "github_branch_default" "utrecht" {
+  repository = github_repository.utrecht.name
+  branch     = "main"
+}
+
 resource "github_branch_protection" "utrecht-main" {
   repository_id = github_repository.utrecht.node_id
 

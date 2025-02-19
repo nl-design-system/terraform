@@ -26,6 +26,11 @@ resource "github_repository" "nlds-gravity-forms" {
   }
 }
 
+resource "github_branch_default" "nlds-gravity-forms" {
+  repository = github_repository.nlds-gravity-forms.name
+  branch     = "main"
+}
+
 resource "github_branch_protection" "nlds-gravity-forms-main" {
   repository_id = github_repository.nlds-gravity-forms.node_id
 
