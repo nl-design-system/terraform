@@ -1,6 +1,7 @@
 .terraform/
 .env
 *.backup
+node_modules/
 
 #IDE cache
 .idea/

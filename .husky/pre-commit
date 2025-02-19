@@ -1,0 +1,19 @@
+#!/usr/bin/env sh
+
+if ! command -v terraform > /dev/null; then
+  printf "is terraform installed?\n\n"
+  exit 1
+fi
+
+if ! result=$(terraform fmt -check -recursive); then
+  printf "terraform formatting issues in:\n\n"
+  printf "%s\n\n" "$result"
+  exit 1
+fi
+
+if ! result=$(terraform validate); then
+  printf "%s" "$result"
+  exit 1
+fi
+
+unset result

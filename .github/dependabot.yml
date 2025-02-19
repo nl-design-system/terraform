@@ -13,3 +13,9 @@ updates:
       interval: "monthly"
     reviewers:
       - "nl-design-system/kernteam-dependabot"
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "monthly"
+    reviewers:
+      - "nl-design-system/kernteam-dependabot"
