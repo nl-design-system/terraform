@@ -16,6 +16,8 @@ resource "github_repository" "example-with-next-js" {
   squash_merge_commit_message = "PR_BODY"
   topics                      = ["nl-design-system", "react"]
 
+  # prepare for archving
+  archive_on_destroy = true
   lifecycle {
     prevent_destroy = true
   }
