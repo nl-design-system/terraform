@@ -28,6 +28,11 @@ resource "github_repository" "example-with-angular" {
   }
 }
 
+resource "github_branch_default" "example-with-angular" {
+  repository = github_repository.example-with-angular.name
+  branch     = "main"
+}
+
 resource "github_branch_protection" "example-with-angular-main" {
   repository_id = github_repository.example-with-angular.node_id
 

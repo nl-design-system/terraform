@@ -20,6 +20,11 @@ resource "github_repository" "publiccode-parser-action" {
   }
 }
 
+resource "github_branch_default" "publiccode-parser-action" {
+  repository = github_repository.publiccode-parser-action.name
+  branch     = "main"
+}
+
 resource "github_branch_protection" "publiccode-parser-action-main" {
   repository_id = github_repository.publiccode-parser-action.node_id
 

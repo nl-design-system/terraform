@@ -34,6 +34,11 @@ resource "github_repository" "rijkshuisstijl-community" {
   }
 }
 
+resource "github_branch_default" "rijkshuisstijl-community" {
+  repository = github_repository.rijkshuisstijl-community.name
+  branch     = "main"
+}
+
 resource "github_branch_protection" "rijkshuisstijl-community-main" {
   repository_id = github_repository.rijkshuisstijl-community.node_id
 
