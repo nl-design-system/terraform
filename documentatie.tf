@@ -87,9 +87,9 @@ resource "github_repository_ruleset" "documentatie-other" {
   conditions {
     ref_name {
       include = [
-        "gh-pages",
-        "assets",
-        "storybook",
+        "refs/heads/gh-pages",
+        "refs/heads/assets",
+        "refs/heads/storybook",
       ]
       exclude = []
     }
