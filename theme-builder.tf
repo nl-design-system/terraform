@@ -30,10 +30,13 @@ resource "github_repository" "theme-builder" {
   }
 }
 
+/*
+// the repository needs to be initialised first
 resource "github_branch_default" "theme-builder" {
   repository = github_repository.theme-builder.name
   branch     = "main"
 }
+*/
 
 resource "github_repository_ruleset" "theme-builder-main" {
   enforcement = "active"
