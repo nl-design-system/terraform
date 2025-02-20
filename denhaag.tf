@@ -15,12 +15,6 @@ resource "github_repository" "denhaag" {
   squash_merge_commit_message = "PR_BODY"
   topics                      = ["nl-design-system", "storybook", "react", "component-library"]
 
-  template {
-    include_all_branches = false
-    owner                = "nl-design-system"
-    repository           = "example"
-  }
-
   pages {
     source {
       branch = "gh-pages"
