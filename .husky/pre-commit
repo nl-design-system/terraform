@@ -1,11 +1,16 @@
 #!/usr/bin/env sh
+set -euo pipefail
+
+git stash push --quiet --keep-index
+
+trap 'git stash pop --quiet > /dev/null 2>&1' EXIT
 
 if ! command -v terraform > /dev/null; then
   printf "is terraform installed?\n\n"
   exit 1
 fi
 
-if ! result=$(terraform fmt -check -recursive); then
+if ! result=$(git diff --staged --name-only -z -- *.tf *.tfvars *.tftest.hcl | xargs -0 terraform fmt -check); then
   printf "terraform formatting issues in:\n\n"
   printf "%s\n\n" "$result"
   exit 1
@@ -15,5 +20,3 @@ if ! result=$(terraform validate); then
   printf "%s" "$result"
   exit 1
 fi
-
-unset result
