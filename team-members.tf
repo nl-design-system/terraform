@@ -71,10 +71,6 @@ resource "github_team_members" "kernteam-committer" {
   }
 
   members {
-    username = data.github_user.rianrietveld.username
-  }
-
-  members {
     username = data.github_user.Rozerinay.username
   }
 
@@ -135,10 +131,6 @@ resource "github_team_members" "kernteam-triage" {
   }
 
   members {
-    username = data.github_user.rianrietveld.username
-  }
-
-  members {
     username = data.github_user.Astrid-01.username
   }
 
@@ -184,10 +176,6 @@ resource "github_team_members" "kernteam-a11y" {
 
   members {
     username = data.github_user.RenateRoke.username
-  }
-
-  members {
-    username = data.github_user.rianrietveld.username
   }
 }
 
