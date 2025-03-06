@@ -48,52 +48,65 @@ resource "github_branch_default" "rvo" {
   branch     = "master"
 }
 
-resource "github_branch_protection" "rvo-master" {
-  repository_id = github_repository.rvo.node_id
+resource "github_repository_ruleset" "rvo-master" {
+  enforcement = "active"
+  name        = "main"
+  repository  = github_repository.rvo.name
+  target      = "branch"
 
-  pattern                         = "master"
-  enforce_admins                  = false
-  allows_deletions                = false
-  require_signed_commits          = false
-  required_linear_history         = true
-  require_conversation_resolution = false
-  allows_force_pushes             = true
-  lock_branch                     = false
-
-  restrict_pushes {
-    blocks_creations = false
-    push_allowances = [
-      "/${data.github_user.nl-design-system-ci.username}",
-      "nl-design-system/${github_team.kernteam-maintainer.name}",
-      "nl-design-system/${github_team.rvo-committer.name}",
-      "nl-design-system/${github_team.rvo-maintainer.name}",
-    ]
+  bypass_actors {
+    actor_id    = github_team.kernteam-ci.id
+    actor_type  = "Team"
+    bypass_mode = "always"
   }
 
-  required_status_checks {
-    strict   = false
-    contexts = []
+  conditions {
+    ref_name {
+      include = ["~DEFAULT_BRANCH"]
+      exclude = []
+    }
   }
-  required_pull_request_reviews {
-    # As agreed with the RVO team mainainer, no PR approvals are needed
-    required_approving_review_count = 0
-    dismiss_stale_reviews           = true
-    restrict_dismissals             = false
-    pull_request_bypassers = [
-      "/${data.github_user.nl-design-system-ci.username}",
-    ]
+
+  rules {
+    creation                      = false
+    deletion                      = true
+    non_fast_forward              = false
+    required_linear_history       = true
+    required_signatures           = false
+    update                        = false
+    update_allows_fetch_and_merge = false
+
+    pull_request {
+      dismiss_stale_reviews_on_push     = true
+      require_code_owner_review         = true
+      require_last_push_approval        = false
+      required_approving_review_count   = 1
+      required_review_thread_resolution = true
+    }
   }
 }
 
+resource "github_repository_ruleset" "rvo-other" {
+  enforcement = "active"
+  name        = "other-branch-protection"
+  repository  = github_repository.rvo.name
+  target      = "branch"
 
-resource "github_branch_protection" "rvo-gh-pages" {
-  repository_id = github_repository.rvo.node_id
-
-  pattern                 = "gh-pages"
-  enforce_admins          = true
-  allows_deletions        = false
-  required_linear_history = true
-  allows_force_pushes     = false
+  conditions {
+    ref_name {
+      include = ["refs/heads/gh-pages"]
+      exclude = []
+    }
+  }
+  rules {
+    creation                      = false
+    deletion                      = true
+    non_fast_forward              = true
+    required_linear_history       = true
+    required_signatures           = false
+    update                        = false
+    update_allows_fetch_and_merge = false
+  }
 }
 
 resource "github_repository_collaborators" "rvo" {
