@@ -42,36 +42,61 @@ resource "github_branch_default" "utrecht" {
   branch     = "main"
 }
 
-resource "github_branch_protection" "utrecht-main" {
-  repository_id = github_repository.utrecht.node_id
+resource "github_repository_ruleset" "utrecht-main" {
+  enforcement = "active"
+  name        = "default-branch-protection"
+  repository  = github_repository.utrecht.name
+  target      = "branch"
 
-  pattern                         = "main"
-  enforce_admins                  = false
-  allows_deletions                = false
-  require_signed_commits          = false
-  required_linear_history         = true
-  require_conversation_resolution = true
-  allows_force_pushes             = false
-  lock_branch                     = false
-
-  restrict_pushes {
-    blocks_creations = false
-    push_allowances = [
-      "/${data.github_user.nl-design-system-ci.username}",
-    ]
+  bypass_actors {
+    actor_id    = github_team.kernteam-ci.id
+    actor_type  = "Team"
+    bypass_mode = "always"
   }
 
-  required_status_checks {
-    strict   = false
-    contexts = ["build", "lint", "test", "Block Autosquash Commits", "UI Tests"]
+  conditions {
+    ref_name {
+      include = ["~DEFAULT_BRANCH"]
+      exclude = []
+    }
   }
 
-  required_pull_request_reviews {
-    dismiss_stale_reviews = true
-    restrict_dismissals   = false
-    pull_request_bypassers = [
-      "/${data.github_user.nl-design-system-ci.username}",
-    ]
+  rules {
+    creation                      = false
+    deletion                      = true
+    non_fast_forward              = true
+    required_linear_history       = true
+    required_signatures           = false
+    update                        = false
+    update_allows_fetch_and_merge = false
+
+    pull_request {
+      dismiss_stale_reviews_on_push     = true
+      require_code_owner_review         = true
+      require_last_push_approval        = false
+      required_approving_review_count   = 1
+      required_review_thread_resolution = true
+    }
+
+    required_status_checks {
+      strict_required_status_checks_policy = false
+
+      required_check {
+        context = "build"
+      }
+      required_check {
+        context = "lint"
+      }
+      required_check {
+        context = "test"
+      }
+      required_check {
+        context = "Block Autosquash Commits"
+      }
+      required_check {
+        context = "UI Tests"
+      }
+    }
   }
 }
 
