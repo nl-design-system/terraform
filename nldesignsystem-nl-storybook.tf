@@ -59,7 +59,7 @@ resource "github_repository_ruleset" "nldesignsystem-nl-storybook-main" {
   }
 
   rules {
-    creation                      = true
+    creation                      = false
     deletion                      = true
     non_fast_forward              = true
     required_linear_history       = true
@@ -107,7 +107,7 @@ resource "github_repository_ruleset" "nldesignsystem-nl-storybook-other" {
     }
   }
   rules {
-    creation                      = true
+    creation                      = false
     deletion                      = true
     non_fast_forward              = true
     required_linear_history       = true

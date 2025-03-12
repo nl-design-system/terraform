@@ -47,7 +47,7 @@ resource "github_repository_ruleset" "matomo-main" {
   }
 
   rules {
-    creation                      = true
+    creation                      = false
     deletion                      = true
     non_fast_forward              = true
     required_linear_history       = true
