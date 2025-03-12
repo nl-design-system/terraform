@@ -39,7 +39,7 @@ resource "github_repository_ruleset" "publiccode-parser-action-main" {
   }
 
   rules {
-    creation                      = true
+    creation                      = false
     deletion                      = true
     non_fast_forward              = true
     required_linear_history       = true
