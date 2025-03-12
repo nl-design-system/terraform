@@ -62,6 +62,8 @@ resource "github_repository_ruleset" "nlds-community-blocks-main" {
     }
 
     required_status_checks {
+      strict_required_status_checks_policy = false
+
       required_check {
         context = "build"
       }

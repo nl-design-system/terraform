@@ -88,6 +88,8 @@ resource "github_repository_ruleset" "candidate-main" {
     }
 
     required_status_checks {
+      strict_required_status_checks_policy = true
+
       required_check {
         context = "build"
       }
@@ -99,6 +101,9 @@ resource "github_repository_ruleset" "candidate-main" {
       }
       required_check {
         context = "test"
+      }
+      required_check {
+        context = "Block Autosquash Commits"
       }
     }
   }
