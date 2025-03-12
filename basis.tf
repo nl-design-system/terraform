@@ -78,6 +78,8 @@ resource "github_repository_ruleset" "basis-main" {
     }
 
     required_status_checks {
+      strict_required_status_checks_policy = true
+
       required_check {
         context = "build"
       }

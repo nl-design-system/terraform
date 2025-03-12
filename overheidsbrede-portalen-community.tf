@@ -70,7 +70,6 @@ resource "github_repository_ruleset" "overheidsbrede-portalen-community-main" {
     }
 
     required_status_checks {
-      do_not_enforce_on_create             = false
       strict_required_status_checks_policy = false
 
       required_check {
