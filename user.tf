@@ -353,3 +353,11 @@ data "github_user" "mennovanslooten" {
 data "github_user" "merelacato" {
   username = "merelacato"
 }
+
+data "github_user" "hvgeertruy" {
+  username = "hvgeertruy"
+}
+
+data "github_user" "Sanderoost" {
+  username = "Sanderoost"
+}
