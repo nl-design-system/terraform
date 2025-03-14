@@ -86,4 +86,9 @@ resource "github_repository_collaborators" "matomo" {
     permission = "triage"
     team_id    = github_team.kernteam-triage.id
   }
+
+  team {
+    permission = "triage"
+    team_id    = github_team.kernteam-dependabot.id
+  }
 }

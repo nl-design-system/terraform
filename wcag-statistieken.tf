@@ -97,6 +97,11 @@ resource "github_repository_collaborators" "wcag-statistieken" {
   }
 
   team {
+    permission = "triage"
+    team_id    = github_team.kernteam-dependabot.id
+  }
+
+  team {
     permission = "push"
     team_id    = github_team.expertteam-digitale-toegankelijkheid-committer.id
   }
