@@ -60,6 +60,12 @@ resource "github_repository_ruleset" "rvo-master" {
     bypass_mode = "always"
   }
 
+  bypass_actors {
+    actor_id    = github_team.rvo-maintainer.id
+    actor_type  = "Team"
+    bypass_mode = "always"
+  }
+
   conditions {
     ref_name {
       include = ["~DEFAULT_BRANCH"]
