@@ -70,6 +70,26 @@ resource "github_repository_ruleset" "architectuur-main" {
       required_approving_review_count   = 0
       required_review_thread_resolution = true
     }
+
+    required_status_checks {
+      strict_required_status_checks_policy = true
+
+      required_check {
+        context = "build"
+      }
+      required_check {
+        context = "install"
+      }
+      required_check {
+        context = "lint"
+      }
+      required_check {
+        context = "test"
+      }
+      required_check {
+        context = "Block Autosquash Commits"
+      }
+    }
   }
 }
 
