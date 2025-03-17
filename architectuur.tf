@@ -126,3 +126,18 @@ resource "github_repository_collaborators" "architectuur" {
     team_id    = github_team.expertteam-digitale-toegankelijkheid-committer.id
   }
 }
+
+resource "vercel_project" "architectuur" {
+  name             = github_repository.architectuur.name
+  output_directory = "dist/"
+  ignore_command   = "[[ $(git log -1 --pretty=%an) == 'dependabot[bot]' ]]"
+
+  git_repository = {
+    type = "github"
+    repo = "${data.github_organization.nl-design-system.orgname}/${github_repository.architectuur.name}",
+  }
+
+  vercel_authentication = {
+    deployment_type = "none"
+  }
+}
