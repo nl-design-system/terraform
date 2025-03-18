@@ -144,7 +144,7 @@ resource "vercel_project" "architectuur" {
 
   git_repository = {
     type = "github"
-    repo = "${data.github_organization.nl-design-system.orgname}/${github_repository.architectuur.name}",
+    repo = "${data.github_organization.nl-design-system.orgname}/${github_repository.architectuur.name}"
   }
 
   vercel_authentication = {
