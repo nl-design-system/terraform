@@ -103,6 +103,30 @@ resource "github_repository_ruleset" "architectuur-main" {
   }
 }
 
+resource "github_actions_repository_permissions" "architectuur" {
+  allowed_actions = "selected"
+
+  allowed_actions_config {
+    github_owned_allowed = true
+    patterns_allowed = [
+      # GitHub owned actions
+      "actions/checkout@",
+      "actions/configure-pages@",
+      "actions/deploy-pages@",
+      "actions/setup-node@",
+      "actions/upload-pages-artifact@",
+      # Third party organisation owned actions
+      "pnpm/action-setup@",
+      # Third party individually owned actions
+      "xt0rted/block-autosquash-commits-action@",
+
+    ]
+    verified_allowed = false
+  }
+
+  repository = github_repository.architectuur.repo_id
+}
+
 resource "github_repository_collaborators" "architectuur" {
   repository = github_repository.architectuur.name
 
