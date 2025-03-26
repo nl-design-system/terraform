@@ -67,6 +67,13 @@ resource "github_team" "gemeente-den-haag" {
   privacy     = "closed"
 }
 
+resource "github_team" "gemeente-den-haag-maintainer" {
+  name           = "gemeente-den-haag-maintainer"
+  description    = "Can configure GitHub via Terraform, with approval from kernteam-admin."
+  parent_team_id = github_team.gemeente-den-haag.id
+  privacy        = "closed"
+}
+
 resource "github_team" "gemeente-denhaag-admin" {
   name           = "gemeente-denhaag-admin"
   parent_team_id = github_team.gemeente-den-haag.id
