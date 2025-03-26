@@ -102,6 +102,11 @@ resource "github_repository_collaborators" "terraform" {
 
   team {
     permission = "push"
+    team_id    = github_team.gemeente-den-haag-maintainer.id
+  }
+
+  team {
+    permission = "push"
     team_id    = github_team.rvo-maintainer.id
   }
 
