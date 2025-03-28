@@ -105,6 +105,9 @@ resource "github_repository_ruleset" "candidate-main" {
       required_check {
         context = "Block Autosquash Commits"
       }
+      required_check {
+        context = "changeset-status"
+      }
     }
   }
 }
