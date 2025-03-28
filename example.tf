@@ -91,6 +91,9 @@ resource "github_repository_ruleset" "example-main" {
       required_check {
         context = "build"
       }
+      required_check {
+        context = "block-autosquash-commits"
+      }
     }
   }
 }
