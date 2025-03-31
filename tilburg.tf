@@ -121,6 +121,16 @@ resource "github_repository_collaborators" "tilburg" {
 
   team {
     permission = "push"
+    team_id    = github_team.tilburg-committer.id
+  }
+
+  team {
+    permission = "push"
+    team_id    = github_team.tilburg-maintainer.id
+  }
+
+  team {
+    permission = "push"
     team_id    = github_team.tilburg-acato-committer.id
   }
 

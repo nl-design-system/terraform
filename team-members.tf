@@ -315,6 +315,14 @@ resource "github_team_members" "gemeente-denhaag-acato-committer" {
   }
 }
 
+resource "github_team_members" "tilburg-maintainer" {
+  team_id = github_team.tilburg-maintainer.id
+
+  members {
+    username = data.github_user.banaan666.username
+  }
+}
+
 resource "github_team_members" "tilburg-acato-maintainer" {
   team_id = github_team.tilburg-acato-maintainer.id
 
