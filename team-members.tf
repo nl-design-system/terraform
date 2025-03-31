@@ -353,6 +353,10 @@ resource "github_team_members" "tilburg-ditp-committer" {
   members {
     username = data.github_user.daanditp.username
   }
+
+  members {
+    username = data.github_user.Lveditp.username
+  }
 }
 
 resource "github_team_members" "blueriq-committer" {
