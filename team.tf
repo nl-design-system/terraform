@@ -408,6 +408,18 @@ resource "github_team" "tilburg" {
   privacy = "closed"
 }
 
+resource "github_team" "tilburg-committer" {
+  name           = "tilburg-committer"
+  parent_team_id = github_team.tilburg.id
+  privacy        = "closed"
+}
+
+resource "github_team" "tilburg-maintainer" {
+  name           = "tilburg-maintainer"
+  parent_team_id = github_team.tilburg-committer.id
+  privacy        = "closed"
+}
+
 resource "github_team" "tilburg-acato-committer" {
   name           = "tilburg-acato"
   parent_team_id = github_team.tilburg.id
