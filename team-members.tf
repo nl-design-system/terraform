@@ -321,6 +321,10 @@ resource "github_team_members" "tilburg-maintainer" {
   members {
     username = data.github_user.banaan666.username
   }
+
+  members {
+    username = data.github_user.Tim-van-Oudheusden.username
+  }
 }
 
 resource "github_team_members" "tilburg-acato-maintainer" {
