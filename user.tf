@@ -365,3 +365,24 @@ data "github_user" "hvgeertruy" {
 data "github_user" "Sanderoost" {
   username = "Sanderoost"
 }
+
+data "github_user" "Lveditp" {
+  username = "Lveditp"
+}
+
+data "github_user" "Borai" {
+  username = "Borai"
+}
+
+data "github_user" "YourivHDenHaag" {
+  username = "YourivHDenHaag"
+}
+
+data "github_user" "banaan666" {
+  username = "banaan666"
+}
+
+data "github_user" "Tim-van-Oudheusden" {
+  username = "Tim-van-Oudheusden"
+}
+
