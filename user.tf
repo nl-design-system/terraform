@@ -94,6 +94,10 @@ data "github_user" "markacato" {
   username = "markacato"
 }
 
+data "github_user" "razjar" {
+  username = "razjar"
+}
+
 data "github_user" "cguijt" {
   username = "cguijt"
 }

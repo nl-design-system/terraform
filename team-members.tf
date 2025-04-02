@@ -313,6 +313,10 @@ resource "github_team_members" "gemeente-denhaag-acato-committer" {
   members {
     username = data.github_user.merelacato.username
   }
+
+  members {
+    username = data.github_user.razjar.username
+  }
 }
 
 resource "github_team_members" "tilburg-maintainer" {
