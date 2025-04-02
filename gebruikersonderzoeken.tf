@@ -77,11 +77,11 @@ resource "github_repository_ruleset" "gebruikersonderzoeken-main" {
       strict_required_status_checks_policy = false
 
       required_check {
-        context = "Lint code"
+        context = "lint"
       }
 
       required_check {
-        context = "Build"
+        context = "build"
       }
     }
   }
