@@ -796,3 +796,24 @@ resource "github_team_members" "expertteam-digitale-toegankelijkheid-committer" 
     username = data.github_user.huijkman.username
   }
 }
+
+resource "github_team_members" "developer_overheid_nl-committer" {
+  team_id = github_team.developer_overheid_nl-committer.id
+
+  members {
+    username = data.github_user.MrSkippy.username
+  }
+
+  members {
+    username = data.github_user.tomootes.username
+  }
+}
+
+resource "github_team_members" "developer_overheid_nl-maintainer" {
+  team_id = github_team.developer_overheid_nl-maintainer.id
+
+  members {
+    username = data.github_user.dvh.username
+    role     = "maintainer"
+  }
+}
