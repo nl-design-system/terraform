@@ -386,3 +386,10 @@ data "github_user" "Tim-van-Oudheusden" {
   username = "Tim-van-Oudheusden"
 }
 
+data "github_user" "dvh" {
+  username = "dvh"
+}
+
+data "github_user" "tomootes" {
+  username = "tomootes"
+}

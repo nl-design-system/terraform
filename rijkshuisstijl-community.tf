@@ -176,6 +176,11 @@ resource "github_repository_collaborators" "rijkshuisstijl-community" {
     team_id    = github_team.minjus-rijkshuisstijl-committer.id
   }
 
+  team {
+    permission = "push"
+    team_id    = github_team.developer_overheid_nl-committer.id
+  }
+
   user {
     permission = "push"
     username   = data.github_user.WebBeest.username
