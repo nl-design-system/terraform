@@ -1,21 +1,31 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 set -euo pipefail
 
+# If there is nothing staged at all, immediately exit successfully, it was probably a `git commit --amend`
+if [[ -z $(git diff --staged --diff-filter=ACM --name-only) ]]; then
+  exit 0
+fi
+
+# Stash only what wasn't staged (--keep-index)
 git stash push --quiet --keep-index
 
+# Pop the stash after we're done, regardless of success
 trap 'git stash pop --quiet > /dev/null 2>&1' EXIT
 
+# Check if terraform is installed
 if ! command -v terraform > /dev/null; then
   printf "is terraform installed?\n\n"
   exit 1
 fi
 
-if ! result=$(git diff --staged --name-only -z -- *.tf *.tfvars *.tftest.hcl | xargs -0 terraform fmt -check); then
+# Check for formatting issues
+if ! result=$(git diff --staged --diff-filter=ACM --name-only -z -- *.tf *.tfvars *.tftest.hcl | xargs -0 terraform fmt -check); then
   printf "terraform formatting issues in:\n\n"
   printf "%s\n\n" "$result"
   exit 1
 fi
 
+# Cursory check if the configuration is valid
 if ! result=$(terraform validate); then
   printf "%s" "$result"
   exit 1
