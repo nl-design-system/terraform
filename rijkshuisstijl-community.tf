@@ -201,3 +201,19 @@ resource "vercel_project" "rijkshuisstijl-community-templates" {
     deployment_type = "none"
   }
 }
+
+resource "vercel_project" "rijkshuisstijl-community-storybook-angular" {
+  name             = "rijkshuisstijl-community-storybook-angular"
+  output_directory = "packages/storybook-angular/dist/"
+  ignore_command   = "[[ $(git log -1 --pretty=%an) == 'dependabot[bot]' ]]"
+  node_version     = "22.x"
+
+  git_repository = {
+    type = "github"
+    repo = "${data.github_organization.nl-design-system.orgname}/${github_repository.rijkshuisstijl-community.name}"
+  }
+
+  vercel_authentication = {
+    deployment_type = "none"
+  }
+}
