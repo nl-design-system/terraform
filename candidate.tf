@@ -149,7 +149,7 @@ resource "vercel_project" "candidate" {
 
   git_repository = {
     type = "github"
-    repo = "${data.github_organization.nl-design-system.orgname}/${github_repository.candidate.name}"
+    repo = github_repository.candidate.full_name
   }
 
   vercel_authentication = {
@@ -165,7 +165,7 @@ resource "vercel_project" "candidate-storybook-non-conforming" {
 
   git_repository = {
     type = "github"
-    repo = "${data.github_organization.nl-design-system.orgname}/${github_repository.candidate.name}"
+    repo = github_repository.candidate.full_name
   }
 
   vercel_authentication = {
@@ -181,7 +181,7 @@ resource "vercel_project" "candidate-storybook-test" {
 
   git_repository = {
     type = "github"
-    repo = "${data.github_organization.nl-design-system.orgname}/${github_repository.candidate.name}"
+    repo = github_repository.candidate.full_name
   }
 
   vercel_authentication = {

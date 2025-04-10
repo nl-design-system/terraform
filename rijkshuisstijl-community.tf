@@ -187,6 +187,22 @@ resource "github_repository_collaborators" "rijkshuisstijl-community" {
   }
 }
 
+resource "vercel_project" "rijkshuisstijl-community" {
+  name             = "rijkshuisstijl-community"
+  output_directory = "packages/storybook/dist/"
+  ignore_command   = "[[ $(git log -1 --pretty=%an) == 'dependabot[bot]' ]]"
+  node_version     = "22.x"
+
+  git_repository = {
+    type = "github"
+    repo = github_repository.rijkshuisstijl-community.full_name
+  }
+
+  vercel_authentication = {
+    deployment_type = "none"
+  }
+}
+
 resource "vercel_project" "rijkshuisstijl-community-templates" {
   name             = "rijkshuisstijl-community-templates"
   output_directory = "apps/rhc-templates/dist/"
@@ -195,7 +211,7 @@ resource "vercel_project" "rijkshuisstijl-community-templates" {
 
   git_repository = {
     type = "github"
-    repo = "${data.github_organization.nl-design-system.orgname}/${github_repository.rijkshuisstijl-community.name}"
+    repo = github_repository.rijkshuisstijl-community.full_name
   }
 
   vercel_authentication = {
