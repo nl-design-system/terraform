@@ -149,7 +149,7 @@ resource "vercel_project" "tiptap" {
 
   git_repository = {
     type = "github"
-    repo = "${data.github_organization.nl-design-system.orgname}/${github_repository.tiptap.name}",
+    repo = github_repository.tiptap.full_name
   }
 
   vercel_authentication = {

@@ -127,7 +127,7 @@ resource "vercel_project" "icons" {
 
   git_repository = {
     type = "github"
-    repo = "${data.github_organization.nl-design-system.orgname}/${github_repository.icons.name}",
+    repo = github_repository.icons.full_name
   }
 
   vercel_authentication = {

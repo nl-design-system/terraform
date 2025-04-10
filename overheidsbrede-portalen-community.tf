@@ -140,7 +140,7 @@ resource "vercel_project" "overheidsbrede-portalen-community" {
 
   git_repository = {
     type = "github"
-    repo = "${data.github_organization.nl-design-system.orgname}/${github_repository.overheidsbrede-portalen-community.name}",
+    repo = github_repository.overheidsbrede-portalen-community.full_name
   }
 
   vercel_authentication = {
