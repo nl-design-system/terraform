@@ -145,6 +145,7 @@ resource "vercel_project" "tiptap" {
   name             = github_repository.tiptap.name
   output_directory = "packages/storybook/dist/"
   ignore_command   = "[[ $(git log -1 --pretty=%an) == 'dependabot[bot]' ]]"
+  node_version     = "22.x"
 
   git_repository = {
     type = "github"
