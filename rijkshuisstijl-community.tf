@@ -203,19 +203,19 @@ resource "vercel_project" "rijkshuisstijl-community-templates" {
   }
 }
 
-resource "vercel_project" "rijkshuisstijl-community-storybook-angular" {
-  name             = "rijkshuisstijl-community-storybook-angular"
-  output_directory = "packages/storybook-angular/dist/"
-  ignore_command   = "[[ $(git log -1 --pretty=%an) == 'dependabot[bot]' ]]"
-  node_version     = "22.x"
-  team_id          = data.vercel_team_config.nl-design-system.id
+# resource "vercel_project" "rijkshuisstijl-community-storybook-angular" {
+#   name             = "rijkshuisstijl-community-storybook-angular"
+#   output_directory = "packages/storybook-angular/dist/"
+#   ignore_command   = "[[ $(git log -1 --pretty=%an) == 'dependabot[bot]' ]]"
+#   node_version     = "22.x"
+#   team_id          = data.vercel_team_config.nl-design-system.id
 
-  git_repository = {
-    type = "github"
-    repo = "${data.github_organization.nl-design-system.orgname}/${github_repository.rijkshuisstijl-community.name}"
-  }
+#   git_repository = {
+#     type = "github"
+#     repo = "${data.github_organization.nl-design-system.orgname}/${github_repository.rijkshuisstijl-community.name}"
+#   }
 
-  vercel_authentication = {
-    deployment_type = "none"
-  }
-}
+#   vercel_authentication = {
+#     deployment_type = "none"
+#   }
+# }
