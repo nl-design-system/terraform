@@ -75,6 +75,10 @@ resource "github_team_members" "kernteam-committer" {
   }
 
   members {
+    username = data.github_user.emma-koole.username
+  }
+
+  members {
     username = data.github_user.eslook.username
   }
 
