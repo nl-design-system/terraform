@@ -551,7 +551,7 @@ resource "github_team_members" "quintor-rijkshuisstijl-committer" {
   }
 
   members {
-    username = data.github_user.janabe.username
+    username = data.github_user.JanAbe.username
   }
 
   members {
@@ -720,7 +720,7 @@ resource "github_team_members" "community-committer" {
   }
 
   members {
-    username = data.github_user.janabe.username
+    username = data.github_user.JanAbe.username
   }
 
   members {

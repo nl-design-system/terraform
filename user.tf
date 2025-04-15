@@ -402,6 +402,6 @@ data "github_user" "ramonitor" {
   username = "ramonitor"
 }
 
-data "github_user" "janabe" {
-  username = "janabe"
+data "github_user" "JanAbe" {
+  username = "JanAbe"
 }
