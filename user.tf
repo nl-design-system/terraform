@@ -182,8 +182,8 @@ data "github_user" "daanditp" {
   username = "daanditp"
 }
 
-data "github_user" "Rerbun" {
-  username = "Rerbun"
+data "github_user" "Ruben-Smit" {
+  username = "Ruben-Smit"
 }
 
 data "github_user" "MeesD94" {
