@@ -120,3 +120,20 @@ resource "github_repository_collaborators" "gebruikersonderzoeken" {
     team_id    = github_team.gebruikersonderzoeken.id
   }
 }
+
+resource "vercel_project" "gebruikersonderzoeken" {
+  name             = "gebruikersonderzoeken"
+  output_directory = "build/"
+  ignore_command   = "[[ $(git log -1 --pretty=%an) == 'dependabot[bot]' ]]"
+  node_version     = "22.x"
+
+  git_repository = {
+    type = "github"
+    repo = github_repository.gebruikersonderzoeken.full_name
+  }
+
+  vercel_authentication = {
+    deployment_type = "none"
+  }
+}
+
