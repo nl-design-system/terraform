@@ -153,4 +153,9 @@ resource "github_repository_collaborators" "utrecht" {
     permission = "triage"
     team_id    = github_team.logius-triage.id
   }
+
+  team {
+    permission = "push"
+    team_id    = github_team.community-committer.id
+  }
 }

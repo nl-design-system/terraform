@@ -763,6 +763,11 @@ resource "github_team_members" "community-committer" {
     username = data.github_user.Ollie-nl.username
   }
 
+  members {
+    username = data.github_user.dineshduggal.username
+  }
+
+
   # Kernteam alumni
   members {
     username = data.github_user.hidde.username
