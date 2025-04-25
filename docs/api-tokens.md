@@ -2,7 +2,7 @@
 
 Terraform maakt gebruik van verschillende API tokens.
 
-## GitHub Fine-grained Personal Access Token (PAT) genereren
+## Een GitHub Fine-grained Personal Access Token (PAT) genereren
 
 1. Ga bij GitHub naar [Developer Settings/Personal access tokens][github-developer-settings] en log in als dat nodig is.
 1. Maak een nieuw token aan (het kan zijn dat je (nogmaals) met 2-factor authenticatie moet bevestigen):
@@ -22,7 +22,7 @@ Terraform maakt gebruik van verschillende API tokens.
    beheerovereenkomst een goede keuze.
 1. Kopieer het token.
 
-## Vercel API token genereren
+## Een Vercel API token genereren
 
 1. Ga bij Vercel naar [Account Settings/Tokens][vercel-settings-tokens] en log in als dat nodig is.
 1. Maak een nieuw token aan:
@@ -116,9 +116,15 @@ shell die je daarvoor gebruikt. Je kunt de environment variabelen exporteren maa
 > begin het volgende commando met een spatie zodat de tokens niet terecht komen in de history van je shell.
 
 ```shell
- env TF_VAR_GITHUB_TOKEN={GitHub PAT} TF_VAR_PLESK_UUID_TOKEN={Plesk UUID token} TF_VAR_VERCEL_API_TOKEN={token} \
-terraform [global options] <subcommand> [args]
+ env \
+  TF_VAR_GITHUB_TOKEN={GitHub PAT} \
+  TF_VAR_VERCEL_API_TOKEN={Vercel API token} \
+  TF_VAR_PLESK_UUID_TOKEN=1 \
+  terraform [global options] <subcommand> [args]
 ```
+
+We gebruiken `TF_VAR_PLESK_UUID_TOKEN=1` als dummy omdat Terraform een waarde verwacht. De variabele wordt niet gebruikt
+bij het gebruik van Terraform op de command line.
 
 [github-developer-settings]: https://github.com/settings/personal-access-tokens/
 [vercel-settings-tokens]: https://vercel.com/account/settings/tokens
