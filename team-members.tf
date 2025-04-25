@@ -533,7 +533,7 @@ resource "github_team_members" "quintor-rijkshuisstijl-committer" {
   team_id = github_team.quintor-rijkshuisstijl-committer.id
 
   members {
-    username = data.github_user.Rerbun.username
+    username = data.github_user.Ruben-Smit.username
   }
 
   members {
@@ -569,7 +569,7 @@ resource "github_team_members" "quintor-rijkshuisstijl-maintainer" {
   team_id = github_team.quintor-rijkshuisstijl-maintainer.id
 
   members {
-    username = data.github_user.Rerbun.username
+    username = data.github_user.Ruben-Smit.username
   }
 
   members {
@@ -702,7 +702,7 @@ resource "github_team_members" "community-committer" {
 
   # Quintor folks
   members {
-    username = data.github_user.Rerbun.username
+    username = data.github_user.Ruben-Smit.username
   }
 
   members {
