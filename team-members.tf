@@ -89,6 +89,10 @@ resource "github_team_members" "kernteam-committer" {
   members {
     username = data.github_user.nl-design-system-committer.username
   }
+
+  members {
+    username = data.github_user.petergoes.username
+  }
 }
 
 resource "github_team_members" "kernteam-maintainer" {
@@ -160,6 +164,10 @@ resource "github_team_members" "kernteam-triage" {
 
   members {
     username = data.github_user.mennovanslooten.username
+  }
+
+  members {
+    username = data.github_user.petergoes.username
   }
 }
 

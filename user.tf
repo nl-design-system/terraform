@@ -405,3 +405,7 @@ data "github_user" "ramonitor" {
 data "github_user" "JanAbe" {
   username = "JanAbe"
 }
+
+data "github_user" "petergoes" {
+  username = "petergoes"
+}
