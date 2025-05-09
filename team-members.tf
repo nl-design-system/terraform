@@ -463,6 +463,10 @@ resource "github_team_members" "rvo-committer" {
   members {
     username = data.github_user.ramonitor.username
   }
+
+   members {
+    username = data.github_user.jaseterhaar.username
+  }
 }
 
 resource "github_team_members" "rvo-maintainer" {
