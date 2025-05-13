@@ -144,11 +144,6 @@ resource "github_repository_collaborators" "rotterdam" {
   }
 
   team {
-    permission = "triage"
-    team_id    = github_team.kernteam-dependabot.id
-  }
-
-  team {
     permission = "maintain"
     team_id    = github_team.gemeente-rotterdam-maintainer.id
   }

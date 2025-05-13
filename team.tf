@@ -33,13 +33,6 @@ resource "github_team" "kernteam-ci" {
   privacy        = "closed"
 }
 
-resource "github_team" "kernteam-dependabot" {
-  name           = "kernteam-dependabot"
-  description    = "Default reviewers for Dependabot pull requests"
-  parent_team_id = github_team.kernteam.id
-  privacy        = "closed"
-}
-
 resource "github_team" "kernteam-maintainer" {
   name           = "kernteam-maintainer"
   description    = "Can configure GitHub via Terraform, with approval from kernteam-admin."
