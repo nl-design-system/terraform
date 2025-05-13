@@ -417,3 +417,15 @@ data "github_user" "FrankaBeekman" {
 data "github_user" "jaseterhaar" {
   username = "jaseterhaar"
 }
+
+data "github_user" "NielsEckes" {
+  username = "NielsEckes"
+}
+
+data "github_user" "jandekkerr" {
+  username = "jandekkerr"
+}
+
+data "github_user" "Floor-Gro" {
+  username = "Floor-Gro"
+}
