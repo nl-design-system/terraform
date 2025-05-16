@@ -8,7 +8,7 @@ resource "github_repository" "gebruikersonderzoeken" {
   delete_branch_on_merge      = true
   has_issues                  = true
   has_downloads               = false
-  has_projects                = false
+  has_projects                = true
   has_wiki                    = false
   vulnerability_alerts        = true
   homepage_url                = "https://gebruikersonderzoeken.nl/"
