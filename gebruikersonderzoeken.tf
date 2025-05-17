@@ -137,3 +137,19 @@ resource "vercel_project" "gebruikersonderzoeken" {
   }
 }
 
+resource "vercel_project" "gebruikersonderzoeken" {
+  name             = "gebruikersonderzoeken-next"
+  output_directory = "packages/website/dist/"
+  ignore_command   = "[[ $(git log -1 --pretty=%an) == 'dependabot[bot]' ]]"
+  node_version     = "22.x"
+
+  git_repository = {
+    type = "github"
+    repo = github_repository.gebruikersonderzoeken.full_name
+  }
+
+  vercel_authentication = {
+    deployment_type = "none"
+  }
+}
+
