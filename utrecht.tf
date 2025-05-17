@@ -125,11 +125,6 @@ resource "github_repository_collaborators" "utrecht" {
   }
 
   team {
-    permission = "triage"
-    team_id    = github_team.kernteam-dependabot.id
-  }
-
-  team {
     permission = "maintain"
     team_id    = github_team.gemeente-utrecht.id
   }
