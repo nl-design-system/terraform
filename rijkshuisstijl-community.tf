@@ -12,7 +12,7 @@ resource "github_repository" "rijkshuisstijl-community" {
   has_projects                = true
   has_wiki                    = true
   vulnerability_alerts        = true
-  homepage_url                = "https://rijkshuisstijl-community.vercel.app/"
+  homepage_url                = "https://www.rijkshuisstijl-community.nl/"
   squash_merge_commit_title   = "PR_TITLE"
   squash_merge_commit_message = "PR_BODY"
   topics                      = ["nl-design-system", "storybook"]
