@@ -185,6 +185,16 @@ resource "github_repository_collaborators" "rijkshuisstijl-community" {
     permission = "push"
     username   = data.github_user.WebBeest.username
   }
+
+  user {
+    permission = "push"
+    username   = data.github_user.photosjob.username
+  }
+
+  user {
+    permission = "push"
+    username   = data.github_user.bisschoh.username
+  }
 }
 
 resource "vercel_project" "rijkshuisstijl-community" {
