@@ -287,6 +287,10 @@ resource "github_team_members" "logius-committer" {
   members {
     username = data.github_user.Floor-Gro.username
   }
+
+  members {
+    username = data.github_user.patrickoat.username
+  }
 }
 
 resource "github_team_members" "logius-maintainer" {
