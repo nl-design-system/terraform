@@ -139,8 +139,9 @@ resource "vercel_project" "gebruikersonderzoeken" {
 
 resource "vercel_project" "gebruikersonderzoeken-next" {
   name             = "gebruikersonderzoeken-next"
-  output_directory = "packages/website/dist/"
-  build_command    = "pnpm run build:astro"
+  output_directory = "dist/"
+  build_command    = "pnpm run build"
+  root_directory   = "packages/website/"
   ignore_command   = "[[ $(git log -1 --pretty=%an) == 'dependabot[bot]' ]]"
   node_version     = "22.x"
 
