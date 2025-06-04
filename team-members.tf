@@ -209,6 +209,18 @@ resource "github_team_members" "kernteam-a11y" {
   }
 }
 
+resource "github_team_members" "kernteam-design" {
+  team_id = github_team.kernteam-design.id
+
+  members {
+    username = data.github_user.jeffreylauwers.username
+  }
+
+  members {
+    username = data.github_user.Rozerinay.username
+  }
+}
+
 resource "github_team_members" "logius-triage" {
   team_id = github_team.logius-triage.id
 

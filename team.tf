@@ -61,6 +61,13 @@ resource "github_team" "kernteam-a11y" {
   privacy        = "closed"
 }
 
+resource "github_team" "kernteam-design" {
+  description    = "Team for design related changes"
+  name           = "kernteam-design"
+  parent_team_id = github_team.kernteam-committer.id
+  privacy        = "closed"
+}
+
 resource "github_team" "gemeente-den-haag" {
   name        = "gemeente-den-haag"
   description = "Gemeente Den Haag"
