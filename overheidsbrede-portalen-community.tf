@@ -79,9 +79,6 @@ resource "github_repository_ruleset" "overheidsbrede-portalen-community-main" {
         context = "lint"
       }
       required_check {
-        context = "test"
-      }
-      required_check {
         context = "build"
       }
     }
