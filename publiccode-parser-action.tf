@@ -15,6 +15,7 @@ resource "github_repository" "publiccode-parser-action" {
   squash_merge_commit_title   = "PR_TITLE"
   squash_merge_commit_message = "PR_BODY"
 
+  archive_on_destroy = true
   lifecycle {
     prevent_destroy = true
   }

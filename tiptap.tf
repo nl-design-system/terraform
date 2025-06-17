@@ -41,6 +41,7 @@ resource "github_repository" "tiptap" {
     }
   }
 
+  archive_on_destroy = true
   lifecycle {
     prevent_destroy = true
   }

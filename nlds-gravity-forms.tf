@@ -21,6 +21,7 @@ resource "github_repository" "nlds-gravity-forms" {
     repository           = "example"
   }
 
+  archive_on_destroy = true
   lifecycle {
     prevent_destroy = true
   }
