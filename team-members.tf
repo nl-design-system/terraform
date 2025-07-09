@@ -511,6 +511,12 @@ resource "github_team_members" "rvo-committer" {
   members {
     username = data.github_user.jaseterhaar.username
   }
+  members {
+    username = data.github_user.dhprins89.username
+  }
+  members {
+    username = data.github_user.PhamNguyenNL.username
+  }
 }
 
 resource "github_team_members" "rvo-maintainer" {

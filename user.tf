@@ -457,3 +457,11 @@ data "github_user" "ruurdv" {
 data "github_user" "cascassette" {
   username = "cascassette"
 }
+
+data "github_user" "dhprins89" {
+  username = "dhprins89"
+}
+
+data "github_user" "PhamNguyenNL" {
+  username = "PhamNguyenNL"
+}
