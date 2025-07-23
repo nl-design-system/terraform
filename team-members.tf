@@ -763,6 +763,14 @@ resource "github_team_members" "gemeente-groningen" {
   }
 }
 
+resource "github_team_members" "gemeente-groningen-maintainer" {
+  team_id = github_team.gemeente-groningen-maintainer.id
+
+  members {
+    username = data.github_user.MariekeBrouwer.username
+  }
+}
+
 resource "github_team_members" "community-committer" {
   team_id = github_team.community-committer.id
 
