@@ -761,6 +761,10 @@ resource "github_team_members" "gemeente-groningen" {
   members {
     username = data.github_user.MariekeBrouwer.username
   }
+
+  members {
+    username = data.github_user.hendrik-boerma.username
+  }
 }
 
 resource "github_team_members" "gemeente-groningen-maintainer" {
