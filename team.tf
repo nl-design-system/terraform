@@ -301,6 +301,13 @@ resource "github_team" "gemeente-groningen" {
   privacy     = "closed"
 }
 
+resource "github_team" "gemeente-groningen-maintainer" {
+  name           = "gemeente-groningen-maintainer"
+  description    = "Can configure GitHub via Terraform, with approval from kernteam-admin."
+  parent_team_id = github_team.gemeente-groningen.id
+  privacy        = "closed"
+}
+
 resource "github_team" "gemeente-haarlem" {
   name        = "gemeente-haarlem"
   description = "Gemeente Haarlem"
