@@ -350,10 +350,6 @@ data "github_user" "erikkroes" {
   username = "erikkroes"
 }
 
-data "github_user" "mennovanslooten" {
-  username = "mennovanslooten"
-}
-
 data "github_user" "merelacato" {
   username = "merelacato"
 }
