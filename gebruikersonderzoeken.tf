@@ -10,6 +10,7 @@ resource "github_repository" "gebruikersonderzoeken" {
   has_downloads               = false
   has_projects                = true
   has_wiki                    = false
+  has_discussions             = true
   vulnerability_alerts        = true
   homepage_url                = "https://gebruikersonderzoeken.nl/"
   squash_merge_commit_title   = "PR_TITLE"
