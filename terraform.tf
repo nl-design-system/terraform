@@ -10,6 +10,7 @@ resource "github_repository" "terraform" {
   has_downloads               = false
   has_projects                = false
   has_wiki                    = false
+  has_discussions             = false
   vulnerability_alerts        = true
   homepage_url                = "https://app.terraform.io/app/nl-design-system/workspaces"
   visibility                  = "public"
