@@ -573,6 +573,10 @@ resource "github_team_members" "vng-services-committer" {
   members {
     username = data.github_user.AliKdhim87.username
   }
+
+  members {
+    username = data.github_user.TessaViergever.username
+  }
 }
 
 resource "github_team_members" "vng-services-maintainer" {
