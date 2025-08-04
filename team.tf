@@ -374,6 +374,19 @@ resource "github_team" "gemeente-westervoort" {
   privacy     = "closed"
 }
 
+resource "github_team" "gemeente-zaanstad" {
+  name        = "gemeente-zaanstad"
+  description = "Gemeente Zaanstad"
+  privacy     = "closed"
+}
+
+resource "github_team" "keen-design-maintainer" {
+  name           = "keen-design-maintainer"
+  description    = "Can configure GitHub via Terraform, with approval from kernteam-admin."
+  parent_team_id = github_team.gemeente-zaanstad.id
+  privacy        = "closed"
+}
+
 resource "github_team" "gemeente-zevenaar" {
   name        = "gemeente-zevenaar"
   description = "Gemeente Zevenaar"

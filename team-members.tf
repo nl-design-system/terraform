@@ -771,6 +771,22 @@ resource "github_team_members" "gemeente-groningen-maintainer" {
   }
 }
 
+resource "github_team_members" "gemeente-zaanstad" {
+  team_id = github_team.gemeente-zaanstad.id
+
+  members {
+    username = data.github_user.Michiel-KeenDesign.username
+  }
+}
+
+resource "github_team_members" "keen-design-maintainer" {
+  team_id = github_team.keen-design-maintainer.id
+
+  members {
+    username = data.github_user.Michiel-KeenDesign.username
+  }
+}
+
 resource "github_team_members" "community-committer" {
   team_id = github_team.community-committer.id
 
