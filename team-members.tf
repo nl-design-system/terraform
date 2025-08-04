@@ -779,8 +779,8 @@ resource "github_team_members" "gemeente-zaanstad" {
   }
 }
 
-resource "github_team_members" "gemeente-zaanstad-maintainer" {
-  team_id = github_team.gemeente-zaanstad-maintainer.id
+resource "github_team_members" "keen-design-maintainer" {
+  team_id = github_team.keen-design-maintainer.id
 
   members {
     username = data.github_user.Michiel-KeenDesign.username
