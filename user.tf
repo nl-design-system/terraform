@@ -473,3 +473,7 @@ data "github_user" "hendrik-boerma" {
 data "github_user" "Michiel-KeenDesign" {
   username = "Michiel-KeenDesign"
 }
+
+data "github_user" "veslav3" {
+  username = "veslav3"
+}

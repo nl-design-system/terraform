@@ -89,6 +89,10 @@ resource "github_team_members" "kernteam-committer" {
   members {
     username = data.github_user.RenateRoke.username
   }
+
+  members {
+    username = data.github_user.veslav3.username
+  }
 }
 
 resource "github_team_members" "kernteam-maintainer" {
@@ -116,6 +120,10 @@ resource "github_team_members" "kernteam-maintainer" {
     username = data.github_user.Yolijn.username
     # organization owners must be "maintainer", see note at https://registry.terraform.io/providers/integrations/github/latest/docs/resources/team_members
     role = "maintainer"
+  }
+
+  members {
+    username = data.github_user.veslav3.username
   }
 }
 
@@ -156,6 +164,10 @@ resource "github_team_members" "kernteam-triage" {
 
   members {
     username = data.github_user.petergoes.username
+  }
+
+  members {
+    username = data.github_user.veslav3.username
   }
 }
 
