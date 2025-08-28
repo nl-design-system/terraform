@@ -20,6 +20,7 @@ resource "github_actions_organization_permissions" "nl-design-system" {
       "actions/upload-artifact@*",
       "actions/upload-pages-artifact@*",
       # Third party organisation owned actions
+      "anchore/sbom-action@*",
       "changesets/action@*",
       "chromaui/action@*",
       "codecov/codecov-action@*",
