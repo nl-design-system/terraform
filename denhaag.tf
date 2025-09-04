@@ -210,4 +210,9 @@ resource "github_repository_collaborators" "denhaag" {
     permission = "maintain"
     team_id    = github_team.frameless-maintainer.id
   }
+
+  team {
+    permission = "push"
+    team_id    = github_team.community-committer.id
+  }
 }
