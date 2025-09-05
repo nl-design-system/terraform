@@ -143,6 +143,11 @@ resource "github_repository_collaborators" "tilburg" {
     permission = "push"
     team_id    = github_team.blueriq-committer.id
   }
+
+  team {
+    permission = "push"
+    team_id    = github_team.community-committer.id
+  }
 }
 
 resource "vercel_project" "tilburg" {

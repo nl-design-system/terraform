@@ -127,6 +127,11 @@ resource "github_repository_collaborators" "overheidsbrede-portalen-community" {
     permission = "triage"
     team_id    = github_team.vng-services.id
   }
+
+  team {
+    permission = "push"
+    team_id    = github_team.community-committer.id
+  }
 }
 
 resource "vercel_project" "overheidsbrede-portalen-community" {
