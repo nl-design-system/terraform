@@ -129,6 +129,11 @@ resource "github_repository_collaborators" "gebruikersonderzoeken" {
     permission = "maintain"
     team_id    = github_team.gebruikersonderzoeken.id
   }
+
+  team {
+    permission = "push"
+    team_id    = github_team.community-committer.id
+  }
 }
 
 resource "vercel_project" "gebruikersonderzoeken" {
