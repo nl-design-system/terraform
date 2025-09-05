@@ -474,7 +474,7 @@ resource "github_team" "tilburg-ditp-maintainer" {
 resource "github_team" "vng-services" {
   name        = "vng-services"
   privacy     = "closed"
-  description = "VNG Team dat werkt aan de Overheidsbrede portalen storybook"
+  description = "VNG Team dat werkt aan de Mijn Services storybook"
 }
 
 resource "github_team" "vng-services-committer" {
