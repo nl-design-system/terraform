@@ -1,5 +1,5 @@
-resource "github_repository" "overheidsbrede-portalen-community" {
-  name                        = "overheidsbrede-portalen-community"
+resource "github_repository" "mijn-services" {
+  name                        = "mijn-services"
   description                 = "Work in Progress: Templates for government services built on the NL Design System architecture."
   allow_merge_commit          = false
   allow_rebase_merge          = true
@@ -11,7 +11,7 @@ resource "github_repository" "overheidsbrede-portalen-community" {
   has_projects                = true
   has_wiki                    = false
   vulnerability_alerts        = true
-  homepage_url                = "https://nl-design-system.github.io/overheidsbrede-portalen-community/"
+  homepage_url                = "https://nl-design-system.github.io/mijn-services/"
   squash_merge_commit_title   = "PR_TITLE"
   squash_merge_commit_message = "PR_BODY"
   topics                      = ["nl-design-system", "storybook"]
@@ -34,15 +34,15 @@ resource "github_repository" "overheidsbrede-portalen-community" {
   }
 }
 
-resource "github_branch_default" "overheidsbrede-portalen-community" {
+resource "github_branch_default" "mijn-services" {
   branch     = "main"
-  repository = github_repository.overheidsbrede-portalen-community.name
+  repository = github_repository.mijn-services.name
 }
 
-resource "github_repository_ruleset" "overheidsbrede-portalen-community-main" {
+resource "github_repository_ruleset" "mijn-services-main" {
   enforcement = "active"
   name        = "default-branch-protection"
-  repository  = github_repository.overheidsbrede-portalen-community.name
+  repository  = github_repository.mijn-services.name
   target      = "branch"
 
   conditions {
@@ -85,8 +85,8 @@ resource "github_repository_ruleset" "overheidsbrede-portalen-community-main" {
   }
 }
 
-resource "github_repository_collaborators" "overheidsbrede-portalen-community" {
-  repository = github_repository.overheidsbrede-portalen-community.name
+resource "github_repository_collaborators" "mijn-services" {
+  repository = github_repository.mijn-services.name
 
   team {
     permission = "admin"
@@ -129,15 +129,15 @@ resource "github_repository_collaborators" "overheidsbrede-portalen-community" {
   }
 }
 
-resource "vercel_project" "overheidsbrede-portalen-community" {
-  name             = github_repository.overheidsbrede-portalen-community.name
+resource "vercel_project" "mijn-services" {
+  name             = github_repository.mijn-services.name
   output_directory = "packages/storybook/dist/"
   ignore_command   = "[[ $(git log -1 --pretty=%an) == 'dependabot[bot]' ]]"
   node_version     = "22.x"
 
   git_repository = {
     type = "github"
-    repo = github_repository.overheidsbrede-portalen-community.full_name
+    repo = github_repository.mijn-services.full_name
   }
 
   vercel_authentication = {
