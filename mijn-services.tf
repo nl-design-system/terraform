@@ -40,7 +40,7 @@ resource "github_repository" "mijn-services" {
 resource "github_branch_default" "mijn-services" {
   branch     = "main"
   repository = github_repository.mijn-services.name
-  rename     = true
+  rename     = false
 }
 
 resource "github_repository_ruleset" "mijn-services-main" {
