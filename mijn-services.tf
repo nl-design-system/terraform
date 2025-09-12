@@ -23,8 +23,11 @@ resource "github_repository" "mijn-services" {
   }
 
   pages {
+    build_type = "workflow"
+
+    # A `source` block is only needed when `build_type` is set to `"legacy"`, but because GitHub keeps it around invisibly, we must add it here to prevent churn
     source {
-      branch = "gh-pages"
+      branch = "main"
       path   = "/"
     }
   }
@@ -37,6 +40,7 @@ resource "github_repository" "mijn-services" {
 resource "github_branch_default" "mijn-services" {
   branch     = "main"
   repository = github_repository.mijn-services.name
+  rename     = true
 }
 
 resource "github_repository_ruleset" "mijn-services-main" {
@@ -106,11 +110,6 @@ resource "github_repository_collaborators" "mijn-services" {
   team {
     permission = "triage"
     team_id    = github_team.kernteam-triage.id
-  }
-
-  team {
-    permission = "triage"
-    team_id    = github_team.kernteam-dependabot.id
   }
 
   team {
