@@ -1,5 +1,5 @@
 resource "github_repository" "mijn-services" {
-  name                        = "mijn-services"
+  name                        = "overheidsbrede-portalen-community"
   description                 = "Work in Progress: Templates for government services built on the NL Design System architecture."
   allow_merge_commit          = false
   allow_rebase_merge          = true
