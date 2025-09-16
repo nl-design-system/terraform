@@ -39,7 +39,7 @@ Naar:
 ```HCL
 resource "github_repository" "voorbeeld" {
   name = "nieuwe-naam"
-  …
+  # …
 }
 ```
 
