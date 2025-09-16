@@ -8,7 +8,7 @@
 ## Bestanden hernoemen
 
 Het hernoemen van een Terraform bestand (met de `.tf` extensie) is de eenvoudigste soort naamswijziging. Het is slechts
-een Git operatie geen effect op Terraform heeft.
+een Git operatie die geen effect op Terraform heeft.
 
 ```shell
 git mv path/to/old-file.tf path/to/new-file.tf
@@ -44,7 +44,7 @@ resource "github_repository" "voorbeeld" {
 ```
 
 Een Pull Request voor deze wijziging resulteert in een **Plan** met alleen een zogenaamde 'in-place' wijziging waarbij
-de naam van de repository verandert. Het mergen van de pull request zorgt voor een **Apply** waarbij de naamswijziging
+de naam van de repository verandert. Het mergen van de Pull Request zorgt voor een **Apply** waarbij de naamswijziging
 van de repository daadwerkelijk wordt doorgevoerd.
 
 > [!WARNING]  
@@ -96,5 +96,5 @@ resource "github_repository" "nieuwe-naam" {
 > Deze naamswijziging heeft gevolgen elders in de code. Overal waarvoorheen `github_repository.voorbeeld` gebruikt werd
 > zal je dit moeten aanpassen naar `github_repository.nieuwe-naam`.
 
-Een pull request voor deze wijziging resulteert in een **plan** zonder wijzigingen. Het mergen van deze pull request
+Een Pull Request voor deze wijziging resulteert in een **plan** zonder wijzigingen. Het mergen van deze Pull Request
 resulteert daardoor in het overslaan van de **apply** stap.
