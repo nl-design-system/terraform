@@ -14,7 +14,7 @@ een Git operatie geen effect op Terraform heeft.
 git mv path/to/old-file.tf path/to/new-file.tf
 ```
 
-Een pull request voor deze wijziging resulteert in een **plan** zonder wijzigingen. Het mergen van deze pull request
+Een Pull Request voor deze wijziging resulteert in een **Plan** zonder wijzigingen. Het mergen van deze Pull Request
 resulteert daardoor in het overslaan van de **apply** stap.
 
 > [!WARNING]  
