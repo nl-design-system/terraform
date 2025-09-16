@@ -94,7 +94,7 @@ resource "github_repository" "nieuwe-naam" {
 
 > [!NOTE]  
 > Deze naamswijziging heeft gevolgen elders in de code. Overal waarvoorheen `github_repository.voorbeeld` gebruikt werd
-> zal je dit moeten aanpassen naar `github_repostiory.nieuwe-naam`.
+> zal je dit moeten aanpassen naar `github_repository.nieuwe-naam`.
 
 Een pull request voor deze wijziging resulteert in een **plan** zonder wijzigingen. Het mergen van deze pull request
 resulteert daardoor in het overslaan van de **apply** stap.
