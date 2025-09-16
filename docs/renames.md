@@ -79,7 +79,7 @@ Nadat de Terraform state is aangepast zul je de code weer in lijn moeten brengen
 ```HCL
 resource "github_repository" "voorbeeld" {
   name = "voorbeeld"
-  …
+  # …
 }
 ```
 
