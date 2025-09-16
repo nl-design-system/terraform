@@ -11,7 +11,7 @@ Het hernoemen van een Terraform bestand (met de `.tf` extensie) is de eenvoudigs
 een Git operatie geen effect op Terraform heeft.
 
 ```shell
-git rm path/to/old-file.tf path/to/new-file.tf
+git mv path/to/old-file.tf path/to/new-file.tf
 ```
 
 Een pull request voor deze wijziging resulteert in een **plan** zonder wijzigingen. Het mergen van deze pull request
