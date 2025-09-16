@@ -30,7 +30,7 @@ worden. Verander:
 ```HCL
 resource "github_repository" "voorbeeld" {
   name = "voorbeeld"
-  …
+  # …
 }
 ```
 
