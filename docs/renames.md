@@ -43,8 +43,8 @@ resource "github_repository" "voorbeeld" {
 }
 ```
 
-Een pull request voor deze wijziging resulteert in een **plan** met alleen een zogenaamde 'in-place' wijziging waarbij
-de naam van de repository verandert. Het mergen van de pull request zorgt voor een **apply** waarbij de naamswijziging
+Een Pull Request voor deze wijziging resulteert in een **Plan** met alleen een zogenaamde 'in-place' wijziging waarbij
+de naam van de repository verandert. Het mergen van de pull request zorgt voor een **Apply** waarbij de naamswijziging
 van de repository daadwerkelijk wordt doorgevoerd.
 
 > [!WARNING]  
