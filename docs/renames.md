@@ -66,7 +66,7 @@ Voer de volgende commando's uit.
   TF_VAR_GITHUB_TOKEN="GitHub PAT" \
   TF_VAR_VERCEL_API_TOKEN="Vercel API token" \
   TF_VAR_PLESK_WEBHOOK_UUID=1 \
-terraform state mv "github_repository.voorbeeld" "github_repository.nieuwe-naam"
+  terraform state mv "github_repository.voorbeeld" "github_repository.nieuwe-naam"
 ```
 
 Houdt hierbij de Terraform Cloud omgeving in de gaten. Je zult zien dat bij het hernoemen de state gelocked wordt door
