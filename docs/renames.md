@@ -8,7 +8,7 @@
 ## Bestanden hernoemen
 
 Het hernoemen van een Terraform bestand (met de `.tf` extensie) is de eenvoudigste soort naamswijziging. Het is slechts
-een git operatie die eigenlijk niets met Terraform te maken heeft.
+een Git operatie geen effect op Terraform heeft.
 
 ```shell
 git rm path/to/old-file.tf path/to/new-file.tf
