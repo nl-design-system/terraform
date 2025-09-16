@@ -19,7 +19,7 @@ resulteert daardoor in het overslaan van de **Apply** stap.
 
 > [!WARNING]  
 > Als je in de Terraform Cloud omgeving in je plan ziet dat er toch wijzigingen zullen worden doorgevoerd heb je
-> misschien ergens iets over het hoofd gezien. Kijk ook bij dit soort pull requests altijd in de Terraform Cloud
+> misschien ergens iets over het hoofd gezien. Kijk ook bij dit soort Pull Requests altijd in de Terraform Cloud
 > omgeving of wat je daar ziet overeenkomt met wat je verwacht te zien.
 
 ## Een GitHub repository hernoemen
