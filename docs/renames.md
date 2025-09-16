@@ -3,7 +3,7 @@
 > [!WARNING]  
 > Renames zijn lastig. Controleer altijd in de Terraform Cloud omgeving of de wijzigingen die Terraform wil doorvoeren
 > ook de wijzigingen zijn die je zou verwachten. Wees je er ook van bewust dat er verschil kan zitten tussen een
-> **plan** en een **apply**.
+> **Plan** en een **Apply**.
 
 ## Bestanden hernoemen
 
