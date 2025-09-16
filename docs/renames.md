@@ -63,8 +63,8 @@ Voer de volgende commando's uit.
 
 ```shell
  env \
-  TF_VAR_GITHUB_TOKEN={GitHub PAT} \
-  TF_VAR_VERCEL_API_TOKEN={Vercel API token} \
+  TF_VAR_GITHUB_TOKEN="GitHub PAT" \
+  TF_VAR_VERCEL_API_TOKEN="Vercel API token" \
   TF_VAR_PLESK_WEBHOOK_UUID=1 \
 terraform state mv "github_repository.voorbeeld" "github_repository.nieuwe-naam"
 ```
