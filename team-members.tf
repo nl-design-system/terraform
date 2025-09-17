@@ -878,6 +878,10 @@ resource "github_team_members" "community-committer" {
     username = data.github_user.dineshduggal.username
   }
 
+  members {
+    username = data.github_user.pixelgitter.username
+  }
+
   # Den Haag folks
   members {
     username = data.github_user.jiromaykin.username
