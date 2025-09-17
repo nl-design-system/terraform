@@ -542,6 +542,26 @@ resource "github_team_members" "rvo-estafettemodel" {
   }
 }
 
+resource "github_team_members" "gemeente-utrecht-committer" {
+  team_id = github_team.gemeente-utrecht-committer.id
+}
+
+resource "github_team_members" "gemeente-utrecht-maintainer" {
+  team_id = github_team.gemeente-utrecht-maintainer.id
+
+  members {
+    username = data.github_user.JeroenduC.username
+  }
+
+  members {
+    username = data.github_user.Ollie-nl.username
+  }
+
+  members {
+    username = data.github_user.pixelgitter.username
+  }
+}
+
 resource "github_team_members" "gemeente-utrecht-estafettemodel" {
   team_id = github_team.gemeente-utrecht-estafettemodel.id
 
@@ -876,10 +896,6 @@ resource "github_team_members" "community-committer" {
 
   members {
     username = data.github_user.dineshduggal.username
-  }
-
-  members {
-    username = data.github_user.pixelgitter.username
   }
 
   # Den Haag folks
