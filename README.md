@@ -65,25 +65,30 @@ Removing this code should allow you to switch back to storing state in `terrafor
 - provider: [`vercel`](https://registry.terraform.io/providers/vercel/vercel/latest/docs)
   - resource: [`vercel_project`](https://registry.terraform.io/providers/vercel/vercel/latest/docs/resources/project)
 
-## Permission Structure
+## Permission structure
+
 Most communities within the NL Design System use a standard structure for their permissions and teams.
 
 ### Teams
-An organisation (or repository) has three teams: Triage, Committer, Maintainer
+
+An organisation (or repository) usually has three teams: Triage, Committer, Maintainer
 - `organisation-triage`
 - `organisation-committer`
 - `organisation-maintainer`
 
 ### Triage permissions
+
 - Can create issues
 - Can label issues
 
 ### Committer permissions
+
 - All triage permissions
 - Can push to repository
 - Can merge pull requests (if conditions such as approvals are met)
 
 ### Maintainer permissions
+
 - All committer permissions
 - Add users (**⚠️ Note**: do not use this permission, always modify users through terraform)
 - Review pull requests
