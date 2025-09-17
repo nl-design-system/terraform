@@ -147,6 +147,20 @@ resource "github_team" "gemeente-utrecht" {
   privacy     = "closed"
 }
 
+resource "github_team" "gemeente-utrecht-committer" {
+  name           = "gemeente-utrecht-committer"
+  parent_team_id = github_team.gemeente-utrecht.id
+  description    = "Gemeente Utrecht (Committer)"
+  privacy        = "closed"
+}
+
+resource "github_team" "gemeente-utrecht-maintainer" {
+  name           = "gemeente-utrecht-maintainer"
+  parent_team_id = github_team.gemeente-utrecht-committer.id
+  description    = "Gemeente Utrecht (Maintainer)"
+  privacy        = "closed"
+}
+
 resource "github_team" "gemeente-utrecht-estafettemodel" {
   name           = "gemeente-utrecht-estafettemodel"
   parent_team_id = github_team.gemeente-utrecht.id
