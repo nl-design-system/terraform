@@ -147,9 +147,16 @@ resource "github_team" "gemeente-utrecht" {
   privacy     = "closed"
 }
 
+resource "github_team" "gemeente-utrecht-triage" {
+  name           = "gemeente-utrecht-triage"
+  parent_team_id = github_team.gemeente-utrecht.id
+  description    = "Gemeente Utrecht (Triage)"
+  privacy        = "closed"
+}
+
 resource "github_team" "gemeente-utrecht-committer" {
   name           = "gemeente-utrecht-committer"
-  parent_team_id = github_team.gemeente-utrecht.id
+  parent_team_id = github_team.gemeente-utrecht-triage.id
   description    = "Gemeente Utrecht (Committer)"
   privacy        = "closed"
 }

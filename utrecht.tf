@@ -115,6 +115,21 @@ resource "github_repository_collaborators" "utrecht" {
   }
 
   team {
+    permission = "maintain"
+    team_id = github_team.gemeente-utrecht-maintainer.id
+  }
+
+  team {
+    permission = "push"
+    team_id = github_team.gemeente-utrecht-committer.id
+  }
+
+  team {
+    permission = "triage"
+    team_id = github_team.gemeente-utrecht-triage.id
+  }
+
+  team {
     permission = "push"
     team_id    = github_team.kernteam-committer.id
   }
