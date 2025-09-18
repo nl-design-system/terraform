@@ -34,7 +34,8 @@ You can login in to Terraform on [app.terraform.io](https://app.terraform.io/ses
 
 ### Start using cloud services
 
-When you configure Terraform Cloud, you must configure use the user interface to configure the sensitive variables defined in [`variables.tf`](./variables.tf).
+When you configure Terraform Cloud, you must configure use the user interface to configure the sensitive variables
+defined in [`variables.tf`](./variables.tf).
 
 ### How to stop using cloud services
 
@@ -55,13 +56,19 @@ Removing this code should allow you to switch back to storing state in `terrafor
 ## API Documentation
 
 - provider: [`github`](https://registry.terraform.io/providers/integrations/github/latest/docs)
-  - data source: [`github_organization`](https://registry.terraform.io/providers/integrations/github/latest/docs/data-sources/organization)
-  - data source: [`github_user`](https://registry.terraform.io/providers/integrations/github/latest/docs/data-sources/user)
-  - resource: [`github_repository`](https://registry.terraform.io/providers/integrations/github/latest/docs/resources/repository)
-  - resource: [`github_branch_protection`](https://registry.terraform.io/providers/integrations/github/latest/docs/resources/branch_protection)
-  - resource: [`github_repository_collaborators`](https://registry.terraform.io/providers/integrations/github/latest/docs/resources/repository_collaborators)
+  - data source:
+    [`github_organization`](https://registry.terraform.io/providers/integrations/github/latest/docs/data-sources/organization)
+  - data source:
+    [`github_user`](https://registry.terraform.io/providers/integrations/github/latest/docs/data-sources/user)
+  - resource:
+    [`github_repository`](https://registry.terraform.io/providers/integrations/github/latest/docs/resources/repository)
+  - resource:
+    [`github_branch_protection`](https://registry.terraform.io/providers/integrations/github/latest/docs/resources/branch_protection)
+  - resource:
+    [`github_repository_collaborators`](https://registry.terraform.io/providers/integrations/github/latest/docs/resources/repository_collaborators)
   - resource: [`github_team`](https://registry.terraform.io/providers/integrations/github/latest/docs/data-sources/team)
-  - resource: [`github_team_members`](https://registry.terraform.io/providers/integrations/github/latest/docs/resources/team_members)
+  - resource:
+    [`github_team_members`](https://registry.terraform.io/providers/integrations/github/latest/docs/resources/team_members)
 - provider: [`vercel`](https://registry.terraform.io/providers/vercel/vercel/latest/docs)
   - resource: [`vercel_project`](https://registry.terraform.io/providers/vercel/vercel/latest/docs/resources/project)
 
@@ -104,8 +111,13 @@ An organisation (or repository) usually has three teams: Triage, Committer, Main
 ## Contributing: new GitHub team for repo
 
 1. Create the `github_team` in [`team.tf`](./team.tf).
-1. Create a subteam `github_team` in [`team.tf`](./team.tf), with people who should be able to make pull requests. Follow the team name pattern: `organization-committer` or `organization-repository-committer`. Specify `parent_team_id` to extend the organization team.
-1. Create a subteam for maintainers the `github_team` in [`team.tf`](./team.tf). Follow the team name pattern: `organization-maintainer`. Specify `parent_team_id` to extend the committer team.
+1. Create a subteam `github_team` in [`team.tf`](./team.tf), with people who should be able to make pull requests.
+   Follow the team name pattern: `organization-committer` or `organization-repository-committer`. Specify
+   `parent_team_id` to extend the organization team.
+1. Create a subteam for maintainers the `github_team` in [`team.tf`](./team.tf). Follow the team name pattern:
+   `organization-maintainer`. Specify `parent_team_id` to extend the committer team.
 1. Add each user as `github_user` to [`user.tf`](./user.tf).
-1. Add `github_team_members` for the new team in [`team-members.tf`](./team-members.tf), and specify all users as members. Decide which users go into the `committer` team, and which users are in the `maintainer` team.
-1. Add the `organization-maintainer` team to the terraform `github_repository` in [`terraform.tf`](./terraform.tf), so the maintainers are able to make and review Pull Requests.
+1. Add `github_team_members` for the new team in [`team-members.tf`](./team-members.tf), and specify all users as
+   members. Decide which users go into the `committer` team, and which users are in the `maintainer` team.
+1. Add the `organization-maintainer` team to the terraform `github_repository` in [`terraform.tf`](./terraform.tf), so
+   the maintainers are able to make and review Pull Requests.

@@ -170,7 +170,7 @@ your Terraform state and will henceforth be managed by Terraform.
 Commit nu je wijzigingen, maak een PR aan en controleer of het plan overeenkomt met wat je geïmporteerd hebt.
 
 [^1]: [Een vercel API token genereren](./api-tokens.md#een-vercel-api-token-genereren)
-[^2]:
-    [Een GitHub fine-grained personal access token (PAT) genereren](./api-tokens.md#een-github-fine-grained-personal-access-token-pat-genereren)
+
+[^2]: [Een GitHub fine-grained personal access token (PAT) genereren](./api-tokens.md#een-github-fine-grained-personal-access-token-pat-genereren)
 
 [vercel-nl-design-system]: https://vercel.com/nl-design-system/
