@@ -71,7 +71,8 @@ Most communities within the NL Design System use a standard structure for their 
 
 ### Teams
 
-An organisation (or repository) usually has three teams: Triage, Committer, Maintainer
+An organisation (or repository) usually has three teams: Triage, Committer, Maintainer ([also see the Github Documentation on permissions](https://docs.github.com/en/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization#permissions-for-each-role))
+
 - `organisation-triage`
 - `organisation-committer`
 - `organisation-maintainer`
