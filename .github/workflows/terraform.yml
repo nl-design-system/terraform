@@ -17,4 +17,3 @@ jobs:
 
       - name: Check Terraform files
         run: terraform fmt -check
-
