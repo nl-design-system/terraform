@@ -4,7 +4,7 @@ resource "github_repository" "terraform" {
   allow_merge_commit          = false
   allow_rebase_merge          = true
   allow_squash_merge          = true
-  allow_auto_merge            = true
+  allow_auto_merge            = false
   delete_branch_on_merge      = true
   has_issues                  = true
   has_downloads               = false
