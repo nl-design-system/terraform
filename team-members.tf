@@ -935,6 +935,10 @@ resource "github_team_members" "expertteam-digitale-toegankelijkheid-triage" {
   members {
     username = data.github_user.Astrid-01.username
   }
+
+  members {
+    username = data.github_user.pibl.username
+  }
 }
 
 resource "github_team_members" "expertteam-digitale-toegankelijkheid-committer" {
