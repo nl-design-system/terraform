@@ -907,6 +907,10 @@ resource "github_team_members" "community-committer" {
   members {
     username = data.github_user.hidde.username
   }
+
+  members {
+    username = data.github_user.LeidscheJurgen.username
+  }
 }
 
 resource "github_team_members" "expertteam-digitale-toegankelijkheid-triage" {
