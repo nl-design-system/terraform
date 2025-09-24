@@ -104,34 +104,10 @@ resource "github_repository_ruleset" "utrecht-main" {
 resource "github_repository_collaborators" "utrecht" {
   repository = github_repository.utrecht.name
 
+  # kernteam
   team {
     permission = "admin"
     team_id    = github_team.kernteam-admin.id
-  }
-
-  team {
-    permission = "maintain"
-    team_id    = github_team.kernteam-maintainer.id
-  }
-
-  team {
-    permission = "maintain"
-    team_id    = github_team.gemeente-utrecht-maintainer.id
-  }
-
-  team {
-    permission = "push"
-    team_id    = github_team.gemeente-utrecht-committer.id
-  }
-
-  team {
-    permission = "triage"
-    team_id    = github_team.gemeente-utrecht-triage.id
-  }
-
-  team {
-    permission = "push"
-    team_id    = github_team.kernteam-committer.id
   }
 
   team {
@@ -145,10 +121,32 @@ resource "github_repository_collaborators" "utrecht" {
   }
 
   team {
-    permission = "maintain"
-    team_id    = github_team.gemeente-utrecht.id
+    permission = "push"
+    team_id    = github_team.kernteam-committer.id
   }
 
+  team {
+    permission = "maintain"
+    team_id    = github_team.kernteam-maintainer.id
+  }
+
+  # Utrecht
+  team {
+    permission = "triage"
+    team_id    = github_team.gemeente-utrecht-triage.id
+  }
+
+  team {
+    permission = "push"
+    team_id    = github_team.gemeente-utrecht-committer.id
+  }
+
+  team {
+    permission = "maintain"
+    team_id    = github_team.gemeente-utrecht-maintainer.id
+  }
+
+  # Frameless
   team {
     permission = "push"
     team_id    = github_team.frameless.id
@@ -159,16 +157,18 @@ resource "github_repository_collaborators" "utrecht" {
     team_id    = github_team.frameless-maintainer.id
   }
 
-  team {
-    permission = "push"
-    team_id    = github_team.logius-maintainer.id
-  }
-
+  # Logius
   team {
     permission = "triage"
     team_id    = github_team.logius-triage.id
   }
 
+  team {
+    permission = "push"
+    team_id    = github_team.logius-maintainer.id
+  }
+
+  # Community
   team {
     permission = "push"
     team_id    = github_team.community-committer.id
