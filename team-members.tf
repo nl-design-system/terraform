@@ -169,6 +169,10 @@ resource "github_team_members" "kernteam-triage" {
   members {
     username = data.github_user.veslav3.username
   }
+
+  members {
+    username = data.github_user.sdejong570.username
+  }
 }
 
 resource "github_team_members" "kernteam-ci" {
