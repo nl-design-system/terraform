@@ -15,7 +15,7 @@ resource "github_repository" "gebruikersonderzoeken" {
   homepage_url                = "https://gebruikersonderzoeken.nl/"
   squash_merge_commit_title   = "PR_TITLE"
   squash_merge_commit_message = "PR_BODY"
-  topics                      = ["nl-design-system", "docusaurus"]
+  topics                      = ["nl-design-system"]
 
   template {
     include_all_branches = false
@@ -133,30 +133,10 @@ resource "github_repository_collaborators" "gebruikersonderzoeken" {
 
 resource "vercel_project" "gebruikersonderzoeken" {
   name             = "gebruikersonderzoeken"
-  output_directory = "build/"
-  ignore_command   = "[[ $(git log -1 --pretty=%an) == 'dependabot[bot]' ]]"
-  node_version     = "22.x"
-
-  git_repository = {
-    type = "github"
-    repo = github_repository.gebruikersonderzoeken.full_name
-  }
-
-  vercel_authentication = {
-    deployment_type = "none"
-  }
-}
-
-resource "vercel_project" "gebruikersonderzoeken-next" {
-  name             = "gebruikersonderzoeken-next"
-  output_directory = "dist/"
+  output_directory = "packages/website/dist/"
   build_command    = "pnpm run build"
-  root_directory   = "packages/website/"
   ignore_command   = "[[ $(git log -1 --pretty=%an) == 'dependabot[bot]' ]]"
   node_version     = "22.x"
-
-  # Skip deployments when there are no changes to the root directory or its dependencies:
-  enable_affected_projects_deployments = true
 
   git_repository = {
     type = "github"
