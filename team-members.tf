@@ -971,6 +971,22 @@ resource "github_team_members" "expertteam-digitale-toegankelijkheid-committer" 
   members {
     username = data.github_user.huijkman.username
   }
+
+  members {
+    username = data.github_user.jurgenbelien.username
+  }
+
+  members {
+    username = data.github_user.hilhorstt.username
+  }
+
+  members {
+    username = data.github_user.bartveneman.username
+  }
+
+  members {
+    username = data.github_user.julezrulez.username
+  }
 }
 
 resource "github_team_members" "developer_overheid_nl-committer" {
