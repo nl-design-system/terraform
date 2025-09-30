@@ -501,3 +501,20 @@ data "github_user" "LeidscheJurgen" {
 data "github_user" "sdejong570" {
   username = "sdejong570"
 }
+
+data "github_user" "jurgenbelien" {
+  username = "jurgenbelien"
+}
+
+data "github_user" "hilhorstt" {
+  username = "hilhorstt"
+}
+
+data "github_user" "bartveneman" {
+  username = "bartveneman"
+}
+
+data "github_user" "julezrulez" {
+  username = "julezrulez"
+}
+
