@@ -22,10 +22,6 @@ data "github_user" "JeroenduC" {
   username = "JeroenduC"
 }
 
-data "github_user" "matijs" {
-  username = "matijs"
-}
-
 data "github_user" "bddjong" {
   username = "bddjong"
 }

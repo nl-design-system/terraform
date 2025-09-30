@@ -63,10 +63,6 @@ resource "github_team_members" "kernteam-committer" {
   }
 
   members {
-    username = data.github_user.matijs.username
-  }
-
-  members {
     username = data.github_user.jeffreylauwers.username
   }
 
@@ -105,10 +101,6 @@ resource "github_team_members" "kernteam-maintainer" {
   }
 
   members {
-    username = data.github_user.matijs.username
-  }
-
-  members {
     username = data.github_user.eslook.username
   }
 
@@ -134,10 +126,6 @@ resource "github_team_members" "kernteam-triage" {
     username = data.github_user.Robbert.username
     # organization owners must be "maintainer", see note at https://registry.terraform.io/providers/integrations/github/latest/docs/resources/team_members
     role = "maintainer"
-  }
-
-  members {
-    username = data.github_user.matijs.username
   }
 
   members {
@@ -192,10 +180,6 @@ resource "github_team_members" "kernteam-dependabot" {
     username = data.github_user.Robbert.username
     # organization owners must be "maintainer", see note at https://registry.terraform.io/providers/integrations/github/latest/docs/resources/team_members
     role = "maintainer"
-  }
-
-  members {
-    username = data.github_user.matijs.username
   }
 }
 
