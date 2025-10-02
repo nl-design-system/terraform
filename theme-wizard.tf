@@ -150,3 +150,20 @@ resource "vercel_project" "theme-wizard" {
     deployment_type = "none"
   }
 }
+
+resource "vercel_project" "theme-wizard-storybook" {
+  name             = "theme-wizard-storybook"
+  output_directory = "packages/storybook/dist/"
+  build_command    = "pnpm run build"
+  ignore_command   = "[[ $(git log -1 --pretty=%an) == 'dependabot[bot]' ]]"
+  node_version     = "22.x"
+
+  git_repository = {
+    type = "github"
+    repo = github_repository.theme-wizard.full_name
+  }
+
+  vercel_authentication = {
+    deployment_type = "none"
+  }
+}
