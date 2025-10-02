@@ -119,6 +119,11 @@ resource "github_repository_collaborators" "theme-wizard" {
   }
 
   team {
+    permission = "maintain"
+    team_id    = github_team.expertteam-digitale-toegankelijkheid-maintainer.id
+  }
+
+  team {
     permission = "push"
     team_id    = github_team.expertteam-digitale-toegankelijkheid-committer.id
   }

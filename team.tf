@@ -645,6 +645,13 @@ resource "github_team" "expertteam-digitale-toegankelijkheid-committer" {
   description    = "Committers of the Expert Team for Digital Accessibility"
 }
 
+resource "github_team" "expertteam-digitale-toegankelijkheid-maintainer" {
+  name           = "expertteam-digitale-toegankelijkheid-maintainer"
+  parent_team_id = github_team.expertteam-digitale-toegankelijkheid-committer.id
+  privacy        = "closed"
+  description    = "Maintainers of the Expert Team for Digital Accessibility"
+}
+
 resource "github_team" "developer_overheid_nl-committer" {
   name        = "developer_overheid_nl-committer"
   privacy     = "closed"
