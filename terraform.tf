@@ -170,6 +170,13 @@ resource "github_repository_collaborators" "terraform" {
     team_id    = github_team.rivm-maintainer.id
   }
 
+  team {
+    # Allow the entire Expertteam to make PRs to propose changes, kernteam can review.
+    # Maintainers for expertteam are to be determined.
+    permission = "push"
+    team_id    = github_team.expertteam-digitale-toegankelijkheid-committer.id
+  }
+
   # Restrict pushes to infrastructure as code to admins and maintainers
 
   team {
