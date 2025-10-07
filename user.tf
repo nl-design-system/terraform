@@ -521,3 +521,6 @@ data "github_user" "ermenm" {
 data "github_user" "richadr" {
   username = "richadr"
 }
+data "github_user" "ruNackenkvk" {
+  username = "ru-nacken_kvk"
+}
