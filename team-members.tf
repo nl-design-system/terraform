@@ -89,6 +89,10 @@ resource "github_team_members" "kernteam-committer" {
   members {
     username = data.github_user.veslav3.username
   }
+
+  members {
+    username = data.github_user.richadr.username
+  }
 }
 
 resource "github_team_members" "kernteam-maintainer" {
