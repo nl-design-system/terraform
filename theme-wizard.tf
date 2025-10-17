@@ -175,6 +175,7 @@ resource "vercel_project" "theme-wizard-server" {
   ignore_command   = "[[ $(git log -1 --pretty=%an) == 'dependabot[bot]' ]]"
   node_version     = "22.x"
   root_directory   = "packages/theme-wizard-server"
+  framework        = "hono"
 
   git_repository = {
     type = "github"
