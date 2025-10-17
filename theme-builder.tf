@@ -26,7 +26,7 @@ resource "github_repository" "theme-builder" {
   }
 
   lifecycle {
-    prevent_destroy = true
+    prevent_destroy = false
   }
 }
 

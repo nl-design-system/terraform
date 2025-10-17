@@ -1,6 +1,6 @@
-resource "github_repository" "gebruikersonderzoeken" {
-  name                        = "gebruikersonderzoeken"
-  description                 = "Gedeeld gebruikersonderzoek door UX researchers van verschillende organisaties in de Nederlandse overheid."
+resource "github_repository" "theme-wizard" {
+  name                        = "theme-wizard"
+  description                 = "Theme Wizard met hulpmiddelen om een toegankelijke huisstijl te maken."
   allow_merge_commit          = false
   allow_rebase_merge          = true
   allow_squash_merge          = true
@@ -12,7 +12,6 @@ resource "github_repository" "gebruikersonderzoeken" {
   has_wiki                    = false
   has_discussions             = true
   vulnerability_alerts        = true
-  homepage_url                = "https://gebruikersonderzoeken.nl/"
   squash_merge_commit_title   = "PR_TITLE"
   squash_merge_commit_message = "PR_BODY"
   topics                      = ["nl-design-system"]
@@ -25,7 +24,6 @@ resource "github_repository" "gebruikersonderzoeken" {
 
   pages {
     build_type = "workflow"
-    cname      = "gebruikersonderzoeken.nl"
 
     # A `source` block is only needed when `build_type` is set to `"legacy"`, but because GitHub keeps it around invisibly, we must add it here to prevent churn
     source {
@@ -48,15 +46,15 @@ resource "github_repository" "gebruikersonderzoeken" {
   }
 }
 
-resource "github_branch_default" "gebruikersonderzoeken" {
+resource "github_branch_default" "theme-wizard" {
   branch     = "main"
-  repository = github_repository.gebruikersonderzoeken.name
+  repository = github_repository.theme-wizard.name
 }
 
-resource "github_repository_ruleset" "gebruikersonderzoeken-main" {
+resource "github_repository_ruleset" "theme-wizard-main" {
   enforcement = "active"
   name        = "default-branch-protection"
-  repository  = github_repository.gebruikersonderzoeken.name
+  repository  = github_repository.theme-wizard.name
   target      = "branch"
 
   conditions {
@@ -97,8 +95,8 @@ resource "github_repository_ruleset" "gebruikersonderzoeken-main" {
   }
 }
 
-resource "github_repository_collaborators" "gebruikersonderzoeken" {
-  repository = github_repository.gebruikersonderzoeken.name
+resource "github_repository_collaborators" "theme-wizard" {
+  repository = github_repository.theme-wizard.name
 
   team {
     permission = "admin"
@@ -121,31 +119,31 @@ resource "github_repository_collaborators" "gebruikersonderzoeken" {
   }
 
   team {
-    permission = "triage"
-    team_id    = github_team.kernteam-dependabot.id
-  }
-
-  team {
     permission = "maintain"
-    team_id    = github_team.gebruikersonderzoeken.id
+    team_id    = github_team.expertteam-digitale-toegankelijkheid-maintainer.id
   }
 
   team {
     permission = "push"
-    team_id    = github_team.community-committer.id
+    team_id    = github_team.expertteam-digitale-toegankelijkheid-committer.id
+  }
+
+  team {
+    permission = "triage"
+    team_id    = github_team.expertteam-digitale-toegankelijkheid-triage.id
   }
 }
 
-resource "vercel_project" "gebruikersonderzoeken" {
-  name             = "gebruikersonderzoeken"
-  output_directory = "packages/website/dist/"
+resource "vercel_project" "theme-wizard" {
+  name             = "theme-wizard"
+  output_directory = "packages/theme-wizard-website/dist/"
   build_command    = "pnpm run build"
   ignore_command   = "[[ $(git log -1 --pretty=%an) == 'dependabot[bot]' ]]"
   node_version     = "22.x"
 
   git_repository = {
     type = "github"
-    repo = github_repository.gebruikersonderzoeken.full_name
+    repo = github_repository.theme-wizard.full_name
   }
 
   vercel_authentication = {
@@ -153,3 +151,37 @@ resource "vercel_project" "gebruikersonderzoeken" {
   }
 }
 
+resource "vercel_project" "theme-wizard-storybook" {
+  name             = "theme-wizard-storybook"
+  output_directory = "packages/storybook/dist/"
+  build_command    = "pnpm run build"
+  ignore_command   = "[[ $(git log -1 --pretty=%an) == 'dependabot[bot]' ]]"
+  node_version     = "22.x"
+
+  git_repository = {
+    type = "github"
+    repo = github_repository.theme-wizard.full_name
+  }
+
+  vercel_authentication = {
+    deployment_type = "none"
+  }
+}
+
+resource "vercel_project" "theme-wizard-server" {
+  name             = "theme-wizard-server"
+  output_directory = "dist/"
+  build_command    = "pnpm --filter theme-wizard-server... build"
+  ignore_command   = "[[ $(git log -1 --pretty=%an) == 'dependabot[bot]' ]]"
+  node_version     = "22.x"
+  root_directory   = "packages/theme-wizard-server"
+
+  git_repository = {
+    type = "github"
+    repo = github_repository.theme-wizard.full_name
+  }
+
+  vercel_authentication = {
+    deployment_type = "none"
+  }
+}

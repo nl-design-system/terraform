@@ -63,10 +63,6 @@ resource "github_team_members" "kernteam-committer" {
   }
 
   members {
-    username = data.github_user.matijs.username
-  }
-
-  members {
     username = data.github_user.jeffreylauwers.username
   }
 
@@ -93,6 +89,10 @@ resource "github_team_members" "kernteam-committer" {
   members {
     username = data.github_user.veslav3.username
   }
+
+  members {
+    username = data.github_user.richadr.username
+  }
 }
 
 resource "github_team_members" "kernteam-maintainer" {
@@ -102,10 +102,6 @@ resource "github_team_members" "kernteam-maintainer" {
     username = data.github_user.Robbert.username
     # organization owners must be "maintainer", see note at https://registry.terraform.io/providers/integrations/github/latest/docs/resources/team_members
     role = "maintainer"
-  }
-
-  members {
-    username = data.github_user.matijs.username
   }
 
   members {
@@ -137,10 +133,6 @@ resource "github_team_members" "kernteam-triage" {
   }
 
   members {
-    username = data.github_user.matijs.username
-  }
-
-  members {
     username = data.github_user.jeffreylauwers.username
   }
 
@@ -169,6 +161,10 @@ resource "github_team_members" "kernteam-triage" {
   members {
     username = data.github_user.veslav3.username
   }
+
+  members {
+    username = data.github_user.sdejong570.username
+  }
 }
 
 resource "github_team_members" "kernteam-ci" {
@@ -188,10 +184,6 @@ resource "github_team_members" "kernteam-dependabot" {
     username = data.github_user.Robbert.username
     # organization owners must be "maintainer", see note at https://registry.terraform.io/providers/integrations/github/latest/docs/resources/team_members
     role = "maintainer"
-  }
-
-  members {
-    username = data.github_user.matijs.username
   }
 }
 
@@ -310,6 +302,10 @@ resource "github_team_members" "logius-committer" {
 
   members {
     username = data.github_user.cascassette.username
+  }
+
+  members {
+    username = data.github_user.mikenicolaes.username
   }
 }
 
@@ -539,6 +535,22 @@ resource "github_team_members" "rvo-estafettemodel" {
 
   members {
     username = data.github_user.rroose-rvo.username
+  }
+}
+
+resource "github_team_members" "gemeente-utrecht-maintainer" {
+  team_id = github_team.gemeente-utrecht-maintainer.id
+
+  members {
+    username = data.github_user.JeroenduC.username
+  }
+
+  members {
+    username = data.github_user.Ollie-nl.username
+  }
+
+  members {
+    username = data.github_user.pixelgitter.username
   }
 }
 
@@ -887,18 +899,14 @@ resource "github_team_members" "community-committer" {
   members {
     username = data.github_user.hidde.username
   }
+
+  members {
+    username = data.github_user.LeidscheJurgen.username
+  }
 }
 
 resource "github_team_members" "expertteam-digitale-toegankelijkheid-triage" {
   team_id = github_team.expertteam-digitale-toegankelijkheid-triage.id
-
-  members {
-    username = data.github_user.RenateRoke.username
-  }
-
-  members {
-    username = data.github_user.Rozerinay.username
-  }
 
   members {
     # organization owners must be "maintainer", see note at https://registry.terraform.io/providers/integrations/github/latest/docs/resources/team_members
@@ -919,6 +927,10 @@ resource "github_team_members" "expertteam-digitale-toegankelijkheid-triage" {
   members {
     username = data.github_user.Astrid-01.username
   }
+
+  members {
+    username = data.github_user.pibl.username
+  }
 }
 
 resource "github_team_members" "expertteam-digitale-toegankelijkheid-committer" {
@@ -934,6 +946,50 @@ resource "github_team_members" "expertteam-digitale-toegankelijkheid-committer" 
     # organization owners must be "maintainer", see note at https://registry.terraform.io/providers/integrations/github/latest/docs/resources/team_members
     username = data.github_user.Yolijn.username
     role     = "maintainer"
+  }
+
+  members {
+    username = data.github_user.huijkman.username
+  }
+
+  members {
+    username = data.github_user.jurgenbelien.username
+  }
+
+  members {
+    username = data.github_user.hilhorstt.username
+  }
+
+  members {
+    username = data.github_user.bartveneman.username
+  }
+
+  members {
+    username = data.github_user.julezrulez.username
+  }
+
+  members {
+    username = data.github_user.ermenm.username
+  }
+}
+
+resource "github_team_members" "expertteam-digitale-toegankelijkheid-maintainer" {
+  team_id = github_team.expertteam-digitale-toegankelijkheid-maintainer.id
+
+  members {
+    # organization owners must be "maintainer", see note at https://registry.terraform.io/providers/integrations/github/latest/docs/resources/team_members
+    username = data.github_user.Robbert.username
+    role     = "maintainer"
+  }
+
+  members {
+    # organization owners must be "maintainer", see note at https://registry.terraform.io/providers/integrations/github/latest/docs/resources/team_members
+    username = data.github_user.Yolijn.username
+    role     = "maintainer"
+  }
+
+  members {
+    username = data.github_user.pibl.username
   }
 
   members {

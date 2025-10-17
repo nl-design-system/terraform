@@ -22,10 +22,6 @@ data "github_user" "JeroenduC" {
   username = "JeroenduC"
 }
 
-data "github_user" "matijs" {
-  username = "matijs"
-}
-
 data "github_user" "bddjong" {
   username = "bddjong"
 }
@@ -480,4 +476,48 @@ data "github_user" "veslav3" {
 
 data "github_user" "jiromaykin" {
   username = "jiromaykin"
+}
+
+data "github_user" "pixelgitter" {
+  username = "pixelgitter"
+}
+
+data "github_user" "pibl" {
+  username = "pibl"
+}
+
+data "github_user" "mikenicolaes" {
+  username = "mikenicolaes"
+}
+
+data "github_user" "LeidscheJurgen" {
+  username = "LeidscheJurgen"
+}
+
+data "github_user" "sdejong570" {
+  username = "sdejong570"
+}
+
+data "github_user" "jurgenbelien" {
+  username = "jurgenbelien"
+}
+
+data "github_user" "hilhorstt" {
+  username = "hilhorstt"
+}
+
+data "github_user" "bartveneman" {
+  username = "bartveneman"
+}
+
+data "github_user" "julezrulez" {
+  username = "julezrulez"
+}
+
+data "github_user" "ermenm" {
+  username = "ermenm"
+}
+
+data "github_user" "richadr" {
+  username = "richadr"
 }

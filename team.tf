@@ -147,6 +147,27 @@ resource "github_team" "gemeente-utrecht" {
   privacy     = "closed"
 }
 
+resource "github_team" "gemeente-utrecht-triage" {
+  name           = "gemeente-utrecht-triage"
+  parent_team_id = github_team.gemeente-utrecht.id
+  description    = "Gemeente Utrecht (Triage)"
+  privacy        = "closed"
+}
+
+resource "github_team" "gemeente-utrecht-committer" {
+  name           = "gemeente-utrecht-committer"
+  parent_team_id = github_team.gemeente-utrecht-triage.id
+  description    = "Gemeente Utrecht (Committer)"
+  privacy        = "closed"
+}
+
+resource "github_team" "gemeente-utrecht-maintainer" {
+  name           = "gemeente-utrecht-maintainer"
+  parent_team_id = github_team.gemeente-utrecht-committer.id
+  description    = "Gemeente Utrecht (Maintainer)"
+  privacy        = "closed"
+}
+
 resource "github_team" "gemeente-utrecht-estafettemodel" {
   name           = "gemeente-utrecht-estafettemodel"
   parent_team_id = github_team.gemeente-utrecht.id
@@ -474,7 +495,7 @@ resource "github_team" "tilburg-ditp-maintainer" {
 resource "github_team" "vng-services" {
   name        = "vng-services"
   privacy     = "closed"
-  description = "VNG Team dat werkt aan de Overheidsbrede portalen storybook"
+  description = "VNG Team dat werkt aan de MijnServices storybook"
 }
 
 resource "github_team" "vng-services-committer" {
@@ -622,6 +643,13 @@ resource "github_team" "expertteam-digitale-toegankelijkheid-committer" {
   parent_team_id = github_team.expertteam-digitale-toegankelijkheid-triage.id
   privacy        = "closed"
   description    = "Committers of the Expert Team for Digital Accessibility"
+}
+
+resource "github_team" "expertteam-digitale-toegankelijkheid-maintainer" {
+  name           = "expertteam-digitale-toegankelijkheid-maintainer"
+  parent_team_id = github_team.expertteam-digitale-toegankelijkheid-committer.id
+  privacy        = "closed"
+  description    = "Maintainers of the Expert Team for Digital Accessibility"
 }
 
 resource "github_team" "developer_overheid_nl-committer" {

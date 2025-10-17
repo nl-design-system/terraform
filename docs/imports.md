@@ -32,7 +32,7 @@ Voer de volgende opdracht uit in de terminal.
  env \
   TF_VAR_GITHUB_TOKEN={GitHub PAT} \
   TF_VAR_VERCEL_API_TOKEN={Vercel API token} \
-  TF_VAR_PLESK_UUID_TOKEN=1 \
+  TF_VAR_PLESK_WEBHOOK_UUID=1 \
   terraform import "github_repostory.{voorbeeld}" {voorbeeld}
 ```
 
@@ -71,7 +71,7 @@ Voer de volgende opdracht uit in de terminal.
  env \
   TF_VAR_GITHUB_TOKEN={GitHub PAT} \
   TF_VAR_VERCEL_API_TOKEN={Vercel API token} \
-  TF_VAR_PLESK_UUID_TOKEN=1 \
+  TF_VAR_PLESK_WEBHOOK_UUID=1 \
   terraform import "github_branch_default.{voorbeeld}" {voorbeeld}
 ```
 
@@ -111,7 +111,7 @@ Voer de volgende opdracht uit in de terminal.
  env \
   TF_VAR_GITHUB_TOKEN={GitHub PAT} \
   TF_VAR_VERCEL_API_TOKEN={Vercel API token} \
-  TF_VAR_PLESK_UUID_TOKEN=1 \
+  TF_VAR_PLESK_WEBHOOK_UUID=1 \
   terraform import "github_repository_ruleset.{voorbeeld}" {voorbeeld}:{12345}
 ```
 
@@ -154,7 +154,7 @@ Voer de volgende opdracht uit in de terminal.
  env \
   TF_VAR_GITHUB_TOKEN={GitHub PAT} \
   TF_VAR_VERCEL_API_TOKEN={Vercel API token} \
-  TF_VAR_PLESK_UUID_TOKEN=1 \
+  TF_VAR_PLESK_WEBHOOK_UUID=1 \
   terraform import "vercel_project.{voorbeeld}" {project ID}
 ```
 
@@ -170,7 +170,7 @@ your Terraform state and will henceforth be managed by Terraform.
 Commit nu je wijzigingen, maak een PR aan en controleer of het plan overeenkomt met wat je geïmporteerd hebt.
 
 [^1]: [Een vercel API token genereren](./api-tokens.md#een-vercel-api-token-genereren)
-[^2]:
-    [Een GitHub fine-grained personal access token (PAT) genereren](./api-tokens.md#een-github-fine-grained-personal-access-token-pat-genereren)
+
+[^2]: [Een GitHub fine-grained personal access token (PAT) genereren](./api-tokens.md#een-github-fine-grained-personal-access-token-pat-genereren)
 
 [vercel-nl-design-system]: https://vercel.com/nl-design-system/

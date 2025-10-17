@@ -1,6 +1,6 @@
-resource "github_repository" "overheidsbrede-portalen-community" {
-  name                        = "overheidsbrede-portalen-community"
-  description                 = "Work in Progress: Templates for government services built on the NL Design System architecture."
+resource "github_repository" "editor" {
+  name                        = "editor"
+  description                 = "Rich text editor met hulpmiddelen voor contentmakers om toegankelijke content te maken."
   allow_merge_commit          = false
   allow_rebase_merge          = true
   allow_squash_merge          = true
@@ -10,11 +10,11 @@ resource "github_repository" "overheidsbrede-portalen-community" {
   has_downloads               = false
   has_projects                = true
   has_wiki                    = false
+  has_discussions             = true
   vulnerability_alerts        = true
-  homepage_url                = "https://nl-design-system.github.io/overheidsbrede-portalen-community/"
   squash_merge_commit_title   = "PR_TITLE"
   squash_merge_commit_message = "PR_BODY"
-  topics                      = ["nl-design-system", "storybook"]
+  topics                      = ["nl-design-system"]
 
   template {
     include_all_branches = false
@@ -23,9 +23,21 @@ resource "github_repository" "overheidsbrede-portalen-community" {
   }
 
   pages {
+    build_type = "workflow"
+
+    # A `source` block is only needed when `build_type` is set to `"legacy"`, but because GitHub keeps it around invisibly, we must add it here to prevent churn
     source {
       branch = "gh-pages"
       path   = "/"
+    }
+  }
+
+  security_and_analysis {
+    secret_scanning {
+      status = "enabled"
+    }
+    secret_scanning_push_protection {
+      status = "enabled"
     }
   }
 
@@ -34,15 +46,15 @@ resource "github_repository" "overheidsbrede-portalen-community" {
   }
 }
 
-resource "github_branch_default" "overheidsbrede-portalen-community" {
+resource "github_branch_default" "editor" {
   branch     = "main"
-  repository = github_repository.overheidsbrede-portalen-community.name
+  repository = github_repository.editor.name
 }
 
-resource "github_repository_ruleset" "overheidsbrede-portalen-community-main" {
+resource "github_repository_ruleset" "editor-main" {
   enforcement = "active"
   name        = "default-branch-protection"
-  repository  = github_repository.overheidsbrede-portalen-community.name
+  repository  = github_repository.editor.name
   target      = "branch"
 
   conditions {
@@ -73,11 +85,9 @@ resource "github_repository_ruleset" "overheidsbrede-portalen-community-main" {
       strict_required_status_checks_policy = false
 
       required_check {
-        context = "install"
-      }
-      required_check {
         context = "lint"
       }
+
       required_check {
         context = "build"
       }
@@ -85,8 +95,8 @@ resource "github_repository_ruleset" "overheidsbrede-portalen-community-main" {
   }
 }
 
-resource "github_repository_collaborators" "overheidsbrede-portalen-community" {
-  repository = github_repository.overheidsbrede-portalen-community.name
+resource "github_repository_collaborators" "editor" {
+  repository = github_repository.editor.name
 
   team {
     permission = "admin"
@@ -109,43 +119,35 @@ resource "github_repository_collaborators" "overheidsbrede-portalen-community" {
   }
 
   team {
-    permission = "triage"
-    team_id    = github_team.kernteam-dependabot.id
-  }
-
-  team {
-    permission = "push"
-    team_id    = github_team.vng-services-committer.id
-  }
-
-  team {
     permission = "maintain"
-    team_id    = github_team.vng-services-maintainer.id
-  }
-
-  team {
-    permission = "triage"
-    team_id    = github_team.vng-services.id
+    team_id    = github_team.expertteam-digitale-toegankelijkheid-maintainer.id
   }
 
   team {
     permission = "push"
-    team_id    = github_team.community-committer.id
+    team_id    = github_team.expertteam-digitale-toegankelijkheid-committer.id
+  }
+
+  team {
+    permission = "triage"
+    team_id    = github_team.expertteam-digitale-toegankelijkheid-triage.id
   }
 }
 
-resource "vercel_project" "overheidsbrede-portalen-community" {
-  name             = github_repository.overheidsbrede-portalen-community.name
-  output_directory = "packages/storybook/dist/"
+resource "vercel_project" "editor" {
+  name             = "editor"
+  output_directory = "packages/website/dist/"
+  build_command    = "pnpm run build"
   ignore_command   = "[[ $(git log -1 --pretty=%an) == 'dependabot[bot]' ]]"
   node_version     = "22.x"
 
   git_repository = {
     type = "github"
-    repo = github_repository.overheidsbrede-portalen-community.full_name
+    repo = github_repository.editor.full_name
   }
 
   vercel_authentication = {
     deployment_type = "none"
   }
 }
+

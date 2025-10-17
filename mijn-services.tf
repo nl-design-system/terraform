@@ -1,6 +1,6 @@
-resource "github_repository" "utrecht" {
-  name                        = "utrecht"
-  description                 = "Work in Progress: Utrecht Design System based on the NL Design System architecture. Storybook: https://nl-design-system.github.io/utrecht/storybook/"
+resource "github_repository" "mijn-services" {
+  name                        = "mijn-services"
+  description                 = "Work in Progress: Templates for government services built on the NL Design System architecture."
   allow_merge_commit          = false
   allow_rebase_merge          = true
   allow_squash_merge          = true
@@ -11,16 +11,10 @@ resource "github_repository" "utrecht" {
   has_projects                = true
   has_wiki                    = false
   vulnerability_alerts        = true
-  homepage_url                = "https://nl-design-system.github.io/utrecht/"
+  homepage_url                = "https://nl-design-system.github.io/mijn-services/"
   squash_merge_commit_title   = "PR_TITLE"
   squash_merge_commit_message = "PR_BODY"
   topics                      = ["nl-design-system", "storybook"]
-
-  template {
-    include_all_branches = false
-    owner                = "nl-design-system"
-    repository           = "example"
-  }
 
   pages {
     build_type = "workflow"
@@ -37,22 +31,17 @@ resource "github_repository" "utrecht" {
   }
 }
 
-resource "github_branch_default" "utrecht" {
-  repository = github_repository.utrecht.name
+resource "github_branch_default" "mijn-services" {
   branch     = "main"
+  repository = github_repository.mijn-services.name
+  rename     = false
 }
 
-resource "github_repository_ruleset" "utrecht-main" {
+resource "github_repository_ruleset" "mijn-services-main" {
   enforcement = "active"
   name        = "default-branch-protection"
-  repository  = github_repository.utrecht.name
+  repository  = github_repository.mijn-services.name
   target      = "branch"
-
-  bypass_actors {
-    actor_id    = github_team.kernteam-ci.id
-    actor_type  = "Team"
-    bypass_mode = "always"
-  }
 
   conditions {
     ref_name {
@@ -81,43 +70,30 @@ resource "github_repository_ruleset" "utrecht-main" {
     required_status_checks {
       strict_required_status_checks_policy = false
 
-
       required_check {
-        context = "build"
+        context = "install"
       }
       required_check {
         context = "lint"
       }
       required_check {
-        context = "test"
-      }
-      required_check {
-        context = "Block Autosquash Commits"
-      }
-      required_check {
-        context = "UI Tests"
+        context = "build"
       }
     }
   }
 }
 
-resource "github_repository_collaborators" "utrecht" {
-  repository = github_repository.utrecht.name
+resource "github_repository_collaborators" "mijn-services" {
+  repository = github_repository.mijn-services.name
 
-  # kernteam
   team {
     permission = "admin"
     team_id    = github_team.kernteam-admin.id
   }
 
   team {
-    permission = "triage"
-    team_id    = github_team.kernteam-triage.id
-  }
-
-  team {
-    permission = "triage"
-    team_id    = github_team.kernteam-dependabot.id
+    permission = "maintain"
+    team_id    = github_team.kernteam-maintainer.id
   }
 
   team {
@@ -126,51 +102,43 @@ resource "github_repository_collaborators" "utrecht" {
   }
 
   team {
-    permission = "maintain"
-    team_id    = github_team.kernteam-maintainer.id
+    permission = "triage"
+    team_id    = github_team.kernteam-triage.id
   }
 
-  # Utrecht
+  team {
+    permission = "push"
+    team_id    = github_team.vng-services-committer.id
+  }
+
+  team {
+    permission = "maintain"
+    team_id    = github_team.vng-services-maintainer.id
+  }
+
   team {
     permission = "triage"
-    team_id    = github_team.gemeente-utrecht-triage.id
+    team_id    = github_team.vng-services.id
   }
 
-  team {
-    permission = "push"
-    team_id    = github_team.gemeente-utrecht-committer.id
-  }
-
-  team {
-    permission = "maintain"
-    team_id    = github_team.gemeente-utrecht-maintainer.id
-  }
-
-  # Frameless
-  team {
-    permission = "push"
-    team_id    = github_team.frameless.id
-  }
-
-  team {
-    permission = "maintain"
-    team_id    = github_team.frameless-maintainer.id
-  }
-
-  # Logius
-  team {
-    permission = "triage"
-    team_id    = github_team.logius-triage.id
-  }
-
-  team {
-    permission = "push"
-    team_id    = github_team.logius-maintainer.id
-  }
-
-  # Community
   team {
     permission = "push"
     team_id    = github_team.community-committer.id
+  }
+}
+
+resource "vercel_project" "mijn-services" {
+  name             = github_repository.mijn-services.name
+  output_directory = "packages/storybook/dist/"
+  ignore_command   = "[[ $(git log -1 --pretty=%an) == 'dependabot[bot]' ]]"
+  node_version     = "22.x"
+
+  git_repository = {
+    type = "github"
+    repo = github_repository.mijn-services.full_name
+  }
+
+  vercel_authentication = {
+    deployment_type = "none"
   }
 }
