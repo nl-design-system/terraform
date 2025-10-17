@@ -120,6 +120,11 @@ resource "github_repository_collaborators" "mijn-services" {
     permission = "triage"
     team_id    = github_team.vng-services.id
   }
+
+  team {
+    permission = "push"
+    team_id    = github_team.community-committer.id
+  }
 }
 
 resource "vercel_project" "mijn-services" {
