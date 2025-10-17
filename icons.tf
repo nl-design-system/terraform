@@ -117,6 +117,11 @@ resource "github_repository_collaborators" "icons" {
     permission = "push"
     team_id    = github_team.icons-committer.id
   }
+
+  team {
+    permission = "push"
+    team_id    = github_team.community-committer.id
+  }
 }
 
 resource "vercel_project" "icons" {
