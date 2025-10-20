@@ -176,6 +176,7 @@ resource "vercel_project" "theme-wizard-server" {
   node_version     = "22.x"
   root_directory   = "packages/theme-wizard-server"
   framework        = "hono"
+  automatically_expose_system_environment_variables = true
 
   git_repository = {
     type = "github"
