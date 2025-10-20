@@ -169,13 +169,13 @@ resource "vercel_project" "theme-wizard-storybook" {
 }
 
 resource "vercel_project" "theme-wizard-server" {
-  name             = "theme-wizard-server"
-  output_directory = "dist/"
-  build_command    = "pnpm --filter theme-wizard-server... build"
-  ignore_command   = "[[ $(git log -1 --pretty=%an) == 'dependabot[bot]' ]]"
-  node_version     = "22.x"
-  root_directory   = "packages/theme-wizard-server"
-  framework        = "hono"
+  name                                              = "theme-wizard-server"
+  output_directory                                  = "dist/"
+  build_command                                     = "pnpm --filter theme-wizard-server... build"
+  ignore_command                                    = "[[ $(git log -1 --pretty=%an) == 'dependabot[bot]' ]]"
+  node_version                                      = "22.x"
+  root_directory                                    = "packages/theme-wizard-server"
+  framework                                         = "hono"
   automatically_expose_system_environment_variables = true
 
   git_repository = {
