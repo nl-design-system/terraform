@@ -30,6 +30,7 @@ resource "github_actions_organization_permissions" "nl-design-system" {
       # Third party individually owned actions
       "amannn/action-semantic-pull-request@*",
       "JamesIves/github-pages-deploy-action@*",
+      "ludeeus/action-shellcheck@*",
       "marvinpinto/action-automatic-releases@*",
       "wagoid/commitlint-github-action@*",
       "xt0rted/block-autosquash-commits-action@*",
