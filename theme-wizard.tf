@@ -12,6 +12,7 @@ resource "github_repository" "theme-wizard" {
   has_wiki                    = false
   has_discussions             = true
   vulnerability_alerts        = true
+  homepage_url                = "https://theme-wizard.nl-design-system-community.nl/"
   squash_merge_commit_title   = "PR_TITLE"
   squash_merge_commit_message = "PR_BODY"
   topics                      = ["nl-design-system"]
