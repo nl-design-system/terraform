@@ -136,7 +136,7 @@ resource "github_repository_collaborators" "editor" {
 
 resource "vercel_project" "editor" {
   name             = "editor"
-  output_directory = "packages/website/dist/"
+  output_directory = "packages/editor-website/dist/"
   build_command    = "pnpm run build"
   ignore_command   = "[[ $(git log -1 --pretty=%an) == 'dependabot[bot]' ]]"
   node_version     = "22.x"
