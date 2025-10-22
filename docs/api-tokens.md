@@ -12,7 +12,7 @@ Terraform maakt gebruik van verschillende API tokens.
    - Geef het token toegang tot `All repositories`.
    - Geef het token de volgende ‘Repository permissions’:
      - **Read** access tot 'Metadata' (deze permissie is default en niet aan te passen).
-     - **Read** and **Write** access tot ‘Administration’, ‘Code’, en ‘Pages’.
+     - **Read** and **Write** access tot ‘Administration’, ‘Contents’, en ‘Pages’.
    - Geef het token de volgende ‘Organization permissions’:
      - **Read** access tot ‘Administration’.
      - **Read** and **Write** access tot ‘Members’.
