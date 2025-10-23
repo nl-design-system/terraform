@@ -131,7 +131,7 @@ resource "github_repository_environment" "editor-publish" {
   can_admins_bypass = false
 
   deployment_branch_policy {
-    protected_branches     = true
+    protected_branches     = false
     custom_branch_policies = true
   }
 }
