@@ -100,7 +100,7 @@ resource "github_repository_ruleset" "editor-tag" {
 
     tag_name_pattern {
       operator = "regex"
-      pattern  = "**"
+      pattern  = "*"
     }
   }
 
