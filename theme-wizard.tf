@@ -169,6 +169,11 @@ resource "vercel_project" "theme-wizard-storybook" {
   }
 }
 
+resource "github_repository_tag_protection" "theme-wizard" {
+  repository = github_repository.theme-wizard.name
+  pattern    = "*"
+}
+
 resource "vercel_project" "theme-wizard-server" {
   name                                              = "theme-wizard-server"
   output_directory                                  = "dist/"
