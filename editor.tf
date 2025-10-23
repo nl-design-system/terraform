@@ -92,18 +92,19 @@ resource "github_repository_ruleset" "editor-tag" {
   repository  = github_repository.editor.name
   target      = "tag"
 
+  conditions {
+    ref_name {
+      include = ["~ALL"]
+      exclude = []
+    }
+  }
+
   rules {
     creation                = false
     deletion                = true
     update                  = true
     required_linear_history = true
-
-    tag_name_pattern {
-      operator = "regex"
-      pattern  = ".*"
-    }
   }
-
 }
 
 resource "github_repository_collaborators" "editor" {
