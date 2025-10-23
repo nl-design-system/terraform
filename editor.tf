@@ -86,6 +86,26 @@ resource "github_repository_ruleset" "editor-main" {
   }
 }
 
+resource "github_repository_ruleset" "editor-tag" {
+  enforcement = "active"
+  name        = "tag-protection"
+  repository  = github_repository.editor.name
+  target      = "tag"
+
+  rules {
+    creation                = false
+    deletion                = true
+    update                  = true
+    required_linear_history = true
+
+    tag_name_pattern {
+      operator = "regex"
+      pattern  = "**"
+    }
+  }
+
+}
+
 resource "github_repository_collaborators" "editor" {
   repository = github_repository.editor.name
 
