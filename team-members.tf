@@ -900,8 +900,17 @@ resource "github_team_members" "community-committer" {
     username = data.github_user.hidde.username
   }
 
+  # Leiden folks
   members {
     username = data.github_user.LeidscheJurgen.username
+  }
+
+  members {
+    username = data.github_user.WinsleyJ.username
+  }
+
+  members {
+    username = data.github_user.webmaster-leiden-nl.username
   }
 }
 
