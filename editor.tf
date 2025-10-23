@@ -135,6 +135,26 @@ resource "github_repository_collaborators" "editor" {
   }
 }
 
+resource "github_repository_environment" "editor-publish" {
+  environment       = "publish"
+  repository        = github_repository.editor.name
+  can_admins_bypass = false
+
+  deployment_branch_policy {
+    protected_branches     = true
+    custom_branch_policies = true
+  }
+}
+
+resource "github_repository_deployment_branch_policy" "editor-publish-main" {
+  depends_on = [github_repository_environment.editor-publish]
+
+  repository       = github_repository.editor.name
+  environment_name = github_repository_environment.editor-publish.environment
+  name             = github_branch_default.editor.branch
+}
+
+
 resource "vercel_project" "editor" {
   name             = "editor"
   output_directory = "packages/website/dist/"
