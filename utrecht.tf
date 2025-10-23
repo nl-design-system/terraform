@@ -174,3 +174,22 @@ resource "github_repository_collaborators" "utrecht" {
     team_id    = github_team.community-committer.id
   }
 }
+
+resource "github_repository_environment" "utrecht-publish" {
+  environment       = "Publish"
+  repository        = github_repository.utrecht.name
+  can_admins_bypass = false
+
+  deployment_branch_policy {
+    protected_branches     = false
+    custom_branch_policies = true
+  }
+}
+
+resource "github_repository_deployment_branch_policy" "utrecht-publish-main" {
+  depends_on = [github_repository_environment.utrecht-publish]
+
+  repository       = github_repository.utrecht.name
+  environment_name = github_repository_environment.utrecht-publish.environment
+  name             = github_branch_default.utrecht.branch
+}
