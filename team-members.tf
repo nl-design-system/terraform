@@ -538,6 +538,14 @@ resource "github_team_members" "rvo-estafettemodel" {
   }
 }
 
+resource "github_team_members" "gemeente-utrecht-committer" {
+  team_id = github_team.gemeente-utrecht-committer.id
+
+  members {
+    username = data.github_user.Rozerinay.username
+  }
+}
+
 resource "github_team_members" "gemeente-utrecht-maintainer" {
   team_id = github_team.gemeente-utrecht-maintainer.id
 
