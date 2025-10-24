@@ -62,7 +62,7 @@ resource "github_repository_ruleset" "terraform-main" {
       dismiss_stale_reviews_on_push     = true
       require_code_owner_review         = true
       require_last_push_approval        = false
-      required_approving_review_count   = 1
+      required_approving_review_count   = 2
       required_review_thread_resolution = true
     }
 
