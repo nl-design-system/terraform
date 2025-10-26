@@ -35,8 +35,10 @@ resource "github_repository" "mendix" {
     }
   }
 
+  archive_on_destroy = true
+
   lifecycle {
-    prevent_destroy = true
+    prevent_destroy = false
   }
 }
 
