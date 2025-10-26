@@ -125,6 +125,25 @@ resource "github_repository_collaborators" "theme-wizard" {
   }
 }
 
+resource "github_repository_environment" "theme-wizard-publish" {
+  environment       = "Publish"
+  repository        = github_repository.theme-wizard.name
+  can_admins_bypass = false
+
+  deployment_branch_policy {
+    protected_branches     = false
+    custom_branch_policies = true
+  }
+}
+
+resource "github_repository_deployment_branch_policy" "theme-wizard-publish-main" {
+  depends_on = [github_repository_environment.theme-wizard-publish]
+
+  repository       = github_repository.theme-wizard.name
+  environment_name = github_repository_environment.theme-wizard-publish.environment
+  name             = github_branch_default.theme-wizard.branch
+}
+
 resource "vercel_project" "theme-wizard" {
   name             = "theme-wizard"
   output_directory = "packages/theme-wizard-website/dist/"

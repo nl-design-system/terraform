@@ -106,3 +106,22 @@ resource "github_repository_collaborators" "index" {
     team_id    = github_team.kernteam-dependabot.id
   }
 }
+
+resource "github_repository_environment" "index-publish" {
+  environment       = "Publish"
+  repository        = github_repository.index.name
+  can_admins_bypass = false
+
+  deployment_branch_policy {
+    protected_branches     = false
+    custom_branch_policies = true
+  }
+}
+
+resource "github_repository_deployment_branch_policy" "index-publish-main" {
+  depends_on = [github_repository_environment.index-publish]
+
+  repository       = github_repository.index.name
+  environment_name = github_repository_environment.index-publish.environment
+  name             = github_branch_default.index.branch
+}
