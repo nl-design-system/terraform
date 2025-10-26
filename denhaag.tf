@@ -216,3 +216,22 @@ resource "github_repository_collaborators" "denhaag" {
     team_id    = github_team.community-committer.id
   }
 }
+
+resource "github_repository_environment" "denhaag-publish" {
+  environment       = "Publish"
+  repository        = github_repository.denhaag.name
+  can_admins_bypass = false
+
+  deployment_branch_policy {
+    protected_branches     = false
+    custom_branch_policies = true
+  }
+}
+
+resource "github_repository_deployment_branch_policy" "denhaag-publish-main" {
+  depends_on = [github_repository_environment.denhaag-publish]
+
+  repository       = github_repository.denhaag.name
+  environment_name = github_repository_environment.denhaag-publish.environment
+  name             = github_branch_default.denhaag.branch
+}
