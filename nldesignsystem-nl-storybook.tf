@@ -31,7 +31,7 @@ resource "github_repository" "nldesignsystem-nl-storybook" {
 
   archive_on_destroy = true
   lifecycle {
-    prevent_destroy = true
+    prevent_destroy = false
   }
 }
 
