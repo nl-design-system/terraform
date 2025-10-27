@@ -776,6 +776,10 @@ resource "github_team_members" "gemeente-rotterdam-maintainer" {
   members {
     username = data.github_user.sanderdegoose.username
   }
+
+  members {
+    username = data.github_user.LeonVanEe.username
+  }
 }
 
 resource "github_team_members" "gemeente-groningen" {

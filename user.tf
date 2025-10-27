@@ -529,3 +529,7 @@ data "github_user" "WinsleyJ" {
 data "github_user" "webmaster-leiden-nl" {
   username = "webmaster-leiden-nl"
 }
+
+data "github_user" "LeonVanEe" {
+  username = "LeonVanEe"
+}
