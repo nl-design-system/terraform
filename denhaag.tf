@@ -235,3 +235,23 @@ resource "github_repository_deployment_branch_policy" "denhaag-publish-main" {
   environment_name = github_repository_environment.denhaag-publish.environment
   name             = github_branch_default.denhaag.branch
 }
+
+
+resource "github_repository_environment" "denhaag-www-denhaag-nl" {
+  environment       = "www.denhaag.nl"
+  repository        = github_repository.denhaag.name
+  can_admins_bypass = false
+
+  deployment_branch_policy {
+    protected_branches     = false
+    custom_branch_policies = true
+  }
+}
+
+resource "github_repository_deployment_branch_policy" "denhaag-www-denhaag-nl-main" {
+  depends_on = [github_repository_environment.denhaag-www-denhaag-nl]
+
+  repository       = github_repository.denhaag.name
+  environment_name = github_repository_environment.denhaag-www-denhaag-nl.environment
+  name             = "www.denhaag.nl"
+}
