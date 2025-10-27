@@ -16,8 +16,8 @@ Het archiveren van een repository gebeurt in 2 stappen.
 
    Zorg ervoor dat deze verandering(en) eerst worden gemerged met een PR.
 
-2. Destroy de repository door de betreffende configuration file (de `.tf` file)
-   te verwijderen, en merge dit ook middels een PR.
+2. Archiveer de repository door de betreffende configuration file (de `.tf`
+   file) te verwijderen, en merge dit ook middels een PR.
 
    Refereer in de PR naar de vorige, om duidelijk te maken dat archiveren altijd
-   in twee stappen moet.
+   uit twee stappen bestaat.
