@@ -120,6 +120,30 @@ resource "github_repository_collaborators" "mijn-services" {
     permission = "triage"
     team_id    = github_team.vng-services.id
   }
+
+  team {
+    permission = "push"
+    team_id    = github_team.community-committer.id
+  }
+}
+
+resource "github_repository_environment" "mijn-services-publish" {
+  environment       = "Publish"
+  repository        = github_repository.mijn-services.name
+  can_admins_bypass = false
+
+  deployment_branch_policy {
+    protected_branches     = false
+    custom_branch_policies = true
+  }
+}
+
+resource "github_repository_deployment_branch_policy" "mijn-services-publish-main" {
+  depends_on = [github_repository_environment.mijn-services-publish]
+
+  repository       = github_repository.mijn-services.name
+  environment_name = github_repository_environment.mijn-services-publish.environment
+  name             = github_branch_default.mijn-services.branch
 }
 
 resource "vercel_project" "mijn-services" {

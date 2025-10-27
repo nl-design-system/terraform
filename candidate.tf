@@ -139,6 +139,11 @@ resource "github_repository_collaborators" "candidate" {
     permission = "triage"
     team_id    = github_team.kernteam-dependabot.id
   }
+
+  team {
+    permission = "push"
+    team_id    = github_team.community-committer.id
+  }
 }
 
 resource "vercel_project" "candidate" {
@@ -189,3 +194,21 @@ resource "vercel_project" "candidate-storybook-test" {
   }
 }
 
+resource "github_repository_environment" "candidate-publish" {
+  environment       = "Publish"
+  repository        = github_repository.candidate.name
+  can_admins_bypass = false
+
+  deployment_branch_policy {
+    protected_branches     = false
+    custom_branch_policies = true
+  }
+}
+
+resource "github_repository_deployment_branch_policy" "candidate-publish-main" {
+  depends_on = [github_repository_environment.candidate-publish]
+
+  repository       = github_repository.candidate.name
+  environment_name = github_repository_environment.candidate-publish.environment
+  name             = github_branch_default.candidate.branch
+}

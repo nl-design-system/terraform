@@ -126,4 +126,28 @@ resource "github_repository_collaborators" "basis" {
     permission = "triage"
     team_id    = github_team.kernteam-dependabot.id
   }
+
+  team {
+    permission = "push"
+    team_id    = github_team.community-committer.id
+  }
+}
+
+resource "github_repository_environment" "basis-publish" {
+  environment       = "Publish"
+  repository        = github_repository.basis.name
+  can_admins_bypass = false
+
+  deployment_branch_policy {
+    protected_branches     = false
+    custom_branch_policies = true
+  }
+}
+
+resource "github_repository_deployment_branch_policy" "basis-publish-main" {
+  depends_on = [github_repository_environment.basis-publish]
+
+  repository       = github_repository.basis.name
+  environment_name = github_repository_environment.basis-publish.environment
+  name             = github_branch_default.basis.branch
 }

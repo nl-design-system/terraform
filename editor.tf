@@ -12,6 +12,7 @@ resource "github_repository" "editor" {
   has_wiki                    = false
   has_discussions             = true
   vulnerability_alerts        = true
+  homepage_url                = "https://editor.nl-design-system-community.nl/"
   squash_merge_commit_title   = "PR_TITLE"
   squash_merge_commit_message = "PR_BODY"
   topics                      = ["nl-design-system"]
@@ -20,16 +21,6 @@ resource "github_repository" "editor" {
     include_all_branches = false
     owner                = "nl-design-system"
     repository           = "example"
-  }
-
-  pages {
-    build_type = "workflow"
-
-    # A `source` block is only needed when `build_type` is set to `"legacy"`, but because GitHub keeps it around invisibly, we must add it here to prevent churn
-    source {
-      branch = "gh-pages"
-      path   = "/"
-    }
   }
 
   security_and_analysis {
@@ -95,6 +86,36 @@ resource "github_repository_ruleset" "editor-main" {
   }
 }
 
+# Only allow the `nl-design-system-ci` user to manage Git tags
+resource "github_repository_ruleset" "editor-tag" {
+  enforcement = "active"
+  name        = "tag-protection"
+  repository  = github_repository.editor.name
+  target      = "tag"
+
+  bypass_actors {
+    actor_id    = github_team.kernteam-ci.id
+    actor_type  = "Team"
+    bypass_mode = "always"
+  }
+
+  conditions {
+    ref_name {
+      include = ["~ALL"]
+      exclude = []
+    }
+  }
+
+  rules {
+    creation                = true
+    deletion                = true
+    non_fast_forward        = true
+    required_linear_history = true
+    required_signatures     = true
+    update                  = true
+  }
+}
+
 resource "github_repository_collaborators" "editor" {
   repository = github_repository.editor.name
 
@@ -133,6 +154,26 @@ resource "github_repository_collaborators" "editor" {
     team_id    = github_team.expertteam-digitale-toegankelijkheid-triage.id
   }
 }
+
+resource "github_repository_environment" "editor-publish" {
+  environment       = "publish"
+  repository        = github_repository.editor.name
+  can_admins_bypass = false
+
+  deployment_branch_policy {
+    protected_branches     = false
+    custom_branch_policies = true
+  }
+}
+
+resource "github_repository_deployment_branch_policy" "editor-publish-main" {
+  depends_on = [github_repository_environment.editor-publish]
+
+  repository       = github_repository.editor.name
+  environment_name = github_repository_environment.editor-publish.environment
+  name             = github_branch_default.editor.branch
+}
+
 
 resource "vercel_project" "editor" {
   name             = "editor"

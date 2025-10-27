@@ -101,6 +101,36 @@ resource "github_repository_ruleset" "utrecht-main" {
   }
 }
 
+# Only allow the `nl-design-system-ci` user to manage Git tags
+resource "github_repository_ruleset" "utrecht-tag" {
+  enforcement = "active"
+  name        = "tag-protection"
+  repository  = github_repository.utrecht.name
+  target      = "tag"
+
+  bypass_actors {
+    actor_id    = github_team.kernteam-ci.id
+    actor_type  = "Team"
+    bypass_mode = "always"
+  }
+
+  conditions {
+    ref_name {
+      include = ["~ALL"]
+      exclude = []
+    }
+  }
+
+  rules {
+    creation                = true
+    deletion                = true
+    non_fast_forward        = true
+    required_linear_history = true
+    required_signatures     = true
+    update                  = true
+  }
+}
+
 resource "github_repository_collaborators" "utrecht" {
   repository = github_repository.utrecht.name
 
@@ -173,4 +203,23 @@ resource "github_repository_collaborators" "utrecht" {
     permission = "push"
     team_id    = github_team.community-committer.id
   }
+}
+
+resource "github_repository_environment" "utrecht-publish" {
+  environment       = "Publish"
+  repository        = github_repository.utrecht.name
+  can_admins_bypass = false
+
+  deployment_branch_policy {
+    protected_branches     = false
+    custom_branch_policies = true
+  }
+}
+
+resource "github_repository_deployment_branch_policy" "utrecht-publish-main" {
+  depends_on = [github_repository_environment.utrecht-publish]
+
+  repository       = github_repository.utrecht.name
+  environment_name = github_repository_environment.utrecht-publish.environment
+  name             = github_branch_default.utrecht.branch
 }

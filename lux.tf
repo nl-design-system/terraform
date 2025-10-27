@@ -156,4 +156,28 @@ resource "github_repository_collaborators" "lux" {
     permission = "triage"
     team_id    = github_team.logius-triage.id
   }
+
+  team {
+    permission = "push"
+    team_id    = github_team.community-committer.id
+  }
+}
+
+resource "github_repository_environment" "lux-publish" {
+  environment       = "Publish"
+  repository        = github_repository.lux.name
+  can_admins_bypass = false
+
+  deployment_branch_policy {
+    protected_branches     = false
+    custom_branch_policies = true
+  }
+}
+
+resource "github_repository_deployment_branch_policy" "lux-publish-main" {
+  depends_on = [github_repository_environment.lux-publish]
+
+  repository       = github_repository.lux.name
+  environment_name = github_repository_environment.lux-publish.environment
+  name             = github_branch_default.lux.branch
 }

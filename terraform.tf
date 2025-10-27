@@ -82,7 +82,7 @@ resource "github_repository_ruleset" "terraform-main" {
 resource "github_repository_collaborators" "terraform" {
   repository = github_repository.terraform.name
 
-  # Restrict merging PRs to admins
+  # Restrict merging PRs to admins via /.github/CODEOWNERS
 
   team {
     permission = "admin"
@@ -92,6 +92,11 @@ resource "github_repository_collaborators" "terraform" {
   team {
     permission = "triage"
     team_id    = github_team.kernteam-dependabot.id
+  }
+
+  team {
+    permission = "push"
+    team_id    = github_team.kernteam-committer.id
   }
 
   team {
@@ -183,4 +188,23 @@ resource "github_repository_collaborators" "terraform" {
     permission = "triage"
     team_id    = github_team.kernteam-triage.id
   }
+}
+
+resource "github_repository_environment" "terraform-publish" {
+  environment       = "Publish"
+  repository        = github_repository.terraform.name
+  can_admins_bypass = false
+
+  deployment_branch_policy {
+    protected_branches     = false
+    custom_branch_policies = true
+  }
+}
+
+resource "github_repository_deployment_branch_policy" "terraform-publish-main" {
+  depends_on = [github_repository_environment.terraform-publish]
+
+  repository       = github_repository.terraform.name
+  environment_name = github_repository_environment.terraform-publish.environment
+  name             = github_branch_default.terraform-branch-default.branch
 }

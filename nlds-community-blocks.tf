@@ -120,4 +120,28 @@ resource "github_repository_collaborators" "nlds-community-blocks" {
     permission = "push"
     team_id    = github_team.denhaag-acato.id
   }
+
+  team {
+    permission = "push"
+    team_id    = github_team.community-committer.id
+  }
+}
+
+resource "github_repository_environment" "nlds-community-blocks-publish" {
+  environment       = "Publish"
+  repository        = github_repository.nlds-community-blocks.name
+  can_admins_bypass = false
+
+  deployment_branch_policy {
+    protected_branches     = false
+    custom_branch_policies = true
+  }
+}
+
+resource "github_repository_deployment_branch_policy" "nlds-community-blocks-publish-main" {
+  depends_on = [github_repository_environment.nlds-community-blocks-publish]
+
+  repository       = github_repository.nlds-community-blocks.name
+  environment_name = github_repository_environment.nlds-community-blocks-publish.environment
+  name             = github_branch_default.nlds-community-blocks.branch
 }

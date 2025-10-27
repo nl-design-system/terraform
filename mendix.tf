@@ -35,8 +35,10 @@ resource "github_repository" "mendix" {
     }
   }
 
+  archive_on_destroy = true
+
   lifecycle {
-    prevent_destroy = true
+    prevent_destroy = false
   }
 }
 
@@ -127,5 +129,10 @@ resource "github_repository_collaborators" "mendix" {
   team {
     permission = "push"
     team_id    = github_team.frameless.id
+  }
+
+  team {
+    permission = "push"
+    team_id    = github_team.community-committer.id
   }
 }

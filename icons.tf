@@ -117,6 +117,30 @@ resource "github_repository_collaborators" "icons" {
     permission = "push"
     team_id    = github_team.icons-committer.id
   }
+
+  team {
+    permission = "push"
+    team_id    = github_team.community-committer.id
+  }
+}
+
+resource "github_repository_environment" "icons-publish" {
+  environment       = "Publish"
+  repository        = github_repository.icons.name
+  can_admins_bypass = false
+
+  deployment_branch_policy {
+    protected_branches     = false
+    custom_branch_policies = true
+  }
+}
+
+resource "github_repository_deployment_branch_policy" "icons-publish-main" {
+  depends_on = [github_repository_environment.icons-publish]
+
+  repository       = github_repository.icons.name
+  environment_name = github_repository_environment.icons-publish.environment
+  name             = github_branch_default.icons.branch
 }
 
 resource "vercel_project" "icons" {
