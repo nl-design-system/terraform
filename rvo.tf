@@ -152,6 +152,11 @@ resource "github_repository_collaborators" "rvo" {
     permission = "maintain"
     team_id    = github_team.rvo-maintainer.id
   }
+
+  team {
+    permission = "push"
+    team_id    = github_team.community-committer.id
+  }
 }
 
 resource "github_repository_environment" "rvo-publish" {
