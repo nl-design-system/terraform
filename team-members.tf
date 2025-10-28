@@ -818,6 +818,7 @@ resource "github_team_members" "community-committer" {
   team_id = github_team.community-committer.id
 
   # Quintor folks
+
   members {
     username = data.github_user.Ruben-Smit.username
   }
@@ -891,6 +892,7 @@ resource "github_team_members" "community-committer" {
   }
 
   # Den Haag folks
+
   members {
     username = data.github_user.jiromaykin.username
   }
@@ -901,6 +903,7 @@ resource "github_team_members" "community-committer" {
   }
 
   # Leiden folks
+
   members {
     username = data.github_user.LeidscheJurgen.username
   }
