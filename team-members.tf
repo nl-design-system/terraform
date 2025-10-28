@@ -774,7 +774,7 @@ resource "github_team_members" "gemeente-rotterdam-maintainer" {
   team_id = github_team.gemeente-rotterdam-maintainer.id
 
   members {
-    username = data.github_user.sanderdegoose.username
+    username = data.github_user.LeonVanEe.username
   }
 }
 
