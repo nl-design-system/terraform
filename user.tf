@@ -274,10 +274,6 @@ data "github_user" "richardkorthuis" {
   username = "richardkorthuis"
 }
 
-data "github_user" "sanderdegoose" {
-  username = "sanderdegoose"
-}
-
 data "github_user" "MariekeBrouwer" {
   username = "MariekeBrouwer"
 }
@@ -520,4 +516,16 @@ data "github_user" "ermenm" {
 
 data "github_user" "richadr" {
   username = "richadr"
+}
+
+data "github_user" "WinsleyJ" {
+  username = "WinsleyJ"
+}
+
+data "github_user" "webmaster-leiden-nl" {
+  username = "webmaster-leiden-nl"
+}
+
+data "github_user" "LeonVanEe" {
+  username = "LeonVanEe"
 }

@@ -23,16 +23,6 @@ resource "github_repository" "theme-wizard" {
     repository           = "example"
   }
 
-  pages {
-    build_type = "workflow"
-
-    # A `source` block is only needed when `build_type` is set to `"legacy"`, but because GitHub keeps it around invisibly, we must add it here to prevent churn
-    source {
-      branch = "gh-pages"
-      path   = "/"
-    }
-  }
-
   security_and_analysis {
     secret_scanning {
       status = "enabled"
@@ -133,6 +123,25 @@ resource "github_repository_collaborators" "theme-wizard" {
     permission = "triage"
     team_id    = github_team.expertteam-digitale-toegankelijkheid-triage.id
   }
+}
+
+resource "github_repository_environment" "theme-wizard-publish" {
+  environment       = "Publish"
+  repository        = github_repository.theme-wizard.name
+  can_admins_bypass = false
+
+  deployment_branch_policy {
+    protected_branches     = false
+    custom_branch_policies = true
+  }
+}
+
+resource "github_repository_deployment_branch_policy" "theme-wizard-publish-main" {
+  depends_on = [github_repository_environment.theme-wizard-publish]
+
+  repository       = github_repository.theme-wizard.name
+  environment_name = github_repository_environment.theme-wizard-publish.environment
+  name             = github_branch_default.theme-wizard.branch
 }
 
 resource "vercel_project" "theme-wizard" {

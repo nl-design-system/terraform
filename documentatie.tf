@@ -151,6 +151,25 @@ resource "github_repository_collaborators" "documentatie" {
   }
 }
 
+resource "github_repository_environment" "documentatie-publish" {
+  environment       = "Publish"
+  repository        = github_repository.documentatie.name
+  can_admins_bypass = false
+
+  deployment_branch_policy {
+    protected_branches     = false
+    custom_branch_policies = true
+  }
+}
+
+resource "github_repository_deployment_branch_policy" "documentatie-publish-main" {
+  depends_on = [github_repository_environment.documentatie-publish]
+
+  repository       = github_repository.documentatie.name
+  environment_name = github_repository_environment.documentatie-publish.environment
+  name             = github_branch_default.documentatie.branch
+}
+
 resource "github_repository_webhook" "documentatie" {
   repository = github_repository.documentatie.name
   events     = ["push"]

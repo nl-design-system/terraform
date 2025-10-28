@@ -774,7 +774,7 @@ resource "github_team_members" "gemeente-rotterdam-maintainer" {
   team_id = github_team.gemeente-rotterdam-maintainer.id
 
   members {
-    username = data.github_user.sanderdegoose.username
+    username = data.github_user.LeonVanEe.username
   }
 }
 
@@ -900,8 +900,17 @@ resource "github_team_members" "community-committer" {
     username = data.github_user.hidde.username
   }
 
+  # Leiden folks
   members {
     username = data.github_user.LeidscheJurgen.username
+  }
+
+  members {
+    username = data.github_user.WinsleyJ.username
+  }
+
+  members {
+    username = data.github_user.webmaster-leiden-nl.username
   }
 }
 

@@ -189,3 +189,22 @@ resource "github_repository_collaborators" "terraform" {
     team_id    = github_team.kernteam-triage.id
   }
 }
+
+resource "github_repository_environment" "terraform-publish" {
+  environment       = "Publish"
+  repository        = github_repository.terraform.name
+  can_admins_bypass = false
+
+  deployment_branch_policy {
+    protected_branches     = false
+    custom_branch_policies = true
+  }
+}
+
+resource "github_repository_deployment_branch_policy" "terraform-publish-main" {
+  depends_on = [github_repository_environment.terraform-publish]
+
+  repository       = github_repository.terraform.name
+  environment_name = github_repository_environment.terraform-publish.environment
+  name             = github_branch_default.terraform-branch-default.branch
+}

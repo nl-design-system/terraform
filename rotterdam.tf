@@ -173,3 +173,22 @@ resource "github_repository_collaborators" "rotterdam" {
     team_id    = github_team.frameless-maintainer.id
   }
 }
+
+resource "github_repository_environment" "rotterdam-publish" {
+  environment       = "Publish"
+  repository        = github_repository.rotterdam.name
+  can_admins_bypass = false
+
+  deployment_branch_policy {
+    protected_branches     = false
+    custom_branch_policies = true
+  }
+}
+
+resource "github_repository_deployment_branch_policy" "rotterdam-publish-main" {
+  depends_on = [github_repository_environment.rotterdam-publish]
+
+  repository       = github_repository.rotterdam.name
+  environment_name = github_repository_environment.rotterdam-publish.environment
+  name             = github_branch_default.rotterdam.branch
+}

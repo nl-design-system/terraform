@@ -16,6 +16,16 @@ resource "github_repository" "icons" {
   squash_merge_commit_message = "PR_BODY"
   topics                      = ["nl-design-system", "icons"]
 
+  pages {
+    build_type = "workflow"
+
+    # A `source` block is only needed when `build_type` is set to `"legacy"`, but because GitHub keeps it around invisibly, we must add it here to prevent churn
+    source {
+      branch = "main"
+      path   = "/"
+    }
+  }
+
   template {
     include_all_branches = false
     owner                = "nl-design-system"
@@ -122,6 +132,25 @@ resource "github_repository_collaborators" "icons" {
     permission = "push"
     team_id    = github_team.community-committer.id
   }
+}
+
+resource "github_repository_environment" "icons-publish" {
+  environment       = "Publish"
+  repository        = github_repository.icons.name
+  can_admins_bypass = false
+
+  deployment_branch_policy {
+    protected_branches     = false
+    custom_branch_policies = true
+  }
+}
+
+resource "github_repository_deployment_branch_policy" "icons-publish-main" {
+  depends_on = [github_repository_environment.icons-publish]
+
+  repository       = github_repository.icons.name
+  environment_name = github_repository_environment.icons-publish.environment
+  name             = github_branch_default.icons.branch
 }
 
 resource "vercel_project" "icons" {
