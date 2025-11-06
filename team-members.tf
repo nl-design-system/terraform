@@ -323,6 +323,10 @@ resource "github_team_members" "logius-committer" {
   members {
     username = data.github_user.rnacken.username
   }
+
+  members {
+    username = data.github_user.gzeilstra.username
+  }
 }
 
 resource "github_team_members" "logius-maintainer" {
