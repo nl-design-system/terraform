@@ -438,6 +438,14 @@ data "github_user" "FinnWard" {
   username = "FinnWard"
 }
 
+data "github_user" "NeslihanUTUK" {
+  username = "NeslihanUTUK"
+}
+
+data "github_user" "berryskoop" {
+  username = "berryskoop"
+}
+
 data "github_user" "ruurdv" {
   username = "ruurdv"
 }
