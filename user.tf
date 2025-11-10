@@ -545,3 +545,7 @@ data "github_user" "SabineMeijerNuboer" {
 data "github_user" "romy-petitjean-logius" {
   username = "romy-petitjean-logius"
 }
+
+data "github_user" "gzeilstra" {
+  username = "gzeilstra"
+}
