@@ -16,15 +16,6 @@ resource "github_repository" "wcag-statistieken" {
   squash_merge_commit_message = "PR_BODY"
   topics                      = []
 
-  security_and_analysis {
-    secret_scanning {
-      status = "enabled"
-    }
-    secret_scanning_push_protection {
-      status = "enabled"
-    }
-  }
-
   pages {
     build_type = "workflow"
 
@@ -32,6 +23,15 @@ resource "github_repository" "wcag-statistieken" {
     source {
       branch = "main"
       path   = "/"
+    }
+  }
+
+  security_and_analysis {
+    secret_scanning {
+      status = "enabled"
+    }
+    secret_scanning_push_protection {
+      status = "enabled"
     }
   }
 
