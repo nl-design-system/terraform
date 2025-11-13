@@ -16,6 +16,15 @@ resource "github_repository" "backlog" {
   squash_merge_commit_message = "PR_BODY"
   topics                      = ["nl-design-system"]
 
+  security_and_analysis {
+    secret_scanning {
+      status = "enabled"
+    }
+    secret_scanning_push_protection {
+      status = "enabled"
+    }
+  }
+
   lifecycle {
     prevent_destroy = true
   }
