@@ -188,6 +188,11 @@ resource "github_repository_collaborators" "terraform" {
     permission = "triage"
     team_id    = github_team.kernteam-triage.id
   }
+
+  team {
+    permission = "push"
+    team_id    = github_team.{maintainer-team-naam}-maintainer.id
+  }
 }
 
 resource "github_repository_environment" "terraform-publish" {

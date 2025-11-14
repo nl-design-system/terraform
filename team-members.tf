@@ -1062,3 +1062,19 @@ resource "github_team_members" "developer_overheid_nl-maintainer" {
     role     = "maintainer"
   }
 }
+
+resource "github_team_members" "gemeente-voorne-aan-zee" {
+  team_id = github_team.gemeente-voorne-aan-zee.id
+
+  members {
+    username = data.github_user.{maintainer-github-username}.username
+  }
+}
+
+resource "github_team_members" "{maintainer-team-naam}-maintainer" {
+  team_id = github_team.{maintainer-team-naam}-maintainer.id
+
+  members {
+    username = data.github_user.{maintainer-github-username}.username
+  }
+}
