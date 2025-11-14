@@ -664,3 +664,16 @@ resource "github_team" "developer_overheid_nl-maintainer" {
   privacy        = "closed"
   description    = "developer.overheid.nl team (maintainer)"
 }
+
+resource "github_team" "gemeente-voorne-aan-zee" {
+  name        = "gemeente-voorne-aan-zee"
+  description = "Gemeente Voorne aan Zee"
+  privacy     = "closed"
+}
+
+resource "github_team" "{maintainer-team-naam}-maintainer" {
+  name           = "{maintainer-team-naam}-maintainer"
+  description    = "Can configure GitHub via Terraform, with approval from kernteam-admin."
+  parent_team_id = github_team.{organisatie-naam}.id
+  privacy        = "closed"
+}

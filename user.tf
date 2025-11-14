@@ -561,3 +561,7 @@ data "github_user" "JesseLogius" {
 data "github_user" "romy-petitjean-logius" {
   username = "romy-petitjean-logius"
 }
+
+data "github_user" "{maintainer-github-username}" {
+  username = "{maintainer-github-username}"
+}
