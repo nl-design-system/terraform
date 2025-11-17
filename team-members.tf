@@ -317,15 +317,27 @@ resource "github_team_members" "logius-committer" {
   }
 
   members {
-    username = data.github_user.romy-petitjean-logius.username
-  }
-
-  members {
     username = data.github_user.rnacken.username
   }
 
   members {
     username = data.github_user.gzeilstra.username
+  }
+
+  members {
+    username = data.github_user.berryskoop.username
+  }
+
+  members {
+    username = data.github_user.NeslihanUTUK.username
+  }
+
+  members {
+    username = data.github_user.Jesselogius.username
+  }
+
+  members {
+    username = data.github_user.romy-petitjean-logius.username
   }
 }
 
@@ -338,6 +350,10 @@ resource "github_team_members" "logius-maintainer" {
 
   members {
     username = data.github_user.cascassette.username
+  }
+
+  members {
+    username = data.github_user.FinnWard.username
   }
 }
 

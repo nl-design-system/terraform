@@ -438,6 +438,14 @@ data "github_user" "FinnWard" {
   username = "FinnWard"
 }
 
+data "github_user" "NeslihanUTUK" {
+  username = "NeslihanUTUK"
+}
+
+data "github_user" "berryskoop" {
+  username = "berryskoop"
+}
+
 data "github_user" "ruurdv" {
   username = "ruurdv"
 }
@@ -542,10 +550,14 @@ data "github_user" "SabineMeijerNuboer" {
   username = "SabineMeijerNuboer"
 }
 
-data "github_user" "romy-petitjean-logius" {
-  username = "romy-petitjean-logius"
-}
-
 data "github_user" "gzeilstra" {
   username = "gzeilstra"
+}
+
+data "github_user" "Jesselogius" {
+  username = "Jesselogius"
+}
+
+data "github_user" "romy-petitjean-logius" {
+  username = "romy-petitjean-logius"
 }
