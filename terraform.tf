@@ -191,7 +191,7 @@ resource "github_repository_collaborators" "terraform" {
 
   team {
     permission = "push"
-    team_id    = github_team.{maintainer-team-naam}-maintainer.id
+    team_id    = github_team.gemeente-voorne-aan-zee-aserio-maintainer.id
   }
 }
 
