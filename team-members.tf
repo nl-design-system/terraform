@@ -1092,14 +1092,14 @@ resource "github_team_members" "gemeente-voorne-aan-zee" {
   team_id = github_team.gemeente-voorne-aan-zee.id
 
   members {
-    username = data.github_user.{maintainer-github-username}.username
+    username = data.github_user.erikhendrikxaserio.username
   }
 }
 
-resource "github_team_members" "{maintainer-team-naam}-maintainer" {
-  team_id = github_team.{maintainer-team-naam}-maintainer.id
+resource "github_team_members" "gemeente-voorne-aan-zee-aserio-maintainer" {
+  team_id = github_team.gemeente-voorne-aan-zee-aserio-maintainer.id
 
   members {
-    username = data.github_user.{maintainer-github-username}.username
+    username = data.github_user.erikhendrikxaserio.username
   }
 }
