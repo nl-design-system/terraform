@@ -948,6 +948,31 @@ resource "github_team_members" "community-committer" {
   members {
     username = data.github_user.webmaster-leiden-nl.username
   }
+
+  # Expertteam Digitale Toegankelijkheid folks
+  members {
+    username = data.github_user.huijkman.username
+  }
+
+  members {
+    username = data.github_user.jurgenbelien.username
+  }
+
+  members {
+    username = data.github_user.hilhorstt.username
+  }
+
+  members {
+    username = data.github_user.bartveneman.username
+  }
+
+  members {
+    username = data.github_user.julezrulez.username
+  }
+
+  members {
+    username = data.github_user.ermenm.username
+  }
 }
 
 resource "github_team_members" "expertteam-digitale-toegankelijkheid-triage" {
