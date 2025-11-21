@@ -674,6 +674,6 @@ resource "github_team" "gemeente-voorne-aan-zee" {
 resource "github_team" "gemeente-voorne-aan-zee-aserio-maintainer" {
   name           = "gemeente-voorne-aan-zee-aserio-maintainer"
   description    = "Can configure GitHub via Terraform, with approval from kernteam-admin."
-  parent_team_id = github_team.{organisatie-naam}.id
+  parent_team_id = github_team.gemeente-voorne-aan-zee.id
   privacy        = "closed"
 }
