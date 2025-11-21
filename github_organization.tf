@@ -19,6 +19,7 @@ resource "github_actions_organization_permissions" "nl-design-system" {
       "actions/setup-node@*",
       "actions/upload-artifact@*",
       "actions/upload-pages-artifact@*",
+      "github/codeql-action@*",
       # Third party organisation owned actions
       "anchore/sbom-action@*",
       "changesets/action@*",
