@@ -10,15 +10,7 @@ resource "github_actions_organization_permissions" "nl-design-system" {
     github_owned_allowed = true
     patterns_allowed = [
       # GitHub owned actions
-      "actions/cache@*",
-      "actions/checkout@*",
-      "actions/configure-pages@*",
-      "actions/create-github-app-token@*",
-      "actions/deploy-pages@*",
-      "actions/download-artifact@*",
-      "actions/setup-node@*",
-      "actions/upload-artifact@*",
-      "actions/upload-pages-artifact@*",
+      "actions/*",
       "github/codeql-action@*",
       # Third party organisation owned actions
       "anchore/sbom-action@*",
