@@ -23,9 +23,15 @@ resource "github_repository" "rotterdam" {
   }
 
   pages {
-    source {
-      branch = "gh-pages"
-      path   = "/"
+    build_type = "workflow"
+  }
+
+  security_and_analysis {
+    secret_scanning {
+      status = "enabled"
+    }
+    secret_scanning_push_protection {
+      status = "enabled"
     }
   }
 

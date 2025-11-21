@@ -16,22 +16,16 @@ resource "github_repository" "wcag-statistieken" {
   squash_merge_commit_message = "PR_BODY"
   topics                      = []
 
+  pages {
+    build_type = "workflow"
+  }
+
   security_and_analysis {
     secret_scanning {
       status = "enabled"
     }
     secret_scanning_push_protection {
       status = "enabled"
-    }
-  }
-
-  pages {
-    build_type = "workflow"
-
-    # A `source` block is only needed when `build_type` is set to `"legacy"`, but because GitHub keeps it around invisibly, we must add it here to prevent churn
-    source {
-      branch = "main"
-      path   = "/"
     }
   }
 

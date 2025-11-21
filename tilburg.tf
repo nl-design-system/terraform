@@ -24,11 +24,14 @@ resource "github_repository" "tilburg" {
 
   pages {
     build_type = "workflow"
+  }
 
-    # A `source` block is only needed when `build_type` is set to `"legacy"`, but because GitHub keeps it around invisibly, we must add it here to prevent churn
-    source {
-      branch = "gh-pages"
-      path   = "/"
+  security_and_analysis {
+    secret_scanning {
+      status = "enabled"
+    }
+    secret_scanning_push_protection {
+      status = "enabled"
     }
   }
 
