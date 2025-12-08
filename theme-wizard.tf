@@ -180,3 +180,19 @@ resource "vercel_project" "theme-wizard-server" {
     deployment_type = "none"
   }
 }
+
+resource "vercel_project" "clippy-storybook" {
+  name           = "clippy-storybook"
+  ignore_command = "[[ $(git log -1 --pretty=%an) == 'dependabot[bot]' ]]"
+  node_version   = "22.x"
+  root_directory = "packages/clippy-storybook/"
+
+  git_repository = {
+    type = "github"
+    repo = github_repository.theme-wizard.full_name
+  }
+
+  vercel_authentication = {
+    deployment_type = "none"
+  }
+}
