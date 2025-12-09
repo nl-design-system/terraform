@@ -166,6 +166,12 @@ resource "github_repository_environment" "editor-publish" {
   }
 }
 
+resource "github_repository_environment" "editor-issues" {
+  # Environment for GitHub Actions triggered by issues
+  environment = "Issues"
+  repository  = github_repository.editor.name
+}
+
 resource "github_repository_deployment_branch_policy" "editor-publish-main" {
   depends_on = [github_repository_environment.editor-publish]
 

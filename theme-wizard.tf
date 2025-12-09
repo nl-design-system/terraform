@@ -136,6 +136,12 @@ resource "github_repository_environment" "theme-wizard-publish" {
   }
 }
 
+resource "github_repository_environment" "theme-wizard-issues" {
+  # Environment for GitHub Actions triggered by issues
+  environment = "Issues"
+  repository  = github_repository.theme-wizard.name
+}
+
 resource "github_repository_deployment_branch_policy" "theme-wizard-publish-main" {
   depends_on = [github_repository_environment.theme-wizard-publish]
 
