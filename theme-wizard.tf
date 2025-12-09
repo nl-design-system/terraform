@@ -145,11 +145,9 @@ resource "github_repository_deployment_branch_policy" "theme-wizard-publish-main
 }
 
 resource "vercel_project" "theme-wizard" {
-  name             = "theme-wizard"
-  output_directory = "packages/theme-wizard-website/dist/"
-  build_command    = "pnpm run build"
-  ignore_command   = "[[ $(git log -1 --pretty=%an) == 'dependabot[bot]' ]]"
-  node_version     = "22.x"
+  name           = "theme-wizard"
+  ignore_command = "[[ $(git log -1 --pretty=%an) == 'dependabot[bot]' ]]"
+  node_version   = "22.x"
 
   git_repository = {
     type = "github"
@@ -163,12 +161,8 @@ resource "vercel_project" "theme-wizard" {
 
 resource "vercel_project" "theme-wizard-server" {
   name                                              = "theme-wizard-server"
-  output_directory                                  = "dist/"
-  build_command                                     = "pnpm --filter theme-wizard-server... build"
   ignore_command                                    = "[[ $(git log -1 --pretty=%an) == 'dependabot[bot]' ]]"
   node_version                                      = "22.x"
-  root_directory                                    = "packages/theme-wizard-server"
-  framework                                         = "hono"
   automatically_expose_system_environment_variables = true
 
   git_repository = {
@@ -185,7 +179,7 @@ resource "vercel_project" "clippy-storybook" {
   name           = "clippy-storybook"
   ignore_command = "[[ $(git log -1 --pretty=%an) == 'dependabot[bot]' ]]"
   node_version   = "22.x"
-  root_directory = "packages/clippy-storybook/"
+
 
   git_repository = {
     type = "github"
