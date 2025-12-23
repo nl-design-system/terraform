@@ -145,11 +145,11 @@ resource "github_repository_deployment_branch_policy" "theme-wizard-publish-main
 }
 
 resource "vercel_project" "theme-wizard" {
-  name             = "theme-wizard"
-  ignore_command   = "[[ $(git log -1 --pretty=%an) == 'dependabot[bot]' ]]"
-  node_version     = "22.x"
-  root_directory   = "packages/theme-wizard-website/"
-  preview_comments = false
+  name                    = "theme-wizard"
+  ignore_command          = "[[ $(git log -1 --pretty=%an) == 'dependabot[bot]' ]]"
+  node_version            = "22.x"
+  root_directory          = "packages/theme-wizard-website/"
+  enable_preview_feedback = false
 
 
   git_repository = {
