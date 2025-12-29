@@ -195,10 +195,6 @@ resource "github_team_members" "kernteam-a11y" {
   }
 
   members {
-    username = data.github_user.erikkroes.username
-  }
-
-  members {
     username = data.github_user.Robbert.username
     # organization owners must be "maintainer", see note at https://registry.terraform.io/providers/integrations/github/latest/docs/resources/team_members
     role = "maintainer"
@@ -932,6 +928,10 @@ resource "github_team_members" "community-committer" {
   }
 
   # Kernteam alumni
+  members {
+    username = data.github_user.erikkroes.username
+  }
+
   members {
     username = data.github_user.hidde.username
   }
