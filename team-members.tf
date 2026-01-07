@@ -93,6 +93,10 @@ resource "github_team_members" "kernteam-committer" {
   members {
     username = data.github_user.richadr.username
   }
+
+  members {
+    username = data.github_user.JuliaTol-properaccess.username
+  }
 }
 
 resource "github_team_members" "kernteam-maintainer" {
