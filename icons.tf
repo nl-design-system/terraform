@@ -171,3 +171,15 @@ resource "vercel_project" "icons" {
     deployment_type = "none"
   }
 }
+
+resource "vercel_project_environment_variables" "icons" {
+  project_id = vercel_project.icons.id
+
+  variables = [
+    {
+      key    = "ENABLE_EXPERIMENTAL_COREPACK"
+      value  = "1"
+      target = ["production", "preview"]
+    }
+  ]
+}
