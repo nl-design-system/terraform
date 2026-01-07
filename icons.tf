@@ -160,7 +160,7 @@ resource "vercel_project" "icons" {
   name             = github_repository.icons.name
   output_directory = "packages/storybook/dist/"
   ignore_command   = "[[ $(git log -1 --pretty=%an) == 'dependabot[bot]' ]]"
-  node_version     = "22.x"
+  node_version     = "24.x"
 
   git_repository = {
     type = "github"
