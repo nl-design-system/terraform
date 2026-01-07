@@ -561,3 +561,7 @@ data "github_user" "romy-petitjean-logius" {
 data "github_user" "erikhendrikxaserio" {
   username = "erikhendrikxaserio"
 }
+
+data "github_user" "JuliaTol-properaccess" {
+  username = "JuliaTol-properaccess"
+}
