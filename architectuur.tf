@@ -135,7 +135,7 @@ resource "vercel_project" "architectuur" {
   name             = github_repository.architectuur.name
   output_directory = "dist/"
   ignore_command   = "[[ $(git log -1 --pretty=%an) == 'dependabot[bot]' ]]"
-  node_version     = "22.x"
+  node_version     = "24.x"
 
   git_repository = {
     type = "github"
