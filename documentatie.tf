@@ -8,7 +8,7 @@ resource "github_repository" "documentatie" {
   delete_branch_on_merge      = true
   has_issues                  = true
   has_downloads               = false
-  has_projects                = false
+  has_projects                = true
   has_wiki                    = false
   has_discussions             = true
   vulnerability_alerts        = true
