@@ -138,10 +138,11 @@ resource "github_repository_collaborators" "candidate" {
 }
 
 resource "vercel_project" "candidate" {
-  name             = github_repository.candidate.name
-  output_directory = "packages/storybook/dist"
-  ignore_command   = "[[ $(git log -1 --pretty=%an) == 'dependabot[bot]' ]]"
-  node_version     = "24.x"
+  name                    = github_repository.candidate.name
+  output_directory        = "packages/storybook/dist"
+  ignore_command          = "[[ $(git log -1 --pretty=%an) == 'dependabot[bot]' ]]"
+  node_version            = "24.x"
+  enable_preview_feedback = false
 
   git_repository = {
     type = "github"
@@ -154,10 +155,11 @@ resource "vercel_project" "candidate" {
 }
 
 resource "vercel_project" "candidate-storybook-non-conforming" {
-  name             = "candidate-storybook-non-conforming"
-  output_directory = "packages/storybook-non-conforming/dist/"
-  ignore_command   = "[[ $(git log -1 --pretty=%an) == 'dependabot[bot]' ]]"
-  node_version     = "24.x"
+  name                    = "candidate-storybook-non-conforming"
+  output_directory        = "packages/storybook-non-conforming/dist/"
+  ignore_command          = "[[ $(git log -1 --pretty=%an) == 'dependabot[bot]' ]]"
+  node_version            = "24.x"
+  enable_preview_feedback = false
 
   git_repository = {
     type = "github"
@@ -170,10 +172,11 @@ resource "vercel_project" "candidate-storybook-non-conforming" {
 }
 
 resource "vercel_project" "candidate-storybook-test" {
-  name             = "candidate-storybook-test"
-  output_directory = "packages/storybook-test/dist/"
-  ignore_command   = "[[ $(git log -1 --pretty=%an) == 'dependabot[bot]' ]]"
-  node_version     = "24.x"
+  name                    = "candidate-storybook-test"
+  output_directory        = "packages/storybook-test/dist/"
+  ignore_command          = "[[ $(git log -1 --pretty=%an) == 'dependabot[bot]' ]]"
+  node_version            = "24.x"
+  enable_preview_feedback = false
 
   git_repository = {
     type = "github"
