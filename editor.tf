@@ -182,11 +182,12 @@ resource "github_repository_deployment_branch_policy" "editor-publish-main" {
 
 
 resource "vercel_project" "editor" {
-  name             = "editor"
-  output_directory = "packages/website/dist/"
-  build_command    = "pnpm run build"
-  ignore_command   = "[[ $(git log -1 --pretty=%an) == 'dependabot[bot]' ]]"
-  node_version     = "24.x"
+  name                    = "editor"
+  output_directory        = "packages/website/dist/"
+  build_command           = "pnpm run build"
+  ignore_command          = "[[ $(git log -1 --pretty=%an) == 'dependabot[bot]' ]]"
+  node_version            = "24.x"
+  enable_preview_feedback = false
 
   git_repository = {
     type = "github"

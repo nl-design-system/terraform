@@ -231,10 +231,11 @@ resource "github_repository_deployment_branch_policy" "rijkshuisstijl-community-
 }
 
 resource "vercel_project" "rijkshuisstijl-community" {
-  name             = "rijkshuisstijl-community"
-  output_directory = "packages/storybook/dist/"
-  ignore_command   = "[[ $(git log -1 --pretty=%an) == 'dependabot[bot]' ]]"
-  node_version     = "24.x"
+  name                    = "rijkshuisstijl-community"
+  output_directory        = "packages/storybook/dist/"
+  ignore_command          = "[[ $(git log -1 --pretty=%an) == 'dependabot[bot]' ]]"
+  node_version            = "24.x"
+  enable_preview_feedback = false
 
   git_repository = {
     type = "github"
@@ -247,10 +248,11 @@ resource "vercel_project" "rijkshuisstijl-community" {
 }
 
 resource "vercel_project" "rijkshuisstijl-community-templates" {
-  name             = "rijkshuisstijl-community-templates"
-  output_directory = "apps/rhc-templates/dist/"
-  ignore_command   = "[[ $(git log -1 --pretty=%an) == 'dependabot[bot]' ]]"
-  node_version     = "24.x"
+  name                    = "rijkshuisstijl-community-templates"
+  output_directory        = "apps/rhc-templates/dist/"
+  ignore_command          = "[[ $(git log -1 --pretty=%an) == 'dependabot[bot]' ]]"
+  node_version            = "24.x"
+  enable_preview_feedback = false
 
   git_repository = {
     type = "github"
@@ -263,10 +265,11 @@ resource "vercel_project" "rijkshuisstijl-community-templates" {
 }
 
 resource "vercel_project" "rijkshuisstijl-community-storybook-angular" {
-  name             = "rijkshuisstijl-community-storybook-angular"
-  output_directory = "packages/storybook-angular/dist/"
-  ignore_command   = "[[ $(git log -1 --pretty=%an) == 'dependabot[bot]' ]]"
-  node_version     = "24.x"
+  name                    = "rijkshuisstijl-community-storybook-angular"
+  output_directory        = "packages/storybook-angular/dist/"
+  ignore_command          = "[[ $(git log -1 --pretty=%an) == 'dependabot[bot]' ]]"
+  node_version            = "24.x"
+  enable_preview_feedback = false
 
   git_repository = {
     type = "github"

@@ -132,9 +132,10 @@ resource "github_repository_collaborators" "hall-of-fame" {
 }
 
 resource "vercel_project" "hall-of-fame" {
-  name             = github_repository.hall-of-fame.name
-  output_directory = "packages/storybook/dist"
-  ignore_command   = "[[ $(git log -1 --pretty=%an) == 'dependabot[bot]' ]]"
+  name                    = github_repository.hall-of-fame.name
+  output_directory        = "packages/storybook/dist"
+  ignore_command          = "[[ $(git log -1 --pretty=%an) == 'dependabot[bot]' ]]"
+  enable_preview_feedback = false
 
   git_repository = {
     type = "github"
@@ -147,9 +148,10 @@ resource "vercel_project" "hall-of-fame" {
 }
 
 resource "vercel_project" "hall-of-fame-storybook-test" {
-  name             = "hall-of-fame-storybook-test"
-  output_directory = "packages/storybook-test/dist/"
-  ignore_command   = "[[ $(git log -1 --pretty=%an) == 'dependabot[bot]' ]]"
+  name                    = "hall-of-fame-storybook-test"
+  output_directory        = "packages/storybook-test/dist/"
+  ignore_command          = "[[ $(git log -1 --pretty=%an) == 'dependabot[bot]' ]]"
+  enable_preview_feedback = false
 
   git_repository = {
     type = "github"

@@ -174,6 +174,7 @@ resource "vercel_project" "theme-wizard-server" {
   node_version                                      = "24.x"
   automatically_expose_system_environment_variables = true
   root_directory                                    = "packages/theme-wizard-server/"
+  enable_preview_feedback                           = false
 
 
   git_repository = {
@@ -187,10 +188,11 @@ resource "vercel_project" "theme-wizard-server" {
 }
 
 resource "vercel_project" "clippy-storybook" {
-  name           = "clippy-storybook"
-  ignore_command = "[[ $(git log -1 --pretty=%an) == 'dependabot[bot]' ]]"
-  node_version   = "24.x"
-  root_directory = "packages/clippy-storybook/"
+  name                    = "clippy-storybook"
+  ignore_command          = "[[ $(git log -1 --pretty=%an) == 'dependabot[bot]' ]]"
+  node_version            = "24.x"
+  root_directory          = "packages/clippy-storybook/"
+  enable_preview_feedback = false
 
 
 
