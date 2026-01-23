@@ -1,5 +1,5 @@
 resource "github_repository" "hosting" {
-  name                        = "hosting"
+  name                        = "infra"
   description                 = "Infrastructure as code: we configure cloud hosting via OpenTofu configuration files"
   allow_merge_commit          = false
   allow_rebase_merge          = true
