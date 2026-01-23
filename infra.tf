@@ -1,6 +1,6 @@
 resource "github_repository" "hosting" {
   name                        = "infra"
-  description                 = "Infrastructure as code: we configure cloud hosting via OpenTofu configuration files"
+  description                 = "Infrastructure as Code (IaC) for cloud and Kubernetes resources"
   allow_merge_commit          = false
   allow_rebase_merge          = true
   allow_squash_merge          = true
