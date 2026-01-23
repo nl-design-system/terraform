@@ -569,3 +569,15 @@ data "github_user" "JuliaTol-properaccess" {
 data "github_user" "fKasteleinDictu" {
   username = "fKasteleinDictu"
 }
+
+data "github_user" "bartjkdp" {
+  username = "bartjkdp"
+}
+
+data "github_user" "georgealpha9" {
+  username = "georgealpha9"
+}
+
+data "github_user" "iehkaatee" {
+  username = "iehkaatee"
+}
