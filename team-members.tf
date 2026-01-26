@@ -1074,6 +1074,22 @@ resource "github_team_members" "expertteam-digitale-toegankelijkheid-maintainer"
   }
 }
 
+resource "github_team_members" "expertteam-digitale-toegankelijkheid-infra" {
+  team_id = github_team.expertteam-digitale-toegankelijkheid-infra.id
+
+  members {
+    username = data.github_user.bartjkdp.username
+  }
+
+  members {
+    username = data.github_user.georgealpha9.username
+  }
+
+  members {
+    username = data.github_user.iehkaatee.username
+  }
+}
+
 resource "github_team_members" "developer_overheid_nl-committer" {
   team_id = github_team.developer_overheid_nl-committer.id
 
