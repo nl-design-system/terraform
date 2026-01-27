@@ -349,10 +349,6 @@ resource "github_team_members" "logius-maintainer" {
   team_id = github_team.logius-maintainer.id
 
   members {
-    username = data.github_user.rwittenberns.username
-  }
-
-  members {
     username = data.github_user.cascassette.username
   }
 
