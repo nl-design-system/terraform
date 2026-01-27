@@ -200,6 +200,11 @@ resource "github_repository_collaborators" "rijkshuisstijl-community" {
     username   = data.github_user.bisschoh.username
   }
 
+  user {
+    permission = "push"
+    username   = data.github_user.photosjob.username
+  }
+
   team {
     permission = "push"
     team_id    = github_team.community-committer.id
