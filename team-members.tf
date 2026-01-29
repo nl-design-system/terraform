@@ -343,6 +343,10 @@ resource "github_team_members" "logius-committer" {
   members {
     username = data.github_user.DorineLogius.username
   }
+
+  members {
+    username = data.github_user.BabsyBabs83.username
+  }
 }
 
 resource "github_team_members" "logius-maintainer" {
@@ -927,6 +931,10 @@ resource "github_team_members" "community-committer" {
 
   members {
     username = data.github_user.dineshduggal.username
+  }
+
+  members {
+    username = data.github_user.BabsyBabs83.username
   }
 
   # Den Haag folks
