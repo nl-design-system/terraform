@@ -585,3 +585,7 @@ data "github_user" "photosjob" {
 data "github_user" "DorineLogius" {
   username = "DorineLogius"
 }
+
+data "github_user" "BabsyBabs83" {
+  username = "BabsyBabs83"
+}
