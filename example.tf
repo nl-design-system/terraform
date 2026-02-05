@@ -8,7 +8,6 @@ resource "github_repository" "example" {
   allow_auto_merge            = true
   delete_branch_on_merge      = true
   has_issues                  = true
-  has_downloads               = false
   has_projects                = false
   has_wiki                    = false
   vulnerability_alerts        = true

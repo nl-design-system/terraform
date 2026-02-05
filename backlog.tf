@@ -7,7 +7,6 @@ resource "github_repository" "backlog" {
   allow_auto_merge            = true
   delete_branch_on_merge      = true
   has_issues                  = true
-  has_downloads               = false
   has_projects                = true
   has_wiki                    = false
   has_discussions             = true
