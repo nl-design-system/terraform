@@ -7,7 +7,6 @@ resource "github_repository" "rvo" {
   allow_auto_merge            = true
   delete_branch_on_merge      = true
   has_issues                  = true
-  has_downloads               = true
   has_projects                = false
   has_wiki                    = false
   vulnerability_alerts        = true
