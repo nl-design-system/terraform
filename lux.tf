@@ -8,7 +8,6 @@ resource "github_repository" "lux" {
   delete_branch_on_merge      = true
   has_discussions             = true
   has_issues                  = true
-  has_downloads               = false
   has_projects                = true
   has_wiki                    = false
   vulnerability_alerts        = true

@@ -7,7 +7,6 @@ resource "github_repository" "hosting" {
   allow_auto_merge            = false
   delete_branch_on_merge      = true
   has_issues                  = true
-  has_downloads               = false
   has_projects                = false
   has_wiki                    = false
   has_discussions             = false
