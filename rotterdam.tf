@@ -191,10 +191,20 @@ resource "github_repository_environment" "rotterdam-publish" {
   }
 }
 
-resource "github_repository_deployment_branch_policy" "rotterdam-publish-main" {
-  depends_on = [github_repository_environment.rotterdam-publish]
+removed {
+  from = github_repository_deployment_branch_policy.rotterdam-publish-main
+  lifecycle {
+    destroy = false
+  }
+}
 
-  repository       = github_repository.rotterdam.name
-  environment_name = github_repository_environment.rotterdam-publish.environment
-  name             = github_branch_default.rotterdam.branch
+resource "github_repository_environment_deployment_policy" "rotterdam-publish-main" {
+  repository     = github_repository.rotterdam.name
+  environment    = github_repository_environment.rotterdam-publish.environment
+  branch_pattern = github_branch_default.rotterdam.branch
+}
+
+import {
+  id = "rotterdam:Publish:37531224"
+  to = github_repository_environment_deployment_policy.rotterdam-publish-main
 }

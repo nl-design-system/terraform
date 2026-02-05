@@ -159,12 +159,22 @@ resource "github_repository_environment" "tilburg-publish" {
   }
 }
 
-resource "github_repository_deployment_branch_policy" "tilburg-publish-main" {
-  depends_on = [github_repository_environment.tilburg-publish]
+removed {
+  from = github_repository_deployment_branch_policy.tilburg-publish-main
+  lifecycle {
+    destroy = false
+  }
+}
 
-  repository       = github_repository.tilburg.name
-  environment_name = github_repository_environment.tilburg-publish.environment
-  name             = github_branch_default.tilburg.branch
+resource "github_repository_environment_deployment_policy" "tilburg-publish-main" {
+  repository     = github_repository.tilburg.name
+  environment    = github_repository_environment.tilburg-publish.environment
+  branch_pattern = github_branch_default.tilburg.branch
+}
+
+import {
+  id = "tilburg:Publish:37531236"
+  to = github_repository_environment_deployment_policy.tilburg-publish-main
 }
 
 resource "vercel_project" "tilburg" {

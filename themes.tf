@@ -317,10 +317,20 @@ resource "github_repository_environment" "themes-publish" {
   }
 }
 
-resource "github_repository_deployment_branch_policy" "themes-publish-main" {
-  depends_on = [github_repository_environment.themes-publish]
+removed {
+  from = github_repository_deployment_branch_policy.themes-publish-main
+  lifecycle {
+    destroy = false
+  }
+}
 
-  repository       = github_repository.themes.name
-  environment_name = github_repository_environment.themes-publish.environment
-  name             = github_branch_default.themes.branch
+resource "github_repository_environment_deployment_policy" "themes-publish-main" {
+  repository     = github_repository.themes.name
+  environment    = github_repository_environment.themes-publish.environment
+  branch_pattern = github_branch_default.themes.branch
+}
+
+import {
+  id = "themes:Publish:37531223"
+  to = github_repository_environment_deployment_policy.themes-publish-main
 }

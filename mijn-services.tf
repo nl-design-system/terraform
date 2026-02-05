@@ -141,12 +141,22 @@ resource "github_repository_environment" "mijn-services-publish" {
   }
 }
 
-resource "github_repository_deployment_branch_policy" "mijn-services-publish-main" {
-  depends_on = [github_repository_environment.mijn-services-publish]
+removed {
+  from = github_repository_deployment_branch_policy.mijn-services-publish-main
+  lifecycle {
+    destroy = false
+  }
+}
 
-  repository       = github_repository.mijn-services.name
-  environment_name = github_repository_environment.mijn-services-publish.environment
-  name             = github_branch_default.mijn-services.branch
+resource "github_repository_environment_deployment_policy" "mijn-services-publish-main" {
+  repository     = github_repository.mijn-services.name
+  environment    = github_repository_environment.mijn-services-publish.environment
+  branch_pattern = github_branch_default.mijn-services.branch
+}
+
+import {
+  id = "mijn-services:Publish:37531233"
+  to = github_repository_environment_deployment_policy.mijn-services-publish-main
 }
 
 resource "vercel_project" "mijn-services" {
