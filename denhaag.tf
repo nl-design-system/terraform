@@ -237,14 +237,23 @@ resource "github_repository_environment" "denhaag-publish" {
   }
 }
 
-resource "github_repository_deployment_branch_policy" "denhaag-publish-main" {
-  depends_on = [github_repository_environment.denhaag-publish]
-
-  repository       = github_repository.denhaag.name
-  environment_name = github_repository_environment.denhaag-publish.environment
-  name             = github_branch_default.denhaag.branch
+removed {
+  from = github_repository_deployment_branch_policy.denhaag-publish-main
+  lifecycle {
+    destroy = false
+  }
 }
 
+resource "github_repository_environment_deployment_policy" "denhaag-publish-main" {
+  repository     = github_repository.denhaag.name
+  environment    = github_repository_environment.denhaag-publish.environment
+  branch_pattern = github_branch_default.denhaag.branch
+}
+
+import {
+  id = "denhaag:Publish:37531226"
+  to = github_repository_environment_deployment_policy.denhaag-publish-main
+}
 
 resource "github_repository_environment" "denhaag-www-denhaag-nl" {
   environment       = "www.denhaag.nl"
@@ -257,10 +266,20 @@ resource "github_repository_environment" "denhaag-www-denhaag-nl" {
   }
 }
 
-resource "github_repository_deployment_branch_policy" "denhaag-www-denhaag-nl-main" {
-  depends_on = [github_repository_environment.denhaag-www-denhaag-nl]
+removed {
+  from = github_repository_deployment_branch_policy.denhaag-www-denhaag-nl-main
+  lifecycle {
+    destroy = false
+  }
+}
 
-  repository       = github_repository.denhaag.name
-  environment_name = github_repository_environment.denhaag-www-denhaag-nl.environment
-  name             = "www.denhaag.nl"
+resource "github_repository_environment_deployment_policy" "denhaag-www-denhaag-nl-main" {
+  repository     = github_repository.denhaag.name
+  environment    = github_repository_environment.denhaag-www-denhaag-nl.environment
+  branch_pattern = "www.denhaag.nl"
+}
+
+import {
+  id = "denhaag:www.denhaag.nl:37566015"
+  to = github_repository_environment_deployment_policy.denhaag-www-denhaag-nl-main
 }

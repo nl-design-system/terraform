@@ -170,10 +170,20 @@ resource "github_repository_environment" "rvo-publish" {
   }
 }
 
-resource "github_repository_deployment_branch_policy" "rvo-publish-main" {
-  depends_on = [github_repository_environment.rvo-publish]
+removed {
+  from = github_repository_deployment_branch_policy.rvo-publish-main
+  lifecycle {
+    destroy = false
+  }
+}
 
-  repository       = github_repository.rvo.name
-  environment_name = github_repository_environment.rvo-publish.environment
-  name             = github_branch_default.rvo.branch
+resource "github_repository_environment_deployment_policy" "rvo-publish-main" {
+  repository     = github_repository.rvo.name
+  environment    = github_repository_environment.rvo-publish.environment
+  branch_pattern = github_branch_default.rvo.branch
+}
+
+import {
+  id = "rvo:Publish:37531235"
+  to = github_repository_environment_deployment_policy.rvo-publish-main
 }

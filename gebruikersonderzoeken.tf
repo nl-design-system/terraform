@@ -141,12 +141,22 @@ resource "github_repository_environment" "gebruikersonderzoeken-publish" {
   }
 }
 
-resource "github_repository_deployment_branch_policy" "gebruikersonderzoeken-publish-main" {
-  depends_on = [github_repository_environment.gebruikersonderzoeken-publish]
+removed {
+  from = github_repository_deployment_branch_policy.gebruikersonderzoeken-publish-main
+  lifecycle {
+    destroy = false
+  }
+}
 
-  repository       = github_repository.gebruikersonderzoeken.name
-  environment_name = github_repository_environment.gebruikersonderzoeken-publish.environment
-  name             = github_branch_default.gebruikersonderzoeken.branch
+resource "github_repository_environment_deployment_policy" "gebruikersonderzoeken-publish-main" {
+  repository     = github_repository.gebruikersonderzoeken.name
+  environment    = github_repository_environment.gebruikersonderzoeken-publish.environment
+  branch_pattern = github_branch_default.gebruikersonderzoeken.branch
+}
+
+import {
+  id = "gebruikersonderzoeken:Publish:37531215"
+  to = github_repository_environment_deployment_policy.gebruikersonderzoeken-publish-main
 }
 
 resource "vercel_project" "gebruikersonderzoeken" {

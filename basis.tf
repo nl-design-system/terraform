@@ -144,10 +144,20 @@ resource "github_repository_environment" "basis-publish" {
   }
 }
 
-resource "github_repository_deployment_branch_policy" "basis-publish-main" {
-  depends_on = [github_repository_environment.basis-publish]
+removed {
+  from = github_repository_deployment_branch_policy.basis-publish-main
+  lifecycle {
+    destroy = false
+  }
+}
 
-  repository       = github_repository.basis.name
-  environment_name = github_repository_environment.basis-publish.environment
-  name             = github_branch_default.basis.branch
+resource "github_repository_environment_deployment_policy" "basis-publish-main" {
+  repository     = github_repository.basis.name
+  environment    = github_repository_environment.basis-publish.environment
+  branch_pattern = github_branch_default.basis.branch
+}
+
+import {
+  id = "basis:Publish:37531232"
+  to = github_repository_environment_deployment_policy.basis-publish-main
 }

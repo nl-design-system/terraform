@@ -184,10 +184,20 @@ resource "github_repository_environment" "lux-publish" {
   }
 }
 
-resource "github_repository_deployment_branch_policy" "lux-publish-main" {
-  depends_on = [github_repository_environment.lux-publish]
+removed {
+  from = github_repository_deployment_branch_policy.lux-publish-main
+  lifecycle {
+    destroy = false
+  }
+}
 
-  repository       = github_repository.lux.name
-  environment_name = github_repository_environment.lux-publish.environment
-  name             = github_branch_default.lux.branch
+resource "github_repository_environment_deployment_policy" "lux-publish-main" {
+  repository     = github_repository.lux.name
+  environment    = github_repository_environment.lux-publish.environment
+  branch_pattern = github_branch_default.lux.branch
+}
+
+import {
+  id = "lux:Publish:37531227"
+  to = github_repository_environment_deployment_policy.lux-publish-main
 }

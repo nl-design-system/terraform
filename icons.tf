@@ -148,12 +148,22 @@ resource "github_repository_environment" "icons-publish" {
   }
 }
 
-resource "github_repository_deployment_branch_policy" "icons-publish-main" {
-  depends_on = [github_repository_environment.icons-publish]
+removed {
+  from = github_repository_deployment_branch_policy.icons-publish-main
+  lifecycle {
+    destroy = false
+  }
+}
 
-  repository       = github_repository.icons.name
-  environment_name = github_repository_environment.icons-publish.environment
-  name             = github_branch_default.icons.branch
+resource "github_repository_environment_deployment_policy" "icons-publish-main" {
+  repository     = github_repository.icons.name
+  environment    = github_repository_environment.icons-publish.environment
+  branch_pattern = github_branch_default.icons.branch
+}
+
+import {
+  id = "icons:Publish:37531237"
+  to = github_repository_environment_deployment_policy.icons-publish-main
 }
 
 resource "vercel_project" "icons" {
