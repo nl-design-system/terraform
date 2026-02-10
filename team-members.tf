@@ -893,6 +893,19 @@ resource "github_team_members" "community-committer" {
     username = data.github_user.GerwinTerpstra.username
   }
 
+  # KOOP/Logius folks
+  members {
+    username = data.github_user.NeslihanUTUK.username
+  }
+
+  members {
+    username = data.github_user.FinnWard.username
+  }
+
+  members {
+    username = data.github_user.cascassette.username
+  }
+
   # Frameless folks
 
   members {
