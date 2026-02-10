@@ -173,6 +173,10 @@ resource "github_team_members" "kernteam-triage" {
   members {
     username = data.github_user.sdejong570.username
   }
+
+  members {
+    username = data.github_user.nl-design-system-backup.username
+  }
 }
 
 resource "github_team_members" "kernteam-ci" {
@@ -1011,6 +1015,10 @@ resource "github_team_members" "expertteam-digitale-toegankelijkheid-triage" {
 
   members {
     username = data.github_user.pibl.username
+  }
+
+  members {
+    username = data.github_user.nl-design-system-backup.username
   }
 }
 
