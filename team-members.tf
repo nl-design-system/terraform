@@ -558,7 +558,7 @@ resource "github_team_members" "rvo-committer" {
     username = data.github_user.PhamNguyenNL.username
   }
   members {
-    username = data.github_user.MartijndeLanghDictu.username
+    username = data.github_user.MartijnDeL.username
   }
   members {
     username = data.github_user.fKasteleinDictu.username
