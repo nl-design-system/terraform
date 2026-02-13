@@ -131,20 +131,8 @@ resource "github_repository_environment" "index-publish" {
   }
 }
 
-removed {
-  from = github_repository_deployment_branch_policy.index-publish-main
-  lifecycle {
-    destroy = false
-  }
-}
-
 resource "github_repository_environment_deployment_policy" "index-publish-main" {
   repository     = github_repository.index.name
   environment    = github_repository_environment.index-publish.environment
   branch_pattern = github_branch_default.index.branch
-}
-
-import {
-  id = "index:Publish:37531230"
-  to = github_repository_environment_deployment_policy.index-publish-main
 }

@@ -198,20 +198,8 @@ resource "github_repository_environment" "candidate-publish" {
   }
 }
 
-removed {
-  from = github_repository_deployment_branch_policy.candidate-publish-main
-  lifecycle {
-    destroy = false
-  }
-}
-
 resource "github_repository_environment_deployment_policy" "candidate-publish-main" {
   repository     = github_repository.candidate.name
   environment    = github_repository_environment.candidate-publish.environment
   branch_pattern = github_branch_default.candidate.branch
-}
-
-import {
-  id = "candidate:Publish:37531218"
-  to = github_repository_environment_deployment_policy.candidate-publish-main
 }

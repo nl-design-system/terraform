@@ -170,22 +170,10 @@ resource "github_repository_environment" "documentatie-publish" {
   }
 }
 
-removed {
-  from = github_repository_deployment_branch_policy.documentatie-publish-main
-  lifecycle {
-    destroy = false
-  }
-}
-
 resource "github_repository_environment_deployment_policy" "documentatie-publish-main" {
   repository     = github_repository.documentatie.name
   environment    = github_repository_environment.documentatie-publish.environment
   branch_pattern = github_branch_default.documentatie.branch
-}
-
-import {
-  id = "documentatie:Publish:37531228"
-  to = github_repository_environment_deployment_policy.documentatie-publish-main
 }
 
 resource "github_repository_webhook" "documentatie" {
