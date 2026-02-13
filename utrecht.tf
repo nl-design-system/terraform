@@ -218,20 +218,8 @@ resource "github_repository_environment" "utrecht-publish" {
   }
 }
 
-removed {
-  from = github_repository_deployment_branch_policy.utrecht-publish-main
-  lifecycle {
-    destroy = false
-  }
-}
-
 resource "github_repository_environment_deployment_policy" "utrecht-publish-main" {
   repository     = github_repository.utrecht.name
   environment    = github_repository_environment.utrecht-publish.environment
   branch_pattern = github_branch_default.utrecht.branch
-}
-
-import {
-  id = "utrecht:Publish:37525020"
-  to = github_repository_environment_deployment_policy.utrecht-publish-main
 }
