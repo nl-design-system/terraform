@@ -141,22 +141,10 @@ resource "github_repository_environment" "theme-wizard-issues" {
   repository  = github_repository.theme-wizard.name
 }
 
-removed {
-  from = github_repository_deployment_branch_policy.theme-wizard-publish-main
-  lifecycle {
-    destroy = false
-  }
-}
-
 resource "github_repository_environment_deployment_policy" "theme-wizard-publish-main" {
   repository     = github_repository.theme-wizard.name
   environment    = github_repository_environment.theme-wizard-publish.environment
   branch_pattern = github_branch_default.theme-wizard.branch
-}
-
-import {
-  id = "theme-wizard:Publish:37531243"
-  to = github_repository_environment_deployment_policy.theme-wizard-publish-main
 }
 
 resource "vercel_project" "theme-wizard" {

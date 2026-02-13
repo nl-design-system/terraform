@@ -221,22 +221,10 @@ resource "github_repository_environment" "rijkshuisstijl-community-publish" {
   }
 }
 
-removed {
-  from = github_repository_deployment_branch_policy.rijkshuisstijl-community-publish-main
-  lifecycle {
-    destroy = false
-  }
-}
-
 resource "github_repository_environment_deployment_policy" "rijkshuisstijl-community-publish-main" {
   repository     = github_repository.rijkshuisstijl-community.name
   environment    = github_repository_environment.rijkshuisstijl-community-publish.environment
   branch_pattern = github_branch_default.rijkshuisstijl-community.branch
-}
-
-import {
-  id = "rijkshuisstijl-community:Publish:37531216"
-  to = github_repository_environment_deployment_policy.rijkshuisstijl-community-publish-main
 }
 
 resource "vercel_project" "rijkshuisstijl-community" {
