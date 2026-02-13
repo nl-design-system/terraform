@@ -205,20 +205,8 @@ resource "github_repository_environment" "terraform-publish" {
   }
 }
 
-removed {
-  from = github_repository_deployment_branch_policy.terraform-publish-main
-  lifecycle {
-    destroy = false
-  }
-}
-
 resource "github_repository_environment_deployment_policy" "terraform-publish-main" {
   repository     = github_repository.terraform.name
   environment    = github_repository_environment.terraform-publish.environment
   branch_pattern = github_branch_default.terraform-branch-default.branch
-}
-
-import {
-  id = "terraform:Publish:37531220"
-  to = github_repository_environment_deployment_policy.terraform-publish-main
 }

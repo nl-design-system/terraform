@@ -143,20 +143,8 @@ resource "github_repository_environment" "basis-publish" {
   }
 }
 
-removed {
-  from = github_repository_deployment_branch_policy.basis-publish-main
-  lifecycle {
-    destroy = false
-  }
-}
-
 resource "github_repository_environment_deployment_policy" "basis-publish-main" {
   repository     = github_repository.basis.name
   environment    = github_repository_environment.basis-publish.environment
   branch_pattern = github_branch_default.basis.branch
-}
-
-import {
-  id = "basis:Publish:37531232"
-  to = github_repository_environment_deployment_policy.basis-publish-main
 }
