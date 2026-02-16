@@ -620,7 +620,7 @@ resource "github_team" "documentatie" {
 }
 
 resource "github_team" "community-committer" {
-  name        = "community-committer"
+  name        = "community-contributor"
   privacy     = "closed"
   description = "Committers who make can make Pull Requests for all public repositories"
 }
