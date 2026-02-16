@@ -130,6 +130,6 @@ resource "github_repository_collaborators" "example-with-angular" {
 
   team {
     permission = "push"
-    team_id    = github_team.community-committer.id
+    team_id    = github_team.community-contributor.id
   }
 }

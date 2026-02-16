@@ -858,7 +858,7 @@ resource "github_team_members" "keen-design-maintainer" {
 }
 
 resource "github_team_members" "community-committer" {
-  team_id = github_team.community-committer.id
+  team_id = github_team.community-contributor.id
 
   # Quintor folks
   members {

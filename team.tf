@@ -619,10 +619,15 @@ resource "github_team" "documentatie" {
   description = "documentatie contributors"
 }
 
-resource "github_team" "community-committer" {
+resource "github_team" "community-contributor" {
   name        = "community-contributor"
   privacy     = "closed"
   description = "Committers who make can make Pull Requests for all public repositories"
+}
+
+moved {
+  from = github_team.community-committer
+  to   = github_team.community-contributor
 }
 
 resource "github_team" "expertteam-digitale-toegankelijkheid" {
