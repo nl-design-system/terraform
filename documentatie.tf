@@ -200,8 +200,8 @@ resource "github_repository_webhook" "documentatie" {
 
 resource "vercel_project" "documentatie-next" {
   name                    = "documentatie-next"
+  build_command           = "pnpm --filter @nl-design-system/website-astro run build"
   output_directory        = "packages/website/dist/"
-  build_command           = "pnpm run build"
   ignore_command          = "[[ \"$VERCEL_GIT_COMMIT_AUTHOR_LOGIN\" == \"dependabot[bot]\" || \"$VERCEL_GIT_COMMIT_REF\" == \"gh-pages\" ]]"
   node_version            = "24.x"
   enable_preview_feedback = false
