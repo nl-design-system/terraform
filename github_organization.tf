@@ -5,6 +5,7 @@ data "github_organization" "nl-design-system" {
 resource "github_actions_organization_permissions" "nl-design-system" {
   allowed_actions      = "selected"
   enabled_repositories = "all"
+  sha_pinning_required = true
 
   allowed_actions_config {
     github_owned_allowed = true
