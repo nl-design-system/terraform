@@ -15,10 +15,7 @@ resource "github_repository" "denhaag" {
   topics                      = ["nl-design-system", "storybook", "react", "component-library"]
 
   pages {
-    source {
-      branch = "gh-pages"
-      path   = "/"
-    }
+    build_type = "workflow"
   }
 
   security_and_analysis {

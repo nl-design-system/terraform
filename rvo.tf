@@ -22,10 +22,7 @@ resource "github_repository" "rvo" {
   }
 
   pages {
-    source {
-      branch = "gh-pages"
-      path   = "/"
-    }
+    build_type = "workflow"
   }
 
   lifecycle {
