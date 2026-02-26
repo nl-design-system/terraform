@@ -23,10 +23,7 @@ resource "github_repository" "rijkshuisstijl-community" {
   }
 
   pages {
-    source {
-      branch = "gh-pages"
-      path   = "/"
-    }
+    build_type = "workflow"
   }
 
   security_and_analysis {
