@@ -968,6 +968,20 @@ resource "github_team_members" "community-committer" {
     username = data.github_user.hidde.username
   }
 
+  # Expertteam alumni
+
+  members {
+    username = data.github_user.huijkman.username
+  }
+
+  members {
+    username = data.github_user.jurgenbelien.username
+  }
+
+  members {
+    username = data.github_user.pibl.username
+  }
+
   # Leiden folks
   members {
     username = data.github_user.LeidscheJurgen.username
@@ -982,13 +996,6 @@ resource "github_team_members" "community-committer" {
   }
 
   # Expertteam Digitale Toegankelijkheid folks
-  members {
-    username = data.github_user.huijkman.username
-  }
-
-  members {
-    username = data.github_user.jurgenbelien.username
-  }
 
   members {
     username = data.github_user.hilhorstt.username
@@ -1023,15 +1030,7 @@ resource "github_team_members" "expertteam-digitale-toegankelijkheid-triage" {
   }
 
   members {
-    username = data.github_user.huijkman.username
-  }
-
-  members {
     username = data.github_user.Astrid-01.username
-  }
-
-  members {
-    username = data.github_user.pibl.username
   }
 
   members {
@@ -1054,13 +1053,6 @@ resource "github_team_members" "expertteam-digitale-toegankelijkheid-committer" 
     role     = "maintainer"
   }
 
-  members {
-    username = data.github_user.huijkman.username
-  }
-
-  members {
-    username = data.github_user.jurgenbelien.username
-  }
 
   members {
     username = data.github_user.hilhorstt.username
@@ -1094,13 +1086,6 @@ resource "github_team_members" "expertteam-digitale-toegankelijkheid-maintainer"
     role     = "maintainer"
   }
 
-  members {
-    username = data.github_user.pibl.username
-  }
-
-  members {
-    username = data.github_user.huijkman.username
-  }
 }
 
 resource "github_team_members" "expertteam-digitale-toegankelijkheid-infra" {
