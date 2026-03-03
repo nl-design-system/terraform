@@ -87,10 +87,6 @@ resource "github_team_members" "kernteam-committer" {
   }
 
   members {
-    username = data.github_user.veslav3.username
-  }
-
-  members {
     username = data.github_user.richadr.username
   }
 
@@ -124,10 +120,6 @@ resource "github_team_members" "kernteam-maintainer" {
     username = data.github_user.Yolijn.username
     # organization owners must be "maintainer", see note at https://registry.terraform.io/providers/integrations/github/latest/docs/resources/team_members
     role = "maintainer"
-  }
-
-  members {
-    username = data.github_user.veslav3.username
   }
 
   members {
@@ -168,10 +160,6 @@ resource "github_team_members" "kernteam-triage" {
 
   members {
     username = data.github_user.petergoes.username
-  }
-
-  members {
-    username = data.github_user.veslav3.username
   }
 
   members {
@@ -966,6 +954,10 @@ resource "github_team_members" "community-committer" {
 
   members {
     username = data.github_user.hidde.username
+  }
+
+  members {
+    username = data.github_user.veslav3.username
   }
 
   # Expertteam alumni
