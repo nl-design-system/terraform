@@ -124,11 +124,6 @@ resource "github_repository_collaborators" "hall-of-fame" {
     permission = "triage"
     team_id    = github_team.kernteam-triage.slug
   }
-
-  team {
-    permission = "triage"
-    team_id    = github_team.kernteam-dependabot.slug
-  }
 }
 
 resource "vercel_project" "hall-of-fame" {
