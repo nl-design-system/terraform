@@ -593,3 +593,19 @@ data "github_user" "BabsyBabs83" {
 data "github_user" "nl-design-system-backup" {
   username = "nl-design-system-backup"
 }
+
+data "github_user" "vaszig" {
+  username = "vaszig"
+}
+
+data "github_user" "viktorvanwijk" {
+  username = "viktorvanwijk"
+}
+
+data "github_user" "robinmolen" {
+  username = "robinmolen"
+}
+
+data "github_user" "sergei-maertens" {
+  username = "sergei-maertens"
+}
