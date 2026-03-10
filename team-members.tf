@@ -1012,6 +1012,24 @@ resource "github_team_members" "community-committer" {
   members {
     username = data.github_user.ermenm.username
   }
+
+  # Maykin folks
+
+  members {
+    username = data.github_user.vaszig.username
+  }
+
+  members {
+    username = data.github_user.viktorvanwijk.username
+  }
+
+  members {
+    username = data.github_user.robinmolen.username
+  }
+
+  members {
+    username = data.github_user.sergei-maertens.username
+  }
 }
 
 resource "github_team_members" "expertteam-digitale-toegankelijkheid-triage" {
