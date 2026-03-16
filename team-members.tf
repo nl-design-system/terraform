@@ -24,6 +24,10 @@ resource "github_team_members" "frameless" {
   members {
     username = data.github_user.TessaViergever.username
   }
+
+  members {
+    username = data.github_user.AnoukdeRooij24.username
+  }
 }
 
 resource "github_team_members" "frameless-maintainer" {
@@ -938,6 +942,10 @@ resource "github_team_members" "community-committer" {
 
   members {
     username = data.github_user.TessaViergever.username
+  }
+
+  members {
+    username = data.github_user.AnoukdeRooij24.username
   }
 
   # Utrecht folks
