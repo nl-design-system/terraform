@@ -121,11 +121,6 @@ resource "github_repository_collaborators" "icons" {
   }
 
   team {
-    permission = "triage"
-    team_id    = github_team.kernteam-dependabot.id
-  }
-
-  team {
     permission = "push"
     team_id    = github_team.icons-committer.id
   }
