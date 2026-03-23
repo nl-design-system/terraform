@@ -101,6 +101,10 @@ resource "github_team_members" "kernteam-committer" {
   members {
     username = data.github_user.Astrid-01.username
   }
+
+  members {
+    username = data.github_user.sdejong570.username
+  }
 }
 
 resource "github_team_members" "kernteam-maintainer" {
