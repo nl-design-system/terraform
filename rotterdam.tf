@@ -195,3 +195,9 @@ resource "github_repository_environment_deployment_policy" "rotterdam-publish-ma
   environment    = github_repository_environment.rotterdam-publish.environment
   branch_pattern = github_branch_default.rotterdam.branch
 }
+
+resource "github_repository_environment_deployment_policy" "rotterdam-publish-java-tag" {
+  repository  = github_repository.rotterdam.name
+  environment = github_repository_environment.rotterdam-publish.environment
+  tag_pattern = "java-*"
+}
