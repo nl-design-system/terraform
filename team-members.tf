@@ -269,6 +269,10 @@ resource "github_team_members" "logius-committer" {
   }
 
   members {
+    username = data.github_user.windgazer.username
+  }
+
+  members {
     username = data.github_user.dineshduggal.username
   }
 
