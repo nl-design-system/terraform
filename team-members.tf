@@ -999,10 +999,6 @@ resource "github_team_members" "community-committer" {
   }
 
   members {
-    username = data.github_user.jurgenbelien.username
-  }
-
-  members {
     username = data.github_user.pibl.username
   }
 
