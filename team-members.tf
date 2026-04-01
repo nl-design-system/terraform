@@ -1030,6 +1030,10 @@ resource "github_team_members" "community-committer" {
   }
 
   members {
+    username = data.github_user.bramsmulders.username
+  }
+
+  members {
     username = data.github_user.julezrulez.username
   }
 
@@ -1102,6 +1106,10 @@ resource "github_team_members" "expertteam-digitale-toegankelijkheid-committer" 
 
   members {
     username = data.github_user.bartveneman.username
+  }
+
+  members {
+    username = data.github_user.bramsmulders.username
   }
 
   members {
