@@ -614,6 +614,10 @@ data "github_user" "AnoukdeRooij24" {
   username = "AnoukdeRooij24"
 }
 
+data "github_user" "bramsmulders" {
+  username = "bramsmulders"
+}
+
 data "github_user" "sergei-maertens" {
   username = "sergei-maertens"
 }
