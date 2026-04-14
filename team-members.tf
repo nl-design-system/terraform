@@ -801,20 +801,19 @@ resource "github_team_members" "rivm-maintainer" {
   }
 }
 
+# Last checked by maintainer: 2026-04-14
 resource "github_team_members" "gemeente-rotterdam-triage" {
   team_id = github_team.gemeente-rotterdam-triage.id
 
+  # Keep at least one placeholder user to keep the team
   members {
-    username = data.github_user.bartheijs.username
+    username = data.github_user.LeonVanEe.username
   }
 }
 
+# Last checked by maintainer: 2026-04-14
 resource "github_team_members" "gemeente-rotterdam-committer" {
   team_id = github_team.gemeente-rotterdam-committer.id
-
-  members {
-    username = data.github_user.fiemke.username
-  }
 
   members {
     username = data.github_user.keesvandieren.username
@@ -825,18 +824,11 @@ resource "github_team_members" "gemeente-rotterdam-committer" {
   }
 
   members {
-    username = data.github_user.RicoRobinson.username
-  }
-
-  members {
-    username = data.github_user.aiden-sjeefr.username
-  }
-
-  members {
     username = data.github_user.Theo-Buitelaar-Rotterdam.username
   }
 }
 
+# Last checked by maintainer: 2026-04-14
 resource "github_team_members" "gemeente-rotterdam-maintainer" {
   team_id = github_team.gemeente-rotterdam-maintainer.id
 
