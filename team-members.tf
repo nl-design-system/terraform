@@ -508,18 +508,17 @@ resource "github_team_members" "blueriq-maintainer" {
 resource "github_team_members" "rvo" {
   team_id = github_team.rvo.id
 
+  # Last checked by rvo-maintainer: 2026-04-17
   members {
     username = data.github_user.rroose-rvo.username
   }
 
-  members {
-    username = data.github_user.sushitommy.username
-  }
-
+  # Last checked by rvo-maintainer: 2026-04-17
   members {
     username = data.github_user.shayant98.username
   }
 
+  # Last checked by rvo-maintainer: 2026-04-17
   members {
     username = data.github_user.jurgen-bosma.username
   }
@@ -528,62 +527,77 @@ resource "github_team_members" "rvo" {
 resource "github_team_members" "rvo-committer" {
   team_id = github_team.rvo-committer.id
 
+  # Last checked by rvo-maintainer: 2026-04-17
   members {
     username = data.github_user.rroose-rvo.username
   }
 
-  members {
-    username = data.github_user.sushitommy.username
-  }
-
+  # Last checked by rvo-maintainer: 2026-04-17
   members {
     username = data.github_user.hoofdredactie.username
   }
 
+  # Last checked by rvo-maintainer: 2026-04-17
   members {
     username = data.github_user.christopher1986.username
   }
 
+  # Last checked by rvo-maintainer: 2026-04-17
   members {
     username = data.github_user.MLRFokken.username
   }
 
+  # Last checked by rvo-maintainer: 2026-04-17
   members {
     username = data.github_user.r1kkert.username
   }
 
+  # Last checked by rvo-maintainer: 2026-04-17
   members {
     username = data.github_user.jeroenschipper-dictu.username
   }
 
+  # Last checked by rvo-maintainer: 2026-04-17
   members {
     username = data.github_user.PLassche-dictu.username
   }
 
+  # Last checked by rvo-maintainer: 2026-04-17
   members {
     username = data.github_user.chelly-dictu.username
   }
 
+  # Last checked by rvo-maintainer: 2026-04-17
   members {
     username = data.github_user.ramonitor.username
   }
 
+  # Last checked by rvo-maintainer: 2026-04-17
   members {
     username = data.github_user.jaseterhaar.username
   }
+
+  # Last checked by rvo-maintainer: 2026-04-17
   members {
     username = data.github_user.dhprins89.username
   }
+
+  # Last checked by rvo-maintainer: 2026-04-17
   members {
     username = data.github_user.PhamNguyenNL.username
   }
+
+  # Last checked by rvo-maintainer: 2026-04-17
   members {
     username = data.github_user.MartijnDeL.username
   }
+
+  # Last checked by rvo-maintainer: 2026-04-17
   members {
     username = data.github_user.fKasteleinDictu.username
   }
 
+  # Last checked by rvo-maintainer: 2026-04-17
   members {
     username = data.github_user.shayant98.username
   }
@@ -592,6 +606,7 @@ resource "github_team_members" "rvo-committer" {
 resource "github_team_members" "rvo-maintainer" {
   team_id = github_team.rvo-maintainer.id
 
+  # Last checked by rvo-maintainer: 2026-04-17
   members {
     username = data.github_user.rroose-rvo.username
   }
@@ -600,6 +615,7 @@ resource "github_team_members" "rvo-maintainer" {
 resource "github_team_members" "rvo-estafettemodel" {
   team_id = github_team.rvo-estafettemodel.id
 
+  # Last checked by rvo-maintainer: 2026-04-17
   members {
     username = data.github_user.rroose-rvo.username
   }
