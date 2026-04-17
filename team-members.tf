@@ -519,6 +519,10 @@ resource "github_team_members" "rvo" {
   members {
     username = data.github_user.shayant98.username
   }
+
+  members {
+    username = data.github_user.jurgen-bosma.username
+  }
 }
 
 resource "github_team_members" "rvo-committer" {
