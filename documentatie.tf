@@ -203,3 +203,11 @@ resource "vercel_project" "documentatie-next" {
     deployment_type = "none"
   }
 }
+
+resource "vercel_project_environment_variable" "documentatie-next-vercel-force-no-build-cache" {
+  project_id = vercel_project.documentatie-next.id
+  key        = "VERCEL_FORCE_NO_BUILD_CACHE"
+  value      = "1"
+  target     = ["production", "preview"]
+  comment    = "See documentatie#4067"
+}
