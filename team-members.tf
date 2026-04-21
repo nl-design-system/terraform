@@ -518,7 +518,7 @@ resource "github_team_members" "rvo" {
     username = data.github_user.shayant98.username
   }
 
-  # Last checked by rvo-maintainer: 2026-04-17
+  # Last checked by rvo-maintainer: 2026-04-21
   members {
     username = data.github_user.jurgen-bosma.username
   }
@@ -600,6 +600,11 @@ resource "github_team_members" "rvo-committer" {
   # Last checked by rvo-maintainer: 2026-04-17
   members {
     username = data.github_user.shayant98.username
+  }
+
+  # Last checked by rvo-maintainer: 2026-04-21
+  members {
+    username = data.github_user.jurgen-bosma.username
   }
 }
 
