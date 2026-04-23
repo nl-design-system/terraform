@@ -135,6 +135,37 @@ resource "github_team_members" "kernteam-maintainer" {
   }
 }
 
+resource "github_team_members" "kernteam-admin" {
+  team_id = github_team.kernteam-admin.id
+
+  members {
+    username = data.github_user.Robbert.username
+    # organization owners must be "maintainer", see note at https://registry.terraform.io/providers/integrations/github/latest/docs/resources/team_members
+    role = "maintainer"
+  }
+
+  members {
+    username = data.github_user.Yolijn.username
+    # organization owners must be "maintainer", see note at https://registry.terraform.io/providers/integrations/github/latest/docs/resources/team_members
+    role = "maintainer"
+  }
+
+  members {
+    username = data.github_user.richadr.username
+  }
+
+  members {
+    username = data.github_user.nl-design-system-ci.username
+    # organization owners must be "maintainer", see note at https://registry.terraform.io/providers/integrations/github/latest/docs/resources/team_members
+    role = "maintainer"
+  }
+}
+
+import {
+  to = github_team_members.kernteam-admin
+  id = github_team.kernteam-admin.id
+}
+
 resource "github_team_members" "kernteam-triage" {
   team_id = github_team.kernteam-triage.id
 
