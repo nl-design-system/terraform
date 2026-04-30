@@ -1098,6 +1098,14 @@ resource "github_team_members" "community-committer" {
     # approximately until 2026-05-31.
     username = data.github_user.MicheleNL.username
   }
+
+  # Last checked by @eslook: 2026-04-30
+  members {
+    # Qalybr working on Angular,
+    # general NL Design System support,
+    # starting with Rijkshuisstijl Community.
+    username = data.github_user.Roanheid.username
+  }
 }
 
 resource "github_team_members" "expertteam-digitale-toegankelijkheid-triage" {
