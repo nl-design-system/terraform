@@ -1,3 +1,23 @@
+import {
+  to = github_repository.hall-of-fame
+  id = "hall-of-fame"
+}
+
+import {
+  to = github_branch_default.hall-of-fame
+  id = "hall-of-fame"
+}
+
+import {
+  to = github_repository_ruleset.hall-of-fame-main
+  id = "hall-of-fame:2782000"
+}
+
+import {
+  to = github_repository_collaborators.hall-of-fame
+  id = "hall-of-fame"
+}
+
 resource "github_repository" "hall-of-fame" {
   name                        = "hall-of-fame"
   description                 = "NL Design System Hall of Fame components"
@@ -7,7 +27,6 @@ resource "github_repository" "hall-of-fame" {
   allow_auto_merge            = true
   delete_branch_on_merge      = true
   has_issues                  = true
-  has_downloads               = false
   has_projects                = false
   has_wiki                    = false
   vulnerability_alerts        = true
@@ -15,13 +34,16 @@ resource "github_repository" "hall-of-fame" {
   squash_merge_commit_title   = "PR_TITLE"
   squash_merge_commit_message = "PR_BODY"
   topics                      = ["nl-design-system", "storybook"]
-  visibility                  = "private"
 
 
   template {
     owner                = "nl-design-system"
     repository           = "example"
     include_all_branches = false
+  }
+
+  pages {
+    build_type = "workflow"
   }
 
   security_and_analysis {
@@ -31,10 +53,6 @@ resource "github_repository" "hall-of-fame" {
     secret_scanning_push_protection {
       status = "enabled"
     }
-  }
-
-  pages {
-    build_type = "workflow"
   }
 
   lifecycle {
@@ -84,7 +102,7 @@ resource "github_repository_ruleset" "hall-of-fame-main" {
     }
 
     required_status_checks {
-      strict_required_status_checks_policy = false
+      strict_required_status_checks_policy = true
 
       required_check {
         context = "build"
@@ -107,50 +125,57 @@ resource "github_repository_collaborators" "hall-of-fame" {
 
   team {
     permission = "admin"
-    team_id    = github_team.kernteam-admin.slug
+    team_id    = github_team.kernteam-admin.id
   }
 
   team {
     permission = "maintain"
-    team_id    = github_team.kernteam-maintainer.slug
+    team_id    = github_team.kernteam-maintainer.id
   }
 
   team {
     permission = "push"
-    team_id    = github_team.kernteam-committer.slug
+    team_id    = github_team.kernteam-committer.id
   }
 
   team {
     permission = "triage"
-    team_id    = github_team.kernteam-triage.slug
+    team_id    = github_team.kernteam-triage.id
   }
+
+  team {
+    permission = "push"
+    team_id    = github_team.community-contributor.id
+  }
+}
+
+resource "github_repository_environment" "hall-of-fame-publish" {
+  environment       = "Publish"
+  repository        = github_repository.hall-of-fame.name
+  can_admins_bypass = false
+
+  deployment_branch_policy {
+    protected_branches     = false
+    custom_branch_policies = true
+  }
+}
+
+resource "github_repository_environment_deployment_policy" "hall-of-fame-publish-main" {
+  repository     = github_repository.hall-of-fame.name
+  environment    = github_repository_environment.hall-of-fame-publish.environment
+  branch_pattern = github_branch_default.hall-of-fame.branch
 }
 
 resource "vercel_project" "hall-of-fame" {
   name                    = github_repository.hall-of-fame.name
   output_directory        = "packages/storybook/dist"
-  ignore_command          = "[[ $(git log -1 --pretty=%an) == 'dependabot[bot]' ]]"
+  ignore_command          = "[[ \"$VERCEL_GIT_COMMIT_AUTHOR_LOGIN\" == \"dependabot[bot]\" ]]"
+  node_version            = "24.x"
   enable_preview_feedback = false
 
   git_repository = {
     type = "github"
-    repo = "${data.github_organization.nl-design-system.orgname}/${github_repository.hall-of-fame.name}"
-  }
-
-  vercel_authentication = {
-    deployment_type = "none"
-  }
-}
-
-resource "vercel_project" "hall-of-fame-storybook-test" {
-  name                    = "hall-of-fame-storybook-test"
-  output_directory        = "packages/storybook-test/dist/"
-  ignore_command          = "[[ $(git log -1 --pretty=%an) == 'dependabot[bot]' ]]"
-  enable_preview_feedback = false
-
-  git_repository = {
-    type = "github"
-    repo = "${data.github_organization.nl-design-system.orgname}/${github_repository.hall-of-fame.name}"
+    repo = github_repository.hall-of-fame.full_name
   }
 
   vercel_authentication = {
