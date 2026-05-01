@@ -1,3 +1,23 @@
+import {
+  to = github_repository.hall-of-fame
+  id = "hall-of-fame"
+}
+
+import {
+  to = github_branch_default.hall-of-fame
+  id = "hall-of-fame"
+}
+
+import {
+  to = github_repository_ruleset.hall-of-fame-main
+  id = "hall-of-fame:2782000"
+}
+
+import {
+  to = github_repository_collaborators.hall-of-fame
+  id = "hall-of-fame"
+}
+
 resource "github_repository" "hall-of-fame" {
   name                        = "hall-of-fame"
   description                 = "NL Design System Hall of Fame components"
