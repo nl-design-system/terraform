@@ -34,13 +34,16 @@ resource "github_repository" "hall-of-fame" {
   squash_merge_commit_title   = "PR_TITLE"
   squash_merge_commit_message = "PR_BODY"
   topics                      = ["nl-design-system", "storybook"]
-  visibility                  = "private"
 
 
   template {
     owner                = "nl-design-system"
     repository           = "example"
     include_all_branches = false
+  }
+
+  pages {
+    build_type = "workflow"
   }
 
   security_and_analysis {
@@ -50,10 +53,6 @@ resource "github_repository" "hall-of-fame" {
     secret_scanning_push_protection {
       status = "enabled"
     }
-  }
-
-  pages {
-    build_type = "workflow"
   }
 
   lifecycle {
@@ -126,22 +125,22 @@ resource "github_repository_collaborators" "hall-of-fame" {
 
   team {
     permission = "admin"
-    team_id    = github_team.kernteam-admin.slug
+    team_id    = github_team.kernteam-admin.id
   }
 
   team {
     permission = "maintain"
-    team_id    = github_team.kernteam-maintainer.slug
+    team_id    = github_team.kernteam-maintainer.id
   }
 
   team {
     permission = "push"
-    team_id    = github_team.kernteam-committer.slug
+    team_id    = github_team.kernteam-committer.id
   }
 
   team {
     permission = "triage"
-    team_id    = github_team.kernteam-triage.slug
+    team_id    = github_team.kernteam-triage.id
   }
 }
 
