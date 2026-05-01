@@ -176,19 +176,3 @@ resource "vercel_project" "hall-of-fame" {
     deployment_type = "none"
   }
 }
-
-resource "vercel_project" "hall-of-fame-storybook-test" {
-  name                    = "hall-of-fame-storybook-test"
-  output_directory        = "packages/storybook-test/dist/"
-  ignore_command          = "[[ $(git log -1 --pretty=%an) == 'dependabot[bot]' ]]"
-  enable_preview_feedback = false
-
-  git_repository = {
-    type = "github"
-    repo = "${data.github_organization.nl-design-system.orgname}/${github_repository.hall-of-fame.name}"
-  }
-
-  vercel_authentication = {
-    deployment_type = "none"
-  }
-}
