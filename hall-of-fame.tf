@@ -142,6 +142,11 @@ resource "github_repository_collaborators" "hall-of-fame" {
     permission = "triage"
     team_id    = github_team.kernteam-triage.id
   }
+
+  team {
+    permission = "push"
+    team_id    = github_team.community-contributor.id
+  }
 }
 
 resource "github_repository_environment" "hall-of-fame-publish" {
