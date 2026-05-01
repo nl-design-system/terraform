@@ -164,12 +164,13 @@ resource "github_repository_environment_deployment_policy" "hall-of-fame-publish
 resource "vercel_project" "hall-of-fame" {
   name                    = github_repository.hall-of-fame.name
   output_directory        = "packages/storybook/dist"
-  ignore_command          = "[[ $(git log -1 --pretty=%an) == 'dependabot[bot]' ]]"
+  ignore_command          = "[[ \"$VERCEL_GIT_COMMIT_AUTHOR_LOGIN\" == \"dependabot[bot]\" ]]"
+  node_version            = "24.x"
   enable_preview_feedback = false
 
   git_repository = {
     type = "github"
-    repo = "${data.github_organization.nl-design-system.orgname}/${github_repository.hall-of-fame.name}"
+    repo = github_repository.hall-of-fame.full_name
   }
 
   vercel_authentication = {
