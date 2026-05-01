@@ -8,7 +8,7 @@ resource "github_repository" "candidate" {
   delete_branch_on_merge      = true
   has_issues                  = true
   has_projects                = false
-  has_wiki                    = true
+  has_wiki                    = false
   vulnerability_alerts        = true
   homepage_url                = "https://nl-design-system.github.io/candidate/"
   squash_merge_commit_title   = "PR_TITLE"
