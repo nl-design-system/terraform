@@ -144,6 +144,23 @@ resource "github_repository_collaborators" "hall-of-fame" {
   }
 }
 
+resource "github_repository_environment" "hall-of-fame-publish" {
+  environment       = "Publish"
+  repository        = github_repository.hall-of-fame.name
+  can_admins_bypass = false
+
+  deployment_branch_policy {
+    protected_branches     = false
+    custom_branch_policies = true
+  }
+}
+
+resource "github_repository_environment_deployment_policy" "hall-of-fame-publish-main" {
+  repository     = github_repository.hall-of-fame.name
+  environment    = github_repository_environment.hall-of-fame-publish.environment
+  branch_pattern = github_branch_default.hall-of-fame.branch
+}
+
 resource "vercel_project" "hall-of-fame" {
   name                    = github_repository.hall-of-fame.name
   output_directory        = "packages/storybook/dist"
