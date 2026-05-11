@@ -1002,6 +1002,13 @@ resource "github_team_members" "community-committer" {
   }
 
   # Den Haag folks
+  members {
+    username = data.github_user.Borai.username
+  }
+
+  members {
+    username = data.github_user.YourivHDenHaag.username
+  }
 
   # Kernteam alumni
   members {
