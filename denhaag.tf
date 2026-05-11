@@ -188,7 +188,7 @@ resource "github_repository_collaborators" "denhaag" {
 
   team {
     permission = "push"
-    team_id    = github_team.gemeente-denhaag-design-system.id
+    team_id    = github_team.gemeente-den-haag-committer.id
   }
 
   team {

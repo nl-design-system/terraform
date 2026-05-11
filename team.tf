@@ -81,10 +81,10 @@ resource "github_team" "gemeente-denhaag-admin" {
   privacy        = "closed"
 }
 
-resource "github_team" "gemeente-denhaag-design-system" {
-  name           = "gemeente-denhaag-design-system"
+resource "github_team" "gemeente-den-haag-committer" {
+  name           = "gemeente-den-haag-committer"
   parent_team_id = github_team.gemeente-den-haag.id
-  description    = "Den Haag System team"
+  description    = "Can create pull requests in the Den Haag Design System repository"
   privacy        = "closed"
 }
 
