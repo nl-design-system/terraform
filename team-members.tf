@@ -438,6 +438,14 @@ resource "github_team_members" "gemeente-den-haag-maintainer" {
   }
 }
 
+resource "github_team_members" "gemeente-den-haag-committer" {
+  team_id = github_team.gemeente-den-haag-committer.id
+
+  members {
+    username = data.github_user.flinden68.username
+  }
+}
+
 resource "github_team_members" "gemeente-denhaag-acato-committer" {
   team_id = github_team.gemeente-denhaag-acato-committer.id
 
@@ -1008,6 +1016,10 @@ resource "github_team_members" "community-committer" {
 
   members {
     username = data.github_user.YourivHDenHaag.username
+  }
+
+  members {
+    username = data.github_user.flinden68.username
   }
 
   # Kernteam alumni
