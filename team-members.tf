@@ -1002,9 +1002,6 @@ resource "github_team_members" "community-committer" {
   }
 
   # Den Haag folks
-  members {
-    username = data.github_user.jiromaykin.username
-  }
 
   # Kernteam alumni
   members {
@@ -1080,6 +1077,10 @@ resource "github_team_members" "community-committer" {
 
   members {
     username = data.github_user.sergei-maertens.username
+  }
+
+  members {
+    username = data.github_user.jiromaykin.username
   }
 
   # Last checked by @Robbert: 2026-04-20
