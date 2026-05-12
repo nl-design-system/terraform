@@ -81,6 +81,10 @@ resource "github_repository_ruleset" "editor-main" {
       required_check {
         context = "build"
       }
+
+      required_check {
+        context = "test"
+      }
     }
   }
 }
