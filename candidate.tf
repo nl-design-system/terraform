@@ -8,7 +8,7 @@ resource "github_repository" "candidate" {
   delete_branch_on_merge      = true
   has_issues                  = true
   has_projects                = false
-  has_wiki                    = true
+  has_wiki                    = false
   vulnerability_alerts        = true
   homepage_url                = "https://nl-design-system.github.io/candidate/"
   squash_merge_commit_title   = "PR_TITLE"
@@ -131,6 +131,23 @@ resource "github_repository_collaborators" "candidate" {
   }
 }
 
+resource "github_repository_environment" "candidate-publish" {
+  environment       = "Publish"
+  repository        = github_repository.candidate.name
+  can_admins_bypass = false
+
+  deployment_branch_policy {
+    protected_branches     = false
+    custom_branch_policies = true
+  }
+}
+
+resource "github_repository_environment_deployment_policy" "candidate-publish-main" {
+  repository     = github_repository.candidate.name
+  environment    = github_repository_environment.candidate-publish.environment
+  branch_pattern = github_branch_default.candidate.branch
+}
+
 resource "vercel_project" "candidate" {
   name                    = github_repository.candidate.name
   output_directory        = "packages/storybook/dist"
@@ -180,21 +197,4 @@ resource "vercel_project" "candidate-storybook-test" {
   vercel_authentication = {
     deployment_type = "none"
   }
-}
-
-resource "github_repository_environment" "candidate-publish" {
-  environment       = "Publish"
-  repository        = github_repository.candidate.name
-  can_admins_bypass = false
-
-  deployment_branch_policy {
-    protected_branches     = false
-    custom_branch_policies = true
-  }
-}
-
-resource "github_repository_environment_deployment_policy" "candidate-publish-main" {
-  repository     = github_repository.candidate.name
-  environment    = github_repository_environment.candidate-publish.environment
-  branch_pattern = github_branch_default.candidate.branch
 }
