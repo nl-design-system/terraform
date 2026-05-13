@@ -22,6 +22,7 @@ resource "github_actions_organization_permissions" "nl-design-system" {
       "php-actions/composer@*",
       "pnpm/action-setup@*",
       "slackapi/slack-github-action@*",
+      "zizmorcore/zizmor-action@*",
       # Third party individually owned actions
       "amannn/action-semantic-pull-request@*",
       "JamesIves/github-pages-deploy-action@*",
