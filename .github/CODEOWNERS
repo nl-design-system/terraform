@@ -1,1 +1,6 @@
+# See: https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+
 * @nl-design-system/kernteam-admin
+
+# Protect this file itself (order matters, keep this line last):
+.github/CODEOWNERS @nl-design-system/kernteam-admin
