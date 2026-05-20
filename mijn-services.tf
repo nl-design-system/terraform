@@ -85,6 +85,36 @@ resource "github_repository_ruleset" "mijn-services-main" {
   }
 }
 
+# Only allow the `nl-design-system-ci` user to manage Git tags
+resource "github_repository_ruleset" "mijn-services-tag" {
+  enforcement = "active"
+  name        = "tag-protection"
+  repository  = github_repository.mijn-services.name
+  target      = "tag"
+
+  bypass_actors {
+    actor_id    = github_team.kernteam-ci.id
+    actor_type  = "Team"
+    bypass_mode = "always"
+  }
+
+  conditions {
+    ref_name {
+      include = ["~ALL"]
+      exclude = []
+    }
+  }
+
+  rules {
+    creation                = true
+    deletion                = true
+    non_fast_forward        = true
+    required_linear_history = true
+    required_signatures     = true
+    update                  = true
+  }
+}
+
 resource "github_repository_collaborators" "mijn-services" {
   repository = github_repository.mijn-services.name
 
