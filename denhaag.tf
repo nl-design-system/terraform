@@ -158,6 +158,36 @@ resource "github_repository_ruleset" "denhaag-other" {
   }
 }
 
+# Only allow the `nl-design-system-ci` user to manage Git tags
+resource "github_repository_ruleset" "denhaag-tag" {
+  enforcement = "active"
+  name        = "tag-protection"
+  repository  = github_repository.denhaag.name
+  target      = "tag"
+
+  bypass_actors {
+    actor_id    = github_team.kernteam-ci.id
+    actor_type  = "Team"
+    bypass_mode = "always"
+  }
+
+  conditions {
+    ref_name {
+      include = ["~ALL"]
+      exclude = []
+    }
+  }
+
+  rules {
+    creation                = true
+    deletion                = true
+    non_fast_forward        = true
+    required_linear_history = true
+    required_signatures     = true
+    update                  = true
+  }
+}
+
 resource "github_repository_collaborators" "denhaag" {
   repository = github_repository.denhaag.name
 
