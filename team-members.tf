@@ -1090,13 +1090,6 @@ resource "github_team_members" "community-committer" {
     username = data.github_user.jiromaykin.username
   }
 
-  # Last checked by @Robbert: 2026-04-20
-  members {
-    # Norday working on Rijkshuisstijl Community,
-    # approximately until 2026-05-31.
-    username = data.github_user.MicheleNL.username
-  }
-
   # Last checked by @eslook: 2026-04-30
   members {
     # Qalybr working on Angular,
