@@ -622,10 +622,6 @@ data "github_user" "sergei-maertens" {
   username = "sergei-maertens"
 }
 
-data "github_user" "MicheleNL" {
-  username = "MicheleNL"
-}
-
 data "github_user" "jurgen-bosma" {
   username = "jurgen-bosma"
 }
