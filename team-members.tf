@@ -1109,6 +1109,12 @@ resource "github_team_members" "community-committer" {
   members {
     username = data.github_user.BartWaardenburg.username
   }
+
+  # Last checked by @yolijn: 2026-05-21
+  members {
+    # Norday working on Rijkshuisstijl Community
+    username = data.github_user.mheesakkers.username
+  }
 }
 
 resource "github_team_members" "expertteam-digitale-toegankelijkheid-triage" {
