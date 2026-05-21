@@ -176,6 +176,12 @@ resource "github_repository_environment_deployment_policy" "mijn-services-publis
   branch_pattern = github_branch_default.mijn-services.branch
 }
 
+resource "github_repository_environment" "mijn-services-maintenance" {
+  # Environment for GitHub Actions that need maintenance-scoped secrets
+  environment = "Maintenance"
+  repository  = github_repository.mijn-services.name
+}
+
 resource "vercel_project" "mijn-services" {
   name                    = github_repository.mijn-services.name
   output_directory        = "packages/storybook/dist/"
