@@ -170,10 +170,15 @@ resource "github_repository_environment" "theme-wizard-publish" {
   }
 }
 
-resource "github_repository_environment" "theme-wizard-issues" {
-  # Environment for GitHub Actions triggered by issues
-  environment = "Issues"
+resource "github_repository_environment" "theme-wizard-maintenance" {
+  # Environment for GitHub Actions that need maintenance-scoped secrets
+  environment = "Maintenance"
   repository  = github_repository.theme-wizard.name
+}
+
+moved {
+  from = github_repository_environment.theme-wizard-issues
+  to   = github_repository_environment.theme-wizard-maintenance
 }
 
 resource "github_repository_environment_deployment_policy" "theme-wizard-publish-main" {
