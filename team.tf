@@ -618,11 +618,6 @@ resource "github_team" "community-contributor" {
   description = "Committers who make can make Pull Requests for all public repositories"
 }
 
-moved {
-  from = github_team.community-committer
-  to   = github_team.community-contributor
-}
-
 resource "github_team" "expertteam-digitale-toegankelijkheid" {
   name        = "expertteam-digitale-toegankelijkheid"
   privacy     = "closed"
