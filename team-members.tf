@@ -181,11 +181,6 @@ resource "github_team_members" "kernteam-admin" {
   }
 }
 
-import {
-  to = github_team_members.kernteam-admin
-  id = github_team.kernteam-admin.id
-}
-
 resource "github_team_members" "kernteam-triage" {
   team_id = github_team.kernteam-triage.id
 
