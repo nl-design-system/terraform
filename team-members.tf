@@ -1112,6 +1112,11 @@ resource "github_team_members" "community-committer" {
     # starting with Rijkshuisstijl Community.
     username = data.github_user.Roanheid.username
   }
+
+  # Last checked by @robbert: 2026-05-21
+  members {
+    username = data.github_user.BartWaardenburg.username
+  }
 }
 
 resource "github_team_members" "expertteam-digitale-toegankelijkheid-triage" {
