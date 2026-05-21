@@ -178,8 +178,9 @@ resource "github_repository_environment_deployment_policy" "mijn-services-publis
 
 resource "github_repository_environment" "mijn-services-maintenance" {
   # Environment for GitHub Actions that need maintenance-scoped secrets
-  environment = "Maintenance"
-  repository  = github_repository.mijn-services.name
+  environment       = "Maintenance"
+  repository        = github_repository.mijn-services.name
+  can_admins_bypass = false
 }
 
 resource "vercel_project" "mijn-services" {
