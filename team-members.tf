@@ -252,10 +252,6 @@ resource "github_team_members" "logius-triage" {
   members {
     username = data.github_user.AlineNap.username
   }
-
-  members {
-    username = data.github_user.RNieuwerf.username
-  }
 }
 
 resource "github_team_members" "logius-committer" {
@@ -303,10 +299,6 @@ resource "github_team_members" "logius-committer" {
 
   members {
     username = data.github_user.Sanderoost.username
-  }
-
-  members {
-    username = data.github_user.RNieuwerf.username
   }
 
   members {
