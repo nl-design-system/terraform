@@ -1,30 +1,27 @@
 resource "github_team_members" "frameless" {
   team_id = github_team.frameless.id
 
+  # Last checked by frameless-maintainer: 2026-05-28
   members {
     username = data.github_user.AliKdhim87.username
   }
 
+  # Last checked by frameless-maintainer: 2026-05-28
   members {
     username = data.github_user.savitris.username
   }
 
-  members {
-    username = data.github_user.bddjong.username
-  }
-
-  members {
-    username = data.github_user.MeesoPost.username
-  }
-
+  # Last checked by frameless-maintainer: 2026-05-28
   members {
     username = data.github_user.Marwaxhello.username
   }
 
+  # Last checked by frameless-maintainer: 2026-05-28
   members {
     username = data.github_user.TessaViergever.username
   }
 
+  # Last checked by frameless-maintainer: 2026-05-28
   members {
     username = data.github_user.AnoukdeRooij24.username
   }
@@ -688,10 +685,6 @@ resource "github_team_members" "vng-services-committer" {
   }
 
   members {
-    username = data.github_user.bddjong.username
-  }
-
-  members {
     username = data.github_user.AliKdhim87.username
   }
 
@@ -704,7 +697,7 @@ resource "github_team_members" "vng-services-maintainer" {
   team_id = github_team.vng-services-maintainer.id
 
   members {
-    username = data.github_user.bddjong.username
+    username = data.github_user.Yolijn.username
   }
 }
 
@@ -951,30 +944,27 @@ resource "github_team_members" "community-committer" {
 
   # Frameless folks
 
+  # Last checked by frameless-maintainer: 2026-05-28
   members {
     username = data.github_user.AliKdhim87.username
   }
 
+  # Last checked by frameless-maintainer: 2026-05-28
   members {
     username = data.github_user.savitris.username
   }
 
-  members {
-    username = data.github_user.bddjong.username
-  }
-
-  members {
-    username = data.github_user.MeesoPost.username
-  }
-
+  # Last checked by frameless-maintainer: 2026-05-28
   members {
     username = data.github_user.Marwaxhello.username
   }
 
+  # Last checked by frameless-maintainer: 2026-05-28
   members {
     username = data.github_user.TessaViergever.username
   }
 
+  # Last checked by frameless-maintainer: 2026-05-28
   members {
     username = data.github_user.AnoukdeRooij24.username
   }
