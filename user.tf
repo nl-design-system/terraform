@@ -518,6 +518,10 @@ data "github_user" "ermenm" {
   username = "ermenm"
 }
 
+data "github_user" "wouter-ictu" {
+  username = "wouter-ictu"
+}
+
 data "github_user" "richadr" {
   username = "richadr"
 }

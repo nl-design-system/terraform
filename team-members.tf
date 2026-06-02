@@ -1068,6 +1068,10 @@ resource "github_team_members" "community-committer" {
     username = data.github_user.ermenm.username
   }
 
+  members {
+    username = data.github_user.wouter-ictu.username
+  }
+
   # Maykin folks
 
   members {
@@ -1168,6 +1172,10 @@ resource "github_team_members" "expertteam-digitale-toegankelijkheid-committer" 
 
   members {
     username = data.github_user.ermenm.username
+  }
+
+  members {
+    username = data.github_user.wouter-ictu.username
   }
 }
 
