@@ -1023,6 +1023,10 @@ resource "github_team_members" "community-committer" {
     username = data.github_user.pibl.username
   }
 
+  members {
+    username = data.github_user.ermenm.username
+  }
+
   # Leiden folks
   members {
     username = data.github_user.LeidscheJurgen.username
@@ -1052,10 +1056,6 @@ resource "github_team_members" "community-committer" {
 
   members {
     username = data.github_user.julezrulez.username
-  }
-
-  members {
-    username = data.github_user.ermenm.username
   }
 
   members {
@@ -1158,10 +1158,6 @@ resource "github_team_members" "expertteam-digitale-toegankelijkheid-committer" 
 
   members {
     username = data.github_user.julezrulez.username
-  }
-
-  members {
-    username = data.github_user.ermenm.username
   }
 
   members {
