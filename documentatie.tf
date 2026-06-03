@@ -201,6 +201,12 @@ resource "github_repository_environment_deployment_policy" "documentatie-publish
   branch_pattern = github_branch_default.documentatie.branch
 }
 
+resource "github_repository_environment" "documentatie-vercel" {
+  environment       = "Vercel"
+  repository        = github_repository.documentatie.name
+  can_admins_bypass = false
+}
+
 resource "github_repository_webhook" "documentatie" {
   repository = github_repository.documentatie.name
   events     = ["push"]
