@@ -698,6 +698,8 @@ resource "github_team_members" "vng-services-maintainer" {
 
   members {
     username = data.github_user.Yolijn.username
+    # organization owners must be "maintainer", see note at https://registry.terraform.io/providers/integrations/github/latest/docs/resources/team_members
+    role = "maintainer"
   }
 }
 
