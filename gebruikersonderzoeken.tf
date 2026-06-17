@@ -152,6 +152,21 @@ resource "github_repository_collaborators" "gebruikersonderzoeken" {
     permission = "push"
     team_id    = github_team.community-contributor.id
   }
+
+  team {
+    permission = "push"
+    team_id    = github_team.logius-ux-committer.id
+  }
+
+  team {
+    permission = "push"
+    team_id    = github_team.logius-ux-maintainer.id
+  }
+
+  team {
+    permission = "push"
+    team_id    = github_team.logius-ux-admin.id
+  }
 }
 
 resource "github_repository_environment" "gebruikersonderzoeken-publish" {
