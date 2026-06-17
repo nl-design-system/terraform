@@ -637,3 +637,31 @@ data "github_user" "BartWaardenburg" {
 data "github_user" "mheesakkers" {
   username = "mheesakkers"
 }
+
+data "github_user" "KimRoest" {
+  username = "KimRoest"
+}
+
+data "github_user" "ZackEnna" {
+  username = "ZackEnna"
+}
+
+data "github_user" "ChristienBooij" {
+  username = "ChristienBooij"
+}
+
+data "github_user" "MvdWaterLogius" {
+  username = "MvdWaterLogius"
+}
+
+data "github_user" "TessaSierkstra" {
+  username = "TessaSierkstra"
+}
+
+data "github_user" "maaikelogius" {
+  username = "maaikelogius"
+}
+
+data "github_user" "Rosavanhardeveld94" {
+  username = "Rosavanhardeveld94"
+}

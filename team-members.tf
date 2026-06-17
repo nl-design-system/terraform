@@ -1234,3 +1234,75 @@ resource "github_team_members" "gemeente-voorne-aan-zee-aserio-maintainer" {
     username = data.github_user.erikhendrikxaserio.username
   }
 }
+
+resource "github_team_members" "logius-ux-admin" {
+  team_id = github_team.logius-ux-admin.id
+
+  members {
+    username = data.github_user.KimRoest.username
+  }
+
+  members {
+    username = data.github_user.ZackEnna.username
+  }
+}
+
+resource "github_team_members" "logius-ux-maintainer" {
+  team_id = github_team.logius-ux-maintainer.id
+
+  members {
+    username = data.github_user.KimRoest.username
+  }
+
+  members {
+    username = data.github_user.ZackEnna.username
+  }
+
+  members {
+    username = data.github_user.ChristienBooij.username
+  }
+
+  members {
+    username = data.github_user.MvdWaterLogius.username
+  }
+
+  members {
+    username = data.github_user.TessaSierkstra.username
+  }
+
+  members {
+    username = data.github_user.maaikelogius.username
+  }
+}
+
+resource "github_team_members" "logius-ux-committer" {
+  team_id = github_team.logius-ux-committer.id
+
+  members {
+    username = data.github_user.KimRoest.username
+  }
+
+  members {
+    username = data.github_user.ZackEnna.username
+  }
+
+  members {
+    username = data.github_user.ChristienBooij.username
+  }
+
+  members {
+    username = data.github_user.MvdWaterLogius.username
+  }
+
+  members {
+    username = data.github_user.TessaSierkstra.username
+  }
+
+  members {
+    username = data.github_user.maaikelogius.username
+  }
+
+  members {
+    username = data.github_user.Rosavanhardeveld94.username
+  }
+}

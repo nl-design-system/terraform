@@ -240,6 +240,35 @@ resource "github_team" "logius-estafettemodel" {
   privacy        = "closed"
 }
 
+# UX research teams for Logius used for adding user research to gebruikersonderzoeken.nl
+
+resource "github_team" "logius-ux" {
+  name        = "logius-ux"
+  description = "Logius UX research team"
+  privacy     = "closed"
+}
+
+resource "github_team" "logius-ux-admin" {
+  name           = "logius-ux-admin"
+  parent_team_id = github_team.logius-ux.id
+  description    = "Team die toegang van de gebruikers in het logius-ux team beheert"
+  privacy        = "closed"
+}
+
+resource "github_team" "logius-ux-maintainer" {
+  name           = "logius-ux-maintainer"
+  parent_team_id = github_team.logius-ux.id
+  description    = "Team die de onderzoeken van logius-ux team toevoegt, reviewt en merged"
+  privacy        = "closed"
+}
+
+resource "github_team" "logius-ux-committer" {
+  name           = "logius-ux-committer"
+  parent_team_id = github_team.logius-ux.id
+  description    = "Team die de onderzoeken van logius-ux team toevoegt"
+  privacy        = "closed"
+}
+
 resource "github_team" "rivm" {
   name        = "rivm"
   description = "Rijksinstituut voor Volksgezondheid en Milieu (RIVM)"
