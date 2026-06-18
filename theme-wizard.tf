@@ -152,6 +152,11 @@ resource "github_repository_collaborators" "theme-wizard" {
     permission = "triage"
     team_id    = github_team.expertteam-digitale-toegankelijkheid-triage.id
   }
+
+  team {
+    permission = "push"
+    team_id    = github_team.community-contributor.id
+  }
 }
 
 resource "github_repository_environment" "theme-wizard-publish" {
