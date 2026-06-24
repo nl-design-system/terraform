@@ -1,6 +1,6 @@
 engineStrict: true
 
-minimumReleaseAge: 1440
+minimumReleaseAge: 10080 # 7 days
 
 saveExact: true
 
