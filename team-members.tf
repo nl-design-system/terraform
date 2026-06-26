@@ -703,15 +703,15 @@ resource "github_team_members" "vng-services-committer" {
   team_id = github_team.vng-services-committer.id
 
   members {
-    username = data.github_user.ux-fran.username
-  }
-
-  members {
     username = data.github_user.AliKdhim87.username
   }
 
   members {
     username = data.github_user.TessaViergever.username
+  }
+
+  members {
+    username = data.github_user.jiromaykin.username
   }
 }
 
@@ -719,6 +719,10 @@ resource "github_team_members" "vng-services-maintainer" {
   team_id = github_team.vng-services-maintainer.id
 
   # Last checked by kernteam-maintainer: 2026-06-06
+  members {
+    username = data.github_user.TessaViergever.username
+  }
+
   members {
     username = data.github_user.TessaViergever.username
   }
