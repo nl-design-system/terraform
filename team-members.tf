@@ -1,30 +1,26 @@
 resource "github_team_members" "frameless" {
   team_id = github_team.frameless.id
 
-  # Last checked by frameless-maintainer: 2026-05-28
+  # Last checked by frameless-maintainer: 2026-06-26
   members {
     username = data.github_user.AliKdhim87.username
   }
 
-  # Last checked by frameless-maintainer: 2026-05-28
+  # Last checked by frameless-maintainer: 2026-06-26
   members {
     username = data.github_user.savitris.username
   }
 
-  # Last checked by frameless-maintainer: 2026-05-28
+  # Last checked by frameless-maintainer: 2026-06-26
   members {
     username = data.github_user.Marwaxhello.username
   }
 
-  # Last checked by frameless-maintainer: 2026-05-28
+  # Last checked by frameless-maintainer: 2026-06-26
   members {
     username = data.github_user.TessaViergever.username
   }
 
-  # Last checked by frameless-maintainer: 2026-05-28
-  members {
-    username = data.github_user.AnoukdeRooij24.username
-  }
 }
 
 resource "github_team_members" "frameless-maintainer" {
@@ -702,14 +698,17 @@ resource "github_team_members" "logius-estafettemodel" {
 resource "github_team_members" "vng-services-committer" {
   team_id = github_team.vng-services-committer.id
 
+  # Last checked by vng-maintainer: 2026-06-26
   members {
     username = data.github_user.AliKdhim87.username
   }
 
+  # Last checked by vng-maintainer: 2026-06-26
   members {
     username = data.github_user.TessaViergever.username
   }
 
+  # Last checked by vng-maintainer: 2026-06-26
   members {
     username = data.github_user.jiromaykin.username
   }
@@ -723,6 +722,7 @@ resource "github_team_members" "vng-services-maintainer" {
     username = data.github_user.TessaViergever.username
   }
 
+  # Last checked by vng-maintainer: 2026-06-26
   members {
     username = data.github_user.TessaViergever.username
   }
@@ -971,29 +971,24 @@ resource "github_team_members" "community-committer" {
 
   # Frameless folks
 
-  # Last checked by frameless-maintainer: 2026-05-28
+  # Last checked by frameless-maintainer: 2026-06-26
   members {
     username = data.github_user.AliKdhim87.username
   }
 
-  # Last checked by frameless-maintainer: 2026-05-28
+  # Last checked by frameless-maintainer: 2026-06-26
   members {
     username = data.github_user.savitris.username
   }
 
-  # Last checked by frameless-maintainer: 2026-05-28
+  # Last checked by frameless-maintainer: 2026-06-26
   members {
     username = data.github_user.Marwaxhello.username
   }
 
-  # Last checked by frameless-maintainer: 2026-05-28
+  # Last checked by frameless-maintainer: 2026-06-26
   members {
     username = data.github_user.TessaViergever.username
-  }
-
-  # Last checked by frameless-maintainer: 2026-05-28
-  members {
-    username = data.github_user.AnoukdeRooij24.username
   }
 
   # Utrecht folks
