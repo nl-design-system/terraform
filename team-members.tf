@@ -1082,6 +1082,7 @@ resource "github_team_members" "community-committer" {
     username = data.github_user.sergei-maertens.username
   }
 
+  # Last checked by @eslook: 2026-06-29
   members {
     username = data.github_user.jiromaykin.username
   }
@@ -1103,6 +1104,12 @@ resource "github_team_members" "community-committer" {
   members {
     # Norday working on Rijkshuisstijl Community
     username = data.github_user.mheesakkers.username
+  }
+
+  # Last checked by @eslook: 2026-06-29
+  members {
+    # Maykin working on Den Haag, Themes and Mijn Services
+    username = data.github_user.stefrado.username
   }
 }
 
