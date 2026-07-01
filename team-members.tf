@@ -119,6 +119,11 @@ resource "github_team_members" "kernteam-committer" {
   members {
     username = data.github_user.AliKdhim87.username
   }
+
+  # Last checked by kernteam-maintainer: 2026-07-01
+  members {
+    username = data.github_user.eelcobosklopper.username
+  }
 }
 
 resource "github_team_members" "kernteam-maintainer" {
