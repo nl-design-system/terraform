@@ -1,6 +1,6 @@
 resource "github_repository" "rijkshuisstijl-community" {
   name                        = "rijkshuisstijl-community"
-  description                 = "Unofficial Rijkshuisstijl components and design tokens based on the NL Design System architecture. This project is not endorsed by the Dutch Ministry of General Affairs."
+  description                 = "Unofficial Rijkshuisstijl components and design tokens based on the NL Design System architecture."
   allow_merge_commit          = false
   allow_rebase_merge          = true
   allow_squash_merge          = true
