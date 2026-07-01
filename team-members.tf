@@ -51,82 +51,104 @@ resource "github_team_members" "frameless-maintainer" {
 resource "github_team_members" "kernteam-committer" {
   team_id = github_team.kernteam-committer.id
 
+  # Last checked by kernteam-maintainer: 2026-07-01
   members {
     # organization owners must be "maintainer", see note at https://registry.terraform.io/providers/integrations/github/latest/docs/resources/team_members
     username = data.github_user.Robbert.username
     role     = "maintainer"
   }
 
+  # Last checked by kernteam-maintainer: 2026-07-01
   members {
     # organization owners must be "maintainer", see note at https://registry.terraform.io/providers/integrations/github/latest/docs/resources/team_members
     username = data.github_user.Yolijn.username
     role     = "maintainer"
   }
 
+  # Last checked by kernteam-maintainer: 2026-07-01
   members {
     username = data.github_user.jeffreylauwers.username
   }
 
+  # Last checked by kernteam-maintainer: 2026-07-01
   members {
     username = data.github_user.Rozerinay.username
   }
 
+  # Last checked by kernteam-maintainer: 2026-07-01
   members {
     username = data.github_user.eslook.username
   }
 
+  # Last checked by kernteam-maintainer: 2026-07-01
   members {
     username = data.github_user.nl-design-system-committer.username
   }
 
+  # Last checked by kernteam-maintainer: 2026-07-01
   members {
     username = data.github_user.petergoes.username
   }
 
+  # Last checked by kernteam-maintainer: 2026-07-01
   members {
     username = data.github_user.RenateRoke.username
   }
 
+  # Last checked by kernteam-maintainer: 2026-07-01
   members {
     username = data.github_user.richadr.username
   }
 
+  # Last checked by kernteam-maintainer: 2026-07-01
   members {
     username = data.github_user.JuliaTol-properaccess.username
   }
 
+  # Last checked by kernteam-maintainer: 2026-07-01
   members {
     username = data.github_user.Astrid-01.username
   }
 
+  # Last checked by kernteam-maintainer: 2026-07-01
   members {
     username = data.github_user.sdejong570.username
+  }
+
+  # Last checked by kernteam-maintainer: 2026-07-01
+  members {
+    username = data.github_user.AliKdhim87.username
   }
 }
 
 resource "github_team_members" "kernteam-maintainer" {
   team_id = github_team.kernteam-maintainer.id
 
+  # Last checked by kernteam-maintainer: 2026-07-01
   members {
     username = data.github_user.Robbert.username
     # organization owners must be "maintainer", see note at https://registry.terraform.io/providers/integrations/github/latest/docs/resources/team_members
     role = "maintainer"
   }
 
+  # Last checked by kernteam-maintainer: 2026-07-01
   members {
     username = data.github_user.eslook.username
   }
 
+  # Last checked by kernteam-maintainer: 2026-07-01
   members {
     username = data.github_user.petergoes.username
   }
 
+  # Last checked by kernteam-maintainer: 2026-07-01
   members {
     username = data.github_user.Yolijn.username
     # organization owners must be "maintainer", see note at https://registry.terraform.io/providers/integrations/github/latest/docs/resources/team_members
     role = "maintainer"
   }
 
+  # Last checked by kernteam-maintainer: 2026-07-01
   members {
     username = data.github_user.richadr.username
   }
