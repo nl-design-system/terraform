@@ -718,10 +718,9 @@ resource "github_team_members" "vng-services-committer" {
 resource "github_team_members" "vng-services-maintainer" {
   team_id = github_team.vng-services-maintainer.id
 
+  # Last checked by kernteam-maintainer: 2026-06-06
   members {
-    username = data.github_user.Yolijn.username
-    # organization owners must be "maintainer", see note at https://registry.terraform.io/providers/integrations/github/latest/docs/resources/team_members
-    role = "maintainer"
+    username = data.github_user.TessaViergever.username
   }
 }
 
