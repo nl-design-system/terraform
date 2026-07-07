@@ -721,11 +721,6 @@ resource "github_team_members" "vng-services-maintainer" {
   members {
     username = data.github_user.TessaViergever.username
   }
-
-  # Last checked by vng-maintainer: 2026-06-26
-  members {
-    username = data.github_user.TessaViergever.username
-  }
 }
 
 resource "github_team_members" "quintor-rijkshuisstijl-committer" {
