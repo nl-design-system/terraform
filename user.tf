@@ -586,6 +586,10 @@ data "github_user" "BabsyBabs83" {
   username = "BabsyBabs83"
 }
 
+data "github_user" "evangalen" {
+  username = "evangalen"
+}
+
 data "github_user" "nl-design-system-backup" {
   username = "nl-design-system-backup"
 }
