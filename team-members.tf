@@ -466,10 +466,6 @@ resource "github_team_members" "gemeente-denhaag-acato-committer" {
   team_id = github_team.gemeente-denhaag-acato-committer.id
 
   members {
-    username = data.github_user.marcoderover.username
-  }
-
-  members {
     username = data.github_user.paulAcato.username
   }
 
