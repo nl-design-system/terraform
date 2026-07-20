@@ -32,11 +32,11 @@ resource "github_actions_organization_permissions" "nl-design-system" {
       "xt0rted/block-autosquash-commits-action@*",
 
       # Docker
-      "docker/metadata-action@*",
-      "docker/setup-qemu-action@*",
-      "docker/setup-buildx-action@*",
+      "docker/build-push-action@*",
       "docker/login-action@*",
-      "docker/build-push-action@*"
+      "docker/metadata-action@*",
+      "docker/setup-buildx-action@*",
+      "docker/setup-qemu-action@*"
     ]
     verified_allowed = false
   }
