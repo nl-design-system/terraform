@@ -23,7 +23,6 @@ resource "github_actions_organization_permissions" "nl-design-system" {
       "pnpm/action-setup@*",
       "slackapi/slack-github-action@*",
       "zizmorcore/zizmor-action@*",
-      "docker/*",
       # Third party individually owned actions
       "amannn/action-semantic-pull-request@*",
       "JamesIves/github-pages-deploy-action@*",
@@ -31,6 +30,13 @@ resource "github_actions_organization_permissions" "nl-design-system" {
       "marvinpinto/action-automatic-releases@*",
       "wagoid/commitlint-github-action@*",
       "xt0rted/block-autosquash-commits-action@*",
+
+      # Docker
+      "docker/metadata-action@*",
+      "docker/setup-qemu-action@*",
+      "docker/setup-buildx-action@*",
+      "docker/login-action@*",
+      "docker/build-push-action@*"
     ]
     verified_allowed = false
   }
