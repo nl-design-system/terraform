@@ -280,3 +280,24 @@ resource "github_repository_environment_deployment_policy" "denhaag-www-denhaag-
   environment    = github_repository_environment.denhaag-www-denhaag-nl.environment
   branch_pattern = "www.denhaag.nl"
 }
+
+resource "vercel_project" "denhaag" {
+  name                    = github_repository.denhaag.name
+  node_version            = "24.x"
+  root_directory          = "packages/storybook/"
+  enable_preview_feedback = false
+
+  git_repository = {
+    type = "github"
+    repo = github_repository.denhaag.full_name
+  }
+
+  vercel_authentication = {
+    deployment_type = "none"
+  }
+}
+
+import {
+  to = vercel_project.denhaag
+  id = "prj_Vja9NNSvsdhWTffDOIS5xyis45en"
+}
