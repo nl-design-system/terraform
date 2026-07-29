@@ -158,3 +158,23 @@ resource "github_repository_collaborators" "example-with-angular" {
     team_id    = github_team.community-contributor.id
   }
 }
+
+resource "vercel_project" "example-with-angular" {
+  name                    = github_repository.example-with-angular.name
+  node_version            = "24.x"
+  enable_preview_feedback = false
+
+  git_repository = {
+    type = "github"
+    repo = github_repository.example-with-angular.full_name
+  }
+
+  vercel_authentication = {
+    deployment_type = "none"
+  }
+}
+
+import {
+  to = vercel_project.example-with-angular
+  id = "prj_lKVjJtxSgYnDixa5okzZuubUBsj7"
+}
