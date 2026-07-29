@@ -149,3 +149,24 @@ resource "github_repository_collaborators" "example" {
     team_id    = github_team.community-contributor.id
   }
 }
+
+resource "vercel_project" "example" {
+  name                    = github_repository.example.name
+  node_version            = "24.x"
+  root_directory          = "packages/storybook/"
+  enable_preview_feedback = false
+
+  git_repository = {
+    type = "github"
+    repo = github_repository.example.full_name
+  }
+
+  vercel_authentication = {
+    deployment_type = "none"
+  }
+}
+
+import {
+  to = vercel_project.example
+  id = "prj_HJOXF8WPwXtemQdLQe71VFQi7d9z"
+}
