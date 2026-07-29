@@ -157,8 +157,6 @@ resource "github_repository_collaborators" "architectuur" {
 
 resource "vercel_project" "architectuur" {
   name                    = github_repository.architectuur.name
-  output_directory        = "dist/"
-  ignore_command          = "[[ $(git log -1 --pretty=%an) == 'dependabot[bot]' ]]"
   node_version            = "24.x"
   enable_preview_feedback = false
 
