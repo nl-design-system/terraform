@@ -211,6 +211,27 @@ resource "github_repository_webhook" "documentatie" {
   }
 }
 
+resource "vercel_project" "documentatie" {
+  name                    = "documentatie"
+  node_version            = "24.x"
+  root_directory          = "packages/website/"
+  enable_preview_feedback = false
+
+  git_repository = {
+    type = "github"
+    repo = github_repository.documentatie.full_name
+  }
+
+  vercel_authentication = {
+    deployment_type = "none"
+  }
+}
+
+import {
+  to = vercel_project.documentatie
+  id = "prj_DjlWyhwNElZu2MqbAbRzN2AJUdl1"
+}
+
 resource "vercel_project" "documentatie-next" {
   name                    = "documentatie-next"
   node_version            = "24.x"
