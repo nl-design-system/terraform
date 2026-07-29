@@ -79,10 +79,14 @@ resource "github_repository_ruleset" "documentatie-default" {
     }
 
     required_status_checks {
-      strict_required_status_checks_policy = false
+      strict_required_status_checks_policy = true
 
       required_check {
         context = "continuous-integration"
+      }
+
+      required_check {
+        context = "e2e-test"
       }
     }
   }
