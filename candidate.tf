@@ -225,3 +225,24 @@ resource "vercel_project" "candidate-storybook-test" {
     deployment_type = "none"
   }
 }
+
+resource "vercel_project" "evil-storybook" {
+  name                    = "evil-storybook"
+  node_version            = "24.x"
+  root_directory          = "packages/storybook-non-conforming/"
+  enable_preview_feedback = false
+
+  git_repository = {
+    type = "github"
+    repo = github_repository.candidate.full_name
+  }
+
+  vercel_authentication = {
+    deployment_type = "none"
+  }
+}
+
+import {
+  to = vercel_project.evil-storybook
+  id = "prj_iRc47wOfQyznUl39sccYm5UgtSwl"
+}
