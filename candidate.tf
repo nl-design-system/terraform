@@ -180,9 +180,8 @@ resource "github_repository_environment_deployment_policy" "candidate-publish-ma
 
 resource "vercel_project" "candidate" {
   name                    = github_repository.candidate.name
-  output_directory        = "packages/storybook/dist"
-  ignore_command          = "[[ \"$VERCEL_GIT_COMMIT_AUTHOR_LOGIN\" == \"dependabot[bot]\" ]]"
   node_version            = "24.x"
+  root_directory          = "packages/storybook/"
   enable_preview_feedback = false
 
   git_repository = {
@@ -197,9 +196,8 @@ resource "vercel_project" "candidate" {
 
 resource "vercel_project" "candidate-storybook-non-conforming" {
   name                    = "candidate-storybook-non-conforming"
-  output_directory        = "packages/storybook-non-conforming/dist/"
-  ignore_command          = "[[ \"$VERCEL_GIT_COMMIT_AUTHOR_LOGIN\" == \"dependabot[bot]\" ]]"
   node_version            = "24.x"
+  root_directory          = "packages/storybook-non-conforming/"
   enable_preview_feedback = false
 
   git_repository = {
@@ -214,9 +212,8 @@ resource "vercel_project" "candidate-storybook-non-conforming" {
 
 resource "vercel_project" "candidate-storybook-test" {
   name                    = "candidate-storybook-test"
-  output_directory        = "packages/storybook-test/dist/"
-  ignore_command          = "[[ \"$VERCEL_GIT_COMMIT_AUTHOR_LOGIN\" == \"dependabot[bot]\" ]]"
   node_version            = "24.x"
+  root_directory          = "packages/storybook-test/"
   enable_preview_feedback = false
 
   git_repository = {
