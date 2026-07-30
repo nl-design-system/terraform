@@ -210,6 +210,11 @@ resource "vercel_project" "candidate-storybook-non-conforming" {
   }
 }
 
+resource "vercel_project_domain" "candidate-storybook-non-conforming-evil-storybook" {
+  project_id = vercel_project.candidate-storybook-non-conforming.id
+  domain     = "evil-storybook.vercel.app"
+}
+
 resource "vercel_project" "candidate-storybook-test" {
   name                    = "candidate-storybook-test"
   node_version            = "24.x"
@@ -224,25 +229,4 @@ resource "vercel_project" "candidate-storybook-test" {
   vercel_authentication = {
     deployment_type = "none"
   }
-}
-
-resource "vercel_project" "evil-storybook" {
-  name                    = "evil-storybook"
-  node_version            = "24.x"
-  root_directory          = "packages/storybook-non-conforming/"
-  enable_preview_feedback = false
-
-  git_repository = {
-    type = "github"
-    repo = github_repository.candidate.full_name
-  }
-
-  vercel_authentication = {
-    deployment_type = "none"
-  }
-}
-
-import {
-  to = vercel_project.evil-storybook
-  id = "prj_iRc47wOfQyznUl39sccYm5UgtSwl"
 }
