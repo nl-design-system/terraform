@@ -178,9 +178,8 @@ resource "github_repository_environment_deployment_policy" "hall-of-fame-publish
 
 resource "vercel_project" "hall-of-fame" {
   name                    = github_repository.hall-of-fame.name
-  output_directory        = "packages/storybook/dist"
-  ignore_command          = "[[ \"$VERCEL_GIT_COMMIT_AUTHOR_LOGIN\" == \"dependabot[bot]\" ]]"
   node_version            = "24.x"
+  root_directory          = "packages/storybook/"
   enable_preview_feedback = false
 
   git_repository = {
