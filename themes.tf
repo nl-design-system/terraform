@@ -346,3 +346,24 @@ resource "github_repository_environment_deployment_policy" "themes-publish-main"
   environment    = github_repository_environment.themes-publish.environment
   branch_pattern = github_branch_default.themes.branch
 }
+
+resource "vercel_project" "themes" {
+  name                    = github_repository.themes.name
+  node_version            = "24.x"
+  root_directory          = "packages/storybook/"
+  enable_preview_feedback = false
+
+  git_repository = {
+    type = "github"
+    repo = github_repository.themes.full_name
+  }
+
+  vercel_authentication = {
+    deployment_type = "none"
+  }
+}
+
+import {
+  to = vercel_project.themes
+  id = "prj_7bWTMu04WBTwpFF1VmHuhQ23zxSt"
+}
