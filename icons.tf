@@ -180,9 +180,8 @@ resource "github_repository_environment_deployment_policy" "icons-publish-main" 
 
 resource "vercel_project" "icons" {
   name                    = github_repository.icons.name
-  output_directory        = "packages/storybook/dist/"
-  ignore_command          = "[[ $(git log -1 --pretty=%an) == 'dependabot[bot]' ]]"
   node_version            = "24.x"
+  root_directory          = "packages/storybook/"
   enable_preview_feedback = false
 
   git_repository = {
