@@ -214,7 +214,6 @@ resource "github_repository_webhook" "documentatie" {
 resource "vercel_project" "documentatie" {
   name                    = "documentatie"
   node_version            = "24.x"
-  root_directory          = "packages/website/"
   enable_preview_feedback = false
 
   # Skipping deployment for static file branches must be configured at the
