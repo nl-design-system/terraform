@@ -226,3 +226,34 @@ resource "github_repository_environment_deployment_policy" "rotterdam-publish-ja
   environment = github_repository_environment.rotterdam-publish.environment
   tag_pattern = "java-*"
 }
+
+resource "vercel_project" "rotterdam" {
+  name                    = github_repository.rotterdam.name
+  node_version            = "24.x"
+  root_directory          = "packages/storybook/"
+  enable_preview_feedback = false
+
+  git_repository = {
+    type = "github"
+    repo = github_repository.rotterdam.full_name
+  }
+
+  vercel_authentication = {
+    deployment_type = "none"
+  }
+}
+
+resource "vercel_project_domain" "rotterdam" {
+  project_id = vercel_project.rotterdam.id
+  domain     = "rotterdam-design-system.vercel.app"
+}
+
+import {
+  to = vercel_project.rotterdam
+  id = "prj_I8G4CKGz2Enm6RaghP1fbtWyeO73"
+}
+
+import {
+  to = vercel_project_domain.rotterdam
+  id = "prj_I8G4CKGz2Enm6RaghP1fbtWyeO73/rotterdam-design-system.vercel.app"
+}
