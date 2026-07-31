@@ -178,10 +178,8 @@ resource "github_repository_environment_deployment_policy" "editor-publish-main"
 
 resource "vercel_project" "editor" {
   name                    = "editor"
-  output_directory        = "packages/website/dist/"
-  build_command           = "pnpm run build"
-  ignore_command          = "[[ $(git log -1 --pretty=%an) == 'dependabot[bot]' ]]"
   node_version            = "24.x"
+  root_directory          = "packages/editor-website/"
   enable_preview_feedback = false
 
   git_repository = {
@@ -193,4 +191,3 @@ resource "vercel_project" "editor" {
     deployment_type = "none"
   }
 }
-
