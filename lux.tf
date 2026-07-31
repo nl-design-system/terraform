@@ -210,3 +210,34 @@ resource "github_repository_environment_deployment_policy" "lux-publish-main" {
   environment    = github_repository_environment.lux-publish.environment
   branch_pattern = github_branch_default.lux.branch
 }
+
+resource "vercel_project" "lux" {
+  name                    = github_repository.lux.name
+  node_version            = "24.x"
+  root_directory          = "packages/storybook/"
+  enable_preview_feedback = false
+
+  git_repository = {
+    type = "github"
+    repo = github_repository.lux.full_name
+  }
+
+  vercel_authentication = {
+    deployment_type = "none"
+  }
+}
+
+resource "vercel_project_domain" "lux" {
+  project_id = vercel_project.lux.id
+  domain     = "lux-storybook.vercel.app"
+}
+
+import {
+  to = vercel_project.lux
+  id = "prj_fYC2rZmm0TarTaAwsW5zNISPeSmM"
+}
+
+import {
+  to = vercel_project_domain.lux
+  id = "prj_fYC2rZmm0TarTaAwsW5zNISPeSmM/lux-storybook.vercel.app"
+}
