@@ -204,6 +204,16 @@ resource "vercel_project" "theme-wizard" {
   }
 }
 
+resource "vercel_project_domain" "theme-wizard" {
+  project_id = vercel_project.theme-wizard.id
+  domain     = "theme-wizard.nl-design-system-community.nl"
+}
+
+import {
+  to = vercel_project_domain.theme-wizard
+  id = "prj_0PZgYT8FcC8BBUQa7GJqzvIQeBCB/theme-wizard.nl-design-system-community.nl"
+}
+
 resource "vercel_project" "theme-wizard-server" {
   name                                              = "theme-wizard-server"
   node_version                                      = "24.x"
@@ -220,6 +230,16 @@ resource "vercel_project" "theme-wizard-server" {
   vercel_authentication = {
     deployment_type = "none"
   }
+}
+
+resource "vercel_project_domain" "theme-wizard-server" {
+  project_id = vercel_project.theme-wizard-server.id
+  domain     = "theme-wizard-server.nl-design-system-community.nl"
+}
+
+import {
+  to = vercel_project_domain.theme-wizard-server
+  id = "prj_APeeEd1j3BGODnrqQtjIZ1WISlK7/theme-wizard-server.nl-design-system-community.nl"
 }
 
 resource "vercel_project" "clippy-storybook" {
