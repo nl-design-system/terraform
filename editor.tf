@@ -191,3 +191,13 @@ resource "vercel_project" "editor" {
     deployment_type = "none"
   }
 }
+
+resource "vercel_project_domain" "editor" {
+  project_id = vercel_project.editor.id
+  domain     = "editor.nl-design-system-community.nl"
+}
+
+import {
+  to = vercel_project_domain.editor
+  id = "prj_QWTqgKfcnOPsbzseNOaS9OAvAcom/editor.nl-design-system-community.nl"
+}
