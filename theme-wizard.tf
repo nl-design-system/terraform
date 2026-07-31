@@ -189,7 +189,6 @@ resource "github_repository_environment_deployment_policy" "theme-wizard-publish
 
 resource "vercel_project" "theme-wizard" {
   name                    = "theme-wizard"
-  ignore_command          = "[[ $(git log -1 --pretty=%an) == 'dependabot[bot]' ]]"
   node_version            = "24.x"
   root_directory          = "packages/theme-wizard-website/"
   enable_preview_feedback = false
@@ -207,7 +206,6 @@ resource "vercel_project" "theme-wizard" {
 
 resource "vercel_project" "theme-wizard-server" {
   name                                              = "theme-wizard-server"
-  ignore_command                                    = "[[ $(git log -1 --pretty=%an) == 'dependabot[bot]' ]]"
   node_version                                      = "24.x"
   automatically_expose_system_environment_variables = true
   root_directory                                    = "packages/theme-wizard-server/"
@@ -226,12 +224,9 @@ resource "vercel_project" "theme-wizard-server" {
 
 resource "vercel_project" "clippy-storybook" {
   name                    = "clippy-storybook"
-  ignore_command          = "[[ $(git log -1 --pretty=%an) == 'dependabot[bot]' ]]"
   node_version            = "24.x"
   root_directory          = "packages/clippy-storybook/"
   enable_preview_feedback = false
-
-
 
   git_repository = {
     type = "github"
