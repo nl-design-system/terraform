@@ -180,23 +180,3 @@ resource "github_repository_environment_deployment_policy" "text-alternative-tes
   environment    = github_repository_environment.text-alternative-tests-publish.environment
   branch_pattern = github_branch_default.text-alternative-tests.branch
 }
-
-
-resource "vercel_project" "text-alternative-tests" {
-  name                    = "text-alternative-tests"
-  output_directory        = "packages/website/dist/"
-  build_command           = "pnpm run build"
-  ignore_command          = "[[ $(git log -1 --pretty=%an) == 'dependabot[bot]' ]]"
-  node_version            = "24.x"
-  enable_preview_feedback = false
-
-  git_repository = {
-    type = "github"
-    repo = github_repository.text-alternative-tests.full_name
-  }
-
-  vercel_authentication = {
-    deployment_type = "none"
-  }
-}
-
