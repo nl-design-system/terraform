@@ -191,9 +191,8 @@ resource "github_repository_environment_deployment_policy" "tilburg-publish-main
 
 resource "vercel_project" "tilburg" {
   name                    = github_repository.tilburg.name
-  output_directory        = "packages/storybook/dist/"
-  ignore_command          = "[[ $(git log -1 --pretty=%an) == 'dependabot[bot]' ]]"
   node_version            = "24.x"
+  root_directory          = "packages/storybook/"
   enable_preview_feedback = false
 
   git_repository = {
