@@ -169,3 +169,13 @@ resource "vercel_project" "architectuur" {
     deployment_type = "none"
   }
 }
+
+resource "vercel_project_domain" "architectuur" {
+  project_id = vercel_project.architectuur.id
+  domain     = "architectuur.vercel.app"
+}
+
+import {
+  to = vercel_project_domain.architectuur
+  id = "prj_ZugY0Z5IIfMacdMaZVwgp2m0JEKD/architectuur-tmp.vercel.app"
+}
