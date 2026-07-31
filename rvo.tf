@@ -196,3 +196,34 @@ resource "github_repository_environment_deployment_policy" "rvo-publish-main" {
   environment    = github_repository_environment.rvo-publish.environment
   branch_pattern = github_branch_default.rvo.branch
 }
+
+resource "vercel_project" "rvo" {
+  name                    = github_repository.rvo.name
+  node_version            = "24.x"
+  root_directory          = "packages/design-system-website/"
+  enable_preview_feedback = false
+
+  git_repository = {
+    type = "github"
+    repo = github_repository.rvo.full_name
+  }
+
+  vercel_authentication = {
+    deployment_type = "none"
+  }
+}
+
+resource "vercel_project_domain" "rvo" {
+  project_id = vercel_project.rvo.id
+  domain     = "rvo.vercel.app"
+}
+
+import {
+  to = vercel_project.rvo
+  id = "prj_bGmJFB5eIHn17QmWGcbjEWbqXPRv"
+}
+
+import {
+  to = vercel_project_domain.rvo
+  id = "prj_bGmJFB5eIHn17QmWGcbjEWbqXPRv/rvo.vercel.app"
+}
