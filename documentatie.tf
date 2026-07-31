@@ -217,6 +217,11 @@ resource "vercel_project" "documentatie" {
   root_directory          = "packages/website/"
   enable_preview_feedback = false
 
+  # Skipping deployment for static file branches must be configured at the
+  # project level instead of vercel.json, because vercel.json does not exist in
+  # those branches.
+  ignore_command = "[[ \"$VERCEL_GIT_COMMIT_REF\" == \"gh-pages\" || \"$VERCEL_GIT_COMMIT_REF\" == \"assets\" ]]"
+
   git_repository = {
     type = "github"
     repo = github_repository.documentatie.full_name
@@ -237,6 +242,11 @@ resource "vercel_project" "documentatie-next" {
   node_version            = "24.x"
   root_directory          = "packages/website/"
   enable_preview_feedback = false
+
+  # Skipping deployment for static file branches must be configured at the
+  # project level instead of vercel.json, because vercel.json does not exist in
+  # those branches.
+  ignore_command = "[[ \"$VERCEL_GIT_COMMIT_REF\" == \"gh-pages\" || \"$VERCEL_GIT_COMMIT_REF\" == \"assets\" ]]"
 
   git_repository = {
     type = "github"
