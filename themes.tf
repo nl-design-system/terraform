@@ -328,6 +328,16 @@ resource "github_repository_collaborators" "themes" {
     permission = "push"
     team_id    = github_team.gemeente-voorne-aan-zee.id
   }
+
+  team {
+    permission = "push"
+    team_id    = github_team.gemeente-enschede.id
+  }
+
+  team {
+    permission = "push"
+    team_id    = github_team.gemeente-losser.id
+  }
 }
 
 resource "github_repository_environment" "themes-publish" {

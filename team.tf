@@ -706,3 +706,29 @@ resource "github_team" "gemeente-voorne-aan-zee-aserio-maintainer" {
   parent_team_id = github_team.gemeente-voorne-aan-zee.id
   privacy        = "closed"
 }
+
+resource "github_team" "gemeente-enschede" {
+  name        = "gemeente-enschede"
+  description = "Gemeente Enschede"
+  privacy     = "closed"
+}
+
+resource "github_team" "gemeente-enschede-maintainer" {
+  name           = "gemeente-enschede-maintainer"
+  description    = "Can configure GitHub via Terraform, with approval from kernteam-admin."
+  parent_team_id = github_team.gemeente-enschede.id
+  privacy        = "closed"
+}
+
+resource "github_team" "gemeente-losser" {
+  name        = "gemeente-losser"
+  description = "Gemeente Losser"
+  privacy     = "closed"
+}
+
+resource "github_team" "gemeente-losser-maintainer" {
+  name           = "gemeente-losser-maintainer"
+  description    = "Can configure GitHub via Terraform, with approval from kernteam-admin."
+  parent_team_id = github_team.gemeente-losser.id
+  privacy        = "closed"
+}
