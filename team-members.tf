@@ -680,6 +680,10 @@ resource "github_team_members" "gemeente-amsterdam-estafettemodel" {
   members {
     username = data.github_user.VincentSmedinga.username
   }
+
+  members {
+    username = data.github_user.bas-kroese.username
+  }
 }
 
 resource "github_team_members" "logius-estafettemodel" {
