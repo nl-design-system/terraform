@@ -1317,3 +1317,35 @@ resource "github_team_members" "logius-ux-committer" {
     username = data.github_user.Rosavanhardeveld94.username
   }
 }
+
+resource "github_team_members" "gemeente-enschede" {
+  team_id = github_team.gemeente-enschede.id
+
+  members {
+    username = data.github_user.Patrick9650.username
+  }
+}
+
+resource "github_team_members" "gemeente-enschede-maintainer" {
+  team_id = github_team.gemeente-enschede-maintainer.id
+
+  members {
+    username = data.github_user.Patrick9650.username
+  }
+}
+
+resource "github_team_members" "gemeente-losser" {
+  team_id = github_team.gemeente-losser.id
+
+  members {
+    username = data.github_user.Patrick9650.username
+  }
+}
+
+resource "github_team_members" "gemeente-losser-maintainer" {
+  team_id = github_team.gemeente-losser-maintainer.id
+
+  members {
+    username = data.github_user.Patrick9650.username
+  }
+}

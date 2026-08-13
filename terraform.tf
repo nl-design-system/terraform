@@ -217,6 +217,16 @@ resource "github_repository_collaborators" "terraform" {
     permission = "push"
     team_id    = github_team.gemeente-voorne-aan-zee-aserio-maintainer.id
   }
+
+  team {
+    permission = "push"
+    team_id    = github_team.gemeente-enschede-maintainer.id
+  }
+
+  team {
+    permission = "push"
+    team_id    = github_team.gemeente-losser-maintainer.id
+  }
 }
 
 resource "github_repository_environment" "terraform-publish" {
