@@ -98,6 +98,12 @@ resource "github_repository_ruleset" "candidate-main" {
       required_check {
         context = "Block Autosquash Commits"
       }
+      required_check {
+        context = "test-e2e / E2E Tests"
+      }
+      required_check {
+        context = "chromatic"
+      }
     }
   }
 }
