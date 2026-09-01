@@ -677,3 +677,7 @@ data "github_user" "bas-kroese" {
 data "github_user" "ahmetburkan" {
   username = "ahmetburkan"
 }
+
+data "github_user" "tkgroot" {
+  username = "tkgroot"
+}
