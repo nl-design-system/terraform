@@ -150,8 +150,13 @@ resource "github_repository_collaborators" "example" {
   }
 }
 
-resource "vercel_project" "example" {
-  name                    = github_repository.example.name
+import {
+  to = vercel_project.example
+  id = "prj_HJOXF8WPwXtemQdLQe71VFQi7d9z"
+}
+
+resource "vercel_project" "example-storybook" {
+  name                    = example-storybook
   node_version            = "24.x"
   root_directory          = "packages/storybook/"
   enable_preview_feedback = false
@@ -166,7 +171,18 @@ resource "vercel_project" "example" {
   }
 }
 
-import {
-  to = vercel_project.example
-  id = "prj_HJOXF8WPwXtemQdLQe71VFQi7d9z"
+resource "vercel_project" "example-next" {
+  name                    = example-next
+  node_version            = "24.x"
+  root_directory          = "apps/next"
+  enable_preview_feedback = false
+
+  git_repository = {
+    type = "github"
+    repo = github_repository.example.full_name
+  }
+
+  vercel_authentication = {
+    deployment_type = "none"
+  }
 }
