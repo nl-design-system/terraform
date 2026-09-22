@@ -122,10 +122,6 @@ data "github_user" "PLassche-dictu" {
   username = "PLassche-dictu"
 }
 
-data "github_user" "chelly-dictu" {
-  username = "chelly-dictu"
-}
-
 data "github_user" "ux-fran" {
   username = "ux-fran"
 }
@@ -680,4 +676,8 @@ data "github_user" "ahmetburkan" {
 
 data "github_user" "tkgroot" {
   username = "tkgroot"
+}
+
+data "github_user" "joana-dictu" {
+  username = "joana-dictu"
 }
