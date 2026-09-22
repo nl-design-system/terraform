@@ -589,11 +589,6 @@ resource "github_team_members" "rvo-committer" {
 
   # Last checked by rvo-maintainer: 2026-04-17
   members {
-    username = data.github_user.chelly-dictu.username
-  }
-
-  # Last checked by rvo-maintainer: 2026-04-17
-  members {
     username = data.github_user.ramonitor.username
   }
 
@@ -634,6 +629,10 @@ resource "github_team_members" "rvo-maintainer" {
   # Last checked by rvo-maintainer: 2026-04-17
   members {
     username = data.github_user.rroose-rvo.username
+  }
+
+  members {
+    username = data.github_user.joana-dictu.username
   }
 }
 
