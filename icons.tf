@@ -199,9 +199,10 @@ resource "vercel_project_environment_variables" "icons" {
 
   variables = [
     {
-      key    = "ENABLE_EXPERIMENTAL_COREPACK"
-      value  = "1"
-      target = ["production", "preview"]
+      key       = "ENABLE_EXPERIMENTAL_COREPACK"
+      value     = "1"
+      target    = ["production", "preview"]
+      sensitive = false
     }
   ]
 }

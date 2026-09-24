@@ -272,5 +272,6 @@ resource "vercel_project_environment_variable" "documentatie-next-vercel-force-n
   key        = "VERCEL_FORCE_NO_BUILD_CACHE"
   value      = "1"
   target     = ["production", "preview"]
+  sensitive  = false
   comment    = "See documentatie#4067"
 }
