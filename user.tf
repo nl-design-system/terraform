@@ -678,6 +678,10 @@ data "github_user" "tkgroot" {
   username = "tkgroot"
 }
 
+data "github_user" "annaschumacher" {
+  username = "annaschumacher"
+}
+
 data "github_user" "joana-dictu" {
   username = "joana-dictu"
 }

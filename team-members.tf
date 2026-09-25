@@ -870,6 +870,11 @@ resource "github_team_members" "gemeente-rotterdam-committer" {
   members {
     username = data.github_user.Theo-Buitelaar-Rotterdam.username
   }
+
+  # Last checked by rotterdam-maintainer: 2026-09-25
+  members {
+    username = data.github_user.annaschumacher.username
+  }
 }
 
 # Last checked by maintainer: 2026-04-14
