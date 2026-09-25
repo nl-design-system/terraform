@@ -1302,6 +1302,7 @@ resource "github_team_members" "logius-ux-maintainer" {
   }
 }
 
+# Last checked by kernteam-maintainer: 2026-09-25
 resource "github_team_members" "logius-ux-committer" {
   team_id = github_team.logius-ux-committer.id
 
@@ -1331,6 +1332,10 @@ resource "github_team_members" "logius-ux-committer" {
 
   members {
     username = data.github_user.Rosavanhardeveld94.username
+  }
+
+  members {
+    username = data.github_user.MHooLogius.username
   }
 }
 
