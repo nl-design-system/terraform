@@ -175,6 +175,10 @@ resource "github_team_members" "kernteam-admin" {
   }
 
   members {
+    username = data.github_user.Astrid-01.username
+  }
+
+  members {
     username = data.github_user.nl-design-system-ci.username
     # organization owners must be "maintainer", see note at https://registry.terraform.io/providers/integrations/github/latest/docs/resources/team_members
     role = "maintainer"
