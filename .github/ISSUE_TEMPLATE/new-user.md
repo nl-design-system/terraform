@@ -1,7 +1,7 @@
 ---
 name: Nieuwe gebruiker toevoegen
 about: Een nieuwe gebruiker toevoegen aan de NL Design System organisatie
-title: "[Verzoek]: Nieuwe gebruiker toevoegen"
+title: '[Verzoek]: Nieuwe gebruiker toevoegen'
 ---
 
 ## Profiel
