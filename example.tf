@@ -168,7 +168,6 @@ resource "vercel_project" "example" {
 
 resource "vercel_project" "example-next" {
   enable_preview_feedback = false
-  framework               = "nextjs"
   name                    = "${github_repository.example.name}-next"
   node_version            = "24.x"
   output_directory        = "dist"
