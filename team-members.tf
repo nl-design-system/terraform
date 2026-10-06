@@ -634,6 +634,10 @@ resource "github_team_members" "rvo-maintainer" {
   members {
     username = data.github_user.joana-dictu.username
   }
+
+  members {
+    username = data.github_user.nellekejansen-dictu.username
+  }
 }
 
 resource "github_team_members" "rvo-estafettemodel" {
