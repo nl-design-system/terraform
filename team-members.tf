@@ -429,10 +429,6 @@ resource "github_team_members" "tilburg-acato-committer" {
   }
 
   members {
-    username = data.github_user.markacato.username
-  }
-
-  members {
     username = data.github_user.jorik-acato.username
   }
 
