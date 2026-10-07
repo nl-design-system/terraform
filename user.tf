@@ -82,10 +82,6 @@ data "github_user" "joostacato" {
   username = "joostacato"
 }
 
-data "github_user" "markacato" {
-  username = "markacato"
-}
-
 data "github_user" "razjar" {
   username = "razjar"
 }
