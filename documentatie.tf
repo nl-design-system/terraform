@@ -56,7 +56,7 @@ resource "github_repository_ruleset" "documentatie-default" {
 
   conditions {
     ref_name {
-      include = ["~DEFAULT_BRANCH"]
+      include = ["~DEFAULT_BRANCH", "release--website-next"]
       exclude = []
     }
   }
@@ -92,6 +92,39 @@ resource "github_repository_ruleset" "documentatie-default" {
   }
 }
 
+resource "github_repository_ruleset" "documentatie-gh-pages" {
+  enforcement = "active"
+  name        = "gh-pages-branch-protection"
+  repository  = github_repository.documentatie.name
+  target      = "branch"
+
+  bypass_actors {
+    actor_id    = github_team.kernteam-ci.id
+    actor_type  = "Team"
+    bypass_mode = "always"
+  }
+
+  conditions {
+    ref_name {
+      include = [
+        "refs/heads/gh-pages",
+        "refs/heads/gh-pages-next",
+      ]
+      exclude = []
+    }
+  }
+
+  rules {
+    creation                      = false
+    update                        = true
+    deletion                      = true
+    non_fast_forward              = true
+    required_linear_history       = true
+    required_signatures           = false
+    update_allows_fetch_and_merge = false
+  }
+}
+
 resource "github_repository_ruleset" "documentatie-other" {
   enforcement = "active"
   name        = "other-branch-protection"
@@ -101,20 +134,20 @@ resource "github_repository_ruleset" "documentatie-other" {
   conditions {
     ref_name {
       include = [
-        "refs/heads/gh-pages",
         "refs/heads/assets",
         "refs/heads/storybook",
       ]
       exclude = []
     }
   }
+
   rules {
     creation                      = false
+    update                        = false
     deletion                      = true
     non_fast_forward              = true
     required_linear_history       = true
     required_signatures           = false
-    update                        = false
     update_allows_fetch_and_merge = false
   }
 }
@@ -203,6 +236,12 @@ resource "github_repository_environment_deployment_policy" "documentatie-publish
   repository     = github_repository.documentatie.name
   environment    = github_repository_environment.documentatie-publish.environment
   branch_pattern = github_branch_default.documentatie.branch
+}
+
+resource "github_repository_environment_deployment_policy" "documentatie-publish-release--website-next" {
+  repository     = github_repository.documentatie.name
+  environment    = github_repository_environment.documentatie-publish.environment
+  branch_pattern = "release--website-next"
 }
 
 resource "github_repository_environment" "documentatie-vercel" {
