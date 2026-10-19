@@ -238,6 +238,12 @@ resource "github_repository_environment_deployment_policy" "documentatie-publish
   branch_pattern = github_branch_default.documentatie.branch
 }
 
+resource "github_repository_environment_deployment_policy" "documentatie-publish-release--website-next" {
+  repository     = github_repository.documentatie.name
+  environment    = github_repository_environment.documentatie-publish.environment
+  branch_pattern = "release--website-next"
+}
+
 resource "github_repository_environment" "documentatie-vercel" {
   environment       = "Vercel"
   repository        = github_repository.documentatie.name
