@@ -92,6 +92,39 @@ resource "github_repository_ruleset" "documentatie-default" {
   }
 }
 
+resource "github_repository_ruleset" "documentatie-gh-pages" {
+  enforcement = "active"
+  name        = "gh-pages-branch-protection"
+  repository  = github_repository.documentatie.name
+  target      = "branch"
+
+  bypass_actors {
+    actor_id    = github_team.kernteam-ci.id
+    actor_type  = "Team"
+    bypass_mode = "always"
+  }
+
+  conditions {
+    ref_name {
+      include = [
+        "refs/heads/gh-pages",
+        "refs/heads/gh-pages-next",
+      ]
+      exclude = []
+    }
+  }
+
+  rules {
+    creation                      = false
+    update                        = true
+    deletion                      = true
+    non_fast_forward              = true
+    required_linear_history       = true
+    required_signatures           = false
+    update_allows_fetch_and_merge = false
+  }
+}
+
 resource "github_repository_ruleset" "documentatie-other" {
   enforcement = "active"
   name        = "other-branch-protection"
@@ -101,20 +134,20 @@ resource "github_repository_ruleset" "documentatie-other" {
   conditions {
     ref_name {
       include = [
-        "refs/heads/gh-pages",
         "refs/heads/assets",
         "refs/heads/storybook",
       ]
       exclude = []
     }
   }
+
   rules {
     creation                      = false
+    update                        = false
     deletion                      = true
     non_fast_forward              = true
     required_linear_history       = true
     required_signatures           = false
-    update                        = false
     update_allows_fetch_and_merge = false
   }
 }
