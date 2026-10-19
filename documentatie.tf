@@ -56,7 +56,7 @@ resource "github_repository_ruleset" "documentatie-default" {
 
   conditions {
     ref_name {
-      include = ["~DEFAULT_BRANCH"]
+      include = ["~DEFAULT_BRANCH", "release--website-next"]
       exclude = []
     }
   }
