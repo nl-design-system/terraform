@@ -20,7 +20,6 @@ resource "github_repository" "utrecht" {
     repository           = "example"
   }
 
-
   security_and_analysis {
     secret_scanning {
       status = "enabled"
@@ -40,9 +39,19 @@ resource "github_repository_pages" "utrecht" {
   build_type = "workflow"
 }
 
+import {
+  to = github_repository_pages.utrecht
+  id = "utrecht"
+}
+
 resource "github_repository_vulnerability_alerts" "utrecht" {
   repository = github_repository.utrecht.name
   enabled    = true
+}
+
+import {
+  to = github_repository_vulnerability_alerts.utrecht
+  id = "utrecht"
 }
 
 resource "github_branch_default" "utrecht" {
@@ -88,7 +97,6 @@ resource "github_repository_ruleset" "utrecht-main" {
 
     required_status_checks {
       strict_required_status_checks_policy = false
-
 
       required_check {
         context = "build"

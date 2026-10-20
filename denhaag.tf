@@ -13,7 +13,6 @@ resource "github_repository" "denhaag" {
   squash_merge_commit_message = "PR_BODY"
   topics                      = ["nl-design-system", "storybook", "react", "component-library"]
 
-
   security_and_analysis {
     secret_scanning {
       status = "enabled"
@@ -33,9 +32,19 @@ resource "github_repository_pages" "denhaag" {
   build_type = "workflow"
 }
 
+import {
+  to = github_repository_pages.denhaag
+  id = "denhaag"
+}
+
 resource "github_repository_vulnerability_alerts" "denhaag" {
   repository = github_repository.denhaag.name
   enabled    = true
+}
+
+import {
+  to = github_repository_vulnerability_alerts.denhaag
+  id = "denhaag"
 }
 
 resource "github_branch_default" "denhaag" {

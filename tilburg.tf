@@ -20,7 +20,6 @@ resource "github_repository" "tilburg" {
     repository           = "example"
   }
 
-
   security_and_analysis {
     secret_scanning {
       status = "enabled"
@@ -40,9 +39,19 @@ resource "github_repository_pages" "tilburg" {
   build_type = "workflow"
 }
 
+import {
+  to = github_repository_pages.tilburg
+  id = "tilburg"
+}
+
 resource "github_repository_vulnerability_alerts" "tilburg" {
   repository = github_repository.tilburg.name
   enabled    = true
+}
+
+import {
+  to = github_repository_vulnerability_alerts.tilburg
+  id = "tilburg"
 }
 
 resource "github_branch_default" "tilburg" {

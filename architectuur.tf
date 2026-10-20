@@ -33,9 +33,19 @@ resource "github_repository_pages" "architectuur" {
   build_type = "workflow"
 }
 
+import {
+  to = github_repository_pages.architectuur
+  id = "architectuur"
+}
+
 resource "github_repository_vulnerability_alerts" "architectuur" {
   repository = github_repository.architectuur.name
   enabled    = true
+}
+
+import {
+  to = github_repository_vulnerability_alerts.architectuur
+  id = "architectuur"
 }
 
 resource "github_branch_default" "architectuur" {

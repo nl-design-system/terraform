@@ -33,6 +33,11 @@ resource "github_repository_vulnerability_alerts" "hosting" {
   enabled    = true
 }
 
+import {
+  to = github_repository_vulnerability_alerts.hosting
+  id = "infra"
+}
+
 resource "github_branch_default" "hosting-branch-default" {
   repository = github_repository.hosting.name
   branch     = "main"

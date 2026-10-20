@@ -33,6 +33,11 @@ resource "github_repository_vulnerability_alerts" "beheer" {
   enabled    = true
 }
 
+import {
+  to = github_repository_vulnerability_alerts.beheer
+  id = "beheer"
+}
+
 resource "github_branch_default" "beheer" {
   repository = github_repository.beheer.name
   branch     = "main"

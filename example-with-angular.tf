@@ -23,7 +23,6 @@ resource "github_repository" "example-with-angular" {
     }
   }
 
-
   lifecycle {
     prevent_destroy = true
   }
@@ -34,9 +33,19 @@ resource "github_repository_pages" "example-with-angular" {
   build_type = "workflow"
 }
 
+import {
+  to = github_repository_pages.example-with-angular
+  id = "example-with-angular"
+}
+
 resource "github_repository_vulnerability_alerts" "example-with-angular" {
   repository = github_repository.example-with-angular.name
   enabled    = true
+}
+
+import {
+  to = github_repository_vulnerability_alerts.example-with-angular
+  id = "example-with-angular"
 }
 
 resource "github_branch_default" "example-with-angular" {

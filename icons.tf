@@ -14,7 +14,6 @@ resource "github_repository" "icons" {
   squash_merge_commit_message = "PR_BODY"
   topics                      = ["nl-design-system", "icons"]
 
-
   template {
     include_all_branches = false
     owner                = "nl-design-system"
@@ -40,9 +39,19 @@ resource "github_repository_pages" "icons" {
   build_type = "workflow"
 }
 
+import {
+  to = github_repository_pages.icons
+  id = "icons"
+}
+
 resource "github_repository_vulnerability_alerts" "icons" {
   repository = github_repository.icons.name
   enabled    = true
+}
+
+import {
+  to = github_repository_vulnerability_alerts.icons
+  id = "icons"
 }
 
 resource "github_branch_default" "icons" {

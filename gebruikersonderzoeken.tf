@@ -21,7 +21,6 @@ resource "github_repository" "gebruikersonderzoeken" {
     repository           = "example"
   }
 
-
   security_and_analysis {
     secret_scanning {
       status = "enabled"
@@ -42,9 +41,19 @@ resource "github_repository_pages" "gebruikersonderzoeken" {
   cname      = "gebruikersonderzoeken.nl"
 }
 
+import {
+  to = github_repository_pages.gebruikersonderzoeken
+  id = "gebruikersonderzoeken"
+}
+
 resource "github_repository_vulnerability_alerts" "gebruikersonderzoeken" {
   repository = github_repository.gebruikersonderzoeken.name
   enabled    = true
+}
+
+import {
+  to = github_repository_vulnerability_alerts.gebruikersonderzoeken
+  id = "gebruikersonderzoeken"
 }
 
 resource "github_branch_default" "gebruikersonderzoeken" {
