@@ -10,7 +10,6 @@ resource "github_repository" "terraform" {
   has_projects                = false
   has_wiki                    = false
   has_discussions             = false
-  vulnerability_alerts        = true
   homepage_url                = "https://app.terraform.io/app/nl-design-system/workspaces"
   visibility                  = "public"
   squash_merge_commit_title   = "PR_TITLE"
@@ -28,6 +27,11 @@ resource "github_repository" "terraform" {
   lifecycle {
     prevent_destroy = true
   }
+}
+
+resource "github_repository_vulnerability_alerts" "terraform" {
+  repository = github_repository.terraform.name
+  enabled    = true
 }
 
 resource "github_branch_default" "terraform-branch-default" {

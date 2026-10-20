@@ -9,7 +9,6 @@ resource "github_repository" "tilburg" {
   has_issues                  = true
   has_projects                = true
   has_wiki                    = false
-  vulnerability_alerts        = true
   homepage_url                = "https://nl-design-system.github.io/tilburg/"
   squash_merge_commit_title   = "PR_TITLE"
   squash_merge_commit_message = "PR_BODY"
@@ -21,9 +20,6 @@ resource "github_repository" "tilburg" {
     repository           = "example"
   }
 
-  pages {
-    build_type = "workflow"
-  }
 
   security_and_analysis {
     secret_scanning {
@@ -37,6 +33,16 @@ resource "github_repository" "tilburg" {
   lifecycle {
     prevent_destroy = true
   }
+}
+
+resource "github_repository_pages" "tilburg" {
+  repository = github_repository.tilburg.name
+  build_type = "workflow"
+}
+
+resource "github_repository_vulnerability_alerts" "tilburg" {
+  repository = github_repository.tilburg.name
+  enabled    = true
 }
 
 resource "github_branch_default" "tilburg" {

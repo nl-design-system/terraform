@@ -10,7 +10,6 @@ resource "github_repository" "hosting" {
   has_projects                = false
   has_wiki                    = false
   has_discussions             = false
-  vulnerability_alerts        = true
   visibility                  = "public"
   squash_merge_commit_title   = "PR_TITLE"
   squash_merge_commit_message = "PR_BODY"
@@ -27,6 +26,11 @@ resource "github_repository" "hosting" {
   lifecycle {
     prevent_destroy = true
   }
+}
+
+resource "github_repository_vulnerability_alerts" "hosting" {
+  repository = github_repository.hosting.name
+  enabled    = true
 }
 
 resource "github_branch_default" "hosting-branch-default" {
