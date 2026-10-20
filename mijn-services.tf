@@ -9,15 +9,11 @@ resource "github_repository" "mijn-services" {
   has_issues                  = true
   has_projects                = true
   has_wiki                    = false
-  vulnerability_alerts        = true
   homepage_url                = "https://nl-design-system.github.io/mijn-services/"
   squash_merge_commit_title   = "PR_TITLE"
   squash_merge_commit_message = "PR_BODY"
   topics                      = ["nl-design-system", "storybook"]
 
-  pages {
-    build_type = "workflow"
-  }
 
   security_and_analysis {
     secret_scanning {
@@ -31,6 +27,16 @@ resource "github_repository" "mijn-services" {
   lifecycle {
     prevent_destroy = true
   }
+}
+
+resource "github_repository_pages" "mijn-services" {
+  repository = github_repository.mijn-services.name
+  build_type = "workflow"
+}
+
+resource "github_repository_vulnerability_alerts" "mijn-services" {
+  repository = github_repository.mijn-services.name
+  enabled    = true
 }
 
 resource "github_branch_default" "mijn-services" {
