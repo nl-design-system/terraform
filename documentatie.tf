@@ -15,7 +15,6 @@ resource "github_repository" "documentatie" {
   squash_merge_commit_message = "PR_BODY"
   topics                      = ["nl-design-system", "website"]
 
-
   security_and_analysis {
     secret_scanning {
       status = "enabled"
@@ -39,9 +38,19 @@ resource "github_repository_pages" "documentatie" {
   }
 }
 
+import {
+  to = github_repository_pages.documentatie
+  id = "documentatie"
+}
+
 resource "github_repository_vulnerability_alerts" "documentatie" {
   repository = github_repository.documentatie.name
   enabled    = true
+}
+
+import {
+  to = github_repository_vulnerability_alerts.documentatie
+  id = "documentatie"
 }
 
 resource "github_branch_default" "documentatie" {

@@ -40,6 +40,11 @@ resource "github_repository_vulnerability_alerts" "editor" {
   enabled    = true
 }
 
+import {
+  to = github_repository_vulnerability_alerts.editor
+  id = "editor"
+}
+
 resource "github_branch_default" "editor" {
   branch     = "main"
   repository = github_repository.editor.name

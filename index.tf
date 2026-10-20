@@ -39,6 +39,11 @@ resource "github_repository_vulnerability_alerts" "index" {
   enabled    = true
 }
 
+import {
+  to = github_repository_vulnerability_alerts.index
+  id = "index"
+}
+
 resource "github_branch_default" "index" {
   branch     = "main"
   repository = github_repository.index.name

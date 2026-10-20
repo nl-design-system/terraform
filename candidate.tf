@@ -20,7 +20,6 @@ resource "github_repository" "candidate" {
     include_all_branches = false
   }
 
-
   security_and_analysis {
     secret_scanning {
       status = "enabled"
@@ -40,9 +39,19 @@ resource "github_repository_pages" "candidate" {
   build_type = "workflow"
 }
 
+import {
+  to = github_repository_pages.candidate
+  id = "candidate"
+}
+
 resource "github_repository_vulnerability_alerts" "candidate" {
   repository = github_repository.candidate.name
   enabled    = true
+}
+
+import {
+  to = github_repository_vulnerability_alerts.candidate
+  id = "candidate"
 }
 
 resource "github_branch_default" "candidate" {

@@ -25,6 +25,11 @@ resource "github_repository_vulnerability_alerts" "nlds-community-blocks" {
   enabled    = true
 }
 
+import {
+  to = github_repository_vulnerability_alerts.nlds-community-blocks
+  id = "nlds-community-blocks"
+}
+
 resource "github_branch_default" "nlds-community-blocks" {
   repository = github_repository.nlds-community-blocks.name
   branch     = "main"

@@ -24,7 +24,6 @@ resource "github_repository" "example" {
     }
   }
 
-
   lifecycle {
     prevent_destroy = true
   }
@@ -35,9 +34,19 @@ resource "github_repository_pages" "example" {
   build_type = "workflow"
 }
 
+import {
+  to = github_repository_pages.example
+  id = "example"
+}
+
 resource "github_repository_vulnerability_alerts" "example" {
   repository = github_repository.example.name
   enabled    = true
+}
+
+import {
+  to = github_repository_vulnerability_alerts.example
+  id = "example"
 }
 
 resource "github_branch_default" "example" {

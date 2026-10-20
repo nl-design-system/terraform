@@ -21,7 +21,6 @@ resource "github_repository" "lux" {
     repository           = "example"
   }
 
-
   security_and_analysis {
     secret_scanning {
       status = "enabled"
@@ -41,9 +40,19 @@ resource "github_repository_pages" "lux" {
   build_type = "workflow"
 }
 
+import {
+  to = github_repository_pages.lux
+  id = "lux"
+}
+
 resource "github_repository_vulnerability_alerts" "lux" {
   repository = github_repository.lux.name
   enabled    = true
+}
+
+import {
+  to = github_repository_vulnerability_alerts.lux
+  id = "lux"
 }
 
 resource "github_branch_default" "lux" {

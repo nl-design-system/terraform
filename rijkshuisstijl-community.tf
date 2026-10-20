@@ -40,9 +40,19 @@ resource "github_repository_pages" "rijkshuisstijl-community" {
   build_type = "workflow"
 }
 
+import {
+  to = github_repository_pages.rijkshuisstijl-community
+  id = "rijkshuisstijl-community"
+}
+
 resource "github_repository_vulnerability_alerts" "rijkshuisstijl-community" {
   repository = github_repository.rijkshuisstijl-community.name
   enabled    = true
+}
+
+import {
+  to = github_repository_vulnerability_alerts.rijkshuisstijl-community
+  id = "rijkshuisstijl-community"
 }
 
 resource "github_branch_default" "rijkshuisstijl-community" {

@@ -39,6 +39,11 @@ resource "github_repository_vulnerability_alerts" "basis" {
   enabled    = true
 }
 
+import {
+  to = github_repository_vulnerability_alerts.basis
+  id = "basis"
+}
+
 resource "github_branch_default" "basis" {
   repository = github_repository.basis.name
   branch     = "main"

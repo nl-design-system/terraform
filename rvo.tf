@@ -20,7 +20,6 @@ resource "github_repository" "rvo" {
     repository           = "example"
   }
 
-
   lifecycle {
     prevent_destroy = true
   }
@@ -40,9 +39,19 @@ resource "github_repository_pages" "rvo" {
   build_type = "workflow"
 }
 
+import {
+  to = github_repository_pages.rvo
+  id = "rvo"
+}
+
 resource "github_repository_vulnerability_alerts" "rvo" {
   repository = github_repository.rvo.name
   enabled    = true
+}
+
+import {
+  to = github_repository_vulnerability_alerts.rvo
+  id = "rvo"
 }
 
 resource "github_branch_default" "rvo" {
