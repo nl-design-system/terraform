@@ -33,9 +33,19 @@ resource "github_repository_pages" "wcag-statistieken" {
   build_type = "workflow"
 }
 
+import {
+  to = github_repository_pages.wcag-statistieken
+  id = "wcag-statistieken"
+}
+
 resource "github_repository_vulnerability_alerts" "wcag-statistieken" {
   repository = github_repository.wcag-statistieken.name
   enabled    = true
+}
+
+import {
+  to = github_repository_vulnerability_alerts.wcag-statistieken
+  id = "wcag-statistieken"
 }
 
 resource "github_branch_default" "wcag-statistieken" {

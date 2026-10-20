@@ -20,7 +20,6 @@ resource "github_repository" "rotterdam" {
     repository           = "example"
   }
 
-
   security_and_analysis {
     secret_scanning {
       status = "enabled"
@@ -40,9 +39,19 @@ resource "github_repository_pages" "rotterdam" {
   build_type = "workflow"
 }
 
+import {
+  to = github_repository_pages.rotterdam
+  id = "rotterdam"
+}
+
 resource "github_repository_vulnerability_alerts" "rotterdam" {
   repository = github_repository.rotterdam.name
   enabled    = true
+}
+
+import {
+  to = github_repository_vulnerability_alerts.rotterdam
+  id = "rotterdam"
 }
 
 resource "github_branch_default" "rotterdam" {

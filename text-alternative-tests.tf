@@ -40,6 +40,11 @@ resource "github_repository_vulnerability_alerts" "text-alternative-tests" {
   enabled    = true
 }
 
+import {
+  to = github_repository_vulnerability_alerts.text-alternative-tests
+  id = "text-alternative-tests"
+}
+
 resource "github_branch_default" "text-alternative-tests" {
   branch     = "main"
   repository = github_repository.text-alternative-tests.name
