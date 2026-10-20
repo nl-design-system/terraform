@@ -10,7 +10,6 @@ resource "github_repository" "index" {
   has_issues                  = true
   has_projects                = false
   has_wiki                    = false
-  vulnerability_alerts        = true
   squash_merge_commit_title   = "PR_TITLE"
   squash_merge_commit_message = "PR_BODY"
   topics                      = ["nl-design-system"]
@@ -33,6 +32,11 @@ resource "github_repository" "index" {
   lifecycle {
     prevent_destroy = true
   }
+}
+
+resource "github_repository_vulnerability_alerts" "index" {
+  repository = github_repository.index.name
+  enabled    = true
 }
 
 resource "github_branch_default" "index" {

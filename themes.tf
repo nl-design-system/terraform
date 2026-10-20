@@ -9,7 +9,6 @@ resource "github_repository" "themes" {
   has_issues                  = true
   has_projects                = false
   has_wiki                    = false
-  vulnerability_alerts        = true
   homepage_url                = "https://nl-design-system.github.io/themes/"
   squash_merge_commit_title   = "PR_TITLE"
   squash_merge_commit_message = "PR_BODY"
@@ -19,10 +18,6 @@ resource "github_repository" "themes" {
     include_all_branches = false
     owner                = "nl-design-system"
     repository           = "example"
-  }
-
-  pages {
-    build_type = "workflow"
   }
 
   security_and_analysis {
@@ -37,6 +32,16 @@ resource "github_repository" "themes" {
   lifecycle {
     prevent_destroy = true
   }
+}
+
+resource "github_repository_pages" "themes" {
+  repository = github_repository.themes.name
+  build_type = "workflow"
+}
+
+resource "github_repository_vulnerability_alerts" "themes" {
+  repository = github_repository.themes.name
+  enabled    = true
 }
 
 resource "github_branch_default" "themes" {

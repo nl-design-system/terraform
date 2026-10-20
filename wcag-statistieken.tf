@@ -9,15 +9,10 @@ resource "github_repository" "wcag-statistieken" {
   has_issues                  = true
   has_projects                = true
   has_wiki                    = true
-  vulnerability_alerts        = true
   homepage_url                = "https://nl-design-system.github.io/wcag-statistieken/"
   squash_merge_commit_title   = "PR_TITLE"
   squash_merge_commit_message = "PR_BODY"
   topics                      = []
-
-  pages {
-    build_type = "workflow"
-  }
 
   security_and_analysis {
     secret_scanning {
@@ -31,6 +26,16 @@ resource "github_repository" "wcag-statistieken" {
   lifecycle {
     prevent_destroy = true
   }
+}
+
+resource "github_repository_pages" "wcag-statistieken" {
+  repository = github_repository.wcag-statistieken.name
+  build_type = "workflow"
+}
+
+resource "github_repository_vulnerability_alerts" "wcag-statistieken" {
+  repository = github_repository.wcag-statistieken.name
+  enabled    = true
 }
 
 resource "github_branch_default" "wcag-statistieken" {

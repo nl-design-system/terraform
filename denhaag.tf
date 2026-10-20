@@ -8,15 +8,11 @@ resource "github_repository" "denhaag" {
   has_issues                  = true
   has_projects                = true
   has_wiki                    = false
-  vulnerability_alerts        = true
   homepage_url                = "https://nl-design-system.github.io/denhaag/"
   squash_merge_commit_title   = "PR_TITLE"
   squash_merge_commit_message = "PR_BODY"
   topics                      = ["nl-design-system", "storybook", "react", "component-library"]
 
-  pages {
-    build_type = "workflow"
-  }
 
   security_and_analysis {
     secret_scanning {
@@ -30,6 +26,16 @@ resource "github_repository" "denhaag" {
   lifecycle {
     prevent_destroy = true
   }
+}
+
+resource "github_repository_pages" "denhaag" {
+  repository = github_repository.denhaag.name
+  build_type = "workflow"
+}
+
+resource "github_repository_vulnerability_alerts" "denhaag" {
+  repository = github_repository.denhaag.name
+  enabled    = true
 }
 
 resource "github_branch_default" "denhaag" {
