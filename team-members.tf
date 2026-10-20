@@ -1,5 +1,5 @@
 resource "github_team_members" "frameless" {
-  team_id = github_team.frameless.id
+  team_slug = github_team.frameless.slug
 
   # Last checked by frameless-maintainer: 2026-06-26
   members {
@@ -24,7 +24,7 @@ resource "github_team_members" "frameless" {
 }
 
 resource "github_team_members" "frameless-maintainer" {
-  team_id = github_team.frameless-maintainer.id
+  team_slug = github_team.frameless-maintainer.slug
 
   # Disable Yolijn and Robbert from Frameless maintainer team,
   # while they have conflicting roles with more permissions in nl-design-system/kernteam.
@@ -45,7 +45,7 @@ resource "github_team_members" "frameless-maintainer" {
 }
 
 resource "github_team_members" "kernteam-committer" {
-  team_id = github_team.kernteam-committer.id
+  team_slug = github_team.kernteam-committer.slug
 
   # Last checked by kernteam-maintainer: 2026-07-01
   members {
@@ -123,7 +123,7 @@ resource "github_team_members" "kernteam-committer" {
 }
 
 resource "github_team_members" "kernteam-maintainer" {
-  team_id = github_team.kernteam-maintainer.id
+  team_slug = github_team.kernteam-maintainer.slug
 
   # Last checked by kernteam-maintainer: 2026-07-01
   members {
@@ -156,7 +156,7 @@ resource "github_team_members" "kernteam-maintainer" {
 }
 
 resource "github_team_members" "kernteam-admin" {
-  team_id = github_team.kernteam-admin.id
+  team_slug = github_team.kernteam-admin.slug
 
   members {
     username = data.github_user.Robbert.username
@@ -182,7 +182,7 @@ resource "github_team_members" "kernteam-admin" {
 }
 
 resource "github_team_members" "kernteam-triage" {
-  team_id = github_team.kernteam-triage.id
+  team_slug = github_team.kernteam-triage.slug
 
   members {
     username = data.github_user.Robbert.username
@@ -226,7 +226,7 @@ resource "github_team_members" "kernteam-triage" {
 }
 
 resource "github_team_members" "kernteam-ci" {
-  team_id = github_team.kernteam-ci.id
+  team_slug = github_team.kernteam-ci.slug
 
   members {
     username = data.github_user.nl-design-system-ci.username
@@ -236,7 +236,7 @@ resource "github_team_members" "kernteam-ci" {
 }
 
 resource "github_team_members" "kernteam-a11y" {
-  team_id = github_team.kernteam-a11y.id
+  team_slug = github_team.kernteam-a11y.slug
 
   members {
     username = data.github_user.RenateRoke.username
@@ -250,7 +250,7 @@ resource "github_team_members" "kernteam-a11y" {
 }
 
 resource "github_team_members" "kernteam-design" {
-  team_id = github_team.kernteam-design.id
+  team_slug = github_team.kernteam-design.slug
 
   members {
     username = data.github_user.jeffreylauwers.username
@@ -262,7 +262,7 @@ resource "github_team_members" "kernteam-design" {
 }
 
 resource "github_team_members" "logius-triage" {
-  team_id = github_team.logius-triage.id
+  team_slug = github_team.logius-triage.slug
 
   members {
     username = data.github_user.AlineNap.username
@@ -270,7 +270,7 @@ resource "github_team_members" "logius-triage" {
 }
 
 resource "github_team_members" "logius-committer" {
-  team_id = github_team.logius-committer.id
+  team_slug = github_team.logius-committer.slug
 
   members {
     username = data.github_user.AlineNap.username
@@ -382,7 +382,7 @@ resource "github_team_members" "logius-committer" {
 }
 
 resource "github_team_members" "logius-maintainer" {
-  team_id = github_team.logius-maintainer.id
+  team_slug = github_team.logius-maintainer.slug
 
   members {
     username = data.github_user.cascassette.username
@@ -406,7 +406,7 @@ resource "github_team_members" "logius-maintainer" {
 }
 
 resource "github_team_members" "gebruikersonderzoeken" {
-  team_id = github_team.gebruikersonderzoeken.id
+  team_slug = github_team.gebruikersonderzoeken.slug
 
   members {
     username = data.github_user.JeroenduC.username
@@ -414,7 +414,7 @@ resource "github_team_members" "gebruikersonderzoeken" {
 }
 
 resource "github_team_members" "tilburg-acato-committer" {
-  team_id = github_team.tilburg-acato-committer.id
+  team_slug = github_team.tilburg-acato-committer.slug
 
   members {
     username = data.github_user.joostacato.username
@@ -430,7 +430,7 @@ resource "github_team_members" "tilburg-acato-committer" {
 }
 
 resource "github_team_members" "gemeente-den-haag-maintainer" {
-  team_id = github_team.gemeente-den-haag-maintainer.id
+  team_slug = github_team.gemeente-den-haag-maintainer.slug
 
   members {
     username = data.github_user.Borai.username
@@ -442,7 +442,7 @@ resource "github_team_members" "gemeente-den-haag-maintainer" {
 }
 
 resource "github_team_members" "gemeente-den-haag-committer" {
-  team_id = github_team.gemeente-den-haag-committer.id
+  team_slug = github_team.gemeente-den-haag-committer.slug
 
   members {
     username = data.github_user.flinden68.username
@@ -450,7 +450,7 @@ resource "github_team_members" "gemeente-den-haag-committer" {
 }
 
 resource "github_team_members" "gemeente-denhaag-acato-committer" {
-  team_id = github_team.gemeente-denhaag-acato-committer.id
+  team_slug = github_team.gemeente-denhaag-acato-committer.slug
 
   members {
     username = data.github_user.paulAcato.username
@@ -478,7 +478,7 @@ resource "github_team_members" "gemeente-denhaag-acato-committer" {
 }
 
 resource "github_team_members" "tilburg-maintainer" {
-  team_id = github_team.tilburg-maintainer.id
+  team_slug = github_team.tilburg-maintainer.slug
 
   members {
     username = data.github_user.banaan666.username
@@ -490,7 +490,7 @@ resource "github_team_members" "tilburg-maintainer" {
 }
 
 resource "github_team_members" "tilburg-acato-maintainer" {
-  team_id = github_team.tilburg-acato-maintainer.id
+  team_slug = github_team.tilburg-acato-maintainer.slug
 
   members {
     username = data.github_user.jorik-acato.username
@@ -498,7 +498,7 @@ resource "github_team_members" "tilburg-acato-maintainer" {
 }
 
 resource "github_team_members" "tilburg-ditp-committer" {
-  team_id = github_team.tilburg-ditp-committer.id
+  team_slug = github_team.tilburg-ditp-committer.slug
 
   members {
     username = data.github_user.hansregeer.username
@@ -522,7 +522,7 @@ resource "github_team_members" "tilburg-ditp-committer" {
 }
 
 resource "github_team_members" "blueriq-committer" {
-  team_id = github_team.blueriq-committer.id
+  team_slug = github_team.blueriq-committer.slug
 
   members {
     username = data.github_user.Margot-UX.username
@@ -530,7 +530,7 @@ resource "github_team_members" "blueriq-committer" {
 }
 
 resource "github_team_members" "blueriq-maintainer" {
-  team_id = github_team.blueriq-maintainer.id
+  team_slug = github_team.blueriq-maintainer.slug
 
   members {
     username = data.github_user.Margot-UX.username
@@ -538,7 +538,7 @@ resource "github_team_members" "blueriq-maintainer" {
 }
 
 resource "github_team_members" "rvo-committer" {
-  team_id = github_team.rvo-committer.id
+  team_slug = github_team.rvo-committer.slug
 
   # Last checked by rvo-maintainer: 2026-04-17
   members {
@@ -620,7 +620,7 @@ resource "github_team_members" "rvo-committer" {
 }
 
 resource "github_team_members" "rvo-maintainer" {
-  team_id = github_team.rvo-maintainer.id
+  team_slug = github_team.rvo-maintainer.slug
 
   # Last checked by rvo-maintainer: 2026-04-17
   members {
@@ -633,7 +633,7 @@ resource "github_team_members" "rvo-maintainer" {
 }
 
 resource "github_team_members" "rvo-estafettemodel" {
-  team_id = github_team.rvo-estafettemodel.id
+  team_slug = github_team.rvo-estafettemodel.slug
 
   # Last checked by rvo-maintainer: 2026-04-17
   members {
@@ -642,7 +642,7 @@ resource "github_team_members" "rvo-estafettemodel" {
 }
 
 resource "github_team_members" "gemeente-utrecht-maintainer" {
-  team_id = github_team.gemeente-utrecht-maintainer.id
+  team_slug = github_team.gemeente-utrecht-maintainer.slug
 
   members {
     username = data.github_user.JeroenduC.username
@@ -658,7 +658,7 @@ resource "github_team_members" "gemeente-utrecht-maintainer" {
 }
 
 resource "github_team_members" "gemeente-utrecht-estafettemodel" {
-  team_id = github_team.gemeente-utrecht-estafettemodel.id
+  team_slug = github_team.gemeente-utrecht-estafettemodel.slug
 
   members {
     username = data.github_user.JeroenduC.username
@@ -670,7 +670,7 @@ resource "github_team_members" "gemeente-utrecht-estafettemodel" {
 }
 
 resource "github_team_members" "gemeente-amsterdam-estafettemodel" {
-  team_id = github_team.gemeente-amsterdam-estafettemodel.id
+  team_slug = github_team.gemeente-amsterdam-estafettemodel.slug
 
   members {
     username = data.github_user.alimpens.username
@@ -690,7 +690,7 @@ resource "github_team_members" "gemeente-amsterdam-estafettemodel" {
 }
 
 resource "github_team_members" "logius-estafettemodel" {
-  team_id = github_team.logius-estafettemodel.id
+  team_slug = github_team.logius-estafettemodel.slug
 
   members {
     username = data.github_user.AlineNap.username
@@ -698,7 +698,7 @@ resource "github_team_members" "logius-estafettemodel" {
 }
 
 resource "github_team_members" "vng-services-committer" {
-  team_id = github_team.vng-services-committer.id
+  team_slug = github_team.vng-services-committer.slug
 
   # Last checked by vng-maintainer: 2026-06-26
   members {
@@ -717,7 +717,7 @@ resource "github_team_members" "vng-services-committer" {
 }
 
 resource "github_team_members" "vng-services-maintainer" {
-  team_id = github_team.vng-services-maintainer.id
+  team_slug = github_team.vng-services-maintainer.slug
 
   # Last checked by kernteam-maintainer: 2026-06-06
   members {
@@ -726,7 +726,7 @@ resource "github_team_members" "vng-services-maintainer" {
 }
 
 resource "github_team_members" "quintor-rijkshuisstijl-committer" {
-  team_id = github_team.quintor-rijkshuisstijl-committer.id
+  team_slug = github_team.quintor-rijkshuisstijl-committer.slug
 
   members {
     username = data.github_user.Ruben-Smit.username
@@ -758,7 +758,7 @@ resource "github_team_members" "quintor-rijkshuisstijl-committer" {
 }
 
 resource "github_team_members" "quintor-rijkshuisstijl-maintainer" {
-  team_id = github_team.quintor-rijkshuisstijl-maintainer.id
+  team_slug = github_team.quintor-rijkshuisstijl-maintainer.slug
 
   members {
     username = data.github_user.Ruben-Smit.username
@@ -770,7 +770,7 @@ resource "github_team_members" "quintor-rijkshuisstijl-maintainer" {
 }
 
 resource "github_team_members" "minjus-rijkshuisstijl-committer" {
-  team_id = github_team.minjus-rijkshuisstijl-committer.id
+  team_slug = github_team.minjus-rijkshuisstijl-committer.slug
 
   members {
     username = data.github_user.michaela-tan.username
@@ -778,7 +778,7 @@ resource "github_team_members" "minjus-rijkshuisstijl-committer" {
 }
 
 resource "github_team_members" "voorbeeld-theme-committer" {
-  team_id = github_team.voorbeeld-theme-committer.id
+  team_slug = github_team.voorbeeld-theme-committer.slug
 
   members {
     username = data.github_user.Dtacato.username
@@ -786,7 +786,7 @@ resource "github_team_members" "voorbeeld-theme-committer" {
 }
 
 resource "github_team_members" "icons-committer" {
-  team_id = github_team.icons-committer.id
+  team_slug = github_team.icons-committer.slug
 
   members {
     username = data.github_user.martijnrietveld.username
@@ -794,7 +794,7 @@ resource "github_team_members" "icons-committer" {
 }
 
 resource "github_team_members" "gemeente-almere-committer" {
-  team_id = github_team.gemeente-almere-committer.id
+  team_slug = github_team.gemeente-almere-committer.slug
 
   members {
     username = data.github_user.catrinairankhah.username
@@ -802,7 +802,7 @@ resource "github_team_members" "gemeente-almere-committer" {
 }
 
 resource "github_team_members" "nora-committer" {
-  team_id = github_team.nora-committer.id
+  team_slug = github_team.nora-committer.slug
 
   members {
     username = data.github_user.RGRMdesign.username
@@ -810,7 +810,7 @@ resource "github_team_members" "nora-committer" {
 }
 
 resource "github_team_members" "tiptap-committer" {
-  team_id = github_team.tiptap-committer.id
+  team_slug = github_team.tiptap-committer.slug
 
   members {
     username = data.github_user.AliKdhim87.username
@@ -826,7 +826,7 @@ resource "github_team_members" "tiptap-committer" {
 }
 
 resource "github_team_members" "rivm-committer" {
-  team_id = github_team.rivm-committer.id
+  team_slug = github_team.rivm-committer.slug
 
   members {
     username = data.github_user.Patricia-de-vos.username
@@ -834,7 +834,7 @@ resource "github_team_members" "rivm-committer" {
 }
 
 resource "github_team_members" "rivm-maintainer" {
-  team_id = github_team.rivm-maintainer.id
+  team_slug = github_team.rivm-maintainer.slug
 
   members {
     username = data.github_user.josvanderzalm.username
@@ -843,7 +843,7 @@ resource "github_team_members" "rivm-maintainer" {
 
 # Last checked by maintainer: 2026-04-14
 resource "github_team_members" "gemeente-rotterdam-triage" {
-  team_id = github_team.gemeente-rotterdam-triage.id
+  team_slug = github_team.gemeente-rotterdam-triage.slug
 
   # Keep at least one placeholder user to keep the team
   members {
@@ -853,7 +853,7 @@ resource "github_team_members" "gemeente-rotterdam-triage" {
 
 # Last checked by maintainer: 2026-04-14
 resource "github_team_members" "gemeente-rotterdam-committer" {
-  team_id = github_team.gemeente-rotterdam-committer.id
+  team_slug = github_team.gemeente-rotterdam-committer.slug
 
   members {
     username = data.github_user.keesvandieren.username
@@ -875,7 +875,7 @@ resource "github_team_members" "gemeente-rotterdam-committer" {
 
 # Last checked by maintainer: 2026-04-14
 resource "github_team_members" "gemeente-rotterdam-maintainer" {
-  team_id = github_team.gemeente-rotterdam-maintainer.id
+  team_slug = github_team.gemeente-rotterdam-maintainer.slug
 
   members {
     username = data.github_user.LeonVanEe.username
@@ -883,7 +883,7 @@ resource "github_team_members" "gemeente-rotterdam-maintainer" {
 }
 
 resource "github_team_members" "gemeente-groningen" {
-  team_id = github_team.gemeente-groningen.id
+  team_slug = github_team.gemeente-groningen.slug
 
   members {
     username = data.github_user.MariekeBrouwer.username
@@ -895,7 +895,7 @@ resource "github_team_members" "gemeente-groningen" {
 }
 
 resource "github_team_members" "gemeente-groningen-maintainer" {
-  team_id = github_team.gemeente-groningen-maintainer.id
+  team_slug = github_team.gemeente-groningen-maintainer.slug
 
   members {
     username = data.github_user.MariekeBrouwer.username
@@ -903,7 +903,7 @@ resource "github_team_members" "gemeente-groningen-maintainer" {
 }
 
 resource "github_team_members" "gemeente-zaanstad" {
-  team_id = github_team.gemeente-zaanstad.id
+  team_slug = github_team.gemeente-zaanstad.slug
 
   members {
     username = data.github_user.Michiel-KeenDesign.username
@@ -911,7 +911,7 @@ resource "github_team_members" "gemeente-zaanstad" {
 }
 
 resource "github_team_members" "keen-design-maintainer" {
-  team_id = github_team.keen-design-maintainer.id
+  team_slug = github_team.keen-design-maintainer.slug
 
   members {
     username = data.github_user.Michiel-KeenDesign.username
@@ -919,7 +919,7 @@ resource "github_team_members" "keen-design-maintainer" {
 }
 
 resource "github_team_members" "community-committer" {
-  team_id = github_team.community-contributor.id
+  team_slug = github_team.community-contributor.slug
 
   # Quintor folks
   members {
@@ -1128,7 +1128,7 @@ resource "github_team_members" "community-committer" {
 }
 
 resource "github_team_members" "expertteam-digitale-toegankelijkheid-triage" {
-  team_id = github_team.expertteam-digitale-toegankelijkheid-triage.id
+  team_slug = github_team.expertteam-digitale-toegankelijkheid-triage.slug
 
   members {
     # organization owners must be "maintainer", see note at https://registry.terraform.io/providers/integrations/github/latest/docs/resources/team_members
@@ -1152,7 +1152,7 @@ resource "github_team_members" "expertteam-digitale-toegankelijkheid-triage" {
 }
 
 resource "github_team_members" "expertteam-digitale-toegankelijkheid-committer" {
-  team_id = github_team.expertteam-digitale-toegankelijkheid-committer.id
+  team_slug = github_team.expertteam-digitale-toegankelijkheid-committer.slug
 
   members {
     # organization owners must be "maintainer", see note at https://registry.terraform.io/providers/integrations/github/latest/docs/resources/team_members
@@ -1189,7 +1189,7 @@ resource "github_team_members" "expertteam-digitale-toegankelijkheid-committer" 
 }
 
 resource "github_team_members" "expertteam-digitale-toegankelijkheid-maintainer" {
-  team_id = github_team.expertteam-digitale-toegankelijkheid-maintainer.id
+  team_slug = github_team.expertteam-digitale-toegankelijkheid-maintainer.slug
 
   members {
     # organization owners must be "maintainer", see note at https://registry.terraform.io/providers/integrations/github/latest/docs/resources/team_members
@@ -1206,7 +1206,7 @@ resource "github_team_members" "expertteam-digitale-toegankelijkheid-maintainer"
 }
 
 resource "github_team_members" "expertteam-digitale-toegankelijkheid-infra" {
-  team_id = github_team.expertteam-digitale-toegankelijkheid-infra.id
+  team_slug = github_team.expertteam-digitale-toegankelijkheid-infra.slug
 
   members {
     username = data.github_user.bartjkdp.username
@@ -1222,7 +1222,7 @@ resource "github_team_members" "expertteam-digitale-toegankelijkheid-infra" {
 }
 
 resource "github_team_members" "developer_overheid_nl-committer" {
-  team_id = github_team.developer_overheid_nl-committer.id
+  team_slug = github_team.developer_overheid_nl-committer.slug
 
   members {
     username = data.github_user.MrSkippy.username
@@ -1234,7 +1234,7 @@ resource "github_team_members" "developer_overheid_nl-committer" {
 }
 
 resource "github_team_members" "developer_overheid_nl-maintainer" {
-  team_id = github_team.developer_overheid_nl-maintainer.id
+  team_slug = github_team.developer_overheid_nl-maintainer.slug
 
   members {
     username = data.github_user.dvh.username
@@ -1243,7 +1243,7 @@ resource "github_team_members" "developer_overheid_nl-maintainer" {
 }
 
 resource "github_team_members" "gemeente-voorne-aan-zee" {
-  team_id = github_team.gemeente-voorne-aan-zee.id
+  team_slug = github_team.gemeente-voorne-aan-zee.slug
 
   members {
     username = data.github_user.erikhendrikxaserio.username
@@ -1251,7 +1251,7 @@ resource "github_team_members" "gemeente-voorne-aan-zee" {
 }
 
 resource "github_team_members" "gemeente-voorne-aan-zee-aserio-maintainer" {
-  team_id = github_team.gemeente-voorne-aan-zee-aserio-maintainer.id
+  team_slug = github_team.gemeente-voorne-aan-zee-aserio-maintainer.slug
 
   members {
     username = data.github_user.erikhendrikxaserio.username
@@ -1259,7 +1259,7 @@ resource "github_team_members" "gemeente-voorne-aan-zee-aserio-maintainer" {
 }
 
 resource "github_team_members" "logius-ux-admin" {
-  team_id = github_team.logius-ux-admin.id
+  team_slug = github_team.logius-ux-admin.slug
 
   members {
     username = data.github_user.KimRoest.username
@@ -1271,7 +1271,7 @@ resource "github_team_members" "logius-ux-admin" {
 }
 
 resource "github_team_members" "logius-ux-maintainer" {
-  team_id = github_team.logius-ux-maintainer.id
+  team_slug = github_team.logius-ux-maintainer.slug
 
   members {
     username = data.github_user.KimRoest.username
@@ -1300,7 +1300,7 @@ resource "github_team_members" "logius-ux-maintainer" {
 
 # Last checked by kernteam-maintainer: 2026-09-25
 resource "github_team_members" "logius-ux-committer" {
-  team_id = github_team.logius-ux-committer.id
+  team_slug = github_team.logius-ux-committer.slug
 
   members {
     username = data.github_user.KimRoest.username
@@ -1336,7 +1336,7 @@ resource "github_team_members" "logius-ux-committer" {
 }
 
 resource "github_team_members" "gemeente-enschede" {
-  team_id = github_team.gemeente-enschede.id
+  team_slug = github_team.gemeente-enschede.slug
 
   members {
     username = data.github_user.Patrick9650.username
@@ -1344,7 +1344,7 @@ resource "github_team_members" "gemeente-enschede" {
 }
 
 resource "github_team_members" "gemeente-enschede-maintainer" {
-  team_id = github_team.gemeente-enschede-maintainer.id
+  team_slug = github_team.gemeente-enschede-maintainer.slug
 
   members {
     username = data.github_user.Patrick9650.username
@@ -1352,7 +1352,7 @@ resource "github_team_members" "gemeente-enschede-maintainer" {
 }
 
 resource "github_team_members" "gemeente-losser" {
-  team_id = github_team.gemeente-losser.id
+  team_slug = github_team.gemeente-losser.slug
 
   members {
     username = data.github_user.Patrick9650.username
@@ -1360,7 +1360,7 @@ resource "github_team_members" "gemeente-losser" {
 }
 
 resource "github_team_members" "gemeente-losser-maintainer" {
-  team_id = github_team.gemeente-losser-maintainer.id
+  team_slug = github_team.gemeente-losser-maintainer.slug
 
   members {
     username = data.github_user.Patrick9650.username
