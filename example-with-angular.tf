@@ -9,7 +9,6 @@ resource "github_repository" "example-with-angular" {
   has_issues                  = true
   has_projects                = false
   has_wiki                    = false
-  vulnerability_alerts        = true
   homepage_url                = "http://nl-design-system.github.io/example-with-angular/"
   squash_merge_commit_title   = "PR_TITLE"
   squash_merge_commit_message = "PR_BODY"
@@ -24,13 +23,20 @@ resource "github_repository" "example-with-angular" {
     }
   }
 
-  pages {
-    build_type = "workflow"
-  }
 
   lifecycle {
     prevent_destroy = true
   }
+}
+
+resource "github_repository_pages" "example-with-angular" {
+  repository = github_repository.example-with-angular.name
+  build_type = "workflow"
+}
+
+resource "github_repository_vulnerability_alerts" "example-with-angular" {
+  repository = github_repository.example-with-angular.name
+  enabled    = true
 }
 
 resource "github_branch_default" "example-with-angular" {

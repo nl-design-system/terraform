@@ -9,7 +9,6 @@ resource "github_repository" "hall-of-fame" {
   has_issues                  = true
   has_projects                = false
   has_wiki                    = false
-  vulnerability_alerts        = true
   homepage_url                = "https://nl-design-system.github.io/hall-of-fame/"
   squash_merge_commit_title   = "PR_TITLE"
   squash_merge_commit_message = "PR_BODY"
@@ -22,9 +21,6 @@ resource "github_repository" "hall-of-fame" {
     include_all_branches = false
   }
 
-  pages {
-    build_type = "workflow"
-  }
 
   security_and_analysis {
     secret_scanning {
@@ -38,6 +34,16 @@ resource "github_repository" "hall-of-fame" {
   lifecycle {
     prevent_destroy = true
   }
+}
+
+resource "github_repository_pages" "hall-of-fame" {
+  repository = github_repository.hall-of-fame.name
+  build_type = "workflow"
+}
+
+resource "github_repository_vulnerability_alerts" "hall-of-fame" {
+  repository = github_repository.hall-of-fame.name
+  enabled    = true
 }
 
 resource "github_branch_default" "hall-of-fame" {

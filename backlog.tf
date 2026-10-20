@@ -10,7 +10,6 @@ resource "github_repository" "backlog" {
   has_projects                = true
   has_wiki                    = false
   has_discussions             = true
-  vulnerability_alerts        = true
   squash_merge_commit_title   = "PR_TITLE"
   squash_merge_commit_message = "PR_BODY"
   topics                      = ["nl-design-system"]
@@ -27,6 +26,11 @@ resource "github_repository" "backlog" {
   lifecycle {
     prevent_destroy = true
   }
+}
+
+resource "github_repository_vulnerability_alerts" "backlog" {
+  repository = github_repository.backlog.name
+  enabled    = true
 }
 
 resource "github_branch_default" "backlog" {

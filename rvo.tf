@@ -9,7 +9,6 @@ resource "github_repository" "rvo" {
   has_issues                  = true
   has_projects                = false
   has_wiki                    = false
-  vulnerability_alerts        = true
   homepage_url                = "https://rvo.nl/roos/"
   squash_merge_commit_title   = "COMMIT_OR_PR_TITLE"
   squash_merge_commit_message = "COMMIT_MESSAGES"
@@ -21,9 +20,6 @@ resource "github_repository" "rvo" {
     repository           = "example"
   }
 
-  pages {
-    build_type = "workflow"
-  }
 
   lifecycle {
     prevent_destroy = true
@@ -37,6 +33,16 @@ resource "github_repository" "rvo" {
       status = "enabled"
     }
   }
+}
+
+resource "github_repository_pages" "rvo" {
+  repository = github_repository.rvo.name
+  build_type = "workflow"
+}
+
+resource "github_repository_vulnerability_alerts" "rvo" {
+  repository = github_repository.rvo.name
+  enabled    = true
 }
 
 resource "github_branch_default" "rvo" {

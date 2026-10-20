@@ -10,7 +10,6 @@ resource "github_repository" "theme-wizard" {
   has_projects                = true
   has_wiki                    = false
   has_discussions             = true
-  vulnerability_alerts        = true
   homepage_url                = "https://theme-wizard.nl-design-system-community.nl/"
   squash_merge_commit_title   = "PR_TITLE"
   squash_merge_commit_message = "PR_BODY"
@@ -34,6 +33,11 @@ resource "github_repository" "theme-wizard" {
   lifecycle {
     prevent_destroy = true
   }
+}
+
+resource "github_repository_vulnerability_alerts" "theme-wizard" {
+  repository = github_repository.theme-wizard.name
+  enabled    = true
 }
 
 resource "github_branch_default" "theme-wizard" {

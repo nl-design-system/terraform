@@ -9,7 +9,6 @@ resource "github_repository" "candidate" {
   has_issues                  = true
   has_projects                = false
   has_wiki                    = false
-  vulnerability_alerts        = true
   homepage_url                = "https://nl-design-system.github.io/candidate/"
   squash_merge_commit_title   = "PR_TITLE"
   squash_merge_commit_message = "PR_BODY"
@@ -21,9 +20,6 @@ resource "github_repository" "candidate" {
     include_all_branches = false
   }
 
-  pages {
-    build_type = "workflow"
-  }
 
   security_and_analysis {
     secret_scanning {
@@ -37,6 +33,16 @@ resource "github_repository" "candidate" {
   lifecycle {
     prevent_destroy = true
   }
+}
+
+resource "github_repository_pages" "candidate" {
+  repository = github_repository.candidate.name
+  build_type = "workflow"
+}
+
+resource "github_repository_vulnerability_alerts" "candidate" {
+  repository = github_repository.candidate.name
+  enabled    = true
 }
 
 resource "github_branch_default" "candidate" {

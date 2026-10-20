@@ -10,7 +10,6 @@ resource "github_repository" "rijkshuisstijl-community" {
   has_issues                  = true
   has_projects                = true
   has_wiki                    = true
-  vulnerability_alerts        = true
   homepage_url                = "https://www.rijkshuisstijl-community.nl/"
   squash_merge_commit_title   = "PR_TITLE"
   squash_merge_commit_message = "PR_BODY"
@@ -20,10 +19,6 @@ resource "github_repository" "rijkshuisstijl-community" {
     include_all_branches = false
     owner                = "nl-design-system"
     repository           = "example"
-  }
-
-  pages {
-    build_type = "workflow"
   }
 
   security_and_analysis {
@@ -38,6 +33,16 @@ resource "github_repository" "rijkshuisstijl-community" {
   lifecycle {
     prevent_destroy = true
   }
+}
+
+resource "github_repository_pages" "rijkshuisstijl-community" {
+  repository = github_repository.rijkshuisstijl-community.name
+  build_type = "workflow"
+}
+
+resource "github_repository_vulnerability_alerts" "rijkshuisstijl-community" {
+  repository = github_repository.rijkshuisstijl-community.name
+  enabled    = true
 }
 
 resource "github_branch_default" "rijkshuisstijl-community" {
