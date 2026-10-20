@@ -39,9 +39,19 @@ resource "github_repository_pages" "themes" {
   build_type = "workflow"
 }
 
+import {
+  to = github_repository_pages.themes
+  id = "themes"
+}
+
 resource "github_repository_vulnerability_alerts" "themes" {
   repository = github_repository.themes.name
   enabled    = true
+}
+
+import {
+  to = github_repository_vulnerability_alerts.themes
+  id = "themes"
 }
 
 resource "github_branch_default" "themes" {

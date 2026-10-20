@@ -40,6 +40,11 @@ resource "github_repository_vulnerability_alerts" "theme-wizard" {
   enabled    = true
 }
 
+import {
+  to = github_repository_vulnerability_alerts.theme-wizard
+  id = "theme-wizard"
+}
+
 resource "github_branch_default" "theme-wizard" {
   branch     = "main"
   repository = github_repository.theme-wizard.name
@@ -197,7 +202,6 @@ resource "vercel_project" "theme-wizard" {
   root_directory          = "packages/theme-wizard-website/"
   enable_preview_feedback = false
 
-
   git_repository = {
     type = "github"
     repo = github_repository.theme-wizard.full_name
@@ -224,7 +228,6 @@ resource "vercel_project" "theme-wizard-server" {
   automatically_expose_system_environment_variables = true
   root_directory                                    = "packages/theme-wizard-server/"
   enable_preview_feedback                           = false
-
 
   git_repository = {
     type = "github"

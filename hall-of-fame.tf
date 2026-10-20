@@ -14,13 +14,11 @@ resource "github_repository" "hall-of-fame" {
   squash_merge_commit_message = "PR_BODY"
   topics                      = ["nl-design-system", "storybook"]
 
-
   template {
     owner                = "nl-design-system"
     repository           = "example"
     include_all_branches = false
   }
-
 
   security_and_analysis {
     secret_scanning {
@@ -41,9 +39,19 @@ resource "github_repository_pages" "hall-of-fame" {
   build_type = "workflow"
 }
 
+import {
+  to = github_repository_pages.hall-of-fame
+  id = "hall-of-fame"
+}
+
 resource "github_repository_vulnerability_alerts" "hall-of-fame" {
   repository = github_repository.hall-of-fame.name
   enabled    = true
+}
+
+import {
+  to = github_repository_vulnerability_alerts.hall-of-fame
+  id = "hall-of-fame"
 }
 
 resource "github_branch_default" "hall-of-fame" {
