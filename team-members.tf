@@ -1125,6 +1125,12 @@ resource "github_team_members" "community-committer" {
     # Maykin working on Den Haag, Themes and Mijn Services
     username = data.github_user.stefrado.username
   }
+
+  # Last checked by @Robbert: 2026-10-21
+  members {
+    # RVO contributor
+    username = data.github_user.hdoedens.username
+  }
 }
 
 resource "github_team_members" "expertteam-digitale-toegankelijkheid-triage" {
