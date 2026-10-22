@@ -10,7 +10,6 @@ resource "github_repository" "example" {
   has_issues                  = true
   has_projects                = false
   has_wiki                    = false
-  vulnerability_alerts        = true
   homepage_url                = "https://nl-design-system.github.io/example/"
   squash_merge_commit_title   = "PR_TITLE"
   squash_merge_commit_message = "PR_BODY"
@@ -25,13 +24,29 @@ resource "github_repository" "example" {
     }
   }
 
-  pages {
-    build_type = "workflow"
-  }
-
   lifecycle {
     prevent_destroy = true
   }
+}
+
+resource "github_repository_pages" "example" {
+  repository = github_repository.example.name
+  build_type = "workflow"
+}
+
+import {
+  to = github_repository_pages.example
+  id = "example"
+}
+
+resource "github_repository_vulnerability_alerts" "example" {
+  repository = github_repository.example.name
+  enabled    = true
+}
+
+import {
+  to = github_repository_vulnerability_alerts.example
+  id = "example"
 }
 
 resource "github_branch_default" "example" {

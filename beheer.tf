@@ -10,7 +10,6 @@ resource "github_repository" "beheer" {
   has_projects                = true
   has_wiki                    = false
   has_discussions             = true
-  vulnerability_alerts        = true
   squash_merge_commit_title   = "PR_TITLE"
   squash_merge_commit_message = "PR_BODY"
   topics                      = ["nl-design-system"]
@@ -27,6 +26,16 @@ resource "github_repository" "beheer" {
   lifecycle {
     prevent_destroy = true
   }
+}
+
+resource "github_repository_vulnerability_alerts" "beheer" {
+  repository = github_repository.beheer.name
+  enabled    = true
+}
+
+import {
+  to = github_repository_vulnerability_alerts.beheer
+  id = "beheer"
 }
 
 resource "github_branch_default" "beheer" {

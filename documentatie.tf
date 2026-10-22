@@ -10,18 +10,10 @@ resource "github_repository" "documentatie" {
   has_projects                = true
   has_wiki                    = false
   has_discussions             = true
-  vulnerability_alerts        = true
   homepage_url                = "https://www.nldesignsystem.nl/"
   squash_merge_commit_title   = "PR_TITLE"
   squash_merge_commit_message = "PR_BODY"
   topics                      = ["nl-design-system", "website"]
-
-  pages {
-    source {
-      branch = "gh-pages"
-      path   = "/"
-    }
-  }
 
   security_and_analysis {
     secret_scanning {
@@ -35,6 +27,30 @@ resource "github_repository" "documentatie" {
   lifecycle {
     prevent_destroy = true
   }
+}
+
+resource "github_repository_pages" "documentatie" {
+  repository = github_repository.documentatie.name
+  build_type = "legacy"
+  source {
+    branch = "gh-pages"
+    path   = "/"
+  }
+}
+
+import {
+  to = github_repository_pages.documentatie
+  id = "documentatie"
+}
+
+resource "github_repository_vulnerability_alerts" "documentatie" {
+  repository = github_repository.documentatie.name
+  enabled    = true
+}
+
+import {
+  to = github_repository_vulnerability_alerts.documentatie
+  id = "documentatie"
 }
 
 resource "github_branch_default" "documentatie" {

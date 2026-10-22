@@ -10,7 +10,6 @@ resource "github_repository" "gebruikersonderzoeken" {
   has_projects                = true
   has_wiki                    = false
   has_discussions             = true
-  vulnerability_alerts        = true
   homepage_url                = "https://gebruikersonderzoeken.nl/"
   squash_merge_commit_title   = "PR_TITLE"
   squash_merge_commit_message = "PR_BODY"
@@ -20,11 +19,6 @@ resource "github_repository" "gebruikersonderzoeken" {
     include_all_branches = false
     owner                = "nl-design-system"
     repository           = "example"
-  }
-
-  pages {
-    build_type = "workflow"
-    cname      = "gebruikersonderzoeken.nl"
   }
 
   security_and_analysis {
@@ -39,6 +33,27 @@ resource "github_repository" "gebruikersonderzoeken" {
   lifecycle {
     prevent_destroy = true
   }
+}
+
+resource "github_repository_pages" "gebruikersonderzoeken" {
+  repository = github_repository.gebruikersonderzoeken.name
+  build_type = "workflow"
+  cname      = "gebruikersonderzoeken.nl"
+}
+
+import {
+  to = github_repository_pages.gebruikersonderzoeken
+  id = "gebruikersonderzoeken"
+}
+
+resource "github_repository_vulnerability_alerts" "gebruikersonderzoeken" {
+  repository = github_repository.gebruikersonderzoeken.name
+  enabled    = true
+}
+
+import {
+  to = github_repository_vulnerability_alerts.gebruikersonderzoeken
+  id = "gebruikersonderzoeken"
 }
 
 resource "github_branch_default" "gebruikersonderzoeken" {
