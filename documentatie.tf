@@ -285,11 +285,11 @@ import {
   id = "prj_DjlWyhwNElZu2MqbAbRzN2AJUdl1"
 }
 
-resource "vercel_project_environment_variable" "documentatie-next-vercel-force-no-build-cache" {
-  project_id = vercel_project.documentatie-next.id
+resource "vercel_project_environment_variable" "documentatie-vercel-force-no-build-cache" {
+  project_id = vercel_project.documentatie.id
   key        = "VERCEL_FORCE_NO_BUILD_CACHE"
   value      = "1"
   target     = ["production", "preview"]
   sensitive  = false
-  comment    = "See documentatie#4067"
+  comment    = "See: https://github.com/nl-design-system/documentatie/issues/4067"
 }
