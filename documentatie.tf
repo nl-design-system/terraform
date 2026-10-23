@@ -285,27 +285,6 @@ import {
   id = "prj_DjlWyhwNElZu2MqbAbRzN2AJUdl1"
 }
 
-resource "vercel_project" "documentatie-next" {
-  name                    = "documentatie-next"
-  node_version            = "24.x"
-  root_directory          = "packages/website/"
-  enable_preview_feedback = false
-
-  # Skipping deployment for static file branches must be configured at the
-  # project level instead of vercel.json, because vercel.json does not exist in
-  # those branches.
-  ignore_command = "[[ \"$VERCEL_GIT_COMMIT_REF\" == \"gh-pages\" || \"$VERCEL_GIT_COMMIT_REF\" == \"assets\" ]]"
-
-  git_repository = {
-    type = "github"
-    repo = github_repository.documentatie.full_name
-  }
-
-  vercel_authentication = {
-    deployment_type = "none"
-  }
-}
-
 resource "vercel_project_environment_variable" "documentatie-next-vercel-force-no-build-cache" {
   project_id = vercel_project.documentatie-next.id
   key        = "VERCEL_FORCE_NO_BUILD_CACHE"
