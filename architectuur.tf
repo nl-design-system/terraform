@@ -9,15 +9,10 @@ resource "github_repository" "architectuur" {
   has_issues                  = true
   has_projects                = false
   has_wiki                    = false
-  vulnerability_alerts        = true
   homepage_url                = "https://nl-design-system.github.io/architectuur/"
   squash_merge_commit_title   = "PR_TITLE"
   squash_merge_commit_message = "PR_BODY"
   topics                      = ["nl-design-system"]
-
-  pages {
-    build_type = "workflow"
-  }
 
   security_and_analysis {
     secret_scanning {
@@ -31,6 +26,26 @@ resource "github_repository" "architectuur" {
   lifecycle {
     prevent_destroy = true
   }
+}
+
+resource "github_repository_pages" "architectuur" {
+  repository = github_repository.architectuur.name
+  build_type = "workflow"
+}
+
+import {
+  to = github_repository_pages.architectuur
+  id = "architectuur"
+}
+
+resource "github_repository_vulnerability_alerts" "architectuur" {
+  repository = github_repository.architectuur.name
+  enabled    = true
+}
+
+import {
+  to = github_repository_vulnerability_alerts.architectuur
+  id = "architectuur"
 }
 
 resource "github_branch_default" "architectuur" {

@@ -9,7 +9,6 @@ resource "github_repository" "utrecht" {
   has_issues                  = true
   has_projects                = true
   has_wiki                    = false
-  vulnerability_alerts        = true
   homepage_url                = "https://nl-design-system.github.io/utrecht/"
   squash_merge_commit_title   = "PR_TITLE"
   squash_merge_commit_message = "PR_BODY"
@@ -19,10 +18,6 @@ resource "github_repository" "utrecht" {
     include_all_branches = false
     owner                = "nl-design-system"
     repository           = "example"
-  }
-
-  pages {
-    build_type = "workflow"
   }
 
   security_and_analysis {
@@ -37,6 +32,26 @@ resource "github_repository" "utrecht" {
   lifecycle {
     prevent_destroy = true
   }
+}
+
+resource "github_repository_pages" "utrecht" {
+  repository = github_repository.utrecht.name
+  build_type = "workflow"
+}
+
+import {
+  to = github_repository_pages.utrecht
+  id = "utrecht"
+}
+
+resource "github_repository_vulnerability_alerts" "utrecht" {
+  repository = github_repository.utrecht.name
+  enabled    = true
+}
+
+import {
+  to = github_repository_vulnerability_alerts.utrecht
+  id = "utrecht"
 }
 
 resource "github_branch_default" "utrecht" {
@@ -82,7 +97,6 @@ resource "github_repository_ruleset" "utrecht-main" {
 
     required_status_checks {
       strict_required_status_checks_policy = false
-
 
       required_check {
         context = "build"
