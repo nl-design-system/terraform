@@ -1043,6 +1043,12 @@ resource "github_team_members" "community-committer" {
     username = data.github_user.ermenm.username
   }
 
+  # Expertteam prospect
+
+  members {
+    username = data.github_user.YmkeVerschuren.username
+  }
+
   # Leiden folks
   members {
     username = data.github_user.LeidscheJurgen.username
