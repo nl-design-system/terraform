@@ -1131,6 +1131,12 @@ resource "github_team_members" "community-committer" {
     # RVO contributor
     username = data.github_user.hdoedens.username
   }
+
+  # Last checked by @Robbert: 2026-10-26
+  members {
+    # Open source contributor
+    username = data.github_user.boonstraworks.username
+  }
 }
 
 resource "github_team_members" "expertteam-digitale-toegankelijkheid-triage" {
