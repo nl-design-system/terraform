@@ -10,7 +10,6 @@ resource "github_repository" "theme-wizard" {
   has_projects                = true
   has_wiki                    = false
   has_discussions             = true
-  vulnerability_alerts        = true
   homepage_url                = "https://theme-wizard.nl-design-system-community.nl/"
   squash_merge_commit_title   = "PR_TITLE"
   squash_merge_commit_message = "PR_BODY"
@@ -34,6 +33,16 @@ resource "github_repository" "theme-wizard" {
   lifecycle {
     prevent_destroy = true
   }
+}
+
+resource "github_repository_vulnerability_alerts" "theme-wizard" {
+  repository = github_repository.theme-wizard.name
+  enabled    = true
+}
+
+import {
+  to = github_repository_vulnerability_alerts.theme-wizard
+  id = "theme-wizard"
 }
 
 resource "github_branch_default" "theme-wizard" {
@@ -193,7 +202,6 @@ resource "vercel_project" "theme-wizard" {
   root_directory          = "packages/theme-wizard-website/"
   enable_preview_feedback = false
 
-
   git_repository = {
     type = "github"
     repo = github_repository.theme-wizard.full_name
@@ -220,7 +228,6 @@ resource "vercel_project" "theme-wizard-server" {
   automatically_expose_system_environment_variables = true
   root_directory                                    = "packages/theme-wizard-server/"
   enable_preview_feedback                           = false
-
 
   git_repository = {
     type = "github"

@@ -10,7 +10,6 @@ resource "github_repository" "editor" {
   has_projects                = true
   has_wiki                    = false
   has_discussions             = true
-  vulnerability_alerts        = true
   homepage_url                = "https://editor.nl-design-system-community.nl/"
   squash_merge_commit_title   = "PR_TITLE"
   squash_merge_commit_message = "PR_BODY"
@@ -34,6 +33,16 @@ resource "github_repository" "editor" {
   lifecycle {
     prevent_destroy = true
   }
+}
+
+resource "github_repository_vulnerability_alerts" "editor" {
+  repository = github_repository.editor.name
+  enabled    = true
+}
+
+import {
+  to = github_repository_vulnerability_alerts.editor
+  id = "editor"
 }
 
 resource "github_branch_default" "editor" {

@@ -9,7 +9,6 @@ resource "github_repository" "nlds-community-blocks" {
   has_issues                  = true
   has_projects                = false
   has_wiki                    = false
-  vulnerability_alerts        = true
   squash_merge_commit_title   = "PR_TITLE"
   squash_merge_commit_message = "PR_BODY"
   topics                      = ["nl-design-system", "wordpress", "wordpress-plugin"]
@@ -19,6 +18,16 @@ resource "github_repository" "nlds-community-blocks" {
   lifecycle {
     prevent_destroy = false
   }
+}
+
+resource "github_repository_vulnerability_alerts" "nlds-community-blocks" {
+  repository = github_repository.nlds-community-blocks.name
+  enabled    = true
+}
+
+import {
+  to = github_repository_vulnerability_alerts.nlds-community-blocks
+  id = "nlds-community-blocks"
 }
 
 resource "github_branch_default" "nlds-community-blocks" {

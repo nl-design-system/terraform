@@ -10,7 +10,6 @@ resource "github_repository" "lux" {
   has_issues                  = true
   has_projects                = true
   has_wiki                    = false
-  vulnerability_alerts        = true
   homepage_url                = "https://nl-design-system.github.io/lux/"
   squash_merge_commit_title   = "PR_TITLE"
   squash_merge_commit_message = "PR_BODY"
@@ -20,10 +19,6 @@ resource "github_repository" "lux" {
     include_all_branches = false
     owner                = "nl-design-system"
     repository           = "example"
-  }
-
-  pages {
-    build_type = "workflow"
   }
 
   security_and_analysis {
@@ -38,6 +33,26 @@ resource "github_repository" "lux" {
   lifecycle {
     prevent_destroy = true
   }
+}
+
+resource "github_repository_pages" "lux" {
+  repository = github_repository.lux.name
+  build_type = "workflow"
+}
+
+import {
+  to = github_repository_pages.lux
+  id = "lux"
+}
+
+resource "github_repository_vulnerability_alerts" "lux" {
+  repository = github_repository.lux.name
+  enabled    = true
+}
+
+import {
+  to = github_repository_vulnerability_alerts.lux
+  id = "lux"
 }
 
 resource "github_branch_default" "lux" {

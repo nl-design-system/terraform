@@ -9,7 +9,6 @@ resource "github_repository" "basis" {
   has_issues                  = true
   has_projects                = false
   has_wiki                    = false
-  vulnerability_alerts        = true
   homepage_url                = "https://nl-design-system.github.io/basis/"
   squash_merge_commit_title   = "PR_TITLE"
   squash_merge_commit_message = "PR_BODY"
@@ -33,6 +32,16 @@ resource "github_repository" "basis" {
   lifecycle {
     prevent_destroy = true
   }
+}
+
+resource "github_repository_vulnerability_alerts" "basis" {
+  repository = github_repository.basis.name
+  enabled    = true
+}
+
+import {
+  to = github_repository_vulnerability_alerts.basis
+  id = "basis"
 }
 
 resource "github_branch_default" "basis" {

@@ -9,7 +9,6 @@ resource "github_repository" "rotterdam" {
   has_issues                  = true
   has_projects                = true
   has_wiki                    = false
-  vulnerability_alerts        = true
   homepage_url                = "https://nl-design-system.github.io/rotterdam/"
   squash_merge_commit_title   = "PR_TITLE"
   squash_merge_commit_message = "PR_BODY"
@@ -19,10 +18,6 @@ resource "github_repository" "rotterdam" {
     include_all_branches = false
     owner                = "nl-design-system"
     repository           = "example"
-  }
-
-  pages {
-    build_type = "workflow"
   }
 
   security_and_analysis {
@@ -37,6 +32,26 @@ resource "github_repository" "rotterdam" {
   lifecycle {
     prevent_destroy = true
   }
+}
+
+resource "github_repository_pages" "rotterdam" {
+  repository = github_repository.rotterdam.name
+  build_type = "workflow"
+}
+
+import {
+  to = github_repository_pages.rotterdam
+  id = "rotterdam"
+}
+
+resource "github_repository_vulnerability_alerts" "rotterdam" {
+  repository = github_repository.rotterdam.name
+  enabled    = true
+}
+
+import {
+  to = github_repository_vulnerability_alerts.rotterdam
+  id = "rotterdam"
 }
 
 resource "github_branch_default" "rotterdam" {

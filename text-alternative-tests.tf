@@ -10,7 +10,6 @@ resource "github_repository" "text-alternative-tests" {
   has_projects                = true
   has_wiki                    = false
   has_discussions             = true
-  vulnerability_alerts        = true
   homepage_url                = "https://editor.nl-design-system-community.nl/alt-tekst-wizard"
   squash_merge_commit_title   = "PR_TITLE"
   squash_merge_commit_message = "PR_BODY"
@@ -34,6 +33,16 @@ resource "github_repository" "text-alternative-tests" {
   lifecycle {
     prevent_destroy = true
   }
+}
+
+resource "github_repository_vulnerability_alerts" "text-alternative-tests" {
+  repository = github_repository.text-alternative-tests.name
+  enabled    = true
+}
+
+import {
+  to = github_repository_vulnerability_alerts.text-alternative-tests
+  id = "text-alternative-tests"
 }
 
 resource "github_branch_default" "text-alternative-tests" {

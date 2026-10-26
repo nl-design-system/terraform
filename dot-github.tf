@@ -10,7 +10,6 @@ resource "github_repository" "dot-github" {
   has_projects                = false
   has_wiki                    = false
   has_discussions             = true
-  vulnerability_alerts        = true
   squash_merge_commit_title   = "PR_TITLE"
   squash_merge_commit_message = "PR_BODY"
 
@@ -22,7 +21,16 @@ resource "github_repository" "dot-github" {
       status = "enabled"
     }
   }
+}
 
+resource "github_repository_vulnerability_alerts" "dot-github" {
+  repository = github_repository.dot-github.name
+  enabled    = true
+}
+
+import {
+  to = github_repository_vulnerability_alerts.dot-github
+  id = ".github"
 }
 
 resource "github_branch_default" "dot-github" {

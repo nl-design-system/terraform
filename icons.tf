@@ -9,15 +9,10 @@ resource "github_repository" "icons" {
   has_issues                  = true
   has_projects                = true
   has_wiki                    = false
-  vulnerability_alerts        = true
   homepage_url                = "https://nl-design-system.github.io/icons/"
   squash_merge_commit_title   = "PR_TITLE"
   squash_merge_commit_message = "PR_BODY"
   topics                      = ["nl-design-system", "icons"]
-
-  pages {
-    build_type = "workflow"
-  }
 
   template {
     include_all_branches = false
@@ -37,6 +32,26 @@ resource "github_repository" "icons" {
   lifecycle {
     prevent_destroy = true
   }
+}
+
+resource "github_repository_pages" "icons" {
+  repository = github_repository.icons.name
+  build_type = "workflow"
+}
+
+import {
+  to = github_repository_pages.icons
+  id = "icons"
+}
+
+resource "github_repository_vulnerability_alerts" "icons" {
+  repository = github_repository.icons.name
+  enabled    = true
+}
+
+import {
+  to = github_repository_vulnerability_alerts.icons
+  id = "icons"
 }
 
 resource "github_branch_default" "icons" {
