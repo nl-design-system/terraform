@@ -1,6 +1,6 @@
 resource "github_repository" "tilburg" {
   name                        = "tilburg"
-  description                 = "Work in Progress: Tilburg Design System based on the NL Design System architecture."
+  description                 = "Tilburg Design System based on the NL Design System architecture."
   allow_merge_commit          = false
   allow_rebase_merge          = true
   allow_squash_merge          = true
