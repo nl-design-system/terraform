@@ -94,9 +94,6 @@ resource "github_repository_ruleset" "tilburg-main" {
       strict_required_status_checks_policy = false
 
       required_check {
-        context = "install"
-      }
-      required_check {
         context = "lint"
       }
       required_check {
