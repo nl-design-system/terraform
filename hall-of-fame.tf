@@ -31,17 +31,13 @@ resource "github_repository" "hall-of-fame" {
 
   lifecycle {
     prevent_destroy = true
+    ignore_changes  = [pages]
   }
 }
 
 resource "github_repository_pages" "hall-of-fame" {
   repository = github_repository.hall-of-fame.name
   build_type = "workflow"
-}
-
-import {
-  to = github_repository_pages.hall-of-fame
-  id = "hall-of-fame"
 }
 
 resource "github_repository_vulnerability_alerts" "hall-of-fame" {

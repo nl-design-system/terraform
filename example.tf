@@ -26,6 +26,7 @@ resource "github_repository" "example" {
 
   lifecycle {
     prevent_destroy = true
+    ignore_changes  = [pages]
   }
 }
 

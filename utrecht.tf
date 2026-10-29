@@ -31,17 +31,13 @@ resource "github_repository" "utrecht" {
 
   lifecycle {
     prevent_destroy = true
+    ignore_changes  = [pages]
   }
 }
 
 resource "github_repository_pages" "utrecht" {
   repository = github_repository.utrecht.name
   build_type = "workflow"
-}
-
-import {
-  to = github_repository_pages.utrecht
-  id = "utrecht"
 }
 
 resource "github_repository_vulnerability_alerts" "utrecht" {

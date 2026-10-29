@@ -31,6 +31,7 @@ resource "github_repository" "themes" {
 
   lifecycle {
     prevent_destroy = true
+    ignore_changes  = [pages]
   }
 }
 

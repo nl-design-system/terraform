@@ -25,6 +25,7 @@ resource "github_repository" "example-with-angular" {
 
   lifecycle {
     prevent_destroy = true
+    ignore_changes  = [pages]
   }
 }
 

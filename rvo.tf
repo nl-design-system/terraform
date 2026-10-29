@@ -22,6 +22,7 @@ resource "github_repository" "rvo" {
 
   lifecycle {
     prevent_destroy = true
+    ignore_changes  = [pages]
   }
 
   security_and_analysis {

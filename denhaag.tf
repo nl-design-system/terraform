@@ -24,6 +24,7 @@ resource "github_repository" "denhaag" {
 
   lifecycle {
     prevent_destroy = true
+    ignore_changes  = [pages]
   }
 }
 
