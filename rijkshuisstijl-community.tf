@@ -32,6 +32,7 @@ resource "github_repository" "rijkshuisstijl-community" {
 
   lifecycle {
     prevent_destroy = true
+    ignore_changes  = [pages]
   }
 }
 

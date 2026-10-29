@@ -25,6 +25,7 @@ resource "github_repository" "mijn-services" {
 
   lifecycle {
     prevent_destroy = true
+    ignore_changes  = [pages]
   }
 }
 

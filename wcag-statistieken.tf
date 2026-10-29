@@ -25,17 +25,13 @@ resource "github_repository" "wcag-statistieken" {
 
   lifecycle {
     prevent_destroy = true
+    ignore_changes  = [pages]
   }
 }
 
 resource "github_repository_pages" "wcag-statistieken" {
   repository = github_repository.wcag-statistieken.name
   build_type = "workflow"
-}
-
-import {
-  to = github_repository_pages.wcag-statistieken
-  id = "wcag-statistieken"
 }
 
 resource "github_repository_vulnerability_alerts" "wcag-statistieken" {

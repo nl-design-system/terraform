@@ -26,6 +26,7 @@ resource "github_repository" "documentatie" {
 
   lifecycle {
     prevent_destroy = true
+    ignore_changes  = [pages]
   }
 }
 

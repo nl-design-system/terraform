@@ -25,17 +25,13 @@ resource "github_repository" "architectuur" {
 
   lifecycle {
     prevent_destroy = true
+    ignore_changes  = [pages]
   }
 }
 
 resource "github_repository_pages" "architectuur" {
   repository = github_repository.architectuur.name
   build_type = "workflow"
-}
-
-import {
-  to = github_repository_pages.architectuur
-  id = "architectuur"
 }
 
 resource "github_repository_vulnerability_alerts" "architectuur" {

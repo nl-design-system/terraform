@@ -31,6 +31,7 @@ resource "github_repository" "tilburg" {
 
   lifecycle {
     prevent_destroy = true
+    ignore_changes  = [pages]
   }
 }
 

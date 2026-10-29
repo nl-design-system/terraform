@@ -32,6 +32,7 @@ resource "github_repository" "gebruikersonderzoeken" {
 
   lifecycle {
     prevent_destroy = true
+    ignore_changes  = [pages]
   }
 }
 

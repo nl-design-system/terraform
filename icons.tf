@@ -31,17 +31,13 @@ resource "github_repository" "icons" {
 
   lifecycle {
     prevent_destroy = true
+    ignore_changes  = [pages]
   }
 }
 
 resource "github_repository_pages" "icons" {
   repository = github_repository.icons.name
   build_type = "workflow"
-}
-
-import {
-  to = github_repository_pages.icons
-  id = "icons"
 }
 
 resource "github_repository_vulnerability_alerts" "icons" {

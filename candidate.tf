@@ -31,17 +31,13 @@ resource "github_repository" "candidate" {
 
   lifecycle {
     prevent_destroy = true
+    ignore_changes  = [pages]
   }
 }
 
 resource "github_repository_pages" "candidate" {
   repository = github_repository.candidate.name
   build_type = "workflow"
-}
-
-import {
-  to = github_repository_pages.candidate
-  id = "candidate"
 }
 
 resource "github_repository_vulnerability_alerts" "candidate" {
