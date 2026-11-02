@@ -66,12 +66,20 @@ data "github_user" "Robbert" {
   username = "Robbert"
 }
 
+data "github_user" "SuperRobbert" {
+  username = "SuperRobbert"
+}
+
 data "github_user" "Rozerinay" {
   username = "Rozerinay"
 }
 
 data "github_user" "Yolijn" {
   username = "Yolijn"
+}
+
+data "github_user" "SuperYolijn" {
+  username = "SuperYolijn"
 }
 
 data "github_user" "jorik-acato" {
@@ -500,6 +508,10 @@ data "github_user" "wouter-ictu" {
 
 data "github_user" "richadr" {
   username = "richadr"
+}
+
+data "github_user" "richadrx" {
+  username = "richadrx"
 }
 
 data "github_user" "WinsleyJ" {
