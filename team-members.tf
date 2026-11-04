@@ -44,6 +44,17 @@ resource "github_team_members" "frameless-maintainer" {
   }
 }
 
+resource "github_team_members" "kernteam-viewer" {
+  team_id = github_team.kernteam-viewer.id
+
+  # Last checked by kernteam-maintainer: 2026-11-04
+
+  members {
+    # Expertteam PO. Helps to be able to see all issues the Kernteam and Expertteam might work on together
+    username = data.github_user.YmkeVerschuren.username
+  }
+}
+
 resource "github_team_members" "kernteam-committer" {
   team_id = github_team.kernteam-committer.id
 
