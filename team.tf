@@ -61,6 +61,13 @@ resource "github_team" "kernteam-design" {
   privacy        = "closed"
 }
 
+resource "github_team" "kernteam-viewer" {
+  description    = "Can view all issues from Kernteam"
+  name           = "kernteam-viewer"
+  parent_team_id = github_team.kernteam.id
+  privacy        = "closed"
+}
+
 resource "github_team" "gemeente-den-haag" {
   name        = "gemeente-den-haag"
   description = "Gemeente Den Haag"
