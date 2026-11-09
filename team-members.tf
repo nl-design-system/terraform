@@ -227,6 +227,14 @@ resource "github_team_members" "kernteam-admin" {
     role = "maintainer"
   }
 
+  # Last checked by kernteam-maintainer: 2026-11-09
+  members {
+    # Use separate admin account for admin access
+    username = data.github_user.SuperAstrid.username
+    # organization owners must be "maintainer", see note at https://registry.terraform.io/providers/integrations/github/latest/docs/resources/team_members
+    role = "maintainer"
+  }
+
   # Last checked by kernteam-maintainer: 2026-11-02
   members {
     # Use separate admin account for admin access
