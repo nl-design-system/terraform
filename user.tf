@@ -10,6 +10,10 @@ data "github_user" "Astrid-01" {
   username = "Astrid-01"
 }
 
+data "github_user" "SuperAstrid" {
+  username = "SuperAstrid"
+}
+
 data "github_user" "hidde" {
   username = "hidde"
 }
