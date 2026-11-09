@@ -105,6 +105,10 @@ resource "github_repository_ruleset" "documentatie-default" {
       required_check {
         context = "e2e-test"
       }
+
+      required_check {
+        context = "csp-test"
+      }
     }
   }
 }
