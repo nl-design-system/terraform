@@ -60,30 +60,12 @@ resource "github_team_members" "kernteam-committer" {
 
   # Last checked by kernteam-maintainer: 2026-11-02
   members {
-    # organization owners must be "maintainer", see note at https://registry.terraform.io/providers/integrations/github/latest/docs/resources/team_members
     username = data.github_user.Robbert.username
-    role     = "maintainer"
   }
 
   # Last checked by kernteam-maintainer: 2026-11-02
   members {
-    # organization owners must be "maintainer", see note at https://registry.terraform.io/providers/integrations/github/latest/docs/resources/team_members
     username = data.github_user.Yolijn.username
-    role     = "maintainer"
-  }
-
-  # Last checked by kernteam-maintainer: 2026-11-02
-  members {
-    # organization owners must be "maintainer", see note at https://registry.terraform.io/providers/integrations/github/latest/docs/resources/team_members
-    username = data.github_user.SuperRobbert.username
-    role     = "maintainer"
-  }
-
-  # Last checked by kernteam-maintainer: 2026-11-02
-  members {
-    # organization owners must be "maintainer", see note at https://registry.terraform.io/providers/integrations/github/latest/docs/resources/team_members
-    username = data.github_user.SuperYolijn.username
-    role     = "maintainer"
   }
 
   # Last checked by kernteam-maintainer: 2026-07-01
@@ -153,15 +135,6 @@ resource "github_team_members" "kernteam-maintainer" {
   # Last checked by kernteam-maintainer: 2026-11-02
   members {
     username = data.github_user.Robbert.username
-    # organization owners must be "maintainer", see note at https://registry.terraform.io/providers/integrations/github/latest/docs/resources/team_members
-    role = "maintainer"
-  }
-
-  # Last checked by kernteam-maintainer: 2026-11-02
-  members {
-    username = data.github_user.SuperRobbert.username
-    # organization owners must be "maintainer", see note at https://registry.terraform.io/providers/integrations/github/latest/docs/resources/team_members
-    role = "maintainer"
   }
 
   # Last checked by kernteam-maintainer: 2026-07-01
@@ -177,15 +150,6 @@ resource "github_team_members" "kernteam-maintainer" {
   # Last checked by kernteam-maintainer: 2026-11-02
   members {
     username = data.github_user.Yolijn.username
-    # organization owners must be "maintainer", see note at https://registry.terraform.io/providers/integrations/github/latest/docs/resources/team_members
-    role = "maintainer"
-  }
-
-  # Last checked by kernteam-maintainer: 2026-11-02
-  members {
-    username = data.github_user.SuperYolijn.username
-    # organization owners must be "maintainer", see note at https://registry.terraform.io/providers/integrations/github/latest/docs/resources/team_members
-    role = "maintainer"
   }
 
   # Last checked by kernteam-maintainer: 2026-07-01
@@ -196,20 +160,6 @@ resource "github_team_members" "kernteam-maintainer" {
 
 resource "github_team_members" "kernteam-admin" {
   team_id = github_team.kernteam-admin.id
-
-  # Last checked by kernteam-maintainer: 2026-11-02
-  members {
-    username = data.github_user.Robbert.username
-    # organization owners must be "maintainer", see note at https://registry.terraform.io/providers/integrations/github/latest/docs/resources/team_members
-    role = "maintainer"
-  }
-
-  # Last checked by kernteam-maintainer: 2026-11-02
-  members {
-    username = data.github_user.Yolijn.username
-    # organization owners must be "maintainer", see note at https://registry.terraform.io/providers/integrations/github/latest/docs/resources/team_members
-    role = "maintainer"
-  }
 
   # Last checked by kernteam-maintainer: 2026-11-02
   members {
@@ -254,15 +204,6 @@ resource "github_team_members" "kernteam-triage" {
   # Last checked by kernteam-maintainer: 2026-11-02
   members {
     username = data.github_user.Robbert.username
-    # organization owners must be "maintainer", see note at https://registry.terraform.io/providers/integrations/github/latest/docs/resources/team_members
-    role = "maintainer"
-  }
-
-  # Last checked by kernteam-maintainer: 2026-11-02
-  members {
-    username = data.github_user.SuperRobbert.username
-    # organization owners must be "maintainer", see note at https://registry.terraform.io/providers/integrations/github/latest/docs/resources/team_members
-    role = "maintainer"
   }
 
   members {
@@ -272,15 +213,6 @@ resource "github_team_members" "kernteam-triage" {
   # Last checked by kernteam-maintainer: 2026-11-02
   members {
     username = data.github_user.Yolijn.username
-    # organization owners must be "maintainer", see note at https://registry.terraform.io/providers/integrations/github/latest/docs/resources/team_members
-    role = "maintainer"
-  }
-
-  # Last checked by kernteam-maintainer: 2026-11-02
-  members {
-    username = data.github_user.SuperYolijn.username
-    # organization owners must be "maintainer", see note at https://registry.terraform.io/providers/integrations/github/latest/docs/resources/team_members
-    role = "maintainer"
   }
 
   members {
@@ -328,15 +260,6 @@ resource "github_team_members" "kernteam-a11y" {
   # Last checked by kernteam-maintainer: 2026-11-02
   members {
     username = data.github_user.Robbert.username
-    # organization owners must be "maintainer", see note at https://registry.terraform.io/providers/integrations/github/latest/docs/resources/team_members
-    role = "maintainer"
-  }
-
-  # Last checked by kernteam-maintainer: 2026-11-02
-  members {
-    username = data.github_user.SuperRobbert.username
-    # organization owners must be "maintainer", see note at https://registry.terraform.io/providers/integrations/github/latest/docs/resources/team_members
-    role = "maintainer"
   }
 }
 
@@ -1241,30 +1164,12 @@ resource "github_team_members" "expertteam-digitale-toegankelijkheid-triage" {
 
   # Last checked by kernteam-maintainer: 2026-11-02
   members {
-    # organization owners must be "maintainer", see note at https://registry.terraform.io/providers/integrations/github/latest/docs/resources/team_members
     username = data.github_user.Robbert.username
-    role     = "maintainer"
   }
 
   # Last checked by kernteam-maintainer: 2026-11-02
   members {
-    # organization owners must be "maintainer", see note at https://registry.terraform.io/providers/integrations/github/latest/docs/resources/team_members
     username = data.github_user.Yolijn.username
-    role     = "maintainer"
-  }
-
-  # Last checked by kernteam-maintainer: 2026-11-02
-  members {
-    # organization owners must be "maintainer", see note at https://registry.terraform.io/providers/integrations/github/latest/docs/resources/team_members
-    username = data.github_user.SuperRobbert.username
-    role     = "maintainer"
-  }
-
-  # Last checked by kernteam-maintainer: 2026-11-02
-  members {
-    # organization owners must be "maintainer", see note at https://registry.terraform.io/providers/integrations/github/latest/docs/resources/team_members
-    username = data.github_user.SuperYolijn.username
-    role     = "maintainer"
   }
 
   members {
@@ -1281,30 +1186,12 @@ resource "github_team_members" "expertteam-digitale-toegankelijkheid-committer" 
 
   # Last checked by kernteam-maintainer: 2026-11-02
   members {
-    # organization owners must be "maintainer", see note at https://registry.terraform.io/providers/integrations/github/latest/docs/resources/team_members
     username = data.github_user.Robbert.username
-    role     = "maintainer"
   }
 
   # Last checked by kernteam-maintainer: 2026-11-02
   members {
-    # organization owners must be "maintainer", see note at https://registry.terraform.io/providers/integrations/github/latest/docs/resources/team_members
     username = data.github_user.Yolijn.username
-    role     = "maintainer"
-  }
-
-  # Last checked by kernteam-maintainer: 2026-11-02
-  members {
-    # organization owners must be "maintainer", see note at https://registry.terraform.io/providers/integrations/github/latest/docs/resources/team_members
-    username = data.github_user.SuperRobbert.username
-    role     = "maintainer"
-  }
-
-  # Last checked by kernteam-maintainer: 2026-11-02
-  members {
-    # organization owners must be "maintainer", see note at https://registry.terraform.io/providers/integrations/github/latest/docs/resources/team_members
-    username = data.github_user.SuperYolijn.username
-    role     = "maintainer"
   }
 
   members {
@@ -1333,30 +1220,12 @@ resource "github_team_members" "expertteam-digitale-toegankelijkheid-maintainer"
 
   # Last checked by kernteam-maintainer: 2026-11-02
   members {
-    # organization owners must be "maintainer", see note at https://registry.terraform.io/providers/integrations/github/latest/docs/resources/team_members
     username = data.github_user.Robbert.username
-    role     = "maintainer"
   }
 
   # Last checked by kernteam-maintainer: 2026-11-02
   members {
-    # organization owners must be "maintainer", see note at https://registry.terraform.io/providers/integrations/github/latest/docs/resources/team_members
     username = data.github_user.Yolijn.username
-    role     = "maintainer"
-  }
-
-  # Last checked by kernteam-maintainer: 2026-11-02
-  members {
-    # organization owners must be "maintainer", see note at https://registry.terraform.io/providers/integrations/github/latest/docs/resources/team_members
-    username = data.github_user.SuperRobbert.username
-    role     = "maintainer"
-  }
-
-  # Last checked by kernteam-maintainer: 2026-11-02
-  members {
-    # organization owners must be "maintainer", see note at https://registry.terraform.io/providers/integrations/github/latest/docs/resources/team_members
-    username = data.github_user.SuperYolijn.username
-    role     = "maintainer"
   }
 }
 
