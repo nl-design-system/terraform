@@ -40,11 +40,6 @@ resource "github_repository_vulnerability_alerts" "editor" {
   enabled    = true
 }
 
-import {
-  to = github_repository_vulnerability_alerts.editor
-  id = "editor"
-}
-
 resource "github_branch_default" "editor" {
   branch     = "main"
   repository = github_repository.editor.name
@@ -184,7 +179,6 @@ resource "github_repository_environment_deployment_policy" "editor-publish-main"
   branch_pattern = github_branch_default.editor.branch
 }
 
-
 resource "vercel_project" "editor" {
   name                    = "editor"
   node_version            = "24.x"
@@ -206,7 +200,3 @@ resource "vercel_project_domain" "editor" {
   domain     = "editor.nl-design-system-community.nl"
 }
 
-import {
-  to = vercel_project_domain.editor
-  id = "prj_QWTqgKfcnOPsbzseNOaS9OAvAcom/editor.nl-design-system-community.nl"
-}

@@ -34,19 +34,9 @@ resource "github_repository_pages" "mijn-services" {
   build_type = "workflow"
 }
 
-import {
-  to = github_repository_pages.mijn-services
-  id = "mijn-services"
-}
-
 resource "github_repository_vulnerability_alerts" "mijn-services" {
   repository = github_repository.mijn-services.name
   enabled    = true
-}
-
-import {
-  to = github_repository_vulnerability_alerts.mijn-services
-  id = "mijn-services"
 }
 
 resource "github_branch_default" "mijn-services" {

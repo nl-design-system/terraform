@@ -39,11 +39,6 @@ resource "github_repository_vulnerability_alerts" "architectuur" {
   enabled    = true
 }
 
-import {
-  to = github_repository_vulnerability_alerts.architectuur
-  id = "architectuur"
-}
-
 resource "github_branch_default" "architectuur" {
   repository = github_repository.architectuur.name
   branch     = "main"
@@ -186,7 +181,3 @@ resource "vercel_project_domain" "architectuur" {
   domain     = "architectuur.vercel.app"
 }
 
-import {
-  to = vercel_project_domain.architectuur
-  id = "prj_ZugY0Z5IIfMacdMaZVwgp2m0JEKD/architectuur-tmp.vercel.app"
-}

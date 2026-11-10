@@ -39,11 +39,6 @@ resource "github_repository_vulnerability_alerts" "wcag-statistieken" {
   enabled    = true
 }
 
-import {
-  to = github_repository_vulnerability_alerts.wcag-statistieken
-  id = "wcag-statistieken"
-}
-
 resource "github_branch_default" "wcag-statistieken" {
   repository = github_repository.wcag-statistieken.name
   branch     = "main"
