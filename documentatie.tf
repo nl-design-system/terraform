@@ -73,7 +73,7 @@ resource "github_repository_ruleset" "documentatie-default" {
 
   conditions {
     ref_name {
-      include = ["~DEFAULT_BRANCH", "refs/heads/release--website-next"]
+      include = ["~DEFAULT_BRANCH"]
       exclude = []
     }
   }
@@ -129,7 +129,6 @@ resource "github_repository_ruleset" "documentatie-gh-pages" {
     ref_name {
       include = [
         "refs/heads/gh-pages",
-        "refs/heads/gh-pages-next",
       ]
       exclude = []
     }
@@ -257,12 +256,6 @@ resource "github_repository_environment_deployment_policy" "documentatie-publish
   repository     = github_repository.documentatie.name
   environment    = github_repository_environment.documentatie-publish.environment
   branch_pattern = github_branch_default.documentatie.branch
-}
-
-resource "github_repository_environment_deployment_policy" "documentatie-publish-release--website-next" {
-  repository     = github_repository.documentatie.name
-  environment    = github_repository_environment.documentatie-publish.environment
-  branch_pattern = "release--website-next"
 }
 
 resource "github_repository_environment" "documentatie-vercel" {
