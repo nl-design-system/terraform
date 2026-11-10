@@ -39,19 +39,9 @@ resource "github_repository_pages" "documentatie" {
   }
 }
 
-import {
-  to = github_repository_pages.documentatie
-  id = "documentatie"
-}
-
 resource "github_repository_vulnerability_alerts" "documentatie" {
   repository = github_repository.documentatie.name
   enabled    = true
-}
-
-import {
-  to = github_repository_vulnerability_alerts.documentatie
-  id = "documentatie"
 }
 
 resource "github_branch_default" "documentatie" {
@@ -292,11 +282,6 @@ resource "vercel_project" "documentatie" {
   vercel_authentication = {
     deployment_type = "none"
   }
-}
-
-import {
-  to = vercel_project.documentatie
-  id = "prj_DjlWyhwNElZu2MqbAbRzN2AJUdl1"
 }
 
 resource "vercel_project_environment_variable" "documentatie-vercel-force-no-build-cache" {

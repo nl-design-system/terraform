@@ -41,19 +41,9 @@ resource "github_repository_pages" "lux" {
   build_type = "workflow"
 }
 
-import {
-  to = github_repository_pages.lux
-  id = "lux"
-}
-
 resource "github_repository_vulnerability_alerts" "lux" {
   repository = github_repository.lux.name
   enabled    = true
-}
-
-import {
-  to = github_repository_vulnerability_alerts.lux
-  id = "lux"
 }
 
 resource "github_branch_default" "lux" {
@@ -248,12 +238,3 @@ resource "vercel_project_domain" "lux" {
   domain     = "lux-storybook.vercel.app"
 }
 
-import {
-  to = vercel_project.lux
-  id = "prj_fYC2rZmm0TarTaAwsW5zNISPeSmM"
-}
-
-import {
-  to = vercel_project_domain.lux
-  id = "prj_fYC2rZmm0TarTaAwsW5zNISPeSmM/lux-storybook.vercel.app"
-}

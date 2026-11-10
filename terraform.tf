@@ -34,11 +34,6 @@ resource "github_repository_vulnerability_alerts" "terraform" {
   enabled    = true
 }
 
-import {
-  to = github_repository_vulnerability_alerts.terraform
-  id = "terraform"
-}
-
 resource "github_branch_default" "terraform-branch-default" {
   repository = github_repository.terraform.name
   branch     = "main"

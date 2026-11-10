@@ -45,11 +45,6 @@ resource "github_repository_vulnerability_alerts" "hall-of-fame" {
   enabled    = true
 }
 
-import {
-  to = github_repository_vulnerability_alerts.hall-of-fame
-  id = "hall-of-fame"
-}
-
 resource "github_branch_default" "hall-of-fame" {
   repository = github_repository.hall-of-fame.name
   branch     = "main"

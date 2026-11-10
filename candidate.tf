@@ -45,11 +45,6 @@ resource "github_repository_vulnerability_alerts" "candidate" {
   enabled    = true
 }
 
-import {
-  to = github_repository_vulnerability_alerts.candidate
-  id = "candidate"
-}
-
 resource "github_branch_default" "candidate" {
   repository = github_repository.candidate.name
   branch     = "main"

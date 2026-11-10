@@ -40,11 +40,6 @@ resource "github_repository_vulnerability_alerts" "theme-wizard" {
   enabled    = true
 }
 
-import {
-  to = github_repository_vulnerability_alerts.theme-wizard
-  id = "theme-wizard"
-}
-
 resource "github_branch_default" "theme-wizard" {
   branch     = "main"
   repository = github_repository.theme-wizard.name
@@ -185,11 +180,6 @@ resource "github_repository_environment" "theme-wizard-maintenance" {
   repository  = github_repository.theme-wizard.name
 }
 
-moved {
-  from = github_repository_environment.theme-wizard-issues
-  to   = github_repository_environment.theme-wizard-maintenance
-}
-
 resource "github_repository_environment_deployment_policy" "theme-wizard-publish-main" {
   repository     = github_repository.theme-wizard.name
   environment    = github_repository_environment.theme-wizard-publish.environment
@@ -217,11 +207,6 @@ resource "vercel_project_domain" "theme-wizard" {
   domain     = "theme-wizard.nl-design-system-community.nl"
 }
 
-import {
-  to = vercel_project_domain.theme-wizard
-  id = "prj_0PZgYT8FcC8BBUQa7GJqzvIQeBCB/theme-wizard.nl-design-system-community.nl"
-}
-
 resource "vercel_project" "theme-wizard-server" {
   name                                              = "theme-wizard-server"
   node_version                                      = "24.x"
@@ -242,11 +227,6 @@ resource "vercel_project" "theme-wizard-server" {
 resource "vercel_project_domain" "theme-wizard-server" {
   project_id = vercel_project.theme-wizard-server.id
   domain     = "theme-wizard-server.nl-design-system-community.nl"
-}
-
-import {
-  to = vercel_project_domain.theme-wizard-server
-  id = "prj_APeeEd1j3BGODnrqQtjIZ1WISlK7/theme-wizard-server.nl-design-system-community.nl"
 }
 
 resource "vercel_project" "clippy-storybook" {

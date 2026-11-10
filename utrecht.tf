@@ -45,11 +45,6 @@ resource "github_repository_vulnerability_alerts" "utrecht" {
   enabled    = true
 }
 
-import {
-  to = github_repository_vulnerability_alerts.utrecht
-  id = "utrecht"
-}
-
 resource "github_branch_default" "utrecht" {
   repository = github_repository.utrecht.name
   branch     = "main"

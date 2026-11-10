@@ -35,19 +35,9 @@ resource "github_repository_pages" "example" {
   build_type = "workflow"
 }
 
-import {
-  to = github_repository_pages.example
-  id = "example"
-}
-
 resource "github_repository_vulnerability_alerts" "example" {
   repository = github_repository.example.name
   enabled    = true
-}
-
-import {
-  to = github_repository_vulnerability_alerts.example
-  id = "example"
 }
 
 resource "github_branch_default" "example" {
@@ -198,7 +188,3 @@ resource "vercel_project" "example-next" {
   }
 }
 
-import {
-  to = vercel_project.example
-  id = "prj_HJOXF8WPwXtemQdLQe71VFQi7d9z"
-}
