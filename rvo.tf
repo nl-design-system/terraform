@@ -40,19 +40,9 @@ resource "github_repository_pages" "rvo" {
   build_type = "workflow"
 }
 
-import {
-  to = github_repository_pages.rvo
-  id = "rvo"
-}
-
 resource "github_repository_vulnerability_alerts" "rvo" {
   repository = github_repository.rvo.name
   enabled    = true
-}
-
-import {
-  to = github_repository_vulnerability_alerts.rvo
-  id = "rvo"
 }
 
 resource "github_branch_default" "rvo" {
@@ -234,12 +224,3 @@ resource "vercel_project_domain" "rvo" {
   domain     = "rvo.vercel.app"
 }
 
-import {
-  to = vercel_project.rvo
-  id = "prj_bGmJFB5eIHn17QmWGcbjEWbqXPRv"
-}
-
-import {
-  to = vercel_project_domain.rvo
-  id = "prj_bGmJFB5eIHn17QmWGcbjEWbqXPRv/rvo.vercel.app"
-}

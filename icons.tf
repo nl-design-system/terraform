@@ -45,11 +45,6 @@ resource "github_repository_vulnerability_alerts" "icons" {
   enabled    = true
 }
 
-import {
-  to = github_repository_vulnerability_alerts.icons
-  id = "icons"
-}
-
 resource "github_branch_default" "icons" {
   branch     = "main"
   repository = github_repository.icons.name
@@ -106,7 +101,6 @@ resource "github_repository_ruleset" "cons-main" {
     }
   }
 }
-
 
 # Only allow the `nl-design-system-ci` user to manage Git tags
 resource "github_repository_ruleset" "icons-tag" {

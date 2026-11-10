@@ -33,19 +33,9 @@ resource "github_repository_pages" "denhaag" {
   build_type = "workflow"
 }
 
-import {
-  to = github_repository_pages.denhaag
-  id = "denhaag"
-}
-
 resource "github_repository_vulnerability_alerts" "denhaag" {
   repository = github_repository.denhaag.name
   enabled    = true
-}
-
-import {
-  to = github_repository_vulnerability_alerts.denhaag
-  id = "denhaag"
 }
 
 resource "github_branch_default" "denhaag" {
@@ -313,7 +303,3 @@ resource "vercel_project" "denhaag" {
   }
 }
 
-import {
-  to = vercel_project.denhaag
-  id = "prj_Vja9NNSvsdhWTffDOIS5xyis45en"
-}
