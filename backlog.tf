@@ -33,11 +33,6 @@ resource "github_repository_vulnerability_alerts" "backlog" {
   enabled    = true
 }
 
-import {
-  to = github_repository_vulnerability_alerts.backlog
-  id = "backlog"
-}
-
 resource "github_branch_default" "backlog" {
   repository = github_repository.backlog.name
   branch     = "main"

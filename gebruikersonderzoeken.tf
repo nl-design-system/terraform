@@ -42,19 +42,9 @@ resource "github_repository_pages" "gebruikersonderzoeken" {
   cname      = "gebruikersonderzoeken.nl"
 }
 
-import {
-  to = github_repository_pages.gebruikersonderzoeken
-  id = "gebruikersonderzoeken"
-}
-
 resource "github_repository_vulnerability_alerts" "gebruikersonderzoeken" {
   repository = github_repository.gebruikersonderzoeken.name
   enabled    = true
-}
-
-import {
-  to = github_repository_vulnerability_alerts.gebruikersonderzoeken
-  id = "gebruikersonderzoeken"
 }
 
 resource "github_branch_default" "gebruikersonderzoeken" {
@@ -103,6 +93,38 @@ resource "github_repository_ruleset" "gebruikersonderzoeken-main" {
         context = "build"
       }
     }
+  }
+}
+
+resource "github_repository_ruleset" "gebruikersonderzoeken-gh-pages" {
+  enforcement = "active"
+  name        = "gh-pages-branch-protection"
+  repository  = github_repository.gebruikersonderzoeken.name
+  target      = "branch"
+
+  bypass_actors {
+    actor_id    = github_team.kernteam-ci.id
+    actor_type  = "Team"
+    bypass_mode = "always"
+  }
+
+  conditions {
+    ref_name {
+      include = [
+        "refs/heads/gh-pages",
+      ]
+      exclude = []
+    }
+  }
+
+  rules {
+    creation                      = false
+    update                        = true
+    deletion                      = true
+    non_fast_forward              = true
+    required_linear_history       = true
+    required_signatures           = false
+    update_allows_fetch_and_merge = false
   }
 }
 

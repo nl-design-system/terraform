@@ -28,11 +28,6 @@ resource "github_repository_vulnerability_alerts" "dot-github" {
   enabled    = true
 }
 
-import {
-  to = github_repository_vulnerability_alerts.dot-github
-  id = ".github"
-}
-
 resource "github_branch_default" "dot-github" {
   branch     = "main"
   repository = github_repository.dot-github.name
