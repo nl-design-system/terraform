@@ -26,22 +26,7 @@ resource "github_repository" "documentatie" {
 
   lifecycle {
     prevent_destroy = true
-    ignore_changes  = [pages]
   }
-}
-
-resource "github_repository_pages" "documentatie" {
-  repository = github_repository.documentatie.name
-  build_type = "legacy"
-  source {
-    branch = "gh-pages"
-    path   = "/"
-  }
-}
-
-import {
-  to = github_repository_pages.documentatie
-  id = "documentatie"
 }
 
 resource "github_repository_vulnerability_alerts" "documentatie" {
