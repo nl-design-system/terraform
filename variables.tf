@@ -15,3 +15,16 @@ variable "PLESK_WEBHOOK_UUID" {
   type        = string
   sensitive   = true
 }
+
+variable "PRAATMEE_CODEFOR_NL" {
+  description = "Environment variables for praatmee.codefor.nl project"
+  type = object({
+    SLACK_TOKEN         = string
+    SLACK_TEAM_ID       = string
+    SLACK_CHANNEL_IDS   = string
+    PUBLIC_ORIGIN       = string
+    API_ALLOWED_ORIGINS = string
+    PORT                = string
+  })
+  sensitive = true
+}
