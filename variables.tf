@@ -16,15 +16,38 @@ variable "PLESK_WEBHOOK_UUID" {
   sensitive   = true
 }
 
-variable "PRAATMEE_CODEFOR_NL" {
-  description = "Environment variables for praatmee.codefor.nl project"
-  type = object({
-    SLACK_TOKEN         = string
-    SLACK_TEAM_ID       = string
-    SLACK_CHANNEL_IDS   = string
-    PUBLIC_ORIGIN       = string
-    API_ALLOWED_ORIGINS = string
-    PORT                = string
-  })
-  sensitive = true
+variable "PRAATMEE_SLACK_TOKEN" {
+  description = "Slack token for praatmee.codefor.nl"
+  type        = string
+  sensitive   = true
+}
+
+variable "PRAATMEE_SLACK_TEAM_ID" {
+  description = "Slack team ID for praatmee.codefor.nl"
+  type        = string
+  sensitive   = true
+}
+
+variable "PRAATMEE_SLACK_CHANNEL_IDS" {
+  description = "Slack channel IDs for praatmee.codefor.nl"
+  type        = string
+  sensitive   = true
+}
+
+variable "PRAATMEE_PUBLIC_ORIGIN" {
+  description = "Public origin for praatmee.codefor.nl"
+  type        = string
+  sensitive   = true
+}
+
+variable "PRAATMEE_API_ALLOWED_ORIGINS" {
+  description = "Allowed API origins for praatmee.codefor.nl"
+  type        = string
+  sensitive   = true
+}
+
+variable "PRAATMEE_PORT" {
+  description = "Port for praatmee.codefor.nl"
+  type        = string
+  sensitive   = true
 }
