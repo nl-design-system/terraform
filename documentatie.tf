@@ -316,7 +316,7 @@ resource "vercel_project_environment_variable" "documentatie-vercel-force-no-bui
 }
 
 resource "vercel_project" "praatmee_codefor_nl" {
-  name                    = "praatmee_codefor_nl"
+  name                    = "praatmee-codefor-nl"
   node_version            = "24.x"
   root_directory          = "apps/praatmee.codefor.nl/"
   enable_preview_feedback = false

@@ -29,7 +29,7 @@ variable "PRAATMEE_SLACK_TEAM_ID" {
 }
 
 variable "PRAATMEE_SLACK_CHANNEL_IDS" {
-  description = "Slack channel IDs for praatmee.codefor.nl"
+  description = "Comma-separated Slack channel IDs for new members of praatmee.codefor.nl"
   type        = string
   sensitive   = true
 }
