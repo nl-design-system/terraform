@@ -343,37 +343,37 @@ resource "vercel_project_environment_variables" "praatmee_codefor_nl" {
   variables = [
     {
       key       = "SLACK_TOKEN"
-      value     = var.PRAATMEE_CODEFOR_NL.SLACK_TOKEN
+      value     = var.PRAATMEE_SLACK_TOKEN
       target    = ["production", "preview"]
       sensitive = true
     },
     {
       key       = "SLACK_TEAM_ID"
-      value     = var.PRAATMEE_CODEFOR_NL.SLACK_TEAM_ID
+      value     = var.PRAATMEE_SLACK_TEAM_ID
       target    = ["production", "preview"]
       sensitive = false
     },
     {
       key       = "SLACK_CHANNEL_IDS"
-      value     = var.PRAATMEE_CODEFOR_NL.SLACK_CHANNEL_IDS
+      value     = var.PRAATMEE_SLACK_CHANNEL_IDS
       target    = ["production", "preview"]
       sensitive = true
     },
     {
       key       = "PUBLIC_ORIGIN"
-      value     = var.PRAATMEE_CODEFOR_NL.PUBLIC_ORIGIN
+      value     = var.PRAATMEE_PUBLIC_ORIGIN
       target    = ["production", "preview"]
       sensitive = false
     },
     {
       key       = "API_ALLOWED_ORIGINS"
-      value     = var.PRAATMEE_CODEFOR_NL.API_ALLOWED_ORIGINS
+      value     = var.PRAATMEE_API_ALLOWED_ORIGINS
       target    = ["production", "preview"]
       sensitive = false
     },
     {
       key       = "PORT"
-      value     = var.PRAATMEE_CODEFOR_NL.PORT
+      value     = var.PRAATMEE_PORT
       target    = ["production", "preview"]
       sensitive = false
     },
