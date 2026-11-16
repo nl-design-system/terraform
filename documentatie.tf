@@ -314,3 +314,75 @@ resource "vercel_project_environment_variable" "documentatie-vercel-force-no-bui
   sensitive  = false
   comment    = "See: https://github.com/nl-design-system/documentatie/issues/4067"
 }
+
+resource "vercel_project" "praatmee_codefor_nl" {
+  name                    = "praatmee.codefor.nl"
+  node_version            = "24.x"
+  root_directory          = "apps/praatmee.codefor.nl/"
+  enable_preview_feedback = false
+
+  # Skipping deployment for static file branches must be configured at the
+  # project level instead of vercel.json, because vercel.json does not exist in
+  # those branches.
+  ignore_command = "[[ \"$VERCEL_GIT_COMMIT_REF\" == \"gh-pages\" || \"$VERCEL_GIT_COMMIT_REF\" == \"assets\" ]]"
+
+  git_repository = {
+    type = "github"
+    repo = github_repository.documentatie.full_name
+  }
+
+  vercel_authentication = {
+    deployment_type = "none"
+  }
+}
+
+# Environment variables for praatmee.codefor.nl project
+resource "vercel_project_environment_variables" "praatmee_codefor_nl" {
+  project_id = vercel_project.praatmee_codefor_nl.id
+
+  variables = [
+    {
+      key       = "SLACK_TOKEN"
+      value     = var.PRAATMEE_CODEFOR_NL.SLACK_TOKEN
+      target    = ["production", "preview"]
+      sensitive = true
+    },
+    {
+      key       = "SLACK_TEAM_ID"
+      value     = var.PRAATMEE_CODEFOR_NL.SLACK_TEAM_ID
+      target    = ["production", "preview"]
+      sensitive = false
+    },
+    {
+      key       = "SLACK_CHANNEL_IDS"
+      value     = var.PRAATMEE_CODEFOR_NL.SLACK_CHANNEL_IDS
+      target    = ["production", "preview"]
+      sensitive = true
+    },
+    {
+      key       = "PUBLIC_ORIGIN"
+      value     = var.PRAATMEE_CODEFOR_NL.PUBLIC_ORIGIN
+      target    = ["production", "preview"]
+      sensitive = false
+    },
+    {
+      key       = "API_ALLOWED_ORIGINS"
+      value     = var.PRAATMEE_CODEFOR_NL.API_ALLOWED_ORIGINS
+      target    = ["production", "preview"]
+      sensitive = false
+    },
+    {
+      key       = "PORT"
+      value     = var.PRAATMEE_CODEFOR_NL.PORT
+      target    = ["production", "preview"]
+      sensitive = false
+    },
+    {
+      key       = "VERCEL_FORCE_NO_BUILD_CACHE"
+      value     = "1"
+      target    = ["production", "preview"]
+      sensitive = false
+    }
+  ]
+}
+
