@@ -215,6 +215,11 @@ resource "github_team_members" "kernteam-triage" {
     username = data.github_user.Yolijn.username
   }
 
+  # Last checked by kernteam-maintainer: 2026-11-17
+  members {
+    username = data.github_user.Woutine.username
+  }
+
   members {
     username = data.github_user.Astrid-01.username
   }
