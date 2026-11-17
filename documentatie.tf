@@ -349,31 +349,25 @@ resource "vercel_project_environment_variables" "praatmee_codefor_nl" {
     },
     {
       key       = "SLACK_TEAM_ID"
-      value     = var.PRAATMEE_SLACK_TEAM_ID
+      value     = "T68FXPFQV"
       target    = ["production", "preview"]
       sensitive = false
     },
     {
       key       = "SLACK_CHANNEL_IDS"
-      value     = var.PRAATMEE_SLACK_CHANNEL_IDS
+      value     = "C7KDQRXMZ"
       target    = ["production", "preview"]
       sensitive = true
     },
     {
       key       = "PUBLIC_ORIGIN"
-      value     = var.PRAATMEE_PUBLIC_ORIGIN
+      value     = "https://praatmee.codefor.nl"
       target    = ["production", "preview"]
       sensitive = false
     },
     {
       key       = "API_ALLOWED_ORIGINS"
-      value     = var.PRAATMEE_API_ALLOWED_ORIGINS
-      target    = ["production", "preview"]
-      sensitive = false
-    },
-    {
-      key       = "PORT"
-      value     = var.PRAATMEE_PORT
+      value     = "https://www.nldesignsystem.nl,https://nldesignsystem.nl,https://praatmee.codefor.nl"
       target    = ["production", "preview"]
       sensitive = false
     },
