@@ -1411,3 +1411,11 @@ resource "github_team_members" "gemeente-losser-maintainer" {
     username = data.github_user.Patrick9650.username
   }
 }
+
+resource "github_team_members" "kvk-committer" {
+  team_id = github_team.kvk-committer.id
+
+  members {
+    username = data.github_user.eendkonijn.username
+  }
+}

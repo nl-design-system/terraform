@@ -718,6 +718,10 @@ data "github_user" "boonstraworks" {
   username = "boonstraworks"
 }
 
+data "github_user" "eendkonijn" {
+  username = "eendkonijn"
+}
+
 data "github_user" "KristelvdW" {
   username = "KristelvdW"
 }
