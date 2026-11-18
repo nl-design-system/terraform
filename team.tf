@@ -747,6 +747,6 @@ resource "github_team" "kvk" {
 
 resource "github_team" "kvk-committer" {
   name           = "kvk-committer"
-  parent_team_id = github_team.tilburg.id
+  parent_team_id = github_team.kvk.id
   privacy        = "closed"
 }
